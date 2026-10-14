@@ -1,7 +1,7 @@
 <!-- truonglt reviewed DEV schema-only migration plan start -->
 # Phase 2 — kế hoạch migration DEV để review
 
-Trạng thái **PREPARED_NOT_APPLIED**. Gate1 PASS theo ngoại lệ owner; Gate2 chưa PASS. Đây là migration **schema-only**, chưa import HISTORY và chưa được owner phê duyệt chạy.
+Trạng thái **OWNER_APPROVED_CONDITIONAL / BLOCKED_BEFORE_APPLY**. Owner đã duyệt schema-only với SQL hash dưới đây; yêu cầu backup/restore chưa được chứng minh nên chưa chạy. Xem MIGRATION_EXECUTION_BLOCKER.md. Gate1 PASS theo ngoại lệ owner; Gate2 chưa PASS. Không có approval import HISTORY.
 
 ## Artifact cụ thể
 

@@ -1,0 +1,23 @@
+{
+  "status": "BLOCKED_BEFORE_APPLY",
+  "scope": "SCHEMA_ONLY_DEV",
+  "projectRef": "nqdaykgasfnsaixkhbya",
+  "ownerApprovalReceived": true,
+  "migration": "apps/api/prisma/migrations/20261014063000_preserve_source_baseline/migration.sql",
+  "expectedSha256": "148e77f65ba5c08720afddc569e3535512017b3257a1384ba39cdb7c5cb37c93",
+  "actualSha256": "148e77f65ba5c08720afddc569e3535512017b3257a1384ba39cdb7c5cb37c93",
+  "checksum": "PASS",
+  "devCatalogRolePreconditions": "PASS",
+  "adapterTlsCaAndHostnameVerification": "PASS",
+  "prismaCliMigrationTls": "NOT_VERIFIED",
+  "backupArtifact": "NOT_VERIFIED",
+  "restoreProcedureAvailable": "NOT_VERIFIED",
+  "postgresBackupToolsAvailable": false,
+  "migrationStatus": "NOT_EXECUTED",
+  "schemaDiff": "NO_REMOTE_SCHEMA_CHANGES",
+  "constraintsIndexesRlsTriggersLiveTests": "NOT_RUN",
+  "idempotencyPermissionsRollbackImmutableLiveTests": "NOT_RUN",
+  "gate2": "BLOCKED_NOT_ACCEPTED",
+  "importsExecuted": false,
+  "managedSchemasChanged": false
+}
