@@ -1,0 +1,4 @@
+# truonglt byte preservation start
+# Preserve authoritative source bytes, including the TXT original CRLF line endings.
+TikTok_Affiliate_Phase0_References/references/** -text
+# truonglt byte preservation end
