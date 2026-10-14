@@ -9,7 +9,7 @@ services:
     branch: main
     autoDeployTrigger: off
     buildCommand: npm ci --include=dev && npm run build
-    startCommand: node apps/api/dist/main.js
+    startCommand: npm run start:prod
     healthCheckPath: /api/v1/health/ready
     envVars:
       - key: NODE_VERSION

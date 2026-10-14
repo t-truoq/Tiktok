@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "verifiedAtUtc": "2026-10-14T05:05:34.880Z",
+  "command": "npm run start:prod",
+  "entrypoint": "apps/api/dist/main.js",
+  "environment": "production",
+  "host": "0.0.0.0",
+  "portSource": "process.env.PORT",
+  "testedPort": 49179,
+  "endpoint": "/api/v1/health/live",
+  "httpStatus": 200,
+  "body": {
+    "status": "ok"
+  },
+  "node": "v24.21.0",
+  "databaseWrites": false,
+  "runtime": "LOCAL_COMPILED_PRODUCTION_CLI",
+  "processCleanup": "PASS"
+}
