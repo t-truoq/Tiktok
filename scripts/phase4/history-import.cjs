@@ -44,7 +44,11 @@ async function main(){
 }
 if(require.main===module)main().catch(e=>{
   const safe=['OWNER_DATA_IMPORT_APPROVAL_REQUIRED','INVALID_ARGUMENTS','NONEMPTY_PRODUCTS_REQUIRE_OWNER_REVIEW','ARCHIVE_EXISTS_WITHOUT_MATCHING_BATCH','SOURCE_CHECKSUM_MISMATCH','PLAN_CHECKSUM_MISMATCH'];
-  console.error(JSON.stringify({status:'FAILED_STOPPED',code:safe.includes(e.message)?e.message:'IMPORT_VALIDATION_OR_TRANSACTION_FAILED',automaticRetry:false}));process.exitCode=1;
+  const failure={status:'FAILED_STOPPED',code:safe.includes(e.message)?e.message:'IMPORT_VALIDATION_OR_TRANSACTION_FAILED',
+    ...(typeof e.code==='string'&&/^P\d{4}$/.test(e.code)?{prismaCode:e.code}:{}),automaticRetry:false};
+  fs.mkdirSync(path.join(root,'docs/phase4'),{recursive:true});
+  fs.writeFileSync(path.join(root,'docs/phase4/IMPORT_ERROR_RESULT.json'),JSON.stringify(failure,null,2)+'\n');
+  console.error(JSON.stringify(failure));process.exitCode=1;
 });
 module.exports={main};
 // truonglt Phase4 offline-default CLI with separate owner approval gate end

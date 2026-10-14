@@ -1,0 +1,21 @@
+{
+  "phase": 5,
+  "status": "IMPLEMENTED_VERCEL_UI_ACCEPTANCE_PENDING",
+  "backendBuild": "PASS",
+  "frontendTypeScriptBuild": "PASS",
+  "frontendViteBuild": "PASS",
+  "npmInstallAuditReportedVulnerabilities": 0,
+  "localPreview": "http://127.0.0.1:5173",
+  "loginScreenObserved": true,
+  "authenticatedBrowserWorkflows": "NOT_EXECUTED",
+  "suitesRerun": false,
+  "ownerRequestedNoRepeatedTests": true,
+  "realFinancialMutationExecuted": false,
+  "historyImported": true,
+  "frontendDbSecretsIncluded": false,
+  "frontendJwtHardcoded": false,
+  "vercelDeployment": "PENDING_OWNER_PROJECT_URL",
+  "cors": "SAME_ORIGIN_PROXY_OWNER_NO_CORS",
+  "roleProtection": "JWT_RLS_PLUS_LEGACY_ARCHIVED_GUARD",
+  "baselineSourceUnchanged": true
+}

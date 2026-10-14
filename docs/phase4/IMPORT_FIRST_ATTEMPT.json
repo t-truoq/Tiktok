@@ -1,0 +1,34 @@
+{
+  "checks": [
+    {
+      "step": "identity",
+      "rows": [
+        {
+          "role": "postgres",
+          "timezone": "UTC"
+        }
+      ]
+    },
+    {
+      "step": "migrations",
+      "count": 2
+    },
+    {
+      "step": "lock",
+      "status": "FAIL",
+      "prismaCode": "P2010",
+      "errorName": "PrismaClientKnownRequestError",
+      "voidDeserialization": true,
+      "unsupportedType": true
+    }
+  ],
+  "databaseWrites": false,
+  "counts": {
+    "products": 0,
+    "archives": 0,
+    "batches": 0,
+    "history": 0,
+    "users": 1
+  },
+  "status": "FIRST_IMPORT_FAILED_TRANSACTION_ROLLED_BACK"
+}

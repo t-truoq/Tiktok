@@ -113,7 +113,8 @@ function prismaData(model,row,Prisma) {
 async function importInTransaction(tx,plan,Prisma) {
   const summary=reconcilePlan(plan),batch=plan.rows.importBatch[0];
   // Transaction lock serializes retries before unique reservation; no repairs or upserts of existing products.
-  await tx.$queryRaw`SELECT pg_advisory_xact_lock(hashtextextended(${plan.sourceSha256+':'+VERSION},0))`;
+  // PostgreSQL lock returns void; cast to text so Prisma can deserialize it safely.
+  await tx.$queryRaw`SELECT pg_advisory_xact_lock(hashtextextended(${plan.sourceSha256+':'+VERSION},0))::text AS acquired`;
   const existing=await tx.importBatch.findUnique({where:{sourceArchiveId_mappingVersion:{sourceArchiveId:batch.sourceArchiveId,mappingVersion:VERSION}}});
   if(existing){assert.equal(existing.planSha256,plan.planSha256,'IDEMPOTENCY_CONFLICT');assert.equal(existing.status,'COMMITTED','IMPORT_BATCH_NOT_COMMITTED');
     await verifyImported(tx,plan);return {replay:true,...summary};}

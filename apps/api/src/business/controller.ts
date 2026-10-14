@@ -26,8 +26,18 @@ export class BusinessSerialization implements NestInterceptor {
 @UseInterceptors(BusinessSerialization)
 export class BusinessController {
   constructor(private readonly service: BusinessService) {}
+  // truonglt Phase5 frontend capabilities from verified identity start
+  @Get('session') session(@Req() req: { actor: Actor }) {
+    return { actor: req.actor, timezone: 'Asia/Ho_Chi_Minh', writeEnabled: process.env.BUSINESS_WRITE_ENABLED === 'true',
+      canWrite: process.env.BUSINESS_WRITE_ENABLED === 'true' && ['ADMIN', 'EDITOR'].includes(req.actor.role) };
+  }
+  // truonglt Phase5 frontend capabilities from verified identity end
   @Get('products') list(@Query() q: Record<string, unknown>, @Req() req: { actor: Actor }) { return this.service.list(q, req.actor); }
   @Get('finance/summary') summary(@Query() q: Record<string, unknown>, @Req() req: { actor: Actor }) { return this.service.summary(q, req.actor); }
+  // truonglt Phase5 authorized workspace review and audit reads start
+  @Get('finance/review') review(@Query() q: Record<string, unknown>, @Req() req: { actor: Actor }) { return this.service.review(q, req.actor); }
+  @Get('history') history(@Query() q: Record<string, unknown>, @Req() req: { actor: Actor }) { return this.service.globalHistory(q, req.actor); }
+  // truonglt Phase5 authorized workspace review and audit reads end
   @Get('products/:id') detail(@Param('id') id: string, @Req() req: { actor: Actor }) { return this.service.detail(uuid(id), req.actor); }
   @Get('products/:id/:resource') resource(@Param('id') id: string, @Param('resource') resource: string, @Query() q: Record<string, unknown>, @Req() req: { actor: Actor }) {
     return this.service.resource(uuid(id), resource, q, req.actor);
@@ -40,6 +50,11 @@ export class BusinessController {
     // truonglt Phase4 independently disabled public writes end
     return this.service.mutate(uuid(id), mutationDto(body), req.actor, key);
   }
+  // truonglt Phase5 server-calculated mutation preview without database writes start
+  @Post('products/:id/preview') preview(@Param('id') id: string, @Body() body: unknown, @Req() req: { actor: Actor }) {
+    return this.service.preview(uuid(id), mutationDto(body), req.actor);
+  }
+  // truonglt Phase5 server-calculated mutation preview without database writes end
 }
 @Module({ controllers: [BusinessController], providers: [BusinessRepository, BusinessService, BusinessGuard] })
 export class BusinessModule {}

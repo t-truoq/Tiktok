@@ -1,0 +1,52 @@
+{
+  "verifiedAtUtc": "2026-10-14T09:51:05.840Z",
+  "status": "IMPORTED_VERIFIED",
+  "databaseConnected": true,
+  "databaseWrites": true,
+  "historyImported": true,
+  "sourceSha256": "b946ef84f65001034d771656bdb56533c158c45b7a8b7c4ca9db139dc3c3f2db",
+  "planSha256": "8b23dc52b2298ab195e26c09b7978ac216a3998badafc155b695b8707d0cbc69",
+  "mappingVersion": "history-prisma-v1",
+  "timezone": "Asia/Ho_Chi_Minh",
+  "records": 46,
+  "historyEvents": 1224,
+  "snapshots": 133,
+  "properties": 71,
+  "active": 24,
+  "legacy": 22,
+  "modelCounts": {
+    "user": 0,
+    "sourceArchive": 1,
+    "importBatch": 1,
+    "product": 46,
+    "legacyRecord": 46,
+    "legacyValue": 25428,
+    "purchaseRound": 80,
+    "salesDetail": 31,
+    "stageSnapshot": 133,
+    "productHistory": 1224,
+    "refund": 46,
+    "productImage": 46,
+    "mutationRequest": 0
+  },
+  "active24": {
+    "paid": "144155159",
+    "unpaid": "25352082",
+    "refundEligible": "53288699",
+    "projectedProfit": "33059918"
+  },
+  "financialParity": "PASS_46_RECORDS_PER_ROUND",
+  "originalBytesRestorable": true,
+  "dateMappingFindings": [],
+  "sourceBusinessFindingCounts": {
+    "UNVERIFIED": 69,
+    "STORED_OR_DERIVED_ISSUE": 71,
+    "MISSING_ORDER_PRICE": 11,
+    "UNVERIFIED_NOT_INCURRED": 2,
+    "CURRENT_ORDER_WITH_RECEIVE_HISTORY": 1
+  },
+  "sourceBusinessFindingsPreserved": true,
+  "sourceFindingEvidence": "docs/phase0/SOURCE_BASELINE_VALIDATION.json",
+  "replay": false,
+  "sourceChecksumAfter": "b946ef84f65001034d771656bdb56533c158c45b7a8b7c4ca9db139dc3c3f2db"
+}

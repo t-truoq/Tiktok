@@ -1,0 +1,87 @@
+{
+  "verifiedAtUtc": "2026-10-14T09:59:28.568Z",
+  "databaseWrites": false,
+  "sourceImported": true,
+  "publicWritesEnabledByOwner": true,
+  "requests": [
+    {
+      "path": "/products?classification=XLSX_MATCHED&limit=1",
+      "status": 200,
+      "revision": "06c12e4e2dd06a4b5b1e4f793908185040fb1e61",
+      "mode": "read-write"
+    },
+    {
+      "path": "/products?limit=1",
+      "status": 200,
+      "revision": "06c12e4e2dd06a4b5b1e4f793908185040fb1e61",
+      "mode": "read-write"
+    },
+    {
+      "path": "/finance/summary?classification=XLSX_MATCHED",
+      "status": 200,
+      "revision": "06c12e4e2dd06a4b5b1e4f793908185040fb1e61",
+      "mode": "read-write"
+    },
+    {
+      "path": "/products/23e41fc0-4e69-5377-b150-cc0c0b41829f",
+      "status": 200,
+      "revision": "06c12e4e2dd06a4b5b1e4f793908185040fb1e61",
+      "mode": "read-write"
+    },
+    {
+      "path": "/products/23e41fc0-4e69-5377-b150-cc0c0b41829f/rounds",
+      "status": 200,
+      "revision": "06c12e4e2dd06a4b5b1e4f793908185040fb1e61",
+      "mode": "read-write"
+    },
+    {
+      "path": "/products/23e41fc0-4e69-5377-b150-cc0c0b41829f/sales",
+      "status": 200,
+      "revision": "06c12e4e2dd06a4b5b1e4f793908185040fb1e61",
+      "mode": "read-write"
+    },
+    {
+      "path": "/products/23e41fc0-4e69-5377-b150-cc0c0b41829f/stages",
+      "status": 200,
+      "revision": "06c12e4e2dd06a4b5b1e4f793908185040fb1e61",
+      "mode": "read-write"
+    },
+    {
+      "path": "/products/23e41fc0-4e69-5377-b150-cc0c0b41829f/history",
+      "status": 200,
+      "revision": "06c12e4e2dd06a4b5b1e4f793908185040fb1e61",
+      "mode": "read-write"
+    },
+    {
+      "path": "/products/23e41fc0-4e69-5377-b150-cc0c0b41829f/snapshots",
+      "status": 200,
+      "revision": "06c12e4e2dd06a4b5b1e4f793908185040fb1e61",
+      "mode": "read-write"
+    },
+    {
+      "path": "/health/ready",
+      "status": 200,
+      "revision": "06c12e4e2dd06a4b5b1e4f793908185040fb1e61",
+      "mode": "read-write"
+    }
+  ],
+  "active24": {
+    "count": 24,
+    "missing": 9,
+    "review": 61,
+    "paid": "144155159",
+    "unpaid": "25352082",
+    "incurred": "169507241",
+    "sampleTotal": "132437159",
+    "endTotal": "37070082",
+    "refundEligible": "53288699",
+    "projectedProfit": "33059918"
+  },
+  "roundsCount": 2,
+  "salesCount": 1,
+  "stagesCount": 3,
+  "historyCount": 11,
+  "snapshotsCount": 3,
+  "anonymousStatus": 401,
+  "status": "PASS_COMMITTED_HISTORY_REAL_JWT_RENDER_RECONCILIATION"
+}

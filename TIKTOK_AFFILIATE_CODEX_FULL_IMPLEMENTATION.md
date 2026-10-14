@@ -1,3 +1,9 @@
+<!-- truonglt Phase5 current owner-approved state start -->
+## Current signoff: Phase4 imported; Phase5 frontend implemented
+
+Owner separately approved authoritative HISTORY DEV import and enabled public READ/WRITE. Import status IMPORTED_VERIFIED, 46 products/1224 events/133 snapshots/71 properties preserved; active24 financial totals unchanged and verified through real JWT on Render revision06c12e4. See docs/phase4/IMPORT_SIGNOFF.md for actual evidence, first-attempt rollback and approved controlled fix. Phase5 React/Ant Design implemented with backend-calculated finance, JWT/capabilities, legacy/archived read-only guard and server preview. Backend/frontend build PASS; no repeated test suites per owner. Vercel deployment/browser acceptance pending owner project URL. Earlier dated NOT_IMPORTED/WRITE_DISABLED statuses below are historical, superseded by this owner decision. No production import or destructive recovery approval.
+<!-- truonglt Phase5 current owner-approved state end -->
+
 <!-- truonglt Phase4 owner read-only deployment scope start -->
 ## Phase4 current status ? 14/10/2026
 

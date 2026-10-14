@@ -1,8 +1,8 @@
 {
   "phase": 4,
-  "status": "IMPLEMENTED_RENDER_ACTIVATION_PENDING",
-  "sourceImported": false,
-  "databaseWrites": false,
+  "status": "PASS_OWNER_APPROVED_IMPORT_AND_REAL_RENDER_RECONCILIATION",
+  "sourceImported": true,
+  "databaseWrites": true,
   "swaggerInstalled": false,
   "prismaValidate": "PASS",
   "buildGenerate": "PASS",
@@ -16,11 +16,17 @@
   "renderApiCredentials": "NOT_CONFIGURED",
   "githubActions": "BLOCKED_BY_BILLING",
   "cors": "NOT_ENABLED_OWNER_DECISION",
-  "publicWriteApproval": false,
+  "publicWriteApproval": true,
   "createdAtUtc": "2026-10-14T09:44:46.835Z",
   "backendTestsPassed": 107,
   "coreStatus": "PASS_OFFLINE_AND_LOCAL_REAL_JWT",
   "sourceChecksumBeforeAfter": "PASS",
   "migrationChecksumsUnchanged": "PASS",
-  "secretScan": "PASS"
+  "secretScan": "PASS",
+  "publicWritesEnabledByOwner": true,
+  "renderRevision": "06c12e4e2dd06a4b5b1e4f793908185040fb1e61",
+  "realAuthenticatedRenderGet": "PASS",
+  "actualImport": "IMPORTED_VERIFIED",
+  "publicMutationTest": "NOT_EXECUTED_OWNER_REQUEST_NO_REAL_MUTATIONS",
+  "updatedAtUtc": "2026-10-14T10:34:05.410155+00:00"
 }

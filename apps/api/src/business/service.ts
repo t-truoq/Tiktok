@@ -2,7 +2,7 @@
 import { Injectable } from '@nestjs/common';
 import { createHash, randomUUID } from 'node:crypto';
 import Decimal from 'decimal.js';
-import { calculateFinance, configs, normalizeRecord, parseStage, RecordData } from '../finance/engine';
+import { calculateFinance, calculateStatus, configs, normalizeRecord, parseStage, RecordData } from '../finance/engine';
 import { Actor, fail, keys, MutationDto, pagination, uuid } from './contracts';
 import { applyOperation } from './operations';
 import { BusinessRepository } from './repository';
@@ -41,18 +41,39 @@ export function hydrateProduct(product: any): RecordData {
   return r;
 }
 const include = { rounds: { include: { sales: true } }, legacyRecords: { orderBy: { createdAt: 'desc' }, take: 1 } };
+// truonglt Phase5 list finance stays authoritative on backend start
+function publicFinancialProduct(product: any, now = new Date()) {
+  const { legacyRecords, ...visible } = product;
+  const r = hydrateProduct(product);
+  const finance = calculateFinance(r), stage = parseStage(r.currentProgress);
+  let computedStatus = product.currentStatus || '', dateIssue: string | null = null;
+  try { computedStatus = calculateStatus(r.currentProgress, sourceDateToInstant(r.currentDate), product.currentStatus || '', r.note, now); }
+  catch (error) { dateIssue = error instanceof Error ? error.message : 'INVALID_SOURCE_DATE'; }
+  const receivedLabel = stage && !stage.done ? `Nhận ${stage.group === 'end' ? 'End' : 'mẫu'} ${stage.index}` : null;
+  const historyConflict = !!(stage && !stage.done && !stage.received && receivedLabel &&
+    (r.stageData?.[receivedLabel] || (r.history || []).some((h: any) => h.progress === receivedLabel && h.type === 'ENTER_STAGE')));
+  return { ...visible, finance, computedStatus, attention: { missingPrices: finance.payment.missing, unverified: finance.payment.review,
+    refundDue: /Cần check hoàn tiền/i.test(computedStatus), historyConflict, dateIssue }, sourceView: { sampleBuy: r.price, endBuy: r.endPrice,
+    wholesale: r.wholesale, qty: r.qty, refundQty: r.refundQty,
+    endSell: stage && !stage.done && stage.group === 'end' ? r[`sellEnd${stage.index}`] : r.sellEnd,
+    endSellQty: stage && !stage.done && stage.group === 'end' ? r[`qtySellEnd${stage.index}`] : r.sellEndQty, imageReference: r.image } };
+}
+// truonglt Phase5 list finance stays authoritative on backend end
 @Injectable()
 export class BusinessService {
   constructor(private readonly repository: BusinessRepository) {}
   list(query: Record<string, unknown>, actor: Actor) {
     const { page, ...args } = pagination(query);
     return this.repository.read(async tx => ({ page, limit: args.take, total: await tx.product.count({ where: args.where }),
-      items: await tx.product.findMany(args) }), actor);
+      // truonglt Phase5 grid receives per-record ledger/profit without browser calculation start
+      items: (await tx.product.findMany({ ...args, include })).map((p: any) => publicFinancialProduct(p)) }), actor);
+      // truonglt Phase5 grid receives per-record ledger/profit without browser calculation end
   }
   detail(id: string, actor: Actor) { return this.repository.read(async tx => {
     const product = await tx.product.findUnique({ where: { id }, include }); if (!product) fail('PRODUCT_NOT_FOUND', 404);
-    const { legacyRecords, ...publicProduct } = product;
-    return { ...publicProduct, finance: calculateFinance(hydrateProduct(product)) };
+    // truonglt Phase5 consistent list/detail finance contract start
+    return publicFinancialProduct(product);
+    // truonglt Phase5 consistent list/detail finance contract end
   }, actor); }
   summary(query: Record<string, unknown>, actor: Actor) {
     const { where } = pagination(query);
@@ -72,6 +93,39 @@ export class BusinessService {
       return { count, missing, review, ...Object.fromEntries(Object.entries(totals).map(([k,v]) => [k,v.toString()])) };
     }, actor);
   }
+  // truonglt Phase5 server-side review filters and paginated global history start
+  review(query: Record<string, unknown>, actor: Actor) {
+    keys(query, ['page', 'limit', 'classification', 'kind']);
+    const kind = String(query.kind || 'all'); if (!['all', 'missing', 'unverified', 'refund', 'conflict'].includes(kind)) fail('INVALID_FILTER');
+    const { page, skip, take, where } = pagination({ page: query.page, limit: query.limit, classification: query.classification });
+    return this.repository.read(async tx => {
+      const matches: any[] = []; let cursor: string | undefined; const now = new Date();
+      while (true) {
+        const products = await tx.product.findMany({ where, include, take: 100, orderBy: { id: 'asc' }, ...(cursor ? { cursor: { id: cursor }, skip: 1 } : {}) });
+        if (!products.length) break;
+        for (const p of products) {
+          const item = publicFinancialProduct(p, now), a = item.attention;
+          if (kind === 'missing' ? a.missingPrices > 0 : kind === 'unverified' ? a.unverified > 0 : kind === 'refund' ? a.refundDue : kind === 'conflict' ? a.historyConflict :
+            a.missingPrices > 0 || a.unverified > 0 || a.refundDue || a.historyConflict || a.dateIssue) matches.push(item);
+        }
+        cursor = products.at(-1).id;
+      }
+      return { page, limit: take, total: matches.length, items: matches.slice(skip, skip + take) };
+    }, actor);
+  }
+  globalHistory(query: Record<string, unknown>, actor: Actor) {
+    keys(query, ['page', 'limit', 'classification', 'productId', 'eventType', 'stageLabel']);
+    const { page, skip, take, where: productWhere } = pagination({ page: query.page, limit: query.limit, classification: query.classification });
+    const where: any = { product: productWhere };
+    if (query.productId) where.productId = uuid(String(query.productId));
+    for (const field of ['eventType', 'stageLabel']) if (query[field] !== undefined) {
+      if (typeof query[field] !== 'string' || query[field].length > 200) fail('INVALID_FILTER'); where[field] = query[field];
+    }
+    return this.repository.read(async tx => ({ page, limit: take, total: await tx.productHistory.count({ where }),
+      items: await tx.productHistory.findMany({ where, skip, take, orderBy: [{ occurredAtUtc: { sort: 'desc', nulls: 'last' } }, { recordedAt: 'desc' }, { id: 'asc' }],
+        include: { product: { select: { id: true, rootName: true } } } }) }), actor);
+  }
+  // truonglt Phase5 server-side review filters and paginated global history end
   resource(id: string, resource: string, query: Record<string, unknown>, actor: Actor) {
     // truonglt Phase4 frontend resource aliases and sales query start
     if (resource === 'stages') resource = 'snapshots';
@@ -117,8 +171,21 @@ export class BusinessService {
     }
     return this.repository.read(async tx => ({ page, limit: take, total: await tx[resource].count({ where }), items: await tx[resource].findMany({ where, skip, take, orderBy: { id: direction },
       select: resource === 'sourceArchive' ? { id: true, filename: true, sha256: true, receivedAt: true, metadata: true } :
-        { id: true, sourceArchiveId: true, mappingVersion: true, planSha256: true, status: true, importedCount: true, failedCount: true, reconciliation: true, createdAt: true } }) }), actor);
+        { id: true, sourceArchiveId: true, mappingVersion: true, planSha256: true, status: true, importedCount: true, failedCount: true, reconciliation: true, createdAt: true,
+          _count: { select: { records: true, history: true, snapshots: true } } } }) }), actor);
   }
+  // truonglt Phase5 finance preview uses the same domain operation as commit start
+  preview(id: string, dto: MutationDto, actor: Actor) {
+    return this.repository.read(async tx => {
+      const product = await tx.product.findUnique({ where: { id }, include }); if (!product) fail('PRODUCT_NOT_FOUND', 404);
+      if (product.classification === 'LEGACY_UNMATCHED' || product.archived) fail('ARCHIVAL_RECORD_READ_ONLY', 403);
+      if (product.version !== dto.expectedVersion) fail('VERSION_CONFLICT', 409);
+      const before = hydrateProduct(product), result = applyOperation(before, dto, new Date(), product.sourceFieldStates?.businessView);
+      return { expectedVersion: product.version, beforeFinance: calculateFinance(before), afterFinance: result.finance,
+        stage: result.record.currentProgress, eventTypes: result.events.map(e => e.type), writesExecuted: false };
+    }, actor);
+  }
+  // truonglt Phase5 finance preview uses the same domain operation as commit end
   async mutate(id: string, dto: MutationDto, actor: Actor, key: string) {
     if (!['ADMIN', 'EDITOR'].includes(actor.role)) fail('FORBIDDEN', 403);
     if (typeof key !== 'string' || !/^[A-Za-z0-9_-]{8,128}$/.test(key)) fail('INVALID_IDEMPOTENCY_KEY');
@@ -129,6 +196,9 @@ export class BusinessService {
       // Recheck database role inside the same transaction as the write.
       const user = await tx.user.findUnique({ where: { id: actor.id } }); if (!user || !['ADMIN', 'EDITOR'].includes(user.role) || user.authSubject !== actor.subject) fail('FORBIDDEN', 403);
       const product = await tx.product.findUnique({ where: { id }, include }); if (!product) fail('PRODUCT_NOT_FOUND', 404);
+      // truonglt Phase5 imported legacy and archived products remain read-only start
+      if (product.classification === 'LEGACY_UNMATCHED' || product.archived) fail('ARCHIVAL_RECORD_READ_ONLY', 403);
+      // truonglt Phase5 imported legacy and archived products remain read-only end
       if (product.version !== dto.expectedVersion) fail('VERSION_CONFLICT', 409);
       const before = hydrateProduct(product), now = new Date(), result = applyOperation(before, dto, now, product.sourceFieldStates?.businessView), r = result.record;
       const stage = parseStage(r.currentProgress), requestId = randomUUID();

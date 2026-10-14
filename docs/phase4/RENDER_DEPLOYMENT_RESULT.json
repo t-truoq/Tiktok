@@ -1,0 +1,30 @@
+{
+  "verifiedAtUtc": "2026-10-14T09:56:38.837Z",
+  "expectedRevision": "06c12e4e2dd06a4b5b1e4f793908185040fb1e61",
+  "sourceImported": true,
+  "requests": [
+    {
+      "path": "/api/v1/health/ready",
+      "httpStatus": 200,
+      "revision": "06c12e4e2dd06a4b5b1e4f793908185040fb1e61",
+      "mode": "read-write",
+      "tls": true,
+      "timezone": "UTC"
+    },
+    {
+      "path": "/api/v1/products?limit=1",
+      "httpStatus": 401,
+      "revision": "06c12e4e2dd06a4b5b1e4f793908185040fb1e61",
+      "mode": "read-write",
+      "code": "INVALID_TOKEN"
+    },
+    {
+      "path": "/api/v1/finance/summary?classification=XLSX_MATCHED",
+      "httpStatus": 401,
+      "revision": "06c12e4e2dd06a4b5b1e4f793908185040fb1e61",
+      "mode": "read-write",
+      "code": "INVALID_TOKEN"
+    }
+  ],
+  "databaseWrites": false
+}

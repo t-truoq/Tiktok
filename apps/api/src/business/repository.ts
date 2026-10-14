@@ -47,7 +47,9 @@ export class BusinessRepository implements OnApplicationShutdown {
       await tx.$executeRaw`SET TRANSACTION READ ONLY`;
       await tx.$queryRaw`SELECT set_config('app.actor_id', ${actor.id}, true), set_config('app.auth_subject', ${actor.subject}, true)`;
       return fn(tx);
-    }, { isolationLevel: 'RepeatableRead' });
+    // truonglt Phase5 bounded read transaction for paginated finance review start
+    }, { isolationLevel: 'RepeatableRead', timeout: 15000 });
+    // truonglt Phase5 bounded read transaction for paginated finance review end
   }
   async transaction<T>(actor: Actor, fn: (tx: any) => Promise<T>): Promise<T> {
     return (await this.db()).$transaction(async tx => {
