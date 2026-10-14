@@ -1,0 +1,55 @@
+{
+  "verifiedAtUtc": "2026-10-14T17:36:51.811Z",
+  "status": "PASS",
+  "databaseWrites": false,
+  "checks": [
+    {
+      "path": "/health/live",
+      "httpStatus": 200,
+      "body": {
+        "status": "ok"
+      }
+    },
+    {
+      "path": "/health/ready",
+      "httpStatus": 200,
+      "body": {
+        "status": "ready",
+        "database": "ok",
+        "tls": true,
+        "timezone": "UTC",
+        "tlsScope": "client-to-endpoint",
+        "tlsProtocol": "TLSv1.3",
+        "postgresSessionTls": false
+      }
+    },
+    {
+      "path": "/products",
+      "httpStatus": 401,
+      "body": {
+        "code": "AUTH_REQUIRED"
+      }
+    },
+    {
+      "path": "/products/00000000-0000-4000-8000-000000000000/images/00000000-0000-4000-8000-000000000000/content",
+      "httpStatus": 401,
+      "body": {
+        "code": "AUTH_REQUIRED"
+      }
+    },
+    {
+      "path": "/session",
+      "httpStatus": 200
+    },
+    {
+      "path": "/products?classification=ACTIVE&limit=2",
+      "httpStatus": 200
+    }
+  ],
+  "capabilities": {
+    "canCreate": true,
+    "canUpload": true
+  },
+  "activeCount": 24,
+  "authenticatedHttp": "REAL_JWT_READ_PASS"
+}

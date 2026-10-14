@@ -1,19 +1,31 @@
-<!-- truonglt Phase5 frontend implementation evidence start -->
-# Phase5 — IMPLEMENTED / VERCEL ACCEPTANCE PENDING
+<!-- truonglt Phase5 implemented management and preservation evidence start -->
+# Phase5 — sản phẩm, ảnh riêng tư và các lượt đồng thời
 
-Đã thực hiện sau HISTORY import/reconciliation thành công theo approval owner. Frontend React + TypeScript + Ant Design tại apps/web, giao diện tiếng Việt; login Supabase thật và REST `/api/v1`. Owner yêu cầu không chạy lại test suite; chỉ compile/build và xác minh endpoint cần thiết, không gửi mutation thật vào dữ liệu vận hành.
+Frontend React/TypeScript/Ant Design và NestJS REST /api/v1, không Swagger. Giữ Render/Vercel hiện có. Public WRITE theo cấu hình owner đã bật; JWT, ADMIN/EDITOR, RLS và dedicated runtime bắt buộc. Legacy/archived chỉ đọc.
 
-Implemented: dashboard4 chỉ tiêu, phạm vi vận hành/legacy/tất cả; products18 cột tùy chọn/resize, sticky tên, server search/filter/sort/pagination, mật độ dòng/mobile cards, saved filters, CSV trang hiện tại; drawer rounds/sales/ledger/snapshots/history; finance review/alerts, global audit pagination, batch/archive report, quyền/timezone settings. Lazy-load protected pages/detail. Empty/loading/error/retry states và keyboard controls.
+Chức năng mới: thêm sản phẩm tên/PIC/ghi chú, phân loại MANUAL, giá/lượt mua để trống; tên trùng trả409, không gộp. Tạo sản phẩm/audit/idempotency cùng transaction. Ảnh JPG/PNG/WebP tối đa2MiB lưu append-only trong product_images.upload_metadata hiện có, driver PRIVATE_INLINE_V1; truy cập binary yêu cầu JWT/RLS, no-store/nosniff, list không chứa base64. Không thay managed Storage schema hoặc ảnh nguồn. Bảng và chi tiết dùng ảnh mới nhất; ảnh cũ vẫn trong database. Gallery/Storage driver có thể mở rộng sau.
 
-Mutations: role/capabilities từ verified `/session`, khóa legacy/archived ở cả server và client; strict DTO, version/idempotency; READ ONLY preview do backend tính before/after, confirm trước commit, failed save không optimistic ghi đè tiền. Currency/BIGINT string được format bằng chuỗi, không arithmetic Number, không hardcode baseline. UI không tạo/rename/archive root hoặc tự repair unverified/conflicts; không upload/cash refund/bulk mutations khi chưa có rule được duyệt.
+Chi tiết có thẻ từng lượt Sample/End với giá mua/bán, số lượng và trạng thái. Thiếu giá dùng dấu gạch, zero vẫn0. Đặt mẫu/End tự chọn N tiếp theo; Đã nhận/Sửa giá/Bán End/Xác minh theo từng lượt. Chuỗi handler V9.1 hiện có được compose trong transaction/version/idempotency chung, preview trước commit, finance engine không đổi. Đồng thời Đặt mẫu2 + Đặt End1 hiển thị hai badges; current stage là lượt đang thao tác, không đại diện duy nhất toàn bộ hoạt động. Nhận một lượt không làm mất lượt khác. Input local date dùng IANA Asia/Ho_Chi_Minh duy nhất, calendar invalid bị từ chối, không đổi timestamp nguồn.
 
-Backend additions: per-product finance cho list, sourceView slots, computedStatus/attention chỉ đọc, exact stage filter, global history/review phân trang, batch relation counts, session capabilities, preview và archival guard. Không thay finance engine/source JSON/schema/migration. Chỉ server xử lý monetary math.
+Đổi tên/archive root, tự ghi cash refund/bulk vẫn deferred. Ảnh nguồn không có URL hợp lệ hiển thị Chưa có ảnh, không tạo ảnh sản phẩm giả.
 
-Build API Prisma generate + TypeScript PASS; frontend strict TypeScript + Vite production build PASS. npm install giải quyết dependency lock, audit output0 vulnerabilities. Không chạy lại Node/Python suites sau yêu cầu owner. 107/104/14 kết quả trước Phase5 là historical regression, không claim đã rerun cho code Phase5.
+## Migration DEV
 
-Local preview http://127.0.0.1:5173 đã mở; màn hình login tiếng Việt render và publishable key/Auth settings HTTP200. Không tự nhập credential người dùng hoặc fake Auth/JWT để claim browser acceptance. Full authenticated browser navigation/editing/keyboard/mobile workflow **chưa kiểm chứng**, owner có thể login trên preview. Production bundle có UI shared chunk khoảng1MB/minified (gzip314KB), là residual performance concern; không che bằng việc tăng warning limit. Virtualization cho quy mô vượt pagination hiện tại chưa thêm.
+Owner đã phê duyệt và apply bằng Prisma7 migrate deploy, TLS strict/CA chính thức:
+- 20261015010000_manual_product_origin — SHA256 3869a7bd46007521f28f74d8bce06495330807ca9d85e017989d6e5c4dbb95d1.
+- 20261015010100_manual_product_image_permissions — SHA256 0779fa7c42f0f091389865c47d07e7d4b6d233e84bf31be8b5b5832f716c1451.
 
-Vercel configs ở root và apps/web; external rewrite cùng origin tới Render, không cần mở CORS theo quyết định owner. Root apps/web: build npm run build, output dist; repo root: npm run build:web, output apps/web/dist. Cần URL/project Vercel và environment public từ owner; agent không có phiên đăng nhập/API token Vercel. Chưa claim deployed/frontend Gate5 PASS.
+APPLIED_VERIFIED: target DEV/checksum cả4 migrations/status/roles/grants/policies thật đã kiểm tra. Enum MANUAL +2 INSERT policies, không sửa migration đã apply, không db push/reset/auth/storage DDL. Runtime INSERT products/images có RLS, không DELETE/TRUNCATE/DDL. Nguồn vẫn46 products,1224 imported events,133 imported snapshots. Evidence MANAGEMENT_MIGRATION_RESULT.json và MANAGEMENT_MIGRATION_LOG.txt.
 
-Source46/1224/133/71 đã commit DEV với evidence Phase4, active24 totals giữ nguyên. Public WRITE được owner bật nhưng agent không mutation thật; real-positive-write evidence trước đó là synthetic rollback Phase3. Không tự chuyển production release/Phase6 hoặc làm destructive rollback.
-<!-- truonglt Phase5 frontend implementation evidence end -->
+## Verification
+
+Prisma validate/generate, API TypeScript build, frontend TypeScript/Vite build PASS. Focused checks auto N, Sample2+End1, receive isolation, dynamic3/zero, IANA calendar, image signature/size, manual DTO PASS. Finance parity46/46 per-record/per-round cảV9.1/V9.2. Source SHA256 vẫn b946ef84f65001034d771656bdb56533c158c45b7a8b7c4ca9db139dc3c3f2db.
+
+Live PostgreSQL dedicated runtime: create/image RLS, replay, version conflict, binary integrity, no base64 list, concurrent rounds/finance/receive isolation PASS trong synthetic transaction rollback. Trước/sau đều46 products,46 images,1226 total history,1 mutation request. Hai runtime events/1request đã có trước kiểm tra, không bị sửa/xóa. Đây là service/RLS integration, không gọi là real JWT write E2E.
+
+Production startup local live/ready200, TLSv1.3 client-to-pooler được verify, DB UTC. Anonymous products/image401. Real owner JWT GET session/products200, canCreate/canUpload true. Không committed fixture/HISTORY import. Evidence MANAGEMENT_CHECK_RESULT.json, MANAGEMENT_LIVE_RESULT.json, MANAGEMENT_STARTUP_RESULT.json. Deployment revision/health ghi MANAGEMENT_DEPLOYMENT_RESULT.json sau push.
+
+Không chạy lại full Node/Python suites cũ theo yêu cầu owner; chỉ regression code mới/tài chính. GitHub Actions BLOCKED_BY_BILLING. Full authenticated browser create/upload/mobile acceptance chưa chạy trong công cụ; synthetic rollback không phải browser E2E PASS. Shared UI chunk khoảng1MB minified/gzip315KB còn performance concern, không che bằng warning limit.
+
+Render Build npm ci --include=dev && npm run build; Start npm run start:prod. Không migration/import trong build/start. Không cần env mới; giữ runtime URL/CA/API/WRITE owner đã cấu hình. Vercel rewrite cùng origin, không cần mở CORS. Gate5 browser acceptance còn PARTIAL; migration/backend integration có evidence PASS.
+<!-- truonglt Phase5 implemented management and preservation evidence end -->

@@ -1,0 +1,33 @@
+{
+  "startedAtUtc": "2026-10-14T17:34:08.538Z",
+  "status": "PASS",
+  "syntheticOnly": true,
+  "realJwtE2E": false,
+  "committedWrites": false,
+  "before": {
+    "products": 46,
+    "images": 46,
+    "history": 1226,
+    "requests": 1
+  },
+  "checks": {
+    "manualInsertRls": true,
+    "privateImageInsertRls": true,
+    "createReplay": true,
+    "imageReplay": true,
+    "versionConflict": true,
+    "privateImageBytes": true,
+    "noBase64InList": true,
+    "parallelRounds": true,
+    "receiveIsolation": true,
+    "noDeleteUpdateHistoryTruncate": true
+  },
+  "rollback": "PASS",
+  "after": {
+    "products": 46,
+    "images": 46,
+    "history": 1226,
+    "requests": 1
+  },
+  "finishedAtUtc": "2026-10-14T17:34:23.675Z"
+}

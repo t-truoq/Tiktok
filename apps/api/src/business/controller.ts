@@ -1,5 +1,5 @@
 // truonglt Phase3 authenticated REST controllers start
-import { ArgumentsHost, Body, CallHandler, Catch, Controller, ExceptionFilter, ExecutionContext, Get, Headers, HttpException, Module, NestInterceptor, Param, Post, Query, Req, UseFilters, UseGuards, UseInterceptors } from '@nestjs/common';
+import { ArgumentsHost, Body, CallHandler, Catch, Controller, ExceptionFilter, ExecutionContext, Get, Headers, HttpException, Module, NestInterceptor, Param, Post, Query, Req, Res, UseFilters, UseGuards, UseInterceptors } from '@nestjs/common';
 import { map } from 'rxjs';
 import { BusinessGuard } from './security';
 import { BusinessRepository } from './repository';
@@ -17,7 +17,9 @@ export class BusinessErrorFilter implements ExceptionFilter {
 export class BusinessSerialization implements NestInterceptor {
   intercept(context: ExecutionContext, next: CallHandler) {
     context.switchToHttp().getResponse().set('Cache-Control', 'no-store');
-    return next.handle().pipe(map(value => JSON.parse(JSON.stringify(value, (_key, item) => typeof item === 'bigint' ? item.toString() : item))));
+    // truonglt binary response is already sent by the authenticated image handler start
+    return next.handle().pipe(map(value => value === undefined ? value : JSON.parse(JSON.stringify(value, (_key, item) => typeof item === 'bigint' ? item.toString() : item))));
+    // truonglt binary response is already sent by the authenticated image handler end
   }
 }
 @Controller()
@@ -28,11 +30,24 @@ export class BusinessController {
   constructor(private readonly service: BusinessService) {}
   // truonglt Phase5 frontend capabilities from verified identity start
   @Get('session') session(@Req() req: { actor: Actor }) {
-    return { actor: req.actor, timezone: 'Asia/Ho_Chi_Minh', writeEnabled: process.env.BUSINESS_WRITE_ENABLED === 'true',
-      canWrite: process.env.BUSINESS_WRITE_ENABLED === 'true' && ['ADMIN', 'EDITOR'].includes(req.actor.role) };
+    return this.service.capabilities(req.actor);
   }
   // truonglt Phase5 frontend capabilities from verified identity end
   @Get('products') list(@Query() q: Record<string, unknown>, @Req() req: { actor: Actor }) { return this.service.list(q, req.actor); }
+  // truonglt owner-authorized manual creation and private image append start
+  @Post('products') create(@Body() body: unknown, @Headers('idempotency-key') key: string, @Req() req: {actor:Actor}) {
+    if(process.env.BUSINESS_WRITE_ENABLED!=='true')fail('BUSINESS_WRITES_DISABLED',403);
+    return this.service.create(body,req.actor,key);
+  }
+  @Post('products/:id/images') upload(@Param('id') id:string,@Body() body:unknown,@Headers('idempotency-key') key:string,@Req() req:{actor:Actor}) {
+    if(process.env.BUSINESS_WRITE_ENABLED!=='true')fail('BUSINESS_WRITES_DISABLED',403);
+    return this.service.uploadImage(uuid(id),body,req.actor,key);
+  }
+  @Get('products/:id/images/:imageId/content') async image(@Param('id') id:string,@Param('imageId') imageId:string,@Req() req:{actor:Actor},@Res() res:any) {
+    const result=await this.service.imageContent(uuid(id),uuid(imageId),req.actor);
+    res.set('Content-Type',result.contentType).set('X-Content-Type-Options','nosniff').set('Cache-Control','no-store').send(result.bytes);
+  }
+  // truonglt owner-authorized manual creation and private image append end
   @Get('finance/summary') summary(@Query() q: Record<string, unknown>, @Req() req: { actor: Actor }) { return this.service.summary(q, req.actor); }
   // truonglt Phase5 authorized workspace review and audit reads start
   @Get('finance/review') review(@Query() q: Record<string, unknown>, @Req() req: { actor: Actor }) { return this.service.review(q, req.actor); }

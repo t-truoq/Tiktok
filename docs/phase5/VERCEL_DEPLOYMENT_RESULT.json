@@ -1,0 +1,50 @@
+{
+  "verifiedAtUtc": "2026-10-14T17:00:31.400Z",
+  "target": "https://tiktok-six-rho.vercel.app",
+  "databaseWrites": false,
+  "testsRerun": false,
+  "checks": [
+    {
+      "path": "/api/v1/health/live",
+      "status": 200,
+      "revision": "3ff2264610d64417bc9864d5df0e05a0c2b9a7b0",
+      "mode": "read-write",
+      "body": {
+        "status": "ok"
+      }
+    },
+    {
+      "path": "/api/v1/health/ready",
+      "status": 200,
+      "revision": "3ff2264610d64417bc9864d5df0e05a0c2b9a7b0",
+      "mode": "read-write",
+      "body": {
+        "status": "ready",
+        "database": "ok",
+        "tls": true,
+        "timezone": "UTC",
+        "tlsScope": "client-to-endpoint",
+        "tlsProtocol": "TLSv1.3",
+        "postgresSessionTls": false
+      }
+    },
+    {
+      "path": "/api/v1/products",
+      "status": 401,
+      "revision": "3ff2264610d64417bc9864d5df0e05a0c2b9a7b0",
+      "mode": "read-write",
+      "body": {
+        "code": "AUTH_REQUIRED"
+      }
+    }
+  ],
+  "frontendConfig": {
+    "supabaseProjectPresent": true,
+    "publishableKeyPresent": true,
+    "privilegedKeyPresent": false,
+    "publishableKeyAccepted": true
+  },
+  "localRealTokenExpired": true,
+  "browserInspection": "UNAVAILABLE_NO_BROWSER_SURFACES",
+  "status": "DEPLOYMENT_PROXY_PASS_AUTHENTICATED_ACCEPTANCE_PENDING_TOKEN_REFRESH"
+}

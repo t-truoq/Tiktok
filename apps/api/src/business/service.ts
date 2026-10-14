@@ -7,6 +7,9 @@ import { Actor, fail, keys, MutationDto, pagination, uuid } from './contracts';
 import { applyOperation } from './operations';
 import { BusinessRepository } from './repository';
 import { formatSourceTimestamp, sourceDateToInstant } from '../finance/source-time';
+// truonglt manual products and append-only private images start
+import { createProductDto, imageDto, requestKey } from './management';
+// truonglt manual products and append-only private images end
 const clean = (value: any) => JSON.parse(JSON.stringify(value));
 export function canonical(value: any): string {
   if (Array.isArray(value)) return '[' + value.map(canonical).join(',') + ']';
@@ -40,7 +43,11 @@ export function hydrateProduct(product: any): RecordData {
   }
   return r;
 }
-const include = { rounds: { include: { sales: true } }, legacyRecords: { orderBy: { createdAt: 'desc' }, take: 1 } };
+// truonglt list thumbnails load metadata only, never image bytes start
+const include = { rounds: { include: { sales: true } }, legacyRecords: { orderBy: { createdAt: 'desc' }, take: 1 },
+  images: { where: { uploadMetadata: { path: ['driver'], equals: 'PRIVATE_INLINE_V1' } }, orderBy: { createdAt: 'desc' }, take: 1,
+    select: { id: true, contentType: true, createdAt: true } } };
+// truonglt list thumbnails load metadata only, never image bytes end
 // truonglt Phase5 list finance stays authoritative on backend start
 function publicFinancialProduct(product: any, now = new Date()) {
   const { legacyRecords, ...visible } = product;
@@ -52,8 +59,17 @@ function publicFinancialProduct(product: any, now = new Date()) {
   const receivedLabel = stage && !stage.done ? `Nhận ${stage.group === 'end' ? 'End' : 'mẫu'} ${stage.index}` : null;
   const historyConflict = !!(stage && !stage.done && !stage.received && receivedLabel &&
     (r.stageData?.[receivedLabel] || (r.history || []).some((h: any) => h.progress === receivedLabel && h.type === 'ENTER_STAGE')));
-  return { ...visible, finance, computedStatus, attention: { missingPrices: finance.payment.missing, unverified: finance.payment.review,
-    refundDue: /Cần check hoàn tiền/i.test(computedStatus), historyConflict, dateIssue }, sourceView: { sampleBuy: r.price, endBuy: r.endPrice,
+  // truonglt simultaneous rounds are independent of current source stage pointer start
+  const rounds = configs(r);
+  const ongoingRounds = rounds.filter(c => { const s = r.purchaseState[c.key]; return s?.ordered && !s.received && !s.cancelled; })
+    .map(c => ({ key:c.key, group:c.group === 'sample' ? 'SAMPLE' : 'END', roundIndex:String(c.index), label:c.ordered }));
+  const suggestedRounds = { SAMPLE:Math.max(0,...rounds.filter(c=>c.group==='sample').map(c=>c.index))+1,
+    END:Math.max(0,...rounds.filter(c=>c.group==='end').map(c=>c.index))+1 };
+  const sampleSlot = stage && !stage.done && stage.group === 'sample' ? `priceMau${stage.index}` : rounds.filter(c=>c.group==='sample').at(-1)?.priceKey;
+  const endSlot = stage && !stage.done && stage.group === 'end' ? `priceEnd${stage.index}` : rounds.filter(c=>c.group==='end').at(-1)?.priceKey;
+  // truonglt simultaneous rounds are independent of current source stage pointer end
+  return { ...visible, imageId:product.images?.[0]?.id || null, ongoingRounds, suggestedRounds, finance, computedStatus, attention: { missingPrices: finance.payment.missing, unverified: finance.payment.review,
+    refundDue: /Cần check hoàn tiền/i.test(computedStatus), historyConflict, dateIssue }, sourceView: { sampleBuy: sampleSlot ? r[sampleSlot] : r.price, endBuy: endSlot ? r[endSlot] : r.endPrice,
     wholesale: r.wholesale, qty: r.qty, refundQty: r.refundQty,
     endSell: stage && !stage.done && stage.group === 'end' ? r[`sellEnd${stage.index}`] : r.sellEnd,
     endSellQty: stage && !stage.done && stage.group === 'end' ? r[`qtySellEnd${stage.index}`] : r.sellEndQty, imageReference: r.image } };
@@ -62,6 +78,66 @@ function publicFinancialProduct(product: any, now = new Date()) {
 @Injectable()
 export class BusinessService {
   constructor(private readonly repository: BusinessRepository) {}
+  // truonglt least-privilege management writes with replay protection start
+  async capabilities(actor: Actor) {
+    const canWrite = process.env.BUSINESS_WRITE_ENABLED === 'true' && ['ADMIN','EDITOR'].includes(actor.role);
+    const ready = await this.repository.managementAvailable();
+    return {actor,timezone:'Asia/Ho_Chi_Minh',writeEnabled:process.env.BUSINESS_WRITE_ENABLED === 'true',canWrite,canCreate:canWrite&&ready,canUpload:canWrite&&ready};
+  }
+  private async managementWrite(actor: Actor, key: string, action: string, payload: unknown, fn: (tx:any, requestId:string)=>Promise<any>) {
+    if (!['ADMIN','EDITOR'].includes(actor.role)) fail('FORBIDDEN',403);
+    requestKey(key); if (!await this.repository.managementAvailable()) fail('MANAGEMENT_NOT_READY',503);
+    const hash=createHash('sha256').update(canonical({action,payload})).digest('hex');
+    try { return await this.repository.transaction(actor,async tx=>{
+      const existing=await tx.mutationRequest.findUnique({where:{actorId_idempotencyKey:{actorId:actor.id,idempotencyKey:key}}});
+      if(existing){if(existing.payloadHash!==hash)fail('IDEMPOTENCY_CONFLICT',409);if(!existing.outcome)fail('IDEMPOTENCY_IN_PROGRESS',409);return existing.outcome;}
+      const user=await tx.user.findUnique({where:{id:actor.id}});
+      if(!user||user.authSubject!==actor.subject||!['ADMIN','EDITOR'].includes(user.role))fail('FORBIDDEN',403);
+      const requestId=randomUUID();await tx.mutationRequest.create({data:{id:requestId,actorId:actor.id,idempotencyKey:key,action,payloadHash:hash}});
+      const outcome=await fn(tx,requestId);await tx.mutationRequest.update({where:{id:requestId},data:{outcome:clean(outcome)}});return outcome;
+    }); } catch(error) {
+      if((error as any)?.code==='P2034')fail('VERSION_CONFLICT',409);
+      if((error as any)?.code==='P2002') {
+        const saved=await this.repository.read(tx=>tx.mutationRequest.findUnique({where:{actorId_idempotencyKey:{actorId:actor.id,idempotencyKey:key}}}),actor) as any;
+        if(saved?.payloadHash===hash&&saved.outcome)return saved.outcome;
+        fail(action==='PRODUCT_CREATE'?'PRODUCT_NAME_EXISTS':'IDEMPOTENCY_CONFLICT',409);
+      } throw error;
+    }
+  }
+  create(body: unknown, actor: Actor, key: string) {
+    const dto=createProductDto(body);
+    return this.managementWrite(actor,key,'PRODUCT_CREATE',dto,async(tx,requestId)=>{
+      const id=randomUUID(),now=new Date();
+      const record={name:dto.name,schemaVersion:'9.1',history:[],stageData:{},purchaseState:{},currentProgress:'',currentDate:'',status:'',note:dto.note,pic:dto.pic};
+      await tx.product.create({data:{id,legacyKey:'MANUAL_'+id,rootName:dto.name,rootNameNormalized:dto.name.toLowerCase().replace(/\s+/g,' '),classification:'MANUAL',note:dto.note,pic:dto.pic,
+        sourceFieldStates:{origin:'MANUAL',createdBy:actor.id,runtimeRecord:record,businessView:{profit:''}}}});
+      await tx.productHistory.create({data:{productId:id,eventType:'PRODUCT_CREATED',occurredAtUtc:now,sourceTimestampText:formatSourceTimestamp(now),actorId:actor.id,requestId,
+        originalPayload:{source:'BUSINESS_API',classification:'MANUAL'},afterJson:record}});
+      return {id,version:1,requestId};
+    });
+  }
+  uploadImage(id: string, body: unknown, actor: Actor, key: string) {
+    const dto=imageDto(body);
+    return this.managementWrite(actor,key,'PRODUCT_IMAGE_APPEND',{id,...dto},async(tx,requestId)=>{
+      const product=await tx.product.findUnique({where:{id}});if(!product)fail('PRODUCT_NOT_FOUND',404);
+      if(product.classification==='LEGACY_UNMATCHED'||product.archived)fail('ARCHIVAL_RECORD_READ_ONLY',403);
+      if(product.version!==dto.expectedVersion)fail('VERSION_CONFLICT',409);
+      const changed=await tx.product.updateMany({where:{id,version:dto.expectedVersion},data:{version:{increment:1}}});if(changed.count!==1)fail('VERSION_CONFLICT',409);
+      const image=await tx.productImage.create({data:{productId:id,contentType:dto.contentType,uploadMetadata:{driver:'PRIVATE_INLINE_V1',actorId:actor.id,filename:dto.filename,bytes:dto.bytes,sha256:dto.sha256,data:dto.data}}});
+      const now=new Date();await tx.productHistory.create({data:{productId:id,eventType:'PRODUCT_IMAGE_ADDED',actorId:actor.id,requestId,occurredAtUtc:now,sourceTimestampText:formatSourceTimestamp(now),
+        originalPayload:{imageId:image.id,filename:dto.filename,bytes:dto.bytes,sha256:dto.sha256}}});
+      return {id,imageId:image.id,version:dto.expectedVersion+1,requestId};
+    });
+  }
+  imageContent(id: string, imageId: string, actor: Actor) {
+    return this.repository.read(async tx=>{
+      const image=await tx.productImage.findFirst({where:{id:imageId,productId:id}});
+      const metadata=image?.uploadMetadata;if(!image||metadata?.driver!=='PRIVATE_INLINE_V1')fail('IMAGE_NOT_FOUND',404);
+      const bytes=Buffer.from(metadata.data,'base64');if(createHash('sha256').update(bytes).digest('hex')!==metadata.sha256)fail('IMAGE_INTEGRITY_ERROR',503);
+      return {bytes,contentType:image.contentType};
+    },actor);
+  }
+  // truonglt least-privilege management writes with replay protection end
   list(query: Record<string, unknown>, actor: Actor) {
     const { page, ...args } = pagination(query);
     return this.repository.read(async tx => ({ page, limit: args.take, total: await tx.product.count({ where: args.where }),
@@ -156,7 +232,8 @@ export class BusinessService {
       const model = tx[map[resource]];
       return { page, limit: take, total: await model.count({ where }), items: await model.findMany({ where, skip, take,
         orderBy: [{ [sort]: direction }, { id: 'asc' }],
-        ...(resource === 'rounds' ? { include: { sales: true } } : resource === 'sales' ? { include: { round: { select: { group: true, roundIndex: true } } } } : {}) }) };
+        ...(resource === 'rounds' ? { include: { sales: true } } : resource === 'sales' ? { include: { round: { select: { group: true, roundIndex: true } } } } :
+          resource === 'images' ? { select: {id:true,productId:true,contentType:true,legacyReference:true,createdAt:true} } : {}) }) };
     }, actor);
   }
   metadata(resource: 'sourceArchive' | 'importBatch', query: Record<string, unknown>, actor: Actor) {

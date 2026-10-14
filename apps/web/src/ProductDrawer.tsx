@@ -4,19 +4,24 @@ import { Alert, App, AutoComplete, Button, Card, Collapse, Descriptions, Drawer,
 import { CheckCircleOutlined, EditOutlined, HistoryOutlined, LockOutlined, ReloadOutlined, SafetyCertificateOutlined, SwapOutlined } from '@ant-design/icons';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { api, ApiError, decimalText, money, type History, type Mutation, type Page, type Preview, type Product, type Round, type Snapshot } from './api';
+// truonglt private product photos and automatic round controls start
+import { ProductPhoto, RoundTags, UploadPhoto } from './Management';
+import { RoundControls } from './RoundControls';
+// truonglt private product photos and automatic round controls end
 import { Currency, eventLabels, Failure, NoData, StatusTag, useWorkspace } from './ui';
 const labels:Record<string,string>={wholesale:'Giá bán mẫu',qty:'Số lượng mẫu đã bán',refundQty:'Số lượng hoàn',note:'Ghi chú',pic:'Người phụ trách',date:'Ngày giờ',status:'Trạng thái'};
-type Edit = { operation:string; field?:string; title:string };
+export type Edit = { operation:string; field?:string; title:string; round?:{action:string;group:'SAMPLE'|'END';roundIndex?:string} };
 export function EditDialog({product,edit,onClose}:{product:Product;edit:Edit|null;onClose:()=>void}){
+  const mode=edit?.round?.action || edit?.operation;
   const [form]=Form.useForm(),[preview,setPreview]=useState<Preview>(),[error,setError]=useState('');const query=useQueryClient(),{message}=App.useApp();
   const request=useRef<{dto:Mutation;key:string}|undefined>(undefined);
-  useEffect(()=>{if(!edit)return;setPreview(undefined);setError('');request.current=undefined;const field=edit.field;
-    form.setFieldsValue({value:edit.operation==='SET_STAGE'?product.currentStageLabel||'':edit.operation==='EDIT_BUY'?product.rounds?.find(r=>r.group===(product.currentStageLabel?.includes('End')?'END':'SAMPLE')&&r.roundIndex===product.currentStageIndex)?.orderPrice??'':
+  useEffect(()=>{if(!edit)return;setPreview(undefined);setError('');request.current=undefined;const field=edit.field;const target=product.rounds?.find(r=>r.group===(edit.round?.group||(product.currentStageLabel?.includes('End')?'END':'SAMPLE'))&&r.roundIndex===(edit.round?.roundIndex||product.currentStageIndex));
+    form.setFieldsValue({value:edit.operation==='SET_STAGE'?product.currentStageLabel||'':mode==='EDIT_BUY'?target?.orderPrice??'':
       field==='qty'?product.sampleSalesQuantity??'':field==='refundQty'?product.refundQuantity??'':field==='date'?product.currentDateText?.replace(' ','T')??'':field?(product as any)[field]??'':'',
-      unitPrice:product.rounds?.find(r=>r.group==='END'&&r.roundIndex===product.currentStageIndex)?.sales?.unitPrice??'',
-      quantity:product.rounds?.find(r=>r.group==='END'&&r.roundIndex===product.currentStageIndex)?.sales?.soldQuantity??'',reason:''});
+      unitPrice:target?.sales?.unitPrice??'',
+      quantity:target?.sales?.soldQuantity??'',reason:''});
   },[edit,product,form]);
-  function dto(values:any):Mutation {return {expectedVersion:product.version,operation:edit!.operation,values:edit!.operation==='SET_STAGE'?{progress:values.value}:
+  function dto(values:any):Mutation {return {expectedVersion:product.version,operation:edit!.operation,values:edit!.round?{...edit!.round,...(mode==='ORDER_NEXT'?(values.value?{value:values.value}:{}):mode==='EDIT_BUY'?{value:values.value}:mode==='EDIT_SALES'?{unitPrice:values.unitPrice,quantity:values.quantity}:{})}:edit!.operation==='SET_STAGE'?{progress:values.value}:
     edit!.operation==='EDIT_BUY'?{value:values.value}:edit!.operation==='EDIT_FIELDS'?{[edit!.field!]:values.value}:edit!.operation==='EDIT_SALES'?{unitPrice:values.unitPrice,quantity:values.quantity}:{},
     ...(values.reason?.trim()?{reason:values.reason.trim()}:{} )};}
   const previewAction=useMutation({mutationFn:async()=>{const values=await form.validateFields();const body=dto(values);const result=await api<Preview>('/products/'+product.id+'/preview',{method:'POST',body});
@@ -25,16 +30,16 @@ export function EditDialog({product,edit,onClose}:{product:Product;edit:Edit|nul
     onSuccess:async()=>{await query.invalidateQueries();message.success('Đã lưu. Lịch sử đã được ghi nhận.');onClose();},onError:e=>{setError(e instanceof Error?e.message:'Không thể lưu.');if(e instanceof ApiError&&e.status===409)query.invalidateQueries({queryKey:['product',product.id]});}});
   if(!edit)return null;
   const stageOptions=[...new Set(['',...(product.rounds||[]).flatMap(r=>[`Đặt ${r.group==='END'?'End':'mẫu'} ${r.roundIndex}`,`Nhận ${r.group==='END'?'End':'mẫu'} ${r.roundIndex}`]),'Đặt mẫu 1','Nhận mẫu 1','Đặt End 1','Nhận End 1','Done'])].map(value=>({value,label:value||'Bỏ chọn giai đoạn'}));
-  const numeric=edit.operation==='EDIT_BUY'||['wholesale','qty','refundQty'].includes(edit.field||'');
+  const numeric=mode==='EDIT_BUY'||mode==='ORDER_NEXT'||['wholesale','qty','refundQty'].includes(edit.field||'');
   const decimalRule=(scale:number)=>({validator:(_:unknown,value:unknown)=>value===''||value===undefined||new RegExp('^\\d+(\\.\\d{1,'+scale+'})?$').test(String(value))?Promise.resolve():Promise.reject(new Error('Nhập số không âm, tối đa '+scale+' chữ số sau dấu chấm.'))});
   return <Modal open title={edit.title} onCancel={()=>{if(!save.isPending)onClose();}} width={680} destroyOnHidden footer={<Space><Button onClick={onClose} disabled={save.isPending}>Đóng</Button>
     {!preview?<Button type="primary" loading={previewAction.isPending} onClick={()=>previewAction.mutate()}>Xem trước thay đổi</Button>:<Button type="primary" loading={save.isPending} onClick={()=>save.mutate()}>{error?'Thử lưu lại':'Xác nhận và lưu'}</Button>}</Space>}>
     <p className="muted">{product.rootName}</p><Form form={form} layout="vertical" requiredMark={false} onValuesChange={()=>{setPreview(undefined);request.current=undefined;setError('');}}>
       {edit.operation==='SET_STAGE'?<><Alert type="info" showIcon title="Kiểm tra giai đoạn trước khi lưu" description="Chuyển về Đặt có giá có thể đánh dấu chưa nhận hoặc mở lại lượt bị hủy theo logic nguồn. Lịch sử cũ vẫn giữ nguyên."/>
         <Form.Item name="value" label="Giai đoạn" className="form-alert"><AutoComplete options={stageOptions} filterOption={(input,o)=>String(o?.value).toLowerCase().includes(input.toLowerCase())} placeholder="Ví dụ: Đặt mẫu 3 hoặc Nhận End 3"/></Form.Item></>:
-      edit.operation==='EDIT_SALES'?<Space className="sales-form" align="start"><Form.Item name="unitPrice" label="Giá bán End (VND)" rules={[decimalRule(2)]}><Input inputMode="decimal" placeholder="Để trống nếu chưa có giá"/></Form.Item>
+      mode==='EDIT_SALES'?<Space className="sales-form" align="start"><Form.Item name="unitPrice" label="Giá bán End (VND)" rules={[decimalRule(2)]}><Input inputMode="decimal" placeholder="Để trống nếu chưa có giá"/></Form.Item>
         <Form.Item name="quantity" label="Số lượng bán End" rules={[decimalRule(3)]}><Input inputMode="decimal" placeholder="Để trống nếu chưa có số lượng"/></Form.Item></Space>:
-      ['EDIT_BUY','EDIT_FIELDS'].includes(edit.operation)?<Form.Item name="value" label={edit.operation==='EDIT_BUY'?'Giá mua (VND)':labels[edit.field!]||edit.field} rules={numeric?[decimalRule(edit.field==='qty'||edit.field==='refundQty'?3:2)]:[]}>
+      ['EDIT_BUY','EDIT_FIELDS','ORDER_NEXT'].includes(mode||'')?<Form.Item name="value" label={mode==='EDIT_BUY'||mode==='ORDER_NEXT'?'Giá mua (VND)':labels[edit.field!]||edit.field} rules={numeric?[decimalRule(edit.field==='qty'||edit.field==='refundQty'?3:2)]:[]}>
         {edit.field==='note'?<Input.TextArea rows={3} maxLength={2000}/>:<Input type={edit.field==='date'?'datetime-local':'text'} step={edit.field==='date'?1:undefined} inputMode={numeric?'decimal':undefined} placeholder={numeric?'Để trống nếu chưa có giá trị':undefined}/>}</Form.Item>:
       <Alert type="info" showIcon title="Thao tác sẽ được ghi vào lịch sử" description="Xem trước ảnh hưởng tài chính và xác nhận để lưu. Không ghi đè lịch sử nguồn."/>}
       <Form.Item name="reason" label="Lý do thay đổi (không bắt buộc)"><Input maxLength={500} placeholder="Ghi lại căn cứ đối soát hoặc thay đổi…"/></Form.Item></Form>
@@ -66,18 +71,18 @@ export default function ProductDrawer({id,onClose}:{id?:string;onClose:()=>void}
   const {capabilities}=useWorkspace();const [edit,setEdit]=useState<Edit|null>(null);
   const q=useQuery({queryKey:['product',id],queryFn:()=>api<Product>('/products/'+id),enabled:!!id});const product=q.data;
   useEffect(()=>setEdit(null),[id]);
-  const writable=!!product&&capabilities?.canWrite&&product.classification==='XLSX_MATCHED'&&!product.archived;
+  const writable=!!product&&capabilities?.canWrite&&product.classification!=='LEGACY_UNMATCHED'&&!product.archived;
   const action=(operation:string,title:string,field?:string)=>setEdit({operation,title,field});
   return <Drawer open={!!id} onClose={onClose} width={860} title={<Space><ShopIcon/><span>Chi tiết sản phẩm</span></Space>} destroyOnHidden>
     {q.isPending?<div className="drawer-loading"><Spin/><p>Đang tải sản phẩm…</p></div>:q.error?<Failure error={q.error} retry={()=>q.refetch()}/>:product?<>
-      <div className="detail-heading"><Typography.Title level={3}>{product.rootName}</Typography.Title><Space wrap><StatusTag product={product}/><Tag color={product.classification==='XLSX_MATCHED'?'cyan':'purple'}>{product.classification==='XLSX_MATCHED'?'Đang vận hành':'Legacy · chỉ xem'}</Tag><Tag>Phiên bản {product.version}</Tag></Space></div>
+      <div className="detail-heading"><Typography.Title level={3}>{product.rootName}</Typography.Title><Space wrap><StatusTag product={product}/><Tag color={product.classification!=='LEGACY_UNMATCHED'?'cyan':'purple'}>{product.classification!=='LEGACY_UNMATCHED'?'Đang vận hành':'Legacy · chỉ xem'}</Tag><Tag>Phiên bản {product.version}</Tag></Space></div>
       {!writable?<Alert showIcon icon={<LockOutlined/>} type="info" title="Đang xem dữ liệu được bảo toàn" description="Legacy, record archived hoặc tài khoản chỉ xem không có thao tác sửa."/>:null}
-      <Tabs defaultActiveKey="overview" items={[{key:'overview',label:'Tổng quan',children:<><div className="detail-metrics">{[['Đã thanh toán',product.finance.payment.paid],['Chưa thanh toán',product.finance.payment.unpaid],['Đủ điều kiện hoàn',product.finance.refund.total],['Lợi nhuận dự kiến',product.finance.projectedProfit]].map(([label,value])=><div key={label}><small>{label}</small><Currency value={value}/></div>)}</div>
-        <Descriptions bordered size="small" column={{xs:1,sm:2}} items={[{key:'stage',label:'Giai đoạn',children:product.currentStageLabel||'—'},{key:'date',label:'Ngày nguồn',children:product.currentDateText||'—'},
+      <Tabs defaultActiveKey="overview" items={[{key:'overview',label:'Tổng quan',children:<><div className="product-photo-section"><ProductPhoto product={product} large/><div><h3>Ảnh sản phẩm</h3><p className="muted">Ảnh và lịch sử cũ được giữ nguyên.</p>{writable&&capabilities?.canUpload?<UploadPhoto product={product}/>:null}</div></div><RoundControls product={product} writable={!!writable} onEdit={setEdit}/><div className="detail-metrics">{[['Đã thanh toán',product.finance.payment.paid],['Chưa thanh toán',product.finance.payment.unpaid],['Đủ điều kiện hoàn',product.finance.refund.total],['Lợi nhuận dự kiến',product.finance.projectedProfit]].map(([label,value])=><div key={label}><small>{label}</small><Currency value={value}/></div>)}</div>
+        <Descriptions bordered size="small" column={{xs:1,sm:2}} items={[{key:'stage',label:'Lượt đang thao tác',children:product.currentStageLabel||'—'},{key:'date',label:'Ngày nguồn',children:product.currentDateText||'—'},
           {key:'pic',label:'Phụ trách',children:product.pic||'—'},{key:'qty',label:'Số lượng mẫu bán',children:decimalText(product.sampleSalesQuantity)},
           {key:'wholesale',label:'Giá bán mẫu',children:money(product.wholesale)},{key:'refundQty',label:'Số lượng hoàn',children:decimalText(product.refundQuantity)},
           {key:'note',label:'Ghi chú',span:2,children:product.note||'—'}]}/>
-        {writable?<div className="detail-actions"><Button icon={<SwapOutlined/>} onClick={()=>action('SET_STAGE','Chuyển giai đoạn')}>Chọn giai đoạn</Button>
+        {writable?<div className="detail-actions"><Button icon={<SwapOutlined/>} onClick={()=>action('SET_STAGE','Chuyển giai đoạn nâng cao')}>Giai đoạn nâng cao</Button>
           <Button icon={<EditOutlined/>} onClick={()=>action('EDIT_FIELDS','Sửa ghi chú','note')}>Ghi chú</Button><Button onClick={()=>action('EDIT_FIELDS','Sửa người phụ trách','pic')}>Phụ trách</Button>
           <Button onClick={()=>action('EDIT_FIELDS','Sửa ngày giờ','date')}>Ngày giờ</Button><Button onClick={()=>action('EDIT_FIELDS','Sửa trạng thái','status')}>Trạng thái</Button>
           <Button onClick={()=>action('EDIT_FIELDS','Sửa giá bán mẫu','wholesale')}>Giá bán mẫu</Button><Button onClick={()=>action('EDIT_FIELDS','Sửa số lượng mẫu','qty')}>Số lượng mẫu</Button><Button onClick={()=>action('EDIT_FIELDS','Sửa số lượng hoàn','refundQty')}>Số lượng hoàn</Button></div>:null}

@@ -2,9 +2,11 @@
 import { HttpException } from '@nestjs/common';
 export function fail(code: string, status = 400): never { throw new HttpException({ code }, status); }
 export type Actor = { id: string; role: 'ADMIN' | 'EDITOR' | 'VIEWER'; subject: string };
-export type Operation = 'SET_STAGE' | 'EDIT_BUY' | 'EDIT_SALES' | 'EDIT_FIELDS' | 'VERIFY_STAGE' | 'CORRECT_UNRECEIVED' | 'CANCEL_STAGE' | 'RESTORE_STAGE';
+// truonglt managed round action composes source operations atomically start
+export type Operation = 'SET_STAGE' | 'EDIT_BUY' | 'EDIT_SALES' | 'EDIT_FIELDS' | 'VERIFY_STAGE' | 'CORRECT_UNRECEIVED' | 'CANCEL_STAGE' | 'RESTORE_STAGE' | 'ROUND_ACTION';
 export type MutationDto = { expectedVersion: number; operation: Operation; values: { [key: string]: unknown }; reason?: string };
-const operations: Operation[] = ['SET_STAGE', 'EDIT_BUY', 'EDIT_SALES', 'EDIT_FIELDS', 'VERIFY_STAGE', 'CORRECT_UNRECEIVED', 'CANCEL_STAGE', 'RESTORE_STAGE'];
+const operations: Operation[] = ['SET_STAGE', 'EDIT_BUY', 'EDIT_SALES', 'EDIT_FIELDS', 'VERIFY_STAGE', 'CORRECT_UNRECEIVED', 'CANCEL_STAGE', 'RESTORE_STAGE', 'ROUND_ACTION'];
+// truonglt managed round action composes source operations atomically end
 export function object(value: unknown): Record<string, unknown> {
   if (!value || typeof value !== 'object' || Array.isArray(value)) fail('INVALID_DTO');
   const obj = value as Record<string, unknown>;
@@ -28,13 +30,15 @@ export function pagination(query: Record<string, unknown>) {
   if (!Number.isSafeInteger(page) || page < 1 || page > 100000 || !Number.isSafeInteger(limit) || limit < 1 || limit > 100) fail('INVALID_PAGINATION');
   const sort = String(query.sort ?? 'rootName'); if (!['rootName', 'createdAt', 'updatedAt', 'currentStatus'].includes(sort)) fail('INVALID_SORT');
   const direction = String(query.direction ?? 'asc'); if (!['asc', 'desc'].includes(direction)) fail('INVALID_SORT');
-  if (query.classification !== undefined && !['XLSX_MATCHED', 'LEGACY_UNMATCHED'].includes(String(query.classification))) fail('INVALID_CLASSIFICATION');
+  // truonglt new manual products participate in active scope without relabeling source start
+  if (query.classification !== undefined && !['XLSX_MATCHED', 'LEGACY_UNMATCHED', 'MANUAL', 'ACTIVE'].includes(String(query.classification))) fail('INVALID_CLASSIFICATION');
   if (query.archived !== undefined && !['true', 'false'].includes(String(query.archived))) fail('INVALID_ARCHIVED');
   // truonglt Phase5 validate stage label without silently normalizing a filter start
   for (const key of ['status', 'stage', 'search']) if (query[key] !== undefined && (typeof query[key] !== 'string' || (query[key] as string).length > 200)) fail('INVALID_FILTER');
   // truonglt Phase5 validate stage label without silently normalizing a filter end
   return { skip: (page - 1) * limit, take: limit, page, orderBy: [{ [sort]: direction }, { id: 'asc' }], where: {
-    ...(query.status !== undefined ? { currentStatus: query.status } : {}), ...(query.classification ? { classification: query.classification } : {}),
+    ...(query.status !== undefined ? { currentStatus: query.status } : {}), ...(query.classification ? { classification: query.classification === 'ACTIVE' ? { in: ['XLSX_MATCHED', 'MANUAL'] } : query.classification } : {}),
+    // truonglt new manual products participate in active scope without relabeling source end
     // truonglt Phase5 parameterized source stage selection start
     ...(query.stage !== undefined ? { currentStageLabel: query.stage } : {}),
     // truonglt Phase5 parameterized source stage selection end

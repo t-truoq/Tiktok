@@ -42,6 +42,16 @@ export class BusinessRepository implements OnApplicationShutdown {
       return tx.user.findUnique({ where: { authSubject: subject } });
     });
   }
+  // truonglt management capability requires actual deployed grants and policies start
+  async managementAvailable() {
+    const rows = await (await this.db()).$queryRaw<any[]>`SELECT
+      has_table_privilege(current_user,'public.products','INSERT') AND
+      has_table_privilege(current_user,'public.product_images','INSERT') AND
+      (SELECT count(*)=2 FROM pg_policies WHERE schemaname='public' AND policyname IN
+       ('runtime_manual_product_create','runtime_product_image_append')) AS enabled`;
+    return rows[0]?.enabled === true;
+  }
+  // truonglt management capability requires actual deployed grants and policies end
   async read<T>(fn: (tx: any) => Promise<T>, actor: Actor): Promise<T> {
     return (await this.db()).$transaction(async tx => {
       await tx.$executeRaw`SET TRANSACTION READ ONLY`;

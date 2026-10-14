@@ -1,0 +1,16 @@
+Datasource "db": PostgreSQL database "postgres", schema "public" at "aws-0-ap-northeast-2.pooler.supabase.com:5432"
+
+4 migrations found in prisma/migrations
+
+Applying migration `20261015010000_manual_product_origin`
+Applying migration `20261015010100_manual_product_image_permissions`
+
+The following migration(s) have been applied:
+
+migrations/
+  └─ 20261015010000_manual_product_origin/
+    └─ migration.sql
+  └─ 20261015010100_manual_product_image_permissions/
+    └─ migration.sql
+
+All migrations have been successfully applied.

@@ -1,6 +1,6 @@
 {
   "phase": 5,
-  "status": "IMPLEMENTED_VERCEL_UI_ACCEPTANCE_PENDING",
+  "status": "DEPLOYED_AUTHENTICATED_UI_ACCEPTANCE_PENDING",
   "backendBuild": "PASS",
   "frontendTypeScriptBuild": "PASS",
   "frontendViteBuild": "PASS",
@@ -14,8 +14,13 @@
   "historyImported": true,
   "frontendDbSecretsIncluded": false,
   "frontendJwtHardcoded": false,
-  "vercelDeployment": "PENDING_OWNER_PROJECT_URL",
+  "vercelDeployment": "PASS_PUBLIC_SITE_PROXY_HEALTH_AND_FRONTEND_CONFIG",
   "cors": "SAME_ORIGIN_PROXY_OWNER_NO_CORS",
   "roleProtection": "JWT_RLS_PLUS_LEGACY_ARCHIVED_GUARD",
-  "baselineSourceUnchanged": true
+  "baselineSourceUnchanged": true,
+  "vercelUrl": "https://tiktok-six-rho.vercel.app",
+  "backendRevisionVerified": "3ff2264610d64417bc9864d5df0e05a0c2b9a7b0",
+  "anonymousGet": "PASS_HTTP401",
+  "realAuthenticatedVercelAcceptance": "PENDING_REAL_TOKEN_REFRESH",
+  "browserAcceptance": "PENDING_NO_BROWSER_SURFACES"
 }

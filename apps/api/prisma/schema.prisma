@@ -19,6 +19,9 @@ enum AppRole {
 enum SourceClassification {
   XLSX_MATCHED
   LEGACY_UNMATCHED
+  // truonglt owner-selected manually created product origin start
+  MANUAL
+  // truonglt owner-selected manually created product origin end
 }
 
 enum RoundGroup {

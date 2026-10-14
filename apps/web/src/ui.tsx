@@ -5,7 +5,7 @@ import { createContext, useContext, useEffect, useState } from 'react';
 import type { Capabilities, Product, Scope, Summary } from './api';
 import { money } from './api';
 export const WorkspaceContext = createContext<{ scope:Scope;setScope:(v:Scope)=>void;search:string;setSearch:(v:string)=>void;
-  showProduct:(id:string)=>void;capabilities?:Capabilities }>({ scope:'XLSX_MATCHED',setScope:()=>{},search:'',setSearch:()=>{},showProduct:()=>{} });
+  showProduct:(id:string)=>void;capabilities?:Capabilities }>({ scope:'ACTIVE',setScope:()=>{},search:'',setSearch:()=>{},showProduct:()=>{} });
 export const useWorkspace = ()=>useContext(WorkspaceContext);
 export function useDebounce<T>(value:T,delay=350){const [out,setOut]=useState(value);useEffect(()=>{const id=setTimeout(()=>setOut(value),delay);return()=>clearTimeout(id);},[value,delay]);return out;}
 export function PageHeading({title,subtitle,action}:{title:string;subtitle:string;action?:React.ReactNode}) {
@@ -16,7 +16,7 @@ export function Failure({error,retry}:{error:unknown;retry:()=>void}) {
 }
 export function NoData({description='Chưa có dữ liệu trong phạm vi này.'}:{description?:string}) {return <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description={description}/>;}
 export function Currency({value}:{value:unknown}) {return <span className={'money '+(String(value??'').startsWith('-')?'negative':'')}>{money(value)}</span>;}
-export function ScopeTag(){const {scope}=useWorkspace();return <Tag variant="filled" color={scope==='LEGACY_UNMATCHED'?'purple':'default'}>{scope==='XLSX_MATCHED'?'Đang vận hành':scope==='LEGACY_UNMATCHED'?'Legacy được bảo toàn':'Toàn bộ dữ liệu'}</Tag>;}
+export function ScopeTag(){const {scope}=useWorkspace();return <Tag variant="filled" color={scope==='LEGACY_UNMATCHED'?'purple':'default'}>{scope==='ACTIVE'||scope==='XLSX_MATCHED'?'Đang vận hành':scope==='MANUAL'?'Sản phẩm mới':scope==='LEGACY_UNMATCHED'?'Legacy được bảo toàn':'Toàn bộ dữ liệu'}</Tag>;}
 export function StatusTag({product}:{product:Product}) {
   const status=product.currentStatus;const attention=product.attention;
   const color=attention?.refundDue?'orange':status==='Hoàn tất'?'green':status?.includes('Chờ')?'blue':'default';
@@ -35,6 +35,6 @@ export function FinancialCards({summary,loading=false,updatedAt}:{summary?:Summa
 export const eventLabels:Record<string,string>={ENTER_STAGE:'Bắt đầu giai đoạn',LEAVE_STAGE:'Rời giai đoạn',PRICE_EDIT:'Sửa giá mua mẫu',END_BUY_PRICE_EDIT:'Sửa giá mua End',
   END_SELL_PRICE_EDIT:'Sửa giá bán End',END_SELL_QTY_EDIT:'Sửa số lượng bán End',REFUND_QTY_EDIT:'Sửa số lượng hoàn',WHOLESALE_EDIT:'Sửa giá bán mẫu',QTY_EDIT:'Sửa số lượng mẫu',
   NOTE_EDIT:'Cập nhật ghi chú',PIC_EDIT:'Cập nhật người phụ trách',DATE_EDIT:'Cập nhật ngày',STATUS_EDIT:'Cập nhật trạng thái',AUTO_STATUS:'Đồng bộ trạng thái',
-  VERIFY_STAGE:'Xác minh lượt mua',CANCEL_STAGE:'Hủy lượt mua',RESTORE_STAGE:'Khôi phục lượt mua',CORRECT_UNRECEIVED:'Đánh dấu chưa nhận'};
+  VERIFY_STAGE:'Xác minh lượt mua',CANCEL_STAGE:'Hủy lượt mua',RESTORE_STAGE:'Khôi phục lượt mua',CORRECT_UNRECEIVED:'Đánh dấu chưa nhận',PRODUCT_CREATED:'Thêm sản phẩm',PRODUCT_IMAGE_ADDED:'Thêm ảnh sản phẩm'};
 export function downloadFile(filename:string,content:string,type='application/json'){const url=URL.createObjectURL(new Blob([content],{type}));const a=document.createElement('a');a.href=url;a.download=filename;a.click();setTimeout(()=>URL.revokeObjectURL(url),500);}
 // truonglt Phase5 shared Vietnamese financial presentation end

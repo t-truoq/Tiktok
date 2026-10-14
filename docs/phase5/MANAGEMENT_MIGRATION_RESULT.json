@@ -1,0 +1,114 @@
+{
+  "project": "nqdaykgasfnsaixkhbya",
+  "startedAtUtc": "2026-10-14T17:25:10.347Z",
+  "status": "APPLIED_VERIFIED",
+  "checksums": {
+    "20261014063000_preserve_source_baseline": "148e77f65ba5c08720afddc569e3535512017b3257a1384ba39cdb7c5cb37c93",
+    "20261014083000_runtime_security": "3916a0baca77cd2be19531165d24315d251aae732b54df3437a7a13e561f3a0b",
+    "20261015010000_manual_product_origin": "3869a7bd46007521f28f74d8bce06495330807ca9d85e017989d6e5c4dbb95d1",
+    "20261015010100_manual_product_image_permissions": "0779fa7c42f0f091389865c47d07e7d4b6d233e84bf31be8b5b5832f716c1451"
+  },
+  "managedSchemasChanged": false,
+  "before": {
+    "migrations": [
+      {
+        "migration_name": "20261014063000_preserve_source_baseline",
+        "checksum": "148e77f65ba5c08720afddc569e3535512017b3257a1384ba39cdb7c5cb37c93",
+        "finished_at": "2026-10-14T06:38:54.219Z",
+        "rolled_back_at": null
+      },
+      {
+        "migration_name": "20261014083000_runtime_security",
+        "checksum": "3916a0baca77cd2be19531165d24315d251aae732b54df3437a7a13e561f3a0b",
+        "finished_at": "2026-10-14T08:21:14.928Z",
+        "rolled_back_at": null
+      }
+    ],
+    "counts": {
+      "products": 46,
+      "source_events": 1224,
+      "source_snapshots": 133
+    },
+    "roles": [
+      {
+        "rolname": "tiktok_api_runtime",
+        "rolsuper": false,
+        "rolbypassrls": false,
+        "rolcreaterole": false,
+        "rolcreatedb": false
+      }
+    ],
+    "policies": [],
+    "privileges": {
+      "product_insert": false,
+      "image_insert": false,
+      "image_delete": false,
+      "product_delete": false,
+      "ddl": false
+    },
+    "tlsVerified": true
+  },
+  "after": {
+    "migrations": [
+      {
+        "migration_name": "20261014063000_preserve_source_baseline",
+        "checksum": "148e77f65ba5c08720afddc569e3535512017b3257a1384ba39cdb7c5cb37c93",
+        "finished_at": "2026-10-14T06:38:54.219Z",
+        "rolled_back_at": null
+      },
+      {
+        "migration_name": "20261014083000_runtime_security",
+        "checksum": "3916a0baca77cd2be19531165d24315d251aae732b54df3437a7a13e561f3a0b",
+        "finished_at": "2026-10-14T08:21:14.928Z",
+        "rolled_back_at": null
+      },
+      {
+        "migration_name": "20261015010000_manual_product_origin",
+        "checksum": "3869a7bd46007521f28f74d8bce06495330807ca9d85e017989d6e5c4dbb95d1",
+        "finished_at": "2026-10-14T17:25:30.339Z",
+        "rolled_back_at": null
+      },
+      {
+        "migration_name": "20261015010100_manual_product_image_permissions",
+        "checksum": "0779fa7c42f0f091389865c47d07e7d4b6d233e84bf31be8b5b5832f716c1451",
+        "finished_at": "2026-10-14T17:25:31.445Z",
+        "rolled_back_at": null
+      }
+    ],
+    "counts": {
+      "products": 46,
+      "source_events": 1224,
+      "source_snapshots": 133
+    },
+    "roles": [
+      {
+        "rolname": "tiktok_api_runtime",
+        "rolsuper": false,
+        "rolbypassrls": false,
+        "rolcreaterole": false,
+        "rolcreatedb": false
+      }
+    ],
+    "policies": [
+      {
+        "policyname": "runtime_manual_product_create",
+        "tablename": "products",
+        "cmd": "INSERT"
+      },
+      {
+        "policyname": "runtime_product_image_append",
+        "tablename": "product_images",
+        "cmd": "INSERT"
+      }
+    ],
+    "privileges": {
+      "product_insert": true,
+      "image_insert": true,
+      "image_delete": false,
+      "product_delete": false,
+      "ddl": false
+    },
+    "tlsVerified": true
+  },
+  "finishedAtUtc": "2026-10-14T17:25:33.150Z"
+}

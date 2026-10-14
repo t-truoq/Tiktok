@@ -13,7 +13,14 @@ export function errorText(code: string) {
     BUY_REQUIRES_ORDER_STAGE: 'Chỉ sửa giá mua tại giai đoạn Đặt.', SALES_REQUIRES_END_STAGE: 'Chỉ sửa giá bán ở giai đoạn End.',
     DECIMAL_NOT_REPRESENTABLE: 'Giá trị vượt độ chính xác cho phép. Tiền tối đa 2 chữ số thập phân, số lượng tối đa 3.',
     INVALID_MONEY: 'Giá trị tiền chưa hợp lệ.', INVALID_SOURCE_DATE: 'Ngày giờ chưa hợp lệ.', BUSINESS_DATABASE_UNAVAILABLE: 'Chưa thể kết nối dữ liệu. Hãy thử lại.',
-    AUTH_KEYS_UNAVAILABLE: 'Đăng nhập tạm thời chưa sẵn sàng.', UNSAFE_RUNTIME_ROLE: 'Kết nối chưa được quản trị viên cấu hình đúng.' };
+    AUTH_KEYS_UNAVAILABLE: 'Đăng nhập tạm thời chưa sẵn sàng.', UNSAFE_RUNTIME_ROLE: 'Kết nối chưa được quản trị viên cấu hình đúng.',
+    // truonglt management validation errors start
+    PRODUCT_NAME_EXISTS:'Tên sản phẩm đã có. Hãy kiểm tra sản phẩm hiện có trước khi thêm.',INVALID_PRODUCT_NAME:'Nhập tên sản phẩm hợp lệ.',
+    MANAGEMENT_NOT_READY:'Chức năng thêm sản phẩm/ảnh chưa sẵn sàng.',IMAGE_SIZE_OR_FORMAT_INVALID:'Ảnh tối đa 2 MB, định dạng JPG/PNG/WebP.',
+    IMAGE_FORMAT_NOT_ALLOWED:'Nội dung file không đúng định dạng JPG/PNG/WebP.',ROUND_NOT_PENDING:'Lượt này không còn chờ nhận. Hãy tải lại dữ liệu.',
+    ROUND_CANCELLED:'Lượt này đã hủy. Hãy khôi phục trước khi thay đổi.'
+    // truonglt management validation errors end
+  };
   return messages[code] || 'Không thể hoàn tất yêu cầu. Dữ liệu cũ vẫn được giữ nguyên.';
 }
 export async function api<T>(path: string, options: { method?: string; body?: unknown; key?: string; signal?: AbortSignal } = {}): Promise<T> {
@@ -29,18 +36,26 @@ export async function api<T>(path: string, options: { method?: string; body?: un
   if (!response.ok) throw new ApiError(body.code || 'REQUEST_FAILED',response.status); return body;
 }
 export function qs(values: Record<string,unknown>) { const p = new URLSearchParams(); for (const [k,v] of Object.entries(values)) if(v!==undefined&&v!==null&&v!=='') p.set(k,String(v)); return p.size?'?'+p.toString():''; }
-export type Scope = '' | 'XLSX_MATCHED' | 'LEGACY_UNMATCHED';
+// truonglt manual records and authenticated image transport start
+export type Scope = '' | 'ACTIVE' | 'MANUAL' | 'XLSX_MATCHED' | 'LEGACY_UNMATCHED';
+export async function apiImage(path:string,signal?:AbortSignal) {
+  const session=await auth?.auth.getSession();if(!session?.data.session)throw new ApiError('AUTH_REQUIRED',401);
+  const response=await fetch(base+'/api/v1'+path,{headers:{Authorization:'Bearer '+session.data.session.access_token},cache:'no-store',signal});
+  if(!response.ok)throw new ApiError('IMAGE_NOT_FOUND',response.status);return response.blob();
+}
+// truonglt manual records and authenticated image transport end
 export type Finance = { payment: { paid: string; unpaid: string; incurred: string; sampleTotal: string; endTotal: string; missing: number; review: number;
   details: { key:string;label:string;amount:string|null;bucket:string;verified:boolean;issue:string;received:boolean;ordered:boolean }[] }; refund: {total:string;missing:number}; projectedProfit:string;endRevenue:string;endQuantity:string };
 export type Round = { id:string;group:'SAMPLE'|'END';roundIndex:string;ordered:boolean|null;received:boolean|null;cancelled:boolean|null;verified:boolean|null;issue:string|null;orderPrice:string|null;orderPriceState:string;
   sales?: {unitPrice:string|null;soldQuantity:string|null;unitPriceState:string;quantityState:string}|null };
-export type Product = { id:string;rootName:string;classification:'XLSX_MATCHED'|'LEGACY_UNMATCHED';currentStageLabel:string|null;currentStageIndex:string|null;currentStatus:string|null;currentDateText:string|null;
+export type Product = { id:string;rootName:string;classification:'XLSX_MATCHED'|'LEGACY_UNMATCHED'|'MANUAL';currentStageLabel:string|null;currentStageIndex:string|null;currentStatus:string|null;currentDateText:string|null;
   note:string|null;pic:string|null;wholesale:string|null;sampleSalesQuantity:string|null;refundQuantity:string|null;version:number;archived:boolean;rounds?:Round[];finance:Finance;
+  imageId?:string|null;ongoingRounds?:{key:string;group:'SAMPLE'|'END';roundIndex:string;label:string}[];suggestedRounds?:{SAMPLE:number;END:number};
   computedStatus?:string;attention?:{missingPrices:number;unverified:number;refundDue:boolean;historyConflict:boolean;dateIssue:string|null};
   sourceView?:{sampleBuy:unknown;endBuy:unknown;wholesale:unknown;qty:unknown;refundQty:unknown;endSell:unknown;endSellQty:unknown;imageReference?:unknown} };
 export type Page<T> = { page:number;limit:number;total:number;items:T[] };
 export type Summary = { count:number;missing:number;review:number;paid:string;unpaid:string;incurred:string;sampleTotal:string;endTotal:string;refundEligible:string;projectedProfit:string };
-export type Capabilities = { actor:{id:string;role:'ADMIN'|'EDITOR'|'VIEWER';subject:string};timezone:string;canWrite:boolean;writeEnabled:boolean };
+export type Capabilities = { actor:{id:string;role:'ADMIN'|'EDITOR'|'VIEWER';subject:string};timezone:string;canWrite:boolean;writeEnabled:boolean;canCreate?:boolean;canUpload?:boolean };
 export type History = { id:string;eventType:string;stageLabel:string|null;sourceTimestampText:string|null;occurredAtUtc:string|null;originalPayload:any;beforeJson:any;afterJson:any;actorId:string|null;reason:string|null;legacyEventIndex:number|null };
 export type Snapshot = { id:string;sourceLabel:string;sourceDateText:string|null;snapshot:any;sourceJsonPointer:string|null };
 export type Mutation = { expectedVersion:number;operation:string;values:Record<string,unknown>;reason?:string };

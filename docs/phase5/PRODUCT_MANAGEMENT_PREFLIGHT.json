@@ -1,0 +1,52 @@
+{
+  "verifiedAtUtc": "2026-10-14T17:17:35.641Z",
+  "project": "nqdaykgasfnsaixkhbya",
+  "databaseWrites": false,
+  "tlsVerified": true,
+  "classifications": [
+    {
+      "classification": "LEGACY_UNMATCHED",
+      "count": 22
+    },
+    {
+      "classification": "XLSX_MATCHED",
+      "count": 24
+    }
+  ],
+  "enumLabels": [
+    {
+      "enumlabel": "XLSX_MATCHED"
+    },
+    {
+      "enumlabel": "LEGACY_UNMATCHED"
+    }
+  ],
+  "migrations": [
+    {
+      "migration_name": "20261014063000_preserve_source_baseline",
+      "checksum": "148e77f65ba5c08720afddc569e3535512017b3257a1384ba39cdb7c5cb37c93",
+      "finished_at": "2026-10-14T06:38:54.219Z",
+      "rolled_back_at": null
+    },
+    {
+      "migration_name": "20261014083000_runtime_security",
+      "checksum": "3916a0baca77cd2be19531165d24315d251aae732b54df3437a7a13e561f3a0b",
+      "finished_at": "2026-10-14T08:21:14.928Z",
+      "rolled_back_at": null
+    }
+  ],
+  "sourceCounts": {
+    "records": 46,
+    "source_history": 1224,
+    "source_snapshots": 133
+  },
+  "runtime": {
+    "rolname": "tiktok_api_runtime",
+    "rolsuper": false,
+    "rolbypassrls": false,
+    "rolcreatedb": false,
+    "rolcreaterole": false,
+    "can_create_product": false,
+    "can_insert_image": false
+  }
+}

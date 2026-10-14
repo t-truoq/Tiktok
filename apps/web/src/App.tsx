@@ -39,7 +39,7 @@ const navigation=[{key:'/',icon:<DashboardOutlined/>,label:'Tổng quan'},{key:'
   {key:'/settings',icon:<SettingOutlined/>,label:'Cài đặt'}];
 function Workspace({session}:{session:Session}){
   const navigate=useNavigate(),location=useLocation(),queryClient=useQueryClient();
-  const [scope,setScope]=useState<Scope>(()=>{const s=localStorage.getItem('affiliate-scope');return s==='LEGACY_UNMATCHED'||s===''?s:'XLSX_MATCHED';});
+  const [scope,setScope]=useState<Scope>(()=>{const s=localStorage.getItem('affiliate-scope');return s==='LEGACY_UNMATCHED'||s===''||s==='MANUAL'?s:'ACTIVE';});
   const [search,setSearch]=useState(''),[menuOpen,setMenuOpen]=useState(false),[selected,setSelected]=useState<string>();
   const caps=useQuery({queryKey:['session'],queryFn:()=>api<Capabilities>('/session')});
   const summary=useQuery({queryKey:['summary',scope],queryFn:()=>api<Summary>('/finance/summary'+(scope?'?classification='+scope:''))});
@@ -54,7 +54,7 @@ function Workspace({session}:{session:Session}){
       <Space size={18}><Badge dot={!!summary.data&&(summary.data.missing>0||summary.data.review>0)}><Button type="text" aria-label="Xem các mục cần xử lý" icon={<BellOutlined/>} onClick={()=>navigate('/alerts')}/></Badge>
         <Dropdown menu={{items:[{key:'profile',label:session.user.email||'Tài khoản',disabled:true},{key:'role',label:caps.data?.actor.role||'Đang xác minh quyền',disabled:true},
           {key:'logout',label:'Đăng xuất',icon:<LogoutOutlined/>}],onClick:async({key})=>{if(key==='logout'){await auth?.auth.signOut();queryClient.clear();}}}}><Button type="text" className="profile-button"><Avatar size={30} style={{background:'#e1f0eb',color:'#177c70'}}>{(session.user.email||'U').slice(0,1).toUpperCase()}</Avatar><span>{caps.data?.actor.role||'Tài khoản'}</span></Button></Dropdown></Space></header>
-      <Layout.Content className="main-content"><div className="scope-strip"><Space><span className="muted">Phạm vi dữ liệu</span><Segmented value={scope} options={[{label:'Đang vận hành',value:'XLSX_MATCHED'},{label:'Legacy',value:'LEGACY_UNMATCHED'},{label:'Tất cả',value:''}]} onChange={v=>changeScope(v as Scope)}/></Space>
+      <Layout.Content className="main-content"><div className="scope-strip"><Space><span className="muted">Phạm vi dữ liệu</span><Segmented value={scope} options={[{label:'Đang vận hành',value:'ACTIVE'},{label:'Legacy',value:'LEGACY_UNMATCHED'},{label:'Tất cả',value:''}]} onChange={v=>changeScope(v as Scope)}/></Space>
         <Tag color={caps.data?.canWrite?'green':'default'}>{caps.data?.canWrite?'Có quyền cập nhật':'Chỉ xem'}</Tag></div>
         {caps.error?<Alert type="warning" showIcon title="Quyền truy cập chưa được xác minh" description={caps.error instanceof Error?caps.error.message:'Vui lòng tải lại sau.'} className="page-alert"/>:null}
         <Suspense fallback={<div className="drawer-loading"><Spin/><p>Đang mở màn hình…</p></div>}><Routes><Route path="/" element={<Dashboard/>}/><Route path="/products" element={<Products/>}/><Route path="/finance" element={<Review/>}/><Route path="/alerts" element={<Review alerts/>}/>

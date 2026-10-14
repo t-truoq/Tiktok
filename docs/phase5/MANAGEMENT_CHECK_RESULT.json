@@ -1,0 +1,14 @@
+{
+  "verifiedAtUtc": "2026-10-14T17:38:59.822Z",
+  "status": "PASS",
+  "newRoundWorkflow": "PASS",
+  "parallelSample2End1": "PASS",
+  "dynamicRound3AndZero": "PASS",
+  "ianaLocalDate": "PASS",
+  "privateImageValidation": "PASS",
+  "manualDto": "PASS",
+  "financialParity": "46/46_BOTH_VERSIONS_PER_ROUND",
+  "sourceSha256": "b946ef84f65001034d771656bdb56533c158c45b7a8b7c4ca9db139dc3c3f2db",
+  "databaseWrites": false,
+  "fullOldTestSuiteRepeated": false
+}

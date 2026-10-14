@@ -2,6 +2,9 @@
 import 'reflect-metadata';
 import { Logger, Module, OnApplicationShutdown, Inject } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
+// truonglt bounded private image JSON payload start
+import { NestExpressApplication } from '@nestjs/platform-express';
+// truonglt bounded private image JSON payload end
 import { config } from 'dotenv';
 import { resolve } from 'node:path';
 import { createDatabaseClient, DatabaseClient, sanitizedDatabaseError, unavailableDatabaseClient, databaseErrorReason } from './database';
@@ -43,7 +46,10 @@ export async function createApp() {
   // truonglt Phase3.1 public business route enablement start
   // Disabled means no Business API routes are registered, not merely rejected writes.
   const entryModule = { module: AppModule, imports: process.env.BUSINESS_API_ENABLED === 'true' ? [BusinessModule] : [] };
-  const app = await NestFactory.create(entryModule, { logger: ['error', 'warn'] });
+  const app = await NestFactory.create<NestExpressApplication>(entryModule, { logger: ['error', 'warn'] });
+  // truonglt 2MiB image encoded as base64 with bounded request size start
+  app.useBodyParser('json', { limit: '3mb' });
+  // truonglt 2MiB image encoded as base64 with bounded request size end
   // truonglt Phase3.1 public business route enablement end
   app.setGlobalPrefix('api/v1');
   // truonglt Phase4 exact CORS allowlist and deployment evidence start

@@ -1,9 +1,44 @@
 // truonglt Phase3 source traced domain operations start
-import { amount, calculateFinance, calculateStatus, normalizeRecord, parseStage, RecordData } from '../finance/engine';
+import { amount, calculateFinance, calculateStatus, configs, normalizeRecord, parseStage, RecordData } from '../finance/engine';
 import { fail, keys, MutationDto } from './contracts';
 import { formatSourceTimestamp, sourceDateToInstant, SourceDateError } from '../finance/source-time';
 export function applyOperation(source: RecordData, dto: MutationDto, now: Date, view?: { profit: unknown }):
   { record: RecordData; finance: ReturnType<typeof calculateFinance>; events: { type: string; stage: string; data: RecordData; before?: RecordData; after?: RecordData }[]; view: { profit: unknown } } {
+  // truonglt automatic N and per-round controls preserve the original call chain start
+  if (dto.operation === 'ROUND_ACTION') {
+    keys(dto.values, ['action', 'group', 'roundIndex', 'value', 'unitPrice', 'quantity']);
+    const v = dto.values, action = String(v.action), group = v.group === 'SAMPLE' ? 'sample' : v.group === 'END' ? 'end' : null;
+    if (!group || !['ORDER_NEXT', 'RECEIVE', 'EDIT_BUY', 'EDIT_SALES', 'VERIFY_STAGE', 'CORRECT_UNRECEIVED', 'CANCEL_STAGE', 'RESTORE_STAGE'].includes(action)) fail('INVALID_ROUND_ACTION');
+    const r = normalizeRecord(source), known = configs(r).filter(c => c.group === group);
+    const index = action === 'ORDER_NEXT' ? Math.max(0, ...known.map(c => c.index)) + 1 : Number(v.roundIndex);
+    if (!Number.isSafeInteger(index) || index < 1) fail('INVALID_ROUND_INDEX');
+    if (action !== 'ORDER_NEXT' && (!/^[1-9]\d*$/.test(String(v.roundIndex)) || !known.some(c => c.index === index))) fail('ROUND_NOT_FOUND', 404);
+    if (action === 'ORDER_NEXT' && v.roundIndex !== undefined) fail('AUTO_ROUND_INDEX_REQUIRED');
+    if (['ORDER_NEXT', 'EDIT_BUY'].includes(action)) keys(v, action === 'ORDER_NEXT' ? ['action','group','value'] : ['action','group','roundIndex','value']);
+    else if (action === 'EDIT_SALES') keys(v, ['action','group','roundIndex','unitPrice','quantity']);
+    else keys(v, ['action','group','roundIndex']);
+    const state = r.purchaseState[`${group}:${index}`];
+    if (action === 'RECEIVE' && (!state?.ordered || state.received || state.cancelled)) fail('ROUND_NOT_PENDING');
+    if (action === 'EDIT_BUY' && state?.received) fail('BUY_REQUIRES_ORDER_STAGE');
+    if (action === 'EDIT_SALES' && group !== 'end') fail('SALES_REQUIRES_END_STAGE');
+    if (state?.cancelled && action !== 'RESTORE_STAGE') fail('ROUND_CANCELLED');
+    const received = action === 'RECEIVE' || (action !== 'ORDER_NEXT' && state?.received === true);
+    const progress = `${received ? 'Nhận' : 'Đặt'} ${group === 'sample' ? 'mẫu' : 'End'} ${index}`;
+    let result = { record: source, finance: calculateFinance(source), events: [] as any[], view: view || { profit: source.profit ?? '' } };
+    const steps: MutationDto[] = [];
+    if (r.currentProgress !== progress || action === 'ORDER_NEXT' || action === 'RECEIVE') steps.push({ ...dto, operation:'SET_STAGE', values:{ progress } });
+    if (action === 'ORDER_NEXT' && Object.hasOwn(v,'value')) steps.push({ ...dto, operation:'EDIT_BUY', values:{value:v.value} });
+    if (!['ORDER_NEXT','RECEIVE'].includes(action)) steps.push({ ...dto, operation:action as MutationDto['operation'],
+      values:action === 'EDIT_BUY' ? {value:v.value} : action === 'EDIT_SALES' ? Object.fromEntries(['unitPrice','quantity'].filter(k=>Object.hasOwn(v,k)).map(k=>[k,v[k]])) : {} });
+    let currentView = view;
+    for (const step of steps) {
+      const before = result.record, next = applyOperation(before, step, now, currentView);
+      currentView = next.view;
+      result = { ...next, events:[...result.events, ...next.events.map(e=>({...e,before:e.before||structuredClone(before),after:e.after||structuredClone(next.record)}))] };
+    }
+    return result;
+  }
+  // truonglt automatic N and per-round controls preserve the original call chain end
   // Grouped API edits compose original single-column handlers in source column
   // order. Canonical payload hashing therefore cannot hide order-dependent results.
   if (['EDIT_FIELDS', 'EDIT_SALES'].includes(dto.operation) && Object.keys(dto.values).length > 1) {
@@ -60,8 +95,11 @@ export function applyOperation(source: RecordData, dto: MutationDto, now: Date, 
     keys(values, ['wholesale', 'qty', 'refundQty', 'note', 'status', 'date', 'pic']); if (!Object.keys(values).length) fail('MISSING_VALUE');
     for (const [field, value] of Object.entries(values)) {
       if (['note', 'status', 'pic', 'date'].includes(field) && (typeof value !== 'string' || value.length > 4000)) fail('INVALID_TEXT');
-      if (field === 'date' && (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}T.*(?:Z|[+-]\d{2}:\d{2})$/.test(value) || !Number.isFinite(Date.parse(value)))) fail('EXPLICIT_TIMEZONE_REQUIRED');
-      r[field === 'date' ? 'currentDate' : field] = field === 'date' ? formatSourceTimestamp(sourceDateToInstant(value)!) : ['wholesale', 'qty'].includes(field) ? amount(value)?.toString() ?? null : ['note', 'status', 'pic'].includes(field) ? String(value).trim() : value;
+      // truonglt local date input uses the single owner-confirmed IANA parser start
+      const localDateInput = typeof value === 'string' && /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(value) ? value + ':00' : value;
+      const date = field === 'date' ? sourceDateToInstant(localDateInput) : null;
+      r[field === 'date' ? 'currentDate' : field] = field === 'date' ? (date ? formatSourceTimestamp(date) : '') : ['wholesale', 'qty'].includes(field) ? amount(value)?.toString() ?? null : ['note', 'status', 'pic'].includes(field) ? String(value).trim() : value;
+      // truonglt local date input uses the single owner-confirmed IANA parser end
       if (field === 'pic' && s && !s.done) r[`${s.group === 'end' ? 'picEnd' : 'picMau'}${s.index}`] = String(value).trim();
       add(({ refundQty: 'REFUND_QTY_EDIT', note: 'NOTE_EDIT', status: 'STATUS_EDIT', date: 'DATE_EDIT', pic: 'PIC_EDIT' } as RecordData)[field] || 'FIELD_EDIT');
     }

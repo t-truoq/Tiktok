@@ -8,6 +8,9 @@ import { useNavigate } from 'react-router-dom';
 import { api, decimalText, money, qs, type History, type Page, type Product, type Summary } from './api';
 import { Currency, downloadFile, eventLabels, Failure, FinancialCards, NoData, PageHeading, ScopeTag, StatusTag, useDebounce, useWorkspace } from './ui';
 import { EditDialog } from './ProductDrawer';
+// truonglt management controls and simultaneous rounds start
+import { AddProduct, ProductPhoto, RoundTags } from './Management';
+// truonglt management controls and simultaneous rounds end
 function useSummary(filters:Record<string,unknown>={}) {const{scope}=useWorkspace();return useQuery({queryKey:['summary',scope,filters],queryFn:()=>api<Summary>('/finance/summary'+qs({classification:scope,...filters}))});}
 function useProducts(values:Record<string,unknown>){const{scope}=useWorkspace();return useQuery({queryKey:['products',scope,values],queryFn:()=>api<Page<Product>>('/products'+qs({classification:scope,...values}))});}
 export function Dashboard(){
@@ -17,7 +20,7 @@ export function Dashboard(){
     <div className="dashboard-columns"><Card className="section-card" title={<Space><ShopOutlined/>Sản phẩm trong phạm vi</Space>} extra={<Button type="link" onClick={()=>navigate('/products')}>Xem tất cả <ArrowRightOutlined/></Button>}>
       {products.error?<Failure error={products.error} retry={()=>products.refetch()}/>:<Table<Product> rowKey="id" loading={products.isPending} pagination={false} size="middle" dataSource={products.data?.items} columns={[
         {title:'Sản phẩm',dataIndex:'rootName',render:(name,p)=><button className="product-link" onClick={()=>showProduct(p.id)}>{name}</button>},
-        {title:'Giai đoạn',dataIndex:'currentStageLabel',render:v=><span className="stage-text">{v||'—'}</span>},
+        {title:'Giai đoạn',dataIndex:'currentStageLabel',render:(_,p)=><RoundTags product={p}/>},
         {title:'Chưa thanh toán',align:'right',render:(_,p)=><Currency value={p.finance?.payment.unpaid}/>}
       ]}/>}</Card>
       <Card className="section-card attention-card" title={<Space><BellOutlined/>Cần ưu tiên</Space>} extra={<Tag color="orange">{review.data?.total??'—'} sản phẩm</Tag>}>
@@ -28,8 +31,6 @@ export function Dashboard(){
 }
 function AttentionTags({product:p}:{product:Product}){const a=p.attention;return <Space wrap size={4}>{a?.missingPrices?<Tag color="red">{a.missingPrices} lượt thiếu giá</Tag>:null}
   {a?.unverified?<Tag color="orange">{a.unverified} lượt chưa xác minh</Tag>:null}{a?.refundDue?<Tag color="gold">Đến hạn kiểm tra hoàn</Tag>:null}{a?.historyConflict?<Tag color="purple">Lịch sử cần đối soát</Tag>:null}{a?.dateIssue?<Tag color="red">Ngày chưa rõ</Tag>:null}</Space>;}
-function thumb(product:Product){const reference=product.sourceView?.imageReference;const value=typeof reference==='string'?reference:reference&&typeof reference==='object'&&'url' in reference?String((reference as any).url):'';
-  try{const u=new URL(value);return u.protocol==='https:'&&!u.username&&!u.password?u.href:undefined;}catch{return undefined;}}
 function ResizeHead({children,width,onResizeWidth,...rest}:any){return <th {...rest} style={{...rest.style,width}}>{children}{onResizeWidth?<button className="resize-handle" aria-label="Điều chỉnh độ rộng cột" onClick={e=>e.stopPropagation()} onKeyDown={e=>{
   if(e.key==='ArrowLeft'||e.key==='ArrowRight'){e.preventDefault();onResizeWidth(Math.max(80,width+(e.key==='ArrowLeft'?-16:16)));}}} onPointerDown={e=>{e.preventDefault();e.stopPropagation();const start=e.clientX,w=width,controller=new AbortController();
     document.addEventListener('pointermove',event=>onResizeWidth(Math.max(80,Math.min(700,w+event.clientX-start))),{signal:controller.signal});document.addEventListener('pointerup',()=>controller.abort(),{once:true,signal:controller.signal});}}/>:null}</th>;}
@@ -37,8 +38,8 @@ const defaultColumns=['rootName','stage','status','sampleBuy','endBuy','wholesal
 const columnNames:Record<string,string>={rootName:'Sản phẩm',image:'Ảnh',refundQty:'Số lượng hoàn',stage:'Giai đoạn',pic:'Phụ trách',date:'Ngày nguồn',status:'Trạng thái',sampleBuy:'Giá mua mẫu',endBuy:'Giá mua End',
   wholesale:'Giá bán mẫu',qty:'SL mẫu đã bán',endSell:'Giá bán End',endSellQty:'SL End đã bán',profit:'LN dự kiến',note:'Ghi chú',paid:'Đã thanh toán',unpaid:'Chưa thanh toán',refundEligible:'Đủ điều kiện hoàn'};
 function loadColumns(){try{const value=JSON.parse(localStorage.getItem('affiliate-columns')||'null');return Array.isArray(value)?[...new Set(['rootName',...value.filter(v=>columnNames[v])])]:defaultColumns;}catch{return defaultColumns;}}
-type SavedFilter={name:string;scope:''|'XLSX_MATCHED'|'LEGACY_UNMATCHED';search:string;status?:string;stage?:string};
-function loadFilters():SavedFilter[]{try{const data=JSON.parse(localStorage.getItem('affiliate-filters')||'[]');return Array.isArray(data)?data.filter(v=>typeof v.name==='string'&&['','XLSX_MATCHED','LEGACY_UNMATCHED'].includes(v.scope)&&typeof v.search==='string').slice(0,20):[];}catch{return [];}}
+type SavedFilter={name:string;scope:''|'ACTIVE'|'MANUAL'|'XLSX_MATCHED'|'LEGACY_UNMATCHED';search:string;status?:string;stage?:string};
+function loadFilters():SavedFilter[]{try{const data=JSON.parse(localStorage.getItem('affiliate-filters')||'[]');return Array.isArray(data)?data.filter(v=>typeof v.name==='string'&&['','ACTIVE','MANUAL','XLSX_MATCHED','LEGACY_UNMATCHED'].includes(v.scope)&&typeof v.search==='string').slice(0,20):[];}catch{return [];}}
 export function Products(){
   const{scope,setScope,search,setSearch,showProduct,capabilities}=useWorkspace();const debounced=useDebounce(search),[page,setPage]=useState(1),[limit,setLimit]=useState(25),[status,setStatus]=useState<string>(),[stage,setStage]=useState<string>();
   const [sort,setSort]=useState('rootName'),[direction,setDirection]=useState('asc'),[visible,setVisible]=useState<string[]>(loadColumns),[widths,setWidths]=useState<Record<string,number>>({});
@@ -49,14 +50,14 @@ export function Products(){
     setSaved(next);localStorage.setItem('affiliate-filters',JSON.stringify(next));message.success('Đã lưu bộ lọc trên thiết bị này.');}});}
   useEffect(()=>setPage(1),[scope,debounced,status,stage,limit]);useEffect(()=>localStorage.setItem('affiliate-columns',JSON.stringify(visible)),[visible]);
   const filters={search:debounced,status,stage};const q=useProducts({page,limit,sort,direction,...filters}),summary=useSummary(filters);
-  const writable=(p:Product)=>!!capabilities?.canWrite&&p.classification==='XLSX_MATCHED'&&!p.archived;
+  const writable=(p:Product)=>!!capabilities?.canWrite&&p.classification!=='LEGACY_UNMATCHED'&&!p.archived;
   function editable(p:Product,field:string,value:unknown){return <Space size={4}><span>{field==='wholesale'?money(value):field==='qty'||field==='refundQty'?decimalText(value):String(value??'—')}</span>
     {writable(p)?<Button type="text" size="small" className="inline-edit" icon={<EditOutlined/>} aria-label={'Sửa '+(columnNames[field]||field)} onClick={e=>{e.stopPropagation();setEdit({product:p,field});}}/>:null}</Space>;}
-  const definitions:ColumnsType<Product>=[{key:'rootName',title:'Sản phẩm',dataIndex:'rootName',fixed:'left',width:285,sorter:true,render:(value,p)=><div className="product-name-cell"><button className="product-link" onClick={()=>showProduct(p.id)}>{value}</button><div className="product-subline">
+  const definitions:ColumnsType<Product>=[{key:'rootName',title:'Sản phẩm',dataIndex:'rootName',fixed:'left',width:285,sorter:true,render:(value,p)=><div className="product-name-cell"><ProductPhoto product={p}/><button className="product-link" onClick={()=>showProduct(p.id)}>{value}</button><div className="product-subline">
     {p.classification==='LEGACY_UNMATCHED'?<Tag color="purple"><LockOutlined/> Legacy</Tag>:null}{p.finance?.payment.missing?<span className="warning-text">Thiếu giá</span>:null}{p.finance?.payment.review?<span className="muted">Cần xác minh</span>:null}</div></div>},
-    {key:'image',title:'Ảnh',width:70,render:(_,p)=>thumb(p)?<img className="product-thumb" src={thumb(p)} alt="" loading="lazy" referrerPolicy="no-referrer"/>:<span className="thumb-placeholder"><PictureOutlined/></span>},
+    {key:'image',title:'Ảnh',width:70,render:(_,p)=><ProductPhoto product={p}/>},
     {key:'refundQty',title:'SL hoàn',width:115,align:'right',render:(_,p)=>editable(p,'refundQty',p.refundQuantity)},
-    {key:'stage',title:'Giai đoạn',dataIndex:'currentStageLabel',width:160,render:value=><Tag color="cyan">{value||'Chưa chọn'}</Tag>},
+    {key:'stage',title:'Giai đoạn',dataIndex:'currentStageLabel',width:160,render:(_,p)=><RoundTags product={p}/>},
     {key:'pic',title:'Phụ trách',dataIndex:'pic',width:135,render:(v,p)=>editable(p,'pic',v)},
     {key:'date',title:'Ngày nguồn',dataIndex:'currentDateText',width:180,render:v=>v||'—'},
     {key:'status',title:'Trạng thái',dataIndex:'currentStatus',width:210,sorter:true,render:(_,p)=><StatusTag product={p}/>},
@@ -76,18 +77,18 @@ export function Products(){
   function exportPage(){const headers=['Sản phẩm','Giai đoạn','Trạng thái','Đã thanh toán','Chưa thanh toán','Đủ điều kiện hoàn','Lợi nhuận dự kiến'];const cell=(v:unknown)=>'"'+String(v??'').replace(/^([=+@\t\r-])/,"'$1").replace(/"/g,'""')+'"';
     const rows=(q.data?.items||[]).map(p=>[p.rootName,p.currentStageLabel,p.currentStatus,p.finance.payment.paid,p.finance.payment.unpaid,p.finance.refund.total,p.finance.projectedProfit]);
     downloadFile('san-pham-trang-'+page+'.csv','\ufeff'+[headers,...rows].map(r=>r.map(cell).join(',')).join('\r\n'),'text/csv;charset=utf-8');}
-  return <><PageHeading title="Sản phẩm" subtitle="Giữ toàn bộ sản phẩm và lịch sử. Dữ liệu legacy được đánh dấu riêng, không tự gộp hoặc xóa." action={<Button icon={<DownloadOutlined/>} onClick={exportPage} disabled={!q.data?.items.length}>Xuất trang hiện tại</Button>}/>
+  return <><PageHeading title="Sản phẩm" subtitle="Theo dõi đồng thời từng lượt mẫu và End. Giá và lịch sử nguồn được giữ nguyên." action={<Space><AddProduct/><Button icon={<DownloadOutlined/>} onClick={exportPage} disabled={!q.data?.items.length}>Xuất trang hiện tại</Button></Space>}/>
     {summary.error?<Failure error={summary.error} retry={()=>summary.refetch()}/>:<FinancialCards summary={summary.data} loading={summary.isPending} updatedAt={summary.dataUpdatedAt}/>}
     <Card className="grid-card"><div className="grid-toolbar"><Space wrap><FilterOutlined className="muted"/><Select allowClear placeholder="Trạng thái" value={status} onChange={setStatus} style={{width:190}}
       options={[...new Set((q.data?.items||[]).map(p=>p.currentStatus).filter(Boolean))].map(v=>({value:v,label:v}))}/>
-      <Select allowClear placeholder="Giai đoạn" value={stage} onChange={setStage} style={{width:170}} options={[...new Set((q.data?.items||[]).map(p=>p.currentStageLabel).filter(Boolean))].map(v=>({value:v,label:v}))}/>
+      <Select allowClear placeholder="Lượt đang thao tác" value={stage} onChange={setStage} style={{width:170}} options={[...new Set((q.data?.items||[]).map(p=>p.currentStageLabel).filter(Boolean))].map(v=>({value:v,label:v}))}/>
       {(debounced||status||stage)?<Button type="text" onClick={()=>{setStatus(undefined);setStage(undefined);setSearch('');}}>Xóa bộ lọc</Button>:null}
       <Dropdown disabled={!saved.length} menu={{items:saved.map((f,i)=>({key:String(i),label:f.name})),onClick:({key})=>{const f=saved[Number(key)];if(f){setScope(f.scope);setSearch(f.search);setStatus(f.status);setStage(f.stage);setPage(1);}}}}><Button>Bộ lọc đã lưu</Button></Dropdown><Button type="text" onClick={saveFilter}>Lưu bộ lọc</Button></Space>
       <Space><Popover placement="bottomRight" title="Cột hiển thị" content={<Checkbox.Group value={visible} onChange={v=>setVisible([...new Set(['rootName',...v as string[]])])} options={Object.entries(columnNames).map(([value,label])=>({value,label,disabled:value==='rootName'}))} className="column-options"/>} trigger="click"><Button icon={<SettingOutlined/>}>Cột</Button></Popover>
         <Segmented value={mode} options={[{label:'Bảng',value:'grid'},{label:'Thẻ',value:'cards'}]} onChange={v=>setMode(v as 'grid'|'cards')}/>
         <Tooltip title="Mật độ dòng"><Button onClick={()=>setDensity(v=>v==='small'?'middle':'small')}>{density==='small'?'Thoáng':'Gọn'}</Button></Tooltip></Space></div>
       {q.error?<Failure error={q.error} retry={()=>q.refetch()}/>:<><div className={mode==='cards'?'product-card-view forced':'product-card-view'}><Spin spinning={q.isPending}><div className="product-cards">{q.data?.items.map(p=><Card key={p.id} size="small" onClick={()=>showProduct(p.id)} className="product-mobile-card">
-        <button className="product-link" onClick={()=>showProduct(p.id)}>{p.rootName}</button><Space wrap className="mobile-stage"><Tag color="cyan">{p.currentStageLabel||'Chưa chọn'}</Tag><StatusTag product={p}/>{p.classification==='LEGACY_UNMATCHED'?<Tag color="purple">Legacy · chỉ xem</Tag>:null}</Space>
+        <ProductPhoto product={p}/><button className="product-link" onClick={()=>showProduct(p.id)}>{p.rootName}</button><Space wrap className="mobile-stage"><RoundTags product={p}/><StatusTag product={p}/>{p.classification==='LEGACY_UNMATCHED'?<Tag color="purple">Legacy · chỉ xem</Tag>:null}</Space>
         <div className="mobile-money"><span>Đã trả<strong>{money(p.finance?.payment.paid)}</strong></span><span>Chưa trả<strong>{money(p.finance?.payment.unpaid)}</strong></span><span>LN dự kiến<strong>{money(p.finance?.projectedProfit)}</strong></span></div><AttentionTags product={p}/></Card>)}</div></Spin></div>
         <div className={mode==='cards'?'desktop-grid hidden':'desktop-grid'}><Table<Product> components={{header:{cell:ResizeHead}}} rowKey="id" columns={columns} dataSource={q.data?.items} loading={q.isPending} size={density} pagination={false} scroll={{x:'max-content'}}
           onRow={p=>({onClick:e=>{if(!(e.target as HTMLElement).closest('button,input,[role="button"]'))showProduct(p.id);},tabIndex:0,onKeyDown:e=>{if(e.key==='Enter'&&e.target===e.currentTarget)showProduct(p.id);}})}
@@ -137,6 +138,6 @@ export function Settings({email}:{email?:string}){
       <p className="muted">Quyền do quản trị viên cấp tại backend. Không có thao tác tự nâng quyền hoặc tạo tài khoản ở đây.</p></Card>
       <Card title="Nguyên tắc dữ liệu"><Descriptions column={1} items={[{key:'zone',label:'Múi giờ nguồn',children:'Asia/Ho_Chi_Minh · UTC+07:00'},{key:'engine',label:'Công thức chuẩn',children:'V9.1 · đối chiếu V9.2'},
         {key:'missing',label:'Giá thiếu',children:'Hiển thị —, khác giá trị 0'},{key:'legacy',label:'Dữ liệu legacy',children:'Chỉ xem, giữ toàn bộ raw và history'},{key:'history',label:'Lịch sử',children:'Append-only, không ghi đè'}]}/></Card></div>
-    <Card className="section-card" title="Cách sử dụng"><List dataSource={['Chọn phạm vi Đang vận hành, Legacy hoặc Tất cả ở đầu trang.','Tùy chọn cột, mật độ dòng và kéo độ rộng cột trong bảng sản phẩm.','Mở sản phẩm để xem từng lượt mua, giải thích tiền và toàn bộ lịch sử.','Mọi sửa đổi tài chính có preview do backend tính; xác nhận rồi mới lưu.','Chưa hỗ trợ tạo/đổi tên/archive root, upload ảnh hoặc tự suy ra tiền hoàn thực nhận.']} renderItem={item=><List.Item>{item}</List.Item>}/></Card></>;
+    <Card className="section-card" title="Cách sử dụng"><List dataSource={['Chọn phạm vi Đang vận hành, Legacy hoặc Tất cả ở đầu trang.','Tùy chọn cột, mật độ dòng và kéo độ rộng cột trong bảng sản phẩm.','Mở sản phẩm để xem từng lượt mua, giải thích tiền và toàn bộ lịch sử.','Mọi sửa đổi tài chính có preview do backend tính; xác nhận rồi mới lưu.','Thêm sản phẩm và ảnh riêng tư trong mục Sản phẩm; từng lượt Sample/End được theo dõi đồng thời.','Chưa hỗ trợ đổi tên/archive root hoặc tự suy ra tiền hoàn thực nhận.']} renderItem={item=><List.Item>{item}</List.Item>}/></Card></>;
 }
 // truonglt Phase5 Vietnamese dashboard, product grid, review, audit and settings end
