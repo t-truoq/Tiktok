@@ -77,3 +77,5 @@ Env local hiện đã có DEV, hai URI và DATABASE_CA_CERT_PATH. Không cần g
 
 Tài liệu chính thức: [Supabase SSL modes/CA](https://supabase.com/docs/guides/platform/ssl-enforcement), [Supabase connections](https://supabase.com/docs/guides/database/connecting-to-postgres), [Node TLS](https://nodejs.org/docs/latest-v24.x/api/tls.html), [node-postgres pool](https://node-postgres.com/apis/pool), [Prisma config](https://docs.prisma.io/docs/orm/reference/prisma-config-reference).
 <!-- truonglt phase1 report end -->
+
+Chuẩn bị CI/container/staging mới: [STAGING_READINESS.md](phase1/STAGING_READINESS.md). Build và 12 backend tests chạy lại PASS; Gate 1 vẫn thiếu CI/staging thực tế. Kiểm thử bảo toàn mới: 102 Node và 13 Python PASS, xem [Phase 2 review](phase2/REVIEW_AND_ACCEPTANCE.md).

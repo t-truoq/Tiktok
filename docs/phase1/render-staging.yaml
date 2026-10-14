@@ -1,0 +1,31 @@
+# truonglt render staging reference start
+# Reference for the existing service; not automatically applied or a request to
+# create another service. Keep existing region/plan/instance settings unchanged.
+services:
+  - type: web
+    name: tiktok
+    runtime: node
+    repo: https://github.com/t-truoq/Tiktok
+    branch: main
+    autoDeployTrigger: off
+    buildCommand: npm ci --include=dev && npm run build
+    startCommand: node apps/api/dist/main.js
+    healthCheckPath: /api/v1/health/ready
+    envVars:
+      - key: NODE_VERSION
+        value: 24.21.0
+      - key: NODE_ENV
+        value: production
+      - key: HOST
+        value: 0.0.0.0
+      - key: DB_ENVIRONMENT
+        value: DEV
+      - key: DATABASE_CA_CERT_PATH
+        value: /etc/secrets/database-ca.crt
+      - key: DATABASE_URL
+        sync: false
+      - key: DIRECT_URL
+        sync: false
+# Render supplies PORT. Owner uploads the provider CA as database-ca.crt using
+# Secret Files. Do not configure preDeployCommand/migrations/seeds/db push.
+# truonglt render staging reference end

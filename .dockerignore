@@ -1,0 +1,22 @@
+# truonglt phase2 preservation and staging start
+**/node_modules
+**/dist
+**/.env
+**/.env.*
+**/certs
+**/*.pem
+**/*.key
+**/*.crt
+.git
+.codex
+.agents
+.npm-cache
+TikTok_Affiliate_Phase0_References
+references
+tests
+docs
+scripts
+exports
+**/__pycache__
+
+# truonglt phase2 preservation and staging end

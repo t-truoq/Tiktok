@@ -1,23 +1,77 @@
 # truonglt phase1 ci start
 name: Backend phase gates
-on: [push, pull_request]
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
 jobs:
   local-validation:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 24
           cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
       - run: npm ci
       - run: npm run test:phase0
       - run: python -m unittest discover -s tests/phase0 -p "*_test.py"
       - run: python scripts/phase0/verify_baseline.py
       - run: npm run phase2:preview
+      - run: node scripts/phase2/preservation.cjs
+      - run: python scripts/phase2/verify_roundtrip.py
       - run: npm run prisma:validate
       - run: npm run build
       - run: npm run test:phase1
+      - run: docker build --tag tiktok-affiliate:ci .
+      - uses: actions/upload-artifact@v4
+        with:
+          name: offline-gate-evidence
+          path: |
+            docs/phase0/INDEPENDENT_VALIDATION.json
+            docs/phase2/migration-preview.sql
+            docs/phase2/OFFLINE_VALIDATION.json
+            docs/phase2/INDEPENDENT_ROUNDTRIP.json
+  staging-readonly:
+    if: github.event_name == 'workflow_dispatch'
+    needs: local-validation
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment: staging
+    env:
+      DB_ENVIRONMENT: DEV
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      DIRECT_URL: ${{ secrets.DIRECT_URL }}
+      DATABASE_CA_CERT_PATH: ${{ github.workspace }}/artifacts/database-ca.crt
+      DATABASE_CA_CERT_PEM: ${{ secrets.DATABASE_CA_CERT_PEM }}
+      STAGING_BASE_URL: ${{ vars.STAGING_BASE_URL }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - name: Materialize owner-managed CA certificate without printing secrets
+        run: |
+          node -e "const fs=require('node:fs');if(!process.env.DATABASE_CA_CERT_PEM)process.exit(1);fs.mkdirSync('artifacts',{recursive:true});fs.writeFileSync(process.env.DATABASE_CA_CERT_PATH,process.env.DATABASE_CA_CERT_PEM,{mode:0o600});"
+      - run: npm ci
+      - run: npm run build
+      - run: npm run db:verify
+      - run: node scripts/phase2/verify-staging.cjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: staging-readonly-evidence
+          path: |
+            docs/phase1/live-db-verification.json
+            artifacts/staging-health.json
+      - if: always()
+        run: node -e "require('node:fs').rmSync(process.env.DATABASE_CA_CERT_PATH,{force:true})"
   # Live DEV/staging verification is separate and requires owner-managed secrets.
   # This offline job does not certify Gate 1 real database connectivity.
 # truonglt phase1 ci end
