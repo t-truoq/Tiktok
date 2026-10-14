@@ -1,6 +1,8 @@
 <!-- truonglt phase2 preparation start -->
 # Phase 2 — proposal offline sau Gate0
 
+Review mới và kết quả kiểm thử trước import: xem [REVIEW_AND_ACCEPTANCE.md](REVIEW_AND_ACCEPTANCE.md). Phần dưới là proposal ban đầu; trạng thái hiện tại vẫn chỉ OFFLINE PASS, chưa nghiệm thu Gate 2.
+
 Đã chuẩn bị `schema.prisma` và `migration-preview.sql` trong docs/phase2. Prisma validate và migrate diff từ empty datamodel tới schema file chạy hoàn toàn offline. Không tạo migration trong apps/api/prisma/migrations, không đổi schema API đang dùng, không gọi Supabase hoặc thực thi SQL.
 
 ## Quan hệ và bảo toàn dữ liệu

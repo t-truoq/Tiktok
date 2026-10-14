@@ -24,5 +24,11 @@ test('proposal preserves unknown values and financial history; restrictive delet
   assert.match(sql, /ENABLE ROW LEVEL SECURITY/);
   assert.match(sql, /CHECK \("round_index" > 0 AND "round_index" <= 9007199254740991\)/);
   assert.doesNotMatch(sql, /ON DELETE CASCADE/);
+  for (const guard of ['record_batch_source_fk', 'record_product_key_fk', 'history_imported_product_fk',
+    'snapshot_imported_product_fk', 'refund_sample_product_fk', 'refund_end_product_fk',
+    'order_price_state_consistent', 'batch_plan_checksum_format', 'history_no_truncate'])
+    assert.ok(sql.includes(guard), guard);
+  assert.match(sql, /FROM PUBLIC, anon, authenticated, service_role/);
+  assert.match(schema, /@@unique\(\[productId, importBatchId, sourceJsonPointer\]\)/);
 });
 // truonglt phase2 proposal guard tests end

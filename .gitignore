@@ -12,5 +12,6 @@ coverage/
 *.pfx
 apps/api/src/generated/
 exports/
+artifacts/
 __pycache__/
 # truonglt repository ignore end

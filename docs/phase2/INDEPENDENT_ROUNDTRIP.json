@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "records": 46,
+  "history": 1224,
+  "snapshots": 133,
+  "exactDecimalSlots": 4694,
+  "method": "Independent Python archive/gzip/type/Decimal verification",
+  "databaseExecuted": false
+}

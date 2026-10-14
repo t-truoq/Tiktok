@@ -66,6 +66,7 @@ model ImportBatch {
   sourceArchiveId      String   @map("source_archive_id") @db.Uuid
   source               SourceArchive @relation(fields: [sourceArchiveId], references: [id], onDelete: Restrict)
   mappingVersion       String   @map("mapping_version")
+  planSha256           String   @map("plan_sha256") @db.Char(64)
   status               String
   importedCount        Int      @default(0) @map("imported_count")
   failedCount          Int      @default(0) @map("failed_count")
@@ -74,7 +75,9 @@ model ImportBatch {
   createdAt            DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
   records              LegacyRecord[]
   history              ProductHistory[]
+  snapshots            StageSnapshot[]
   @@unique([sourceArchiveId, mappingVersion])
+  @@unique([id, sourceArchiveId])
   @@map("import_batches")
 }
 
@@ -105,6 +108,7 @@ model Product {
   history               ProductHistory[]
   images                ProductImage[]
   refunds               Refund[]
+  @@unique([id, legacyKey])
   @@index([currentStatus, currentStageGroup, currentStageIndex])
   @@index([classification, archived])
   @@map("products")
@@ -131,6 +135,9 @@ model LegacyRecord {
   createdAt           DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
   slots               LegacyValue[]
   @@unique([sourceArchiveId, legacyKey])
+  @@unique([productId, importBatchId])
+  @@index([productId])
+  @@index([importBatchId])
   @@map("legacy_records")
 }
 
@@ -170,6 +177,7 @@ model PurchaseRound {
   sampleRefunds     Refund[] @relation("SampleRefund")
   endRefunds        Refund[] @relation("EndRefund")
   @@unique([productId, group, roundIndex])
+  @@unique([id, productId, group])
   @@index([productId, ordered, received, cancelled])
   @@map("purchase_rounds")
 }
@@ -195,8 +203,12 @@ model StageSnapshot {
   sourceDateText      String? @map("source_date_text")
   effectiveAtUtc      DateTime? @map("effective_at_utc") @db.Timestamptz(6)
   sourceJsonPointer   String? @map("source_json_pointer")
+  importBatchId       String? @map("import_batch_id") @db.Uuid
+  batch               ImportBatch? @relation(fields: [importBatchId], references: [id], onDelete: Restrict)
   createdAt           DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
   @@index([productId, sourceLabel])
+  @@unique([productId, importBatchId, sourceJsonPointer])
+  @@index([importBatchId])
   @@map("stage_snapshots")
 }
 
@@ -222,6 +234,8 @@ model ProductHistory {
   @@unique([productId, importBatchId, legacyEventIndex])
   @@index([productId, legacyEventIndex])
   @@index([productId, recordedAt])
+  @@index([importBatchId])
+  @@index([actorId])
   @@map("product_history")
 }
 
@@ -230,14 +244,18 @@ model Refund {
   productId        String @map("product_id") @db.Uuid
   product          Product @relation(fields: [productId], references: [id], onDelete: Restrict)
   sampleRoundId    String? @map("sample_round_id") @db.Uuid
+  sampleGroup      RoundGroup @default(SAMPLE) @map("sample_group")
   sampleRound      PurchaseRound? @relation("SampleRefund", fields: [sampleRoundId], references: [id], onDelete: Restrict)
   endRoundId       String? @map("end_round_id") @db.Uuid
+  endGroup         RoundGroup @default(END) @map("end_group")
   endRound         PurchaseRound? @relation("EndRefund", fields: [endRoundId], references: [id], onDelete: Restrict)
   eligibility     Json
   reviewFields     Json? @map("review_fields")
   actualRefundData Json? @map("actual_refund_data")
   createdAt        DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
   @@index([productId])
+  @@index([sampleRoundId])
+  @@index([endRoundId])
   @@map("refunds")
 }
 

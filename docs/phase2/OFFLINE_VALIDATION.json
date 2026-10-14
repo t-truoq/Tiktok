@@ -1,0 +1,15 @@
+{
+  "status": "OFFLINE_PASS",
+  "records": 46,
+  "matched": 24,
+  "legacy": 22,
+  "history": 1224,
+  "snapshots": 133,
+  "sourceSha256": "b946ef84f65001034d771656bdb56533c158c45b7a8b7c4ca9db139dc3c3f2db",
+  "planSha256": "f2cab13ed5975c06bce0cb839a71ae50fefc58f01c882faf003094753eb25706",
+  "financialSlotsChecked": 10006,
+  "numericFinancialSlotsChecked": 4694,
+  "restoredByteLength": 89338,
+  "databaseExecuted": false,
+  "importApproved": false
+}
