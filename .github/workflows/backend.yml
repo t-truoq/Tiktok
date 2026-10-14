@@ -1,0 +1,21 @@
+# truonglt phase1 ci start
+name: Backend phase gates
+on: [push, pull_request]
+jobs:
+  local-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run test:phase0
+      - run: python -m unittest discover -s tests/phase0 -p "*_test.py"
+      - run: npm run prisma:validate
+      - run: npm run build
+      - run: npm run test:phase1
+  # Live DEV/staging verification is separate and requires owner-managed secrets.
+  # This offline job does not certify Gate 1 real database connectivity.
+# truonglt phase1 ci end

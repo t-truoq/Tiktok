@@ -1,0 +1,12 @@
+// truonglt phase1 prisma foundation start
+generator client {
+  provider     = "prisma-client"
+  output       = "../src/generated/prisma"
+  moduleFormat = "cjs"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+// No business entities or migrations before source/export reconciliation gates.
+// truonglt phase1 prisma foundation end

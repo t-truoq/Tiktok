@@ -1,0 +1,17 @@
+{
+  "name": "tiktok-affiliate",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Phase 0 source preservation and Phase 1 backend foundation",
+  "workspaces": ["apps/api"],
+  "scripts": {
+    "inventory": "py scripts/phase0/inventory.py",
+    "test:phase0": "node --test tests/phase0/*.test.cjs",
+    "build": "npm run build --workspace apps/api",
+    "test:phase1": "npm run test --workspace apps/api",
+    "prisma:validate": "npm run prisma:validate --workspace apps/api",
+    "start:api": "npm run start --workspace apps/api",
+    "db:verify": "node apps/api/dist/verify-db.js"
+  },
+  "engines": {"node": ">=24 <25"}
+}
