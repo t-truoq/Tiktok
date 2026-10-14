@@ -7,6 +7,9 @@
   "scripts": {
     "inventory": "py scripts/phase0/inventory.py",
     "test:phase0": "node --test tests/phase0/*.test.cjs",
+    "baseline:build": "node scripts/phase0/source-baseline.cjs",
+    "phase2:preview": "node scripts/phase0/prepare-schema-preview.cjs",
+    "gate0:finalize": "node scripts/phase0/finalize-gate0.cjs",
     "build": "npm run build --workspace apps/api",
     "test:phase1": "npm run test --workspace apps/api",
     "prisma:validate": "npm run prisma:validate --workspace apps/api",

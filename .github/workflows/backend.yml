@@ -13,6 +13,8 @@ jobs:
       - run: npm ci
       - run: npm run test:phase0
       - run: python -m unittest discover -s tests/phase0 -p "*_test.py"
+      - run: python scripts/phase0/verify_baseline.py
+      - run: npm run phase2:preview
       - run: npm run prisma:validate
       - run: npm run build
       - run: npm run test:phase1
