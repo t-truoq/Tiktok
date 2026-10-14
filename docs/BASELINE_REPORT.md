@@ -82,9 +82,13 @@ Validator `scripts/migration/validate-export.py` kiểm tra envelope/chunks/deco
 
 Synthetic tests được ghi rõ ở file test; không giả làm fixtures sản phẩm production. Pure source đang dùng Number được chạy nguyên trạng làm regression oracle; chưa port/adapt Decimal để thay đổi hành vi.
 
+## Bổ sung HISTORY JSON
+
+Đã nhận và đọc `TikTok_Affiliate_HISTORY_20261014_104638.json`; xem `phase0/HISTORY_EXPORT_REVIEW.md` và JSON report. Cả 46 root records decode được, gồm đủ 24 tên sản phẩm XLSX với 1.186 history events. Pure source V9.1/V9.2 cho kết quả số bằng nhau và khớp các ô numeric P/Q/R/N đã biết; hai N blank được giữ là khác biệt nullable, không tự coi bằng0. Vẫn còn 9 lượt thiếu giá và 61 lượt cần verify. Metadata/checksum/fingerprints/timezone/stability từ exporter gốc chưa đầy đủ.
+
 ## Gate 0: CHƯA ĐẠT
 
-Source inventory/rule map/exporter/local tests đã hoàn thành. Còn thiếu export Properties thật, xác minh fingerprint/timezone project gốc, golden expected từng sản phẩm/round, history count/latest dates và reconciliation report. Số mismatch với hệ thống thật chưa xác định, không phải 0. Không chuyển đổi/import trước khi dữ liệu được xác minh.
+Source inventory/rule map/exporter/local tests đã hoàn thành. Đã có Properties JSON để đọc và đối chiếu sơ bộ; còn thiếu metadata/fingerprint/timezone/stability của project gốc, golden fixture sign-off từng sản phẩm/round và full history/nullable reconciliation. Kết quả numeric sơ bộ không thay thế nghiệm thu toàn bộ. Không chuyển đổi/import trước khi dữ liệu được xác minh.
 
 Phase1 chỉ làm nền backend độc lập theo chỉ đạo mới; xem `PHASE1_REPORT.md`. Xác nhận mới nhất: project supplied là DEV dành riêng; hai URI Session Pooler đã SELECT 1 thành công với UTC và TLS socket được xác minh. Public schema đã được kiểm kê bằng transaction chỉ đọc và không có tables/views; Gate1 còn staging/CI thực tế. Không entity/migration/Frontend và không yêu cầu tạo DEV mới.
 <!-- truonglt baseline report end -->

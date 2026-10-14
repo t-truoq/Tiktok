@@ -61,7 +61,7 @@ Secrets, credentials và errors: `.env` local ignored; `.env.example` chỉ plac
 
 Còn thiếu hai kiểm tra bắt buộc: kết nối từ backend staging runtime và lần CI thực tế thành công. Không còn thiếu project DEV hoặc hai env routes local; không yêu cầu tạo DEV mới. TLS scopes khác nhau đã được ghi nhận rõ, không tự chỉnh cấu hình SSL server trên Supabase.
 
-Gate0 chưa đạt vì chưa có export Document Properties thật và per-product/per-round/history reconciliation. Không Phase2, entity tables, Prisma migrations hoặc Frontend trước khi cả hai gate đạt.
+Gate0 đã nhận HISTORY Properties JSON và có đối chiếu numeric sơ bộ; chưa đạt full reconciliation/sign-off, còn thiếu source metadata/timezone/fingerprints/stability và xử lý missing/nullable/history evidence. Xem docs/phase0/HISTORY_EXPORT_REVIEW.md. Không Phase2, entity tables, Prisma migrations hoặc Frontend trước khi cả hai gate đạt.
 
 ## Chạy lại
 

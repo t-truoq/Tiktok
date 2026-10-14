@@ -1,0 +1,2310 @@
+{
+  "sourceFile": "TikTok_Affiliate_Phase0_References\\references\\TikTok_Affiliate_HISTORY_20261014_104638.json",
+  "sourceSha256": "b946ef84f65001034d771656bdb56533c158c45b7a8b7c4ca9db139dc3c3f2db",
+  "exportedAt": "2026-10-14T03:46:38.068Z",
+  "declaredProductCount": 70,
+  "propertyCount": 71,
+  "rootCount": 46,
+  "chunkCount": 24,
+  "decodedRecords": 46,
+  "declaredInvalidCount": 48,
+  "activeProducts": 24,
+  "inactiveRelativeToXlsx": 22,
+  "activeHistoryCount": 1186,
+  "activeSnapshotCount": 123,
+  "missingActiveKeys": [],
+  "problems": [],
+  "totals": {
+    "paid": 144155159,
+    "unpaid": 25352082,
+    "refundEligible": 53288699,
+    "projectedProfit": 33059918,
+    "missing": 9,
+    "review": 61
+  },
+  "products": [
+    {
+      "key": "AFF_PRODUCT_#name?",
+      "name": "#NAME?",
+      "activeRelativeToXlsx": false,
+      "encoding": "raw-json",
+      "decodedSha256": "805c551ff29fe0bceec3268cdcf889a5199cb730738db39ed9233be8fd4d4ec4",
+      "schemaVersion": "legacy",
+      "currentProgress": "",
+      "historyCount": 0,
+      "historyTypes": {},
+      "snapshotCount": 0
+    },
+    {
+      "key": "AFF_PRODUCT_#value!",
+      "name": "#VALUE!",
+      "activeRelativeToXlsx": false,
+      "encoding": "raw-json",
+      "decodedSha256": "80c3968bb00a90e9ca4282fb1bff4f2abd9f7ac3bd15d8207afa98448eab92ad",
+      "schemaVersion": "legacy",
+      "currentProgress": "",
+      "historyCount": 0,
+      "historyTypes": {},
+      "snapshotCount": 0
+    },
+    {
+      "key": "AFF_PRODUCT_(sữa non 24h) sữa bột nutifood growplus+ sữa non 24h hỗ trợ tăng đề kháng ( lon 800g)",
+      "name": "(Sữa non 24h) Sữa Bột NUtifood Growplus+ Sữa non 24h Hỗ trợ Tăng Đề Kháng ( Lon 800g)",
+      "activeRelativeToXlsx": true,
+      "row": 19,
+      "encoding": "gzip-base64",
+      "decodedSha256": "78f5074f3b55fe22d2cca5966a38d2ba2aa72cc6a979b320969952973b53728d",
+      "schemaVersion": "9.1",
+      "currentProgress": "Đặt End 1",
+      "historyCount": 11,
+      "historyTypes": {
+        "REFUND_QTY_EDIT": 1,
+        "ENTER_STAGE": 3,
+        "PIC_EDIT": 1,
+        "PRICE_EDIT": 1,
+        "END_BUY_PRICE_EDIT": 3,
+        "LEAVE_STAGE": 2
+      },
+      "firstHistory": "2026-10-02 13:21:08",
+      "lastHistory": "2026-10-13 09:50:03",
+      "snapshotCount": 3,
+      "oracle": {
+        "payment": {
+          "paid": 3791000,
+          "unpaid": 1375892,
+          "incurred": 5166892,
+          "sampleTotal": 3791000,
+          "endTotal": 1375892,
+          "missing": 0,
+          "review": 1,
+          "details": [
+            {
+              "key": "sample:1",
+              "group": "sample",
+              "index": 1,
+              "label": "Mẫu 1",
+              "ordered": true,
+              "received": true,
+              "amount": 3791000,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9",
+              "bucket": "PAID",
+              "status": "ĐÃ THANH TOÁN"
+            },
+            {
+              "key": "end:1",
+              "group": "end",
+              "index": 1,
+              "label": "End 1",
+              "ordered": true,
+              "received": false,
+              "amount": 1375892,
+              "verified": true,
+              "issue": "",
+              "bucket": "UNPAID",
+              "status": "CHƯA THANH TOÁN"
+            }
+          ]
+        },
+        "refund": {
+          "total": 0,
+          "missing": 0
+        },
+        "projectedProfit": -1375892
+      },
+      "observationDifferences": []
+    },
+    {
+      "key": "AFF_PRODUCT_38.861.899",
+      "name": "38.861.899",
+      "activeRelativeToXlsx": false,
+      "encoding": "raw-json",
+      "decodedSha256": "18787cc021e1809d42cb28683a182cf10879511a0794f87b316eb83d9fdec3c5",
+      "schemaVersion": "legacy",
+      "currentProgress": "",
+      "historyCount": 0,
+      "historyTypes": {},
+      "snapshotCount": 0
+    },
+    {
+      "key": "AFF_PRODUCT_40.005.899",
+      "name": "40.005.899",
+      "activeRelativeToXlsx": false,
+      "encoding": "raw-json",
+      "decodedSha256": "1eea0eaae384a8ad5197f916abc843832104aa36b8064c90e220df6726e25348",
+      "schemaVersion": "legacy",
+      "currentProgress": "",
+      "historyCount": 0,
+      "historyTypes": {},
+      "snapshotCount": 0
+    },
+    {
+      "key": "AFF_PRODUCT_40.006.399",
+      "name": "40.006.399",
+      "activeRelativeToXlsx": false,
+      "encoding": "raw-json",
+      "decodedSha256": "878614626cb43919a2ab87acfdc832121e533be0c9d9d58d0564d1afe5475773",
+      "schemaVersion": "legacy",
+      "currentProgress": "",
+      "historyCount": 0,
+      "historyTypes": {},
+      "snapshotCount": 0
+    },
+    {
+      "key": "AFF_PRODUCT_41.004.178",
+      "name": "41.004.178",
+      "activeRelativeToXlsx": false,
+      "encoding": "raw-json",
+      "decodedSha256": "aafdf1ab23bdfec4fedbac0c44b327a8eb277539f9e3ce15e6822e38212494b9",
+      "schemaVersion": "legacy",
+      "currentProgress": "",
+      "historyCount": 0,
+      "historyTypes": {},
+      "snapshotCount": 0
+    },
+    {
+      "key": "AFF_PRODUCT_apta new hỗ trợ tiêu hoá b.a 800g",
+      "name": "Apta new hỗ trợ tiêu hoá b.a 800g",
+      "activeRelativeToXlsx": true,
+      "row": 15,
+      "encoding": "gzip-base64",
+      "decodedSha256": "d0fd9da2f2f7a46922202555d7e4d7de75802c7a30ee1dc65e662dd9083c385b",
+      "schemaVersion": "9.1",
+      "currentProgress": "Nhận mẫu 2",
+      "historyCount": 39,
+      "historyTypes": {
+        "END_PRICE_EDIT": 6,
+        "PRICE_EDIT": 2,
+        "LEAVE_STAGE": 9,
+        "ENTER_STAGE": 9,
+        "PIC_EDIT": 1,
+        "FIELD_EDIT": 2,
+        "END_BUY_PRICE_EDIT": 3,
+        "NOTE_EDIT": 2,
+        "AUTO_STATUS": 5
+      },
+      "firstHistory": "2026-09-28 16:22:18",
+      "lastHistory": "2026-10-10 14:11:29",
+      "snapshotCount": 6,
+      "oracle": {
+        "payment": {
+          "paid": 2003999,
+          "unpaid": 0,
+          "incurred": 2003999,
+          "sampleTotal": 2003999,
+          "endTotal": 0,
+          "missing": 1,
+          "review": 3,
+          "details": [
+            {
+              "key": "sample:1",
+              "group": "sample",
+              "index": 1,
+              "label": "Mẫu 1",
+              "ordered": true,
+              "received": true,
+              "amount": 949999,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9",
+              "bucket": "PAID",
+              "status": "ĐÃ THANH TOÁN"
+            },
+            {
+              "key": "sample:2",
+              "group": "sample",
+              "index": 2,
+              "label": "Mẫu 2",
+              "ordered": true,
+              "received": true,
+              "amount": 1054000,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9",
+              "bucket": "PAID",
+              "status": "ĐÃ THANH TOÁN"
+            },
+            {
+              "key": "end:1",
+              "group": "end",
+              "index": 1,
+              "label": "End 1",
+              "ordered": true,
+              "received": false,
+              "amount": null,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9 | THIẾU GIÁ ĐẶT",
+              "bucket": "MISSING_ORDER_PRICE",
+              "status": "THIẾU GIÁ ĐẶT"
+            },
+            {
+              "key": "end:2",
+              "group": "end",
+              "index": 2,
+              "label": "End 2",
+              "ordered": false,
+              "received": false,
+              "amount": 0,
+              "verified": false,
+              "issue": "Đã xóa giá tại bước Đặt: không tính công nợ",
+              "bucket": "NOT_INCURRED",
+              "status": "CHƯA PHÁT SINH / ĐÃ HỦY"
+            }
+          ]
+        },
+        "refund": {
+          "total": 0,
+          "missing": 0
+        },
+        "projectedProfit": 0
+      },
+      "observationDifferences": [
+        {
+          "col": "N",
+          "kind": "BLANK_NOT_ZERO",
+          "computed": 0
+        }
+      ]
+    },
+    {
+      "key": "AFF_PRODUCT_aptamil 5 hộp 800g",
+      "name": "Aptamil 5 hộp 800g",
+      "activeRelativeToXlsx": false,
+      "encoding": "raw-json",
+      "decodedSha256": "27cb6d5c3557ab3c7137d86095465b31287ce0b966288c511d13500d7b697717",
+      "schemaVersion": "legacy",
+      "currentProgress": "",
+      "historyCount": 0,
+      "historyTypes": {},
+      "snapshotCount": 0
+    },
+    {
+      "key": "AFF_PRODUCT_aptamil newzealand",
+      "name": "Aptamil NewZealand",
+      "activeRelativeToXlsx": false,
+      "encoding": "raw-json",
+      "decodedSha256": "9aa7c14baebe3b702b283b41e909d1d8327362be574c00dc3cd001feb810ad20",
+      "schemaVersion": "legacy",
+      "currentProgress": "Nhận End 2",
+      "historyCount": 0,
+      "historyTypes": {},
+      "snapshotCount": 1
+    },
+    {
+      "key": "AFF_PRODUCT_aptamil newzealand 2 hộp gđ 800g mẹ và bé",
+      "name": "Aptamil NewZealand 2 hộp gđ 800g Mẹ và Bé",
+      "activeRelativeToXlsx": true,
+      "row": 4,
+      "encoding": "gzip-base64",
+      "decodedSha256": "4c1a5475885f8909070ddd7cb00c760699ec4b577022efe221a54ac772b55741",
+      "schemaVersion": "9.1",
+      "currentProgress": "Nhận End 2",
+      "historyCount": 31,
+      "historyTypes": {
+        "FIELD_EDIT": 7,
+        "END_SELL_PRICE_EDIT": 2,
+        "END_SELL_QTY_EDIT": 5,
+        "LEAVE_STAGE": 5,
+        "ENTER_STAGE": 5,
+        "PIC_EDIT": 1,
+        "PRICE_EDIT": 4,
+        "END_BUY_PRICE_EDIT": 1,
+        "AUTO_STATUS": 1
+      },
+      "firstHistory": "2026-09-29 20:08:50",
+      "lastHistory": "2026-10-11 00:36:50",
+      "snapshotCount": 6,
+      "oracle": {
+        "payment": {
+          "paid": 1879000,
+          "unpaid": 0,
+          "incurred": 1879000,
+          "sampleTotal": 1560000,
+          "endTotal": 319000,
+          "missing": 1,
+          "review": 3,
+          "details": [
+            {
+              "key": "sample:2",
+              "group": "sample",
+              "index": 2,
+              "label": "Mẫu 2",
+              "ordered": true,
+              "received": true,
+              "amount": 1560000,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9",
+              "bucket": "PAID",
+              "status": "ĐÃ THANH TOÁN"
+            },
+            {
+              "key": "end:1",
+              "group": "end",
+              "index": 1,
+              "label": "End 1",
+              "ordered": true,
+              "received": false,
+              "amount": null,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9 | THIẾU GIÁ ĐẶT",
+              "bucket": "MISSING_ORDER_PRICE",
+              "status": "THIẾU GIÁ ĐẶT"
+            },
+            {
+              "key": "end:2",
+              "group": "end",
+              "index": 2,
+              "label": "End 2",
+              "ordered": true,
+              "received": true,
+              "amount": 319000,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9",
+              "bucket": "PAID",
+              "status": "ĐÃ THANH TOÁN"
+            }
+          ]
+        },
+        "refund": {
+          "total": 1560000,
+          "missing": 0
+        },
+        "projectedProfit": 3041000
+      },
+      "observationDifferences": []
+    },
+    {
+      "key": "AFF_PRODUCT_aptamil newzealand 2 hộp gđ 800g mẹ và bé (đen)",
+      "name": "Aptamil NewZealand 2 hộp gđ 800g Mẹ và Bé (Đen)",
+      "activeRelativeToXlsx": false,
+      "encoding": "raw-json",
+      "decodedSha256": "0327bdce920498793a7c99c584bf4dfe2db6de51d7504305a807dd92cfdb1713",
+      "schemaVersion": "legacy",
+      "currentProgress": "Đặt mẫu 1",
+      "historyCount": 4,
+      "historyTypes": {
+        "REFUND_QTY_EDIT": 1,
+        "ENTER_STAGE": 1,
+        "PIC_EDIT": 1,
+        "PRICE_EDIT": 1
+      },
+      "firstHistory": "2026-10-05 01:23:52",
+      "lastHistory": "2026-10-05 01:24:35",
+      "snapshotCount": 1
+    },
+    {
+      "key": "AFF_PRODUCT_aptamil newzealand 5",
+      "name": "Aptamil NewZealand 5",
+      "activeRelativeToXlsx": false,
+      "encoding": "raw-json",
+      "decodedSha256": "334efa4614b6d05d75c81e3af1bb929d4f9480e041e8f1eb9ea04bee11d14974",
+      "schemaVersion": "legacy",
+      "currentProgress": "Nhận mẫu 1",
+      "historyCount": 6,
+      "historyTypes": {
+        "REFUND_QTY_EDIT": 1,
+        "ENTER_STAGE": 2,
+        "PRICE_EDIT": 1,
+        "DATE_EDIT": 1,
+        "LEAVE_STAGE": 1
+      },
+      "firstHistory": "2026-10-05 14:05:24",
+      "lastHistory": "2026-10-05 14:06:05",
+      "snapshotCount": 2
+    },
+    {
+      "key": "AFF_PRODUCT_aptamil newzealand 5 hộp 800g mẹ và bé",
+      "name": "Aptamil NewZealand 5 hộp 800g Mẹ và Bé",
+      "activeRelativeToXlsx": true,
+      "row": 3,
+      "encoding": "gzip-base64",
+      "decodedSha256": "77ab019222baf1be3aae2bb2f2bb1e89cb1ab278bf9f13ad4dbf91353973f05c",
+      "schemaVersion": "9.1",
+      "currentProgress": "Nhận End 2",
+      "historyCount": 58,
+      "historyTypes": {
+        "FIELD_EDIT": 4,
+        "PRICE_EDIT": 8,
+        "LEAVE_STAGE": 18,
+        "ENTER_STAGE": 19,
+        "PIC_EDIT": 3,
+        "DATE_EDIT": 3,
+        "END_SELL_PRICE_EDIT": 1,
+        "AUTO_STATUS": 2
+      },
+      "firstHistory": "2026-09-29 20:07:12",
+      "lastHistory": "2026-10-13 10:36:53",
+      "snapshotCount": 8,
+      "oracle": {
+        "payment": {
+          "paid": 4695999,
+          "unpaid": 0,
+          "incurred": 4695999,
+          "sampleTotal": 4099999,
+          "endTotal": 596000,
+          "missing": 2,
+          "review": 4,
+          "details": [
+            {
+              "key": "sample:1",
+              "group": "sample",
+              "index": 1,
+              "label": "Mẫu 1",
+              "ordered": true,
+              "received": true,
+              "amount": null,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9 | THIẾU GIÁ ĐẶT",
+              "bucket": "MISSING_ORDER_PRICE",
+              "status": "THIẾU GIÁ ĐẶT"
+            },
+            {
+              "key": "sample:2",
+              "group": "sample",
+              "index": 2,
+              "label": "Mẫu 2",
+              "ordered": true,
+              "received": true,
+              "amount": 4099999,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9",
+              "bucket": "PAID",
+              "status": "ĐÃ THANH TOÁN"
+            },
+            {
+              "key": "end:1",
+              "group": "end",
+              "index": 1,
+              "label": "End 1",
+              "ordered": true,
+              "received": false,
+              "amount": null,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9 | THIẾU GIÁ ĐẶT",
+              "bucket": "MISSING_ORDER_PRICE",
+              "status": "THIẾU GIÁ ĐẶT"
+            },
+            {
+              "key": "end:2",
+              "group": "end",
+              "index": 2,
+              "label": "End 2",
+              "ordered": true,
+              "received": true,
+              "amount": 596000,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9",
+              "bucket": "PAID",
+              "status": "ĐÃ THANH TOÁN"
+            }
+          ]
+        },
+        "refund": {
+          "total": 4099999,
+          "missing": 0
+        },
+        "projectedProfit": 4304000
+      },
+      "observationDifferences": []
+    },
+    {
+      "key": "AFF_PRODUCT_aptamil newzealand 5 hộp 800g mẹ và bé (2)",
+      "name": "Aptamil NewZealand 5 hộp 800g Mẹ và Bé (2)",
+      "activeRelativeToXlsx": false,
+      "encoding": "raw-json",
+      "decodedSha256": "75989b236af96b767205f5be206067f63a46edcfcbe1890299233cd73582d99e",
+      "schemaVersion": "legacy",
+      "currentProgress": "Nhận End 2",
+      "historyCount": 0,
+      "historyTypes": {},
+      "snapshotCount": 1
+    },
+    {
+      "key": "AFF_PRODUCT_aptamil newzealand 5 hộp 800g mẹ và bé (đen)",
+      "name": "Aptamil NewZealand 5 hộp 800g Mẹ và Bé (Đen)",
+      "activeRelativeToXlsx": false,
+      "encoding": "raw-json",
+      "decodedSha256": "18e9fdc9d4ded4257cb97975c98dc0040ff0c29b34408eafeb098413f4b2173a",
+      "schemaVersion": "legacy",
+      "currentProgress": "Đặt mẫu 1",
+      "historyCount": 4,
+      "historyTypes": {
+        "REFUND_QTY_EDIT": 1,
+        "ENTER_STAGE": 1,
+        "PIC_EDIT": 1,
+        "PRICE_EDIT": 1
+      },
+      "firstHistory": "2026-10-05 01:23:51",
+      "lastHistory": "2026-10-05 01:24:28",
+      "snapshotCount": 1
+    },
+    {
+      "key": "AFF_PRODUCT_aptamil newzealand 5 hộp 800g mẹ và bé đen",
+      "name": "Aptamil NewZealand 5 hộp 800g Mẹ và Bé Đen",
+      "activeRelativeToXlsx": false,
+      "encoding": "raw-json",
+      "decodedSha256": "4b02ed776c311a56e752e0105b9520c1e61c78ad15a129be57b53b8638da38ff",
+      "schemaVersion": "legacy",
+      "currentProgress": "",
+      "historyCount": 0,
+      "historyTypes": {},
+      "snapshotCount": 0
+    },
+    {
+      "key": "AFF_PRODUCT_aptamil newzealand 5 mẫu h.a.i",
+      "name": "Aptamil NewZealand 5 mẫu h.a.i",
+      "activeRelativeToXlsx": true,
+      "row": 24,
+      "encoding": "gzip-base64",
+      "decodedSha256": "a8603014a4ea841e5b8977275cfe437a74ce03f25a63371e60eeca1b7b20f96b",
+      "schemaVersion": "9.1",
+      "currentProgress": "Nhận mẫu 1",
+      "historyCount": 20,
+      "historyTypes": {
+        "LEAVE_STAGE": 5,
+        "ENTER_STAGE": 5,
+        "END_BUY_PRICE_EDIT": 2,
+        "PIC_EDIT": 1,
+        "AUTO_STATUS": 6,
+        "NOTE_EDIT": 1
+      },
+      "firstHistory": "2026-10-05 14:20:41",
+      "lastHistory": "2026-10-11 01:34:00",
+      "snapshotCount": 3,
+      "oracle": {
+        "payment": {
+          "paid": 3888000,
+          "unpaid": 0,
+          "incurred": 3888000,
+          "sampleTotal": 3888000,
+          "endTotal": 0,
+          "missing": 0,
+          "review": 1,
+          "details": [
+            {
+              "key": "sample:1",
+              "group": "sample",
+              "index": 1,
+              "label": "Mẫu 1",
+              "ordered": true,
+              "received": true,
+              "amount": 3888000,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9",
+              "bucket": "PAID",
+              "status": "ĐÃ THANH TOÁN"
+            },
+            {
+              "key": "end:2",
+              "group": "end",
+              "index": 2,
+              "label": "End 2",
+              "ordered": false,
+              "received": false,
+              "amount": 0,
+              "verified": false,
+              "issue": "Đã xóa giá tại bước Đặt: không tính công nợ",
+              "bucket": "NOT_INCURRED",
+              "status": "CHƯA PHÁT SINH / ĐÃ HỦY"
+            }
+          ]
+        },
+        "refund": {
+          "total": 0,
+          "missing": 0
+        },
+        "projectedProfit": 0
+      },
+      "observationDifferences": [
+        {
+          "col": "N",
+          "kind": "BLANK_NOT_ZERO",
+          "computed": 0
+        }
+      ]
+    },
+    {
+      "key": "AFF_PRODUCT_aptamilk",
+      "name": "Aptamilk",
+      "activeRelativeToXlsx": false,
+      "encoding": "raw-json",
+      "decodedSha256": "bb4008f5680253b6f104347163deee3e662f97918757db3e14628003dbe575b9",
+      "schemaVersion": "legacy",
+      "currentProgress": "",
+      "historyCount": 0,
+      "historyTypes": {},
+      "snapshotCount": 0
+    },
+    {
+      "key": "AFF_PRODUCT_bellamy's organic guard - dòng sữa hữu cơ cao cấp từ úc, đạt chuẩn certified organic",
+      "name": "Bellamy's Organic Guard - dòng sữa hữu cơ cao cấp từ Úc, đạt chuẩn Certified Organic",
+      "activeRelativeToXlsx": false,
+      "encoding": "raw-json",
+      "decodedSha256": "0f1ac692c70c1c551843bddc73a0379038264e074931268d073ed73e5ae63abc",
+      "schemaVersion": "legacy",
+      "currentProgress": "Đặt mẫu 1",
+      "historyCount": 4,
+      "historyTypes": {
+        "REFUND_QTY_EDIT": 1,
+        "ENTER_STAGE": 1,
+        "PIC_EDIT": 1,
+        "PRICE_EDIT": 1
+      },
+      "firstHistory": "2026-10-02 13:24:30",
+      "lastHistory": "2026-10-02 13:25:08",
+      "snapshotCount": 1
+    },
+    {
+      "key": "AFF_PRODUCT_colosbaby gold cải tiến loại không 6lon",
+      "name": "ColosBaby Gold cải tiến loại Không 6lon",
+      "activeRelativeToXlsx": true,
+      "row": 7,
+      "encoding": "gzip-base64",
+      "decodedSha256": "7d071d82dec162e6aed21697c9e03b3eb2f69b204a59060f03c12d47e2363808",
+      "schemaVersion": "9.1",
+      "currentProgress": "Nhận End 2",
+      "historyCount": 90,
+      "historyTypes": {
+        "FIELD_EDIT": 8,
+        "LEAVE_STAGE": 31,
+        "ENTER_STAGE": 31,
+        "PIC_EDIT": 1,
+        "PRICE_EDIT": 4,
+        "END_BUY_PRICE_EDIT": 13,
+        "AUTO_STATUS": 1,
+        "DATE_EDIT": 1
+      },
+      "firstHistory": "2026-09-29 20:05:54",
+      "lastHistory": "2026-10-11 00:36:09",
+      "snapshotCount": 7,
+      "oracle": {
+        "payment": {
+          "paid": 11721960,
+          "unpaid": 0,
+          "incurred": 11721960,
+          "sampleTotal": 9209960,
+          "endTotal": 2512000,
+          "missing": 0,
+          "review": 4,
+          "details": [
+            {
+              "key": "sample:1",
+              "group": "sample",
+              "index": 1,
+              "label": "Mẫu 1",
+              "ordered": true,
+              "received": true,
+              "amount": 4269960,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9",
+              "bucket": "PAID",
+              "status": "ĐÃ THANH TOÁN"
+            },
+            {
+              "key": "sample:2",
+              "group": "sample",
+              "index": 2,
+              "label": "Mẫu 2",
+              "ordered": true,
+              "received": true,
+              "amount": 4940000,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9",
+              "bucket": "PAID",
+              "status": "ĐÃ THANH TOÁN"
+            },
+            {
+              "key": "end:1",
+              "group": "end",
+              "index": 1,
+              "label": "End 1",
+              "ordered": true,
+              "received": true,
+              "amount": 1000000,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9",
+              "bucket": "PAID",
+              "status": "ĐÃ THANH TOÁN"
+            },
+            {
+              "key": "end:2",
+              "group": "end",
+              "index": 2,
+              "label": "End 2",
+              "ordered": true,
+              "received": true,
+              "amount": 1512000,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9",
+              "bucket": "PAID",
+              "status": "ĐÃ THANH TOÁN"
+            }
+          ]
+        },
+        "refund": {
+          "total": 9209960,
+          "missing": 0
+        },
+        "projectedProfit": 13828000
+      },
+      "observationDifferences": []
+    },
+    {
+      "key": "AFF_PRODUCT_colosbaby gold cải tiến loại không 6lon (đen)",
+      "name": "ColosBaby Gold cải tiến loại Không 6lon (Đen)",
+      "activeRelativeToXlsx": true,
+      "row": 21,
+      "encoding": "gzip-base64",
+      "decodedSha256": "9bd45ec209df4e7cf5ea7f92614eed7acdffb51030715b3fb3093b15ee1331ed",
+      "schemaVersion": "9.1",
+      "currentProgress": "Đặt End 1",
+      "historyCount": 10,
+      "historyTypes": {
+        "REFUND_QTY_EDIT": 1,
+        "ENTER_STAGE": 3,
+        "PIC_EDIT": 2,
+        "PRICE_EDIT": 1,
+        "LEAVE_STAGE": 2,
+        "END_BUY_PRICE_EDIT": 1
+      },
+      "firstHistory": "2026-10-05 01:26:50",
+      "lastHistory": "2026-10-13 01:29:56",
+      "snapshotCount": 3,
+      "oracle": {
+        "payment": {
+          "paid": 4269960,
+          "unpaid": 1988820,
+          "incurred": 6258780,
+          "sampleTotal": 4269960,
+          "endTotal": 1988820,
+          "missing": 0,
+          "review": 1,
+          "details": [
+            {
+              "key": "sample:1",
+              "group": "sample",
+              "index": 1,
+              "label": "Mẫu 1",
+              "ordered": true,
+              "received": true,
+              "amount": 4269960,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9",
+              "bucket": "PAID",
+              "status": "ĐÃ THANH TOÁN"
+            },
+            {
+              "key": "end:1",
+              "group": "end",
+              "index": 1,
+              "label": "End 1",
+              "ordered": true,
+              "received": false,
+              "amount": 1988820,
+              "verified": true,
+              "issue": "",
+              "bucket": "UNPAID",
+              "status": "CHƯA THANH TOÁN"
+            }
+          ]
+        },
+        "refund": {
+          "total": 0,
+          "missing": 0
+        },
+        "projectedProfit": -1988820
+      },
+      "observationDifferences": []
+    },
+    {
+      "key": "AFF_PRODUCT_colosbaby lactoferrin loại 0",
+      "name": "ColosBaby Lactoferrin loại 0",
+      "activeRelativeToXlsx": false,
+      "encoding": "raw-json",
+      "decodedSha256": "9ad063e3d5c054271d4807414b2da557f810d628a92826df1c44c179f6f70f2d",
+      "schemaVersion": "legacy",
+      "currentProgress": "",
+      "historyCount": 0,
+      "historyTypes": {},
+      "snapshotCount": 0
+    },
+    {
+      "key": "AFF_PRODUCT_colosbaby lactoferrin loại không 6lon",
+      "name": "ColosBaby Lactoferrin loại không 6lon",
+      "activeRelativeToXlsx": true,
+      "row": 6,
+      "encoding": "gzip-base64",
+      "decodedSha256": "254cb3a75a69d88a2c3ccb586e016c0208744ff50fed5364acbc10905c060e30",
+      "schemaVersion": "9.1",
+      "currentProgress": "Nhận End 2",
+      "historyCount": 98,
+      "historyTypes": {
+        "FIELD_EDIT": 4,
+        "PIC_EDIT": 3,
+        "LEAVE_STAGE": 39,
+        "ENTER_STAGE": 39,
+        "PRICE_EDIT": 5,
+        "END_BUY_PRICE_EDIT": 6,
+        "AUTO_STATUS": 1,
+        "NOTE_EDIT": 1
+      },
+      "firstHistory": "2026-09-29 20:05:33",
+      "lastHistory": "2026-10-13 10:30:23",
+      "snapshotCount": 7,
+      "oracle": {
+        "payment": {
+          "paid": 13194440,
+          "unpaid": 0,
+          "incurred": 13194440,
+          "sampleTotal": 9198440,
+          "endTotal": 3996000,
+          "missing": 0,
+          "review": 4,
+          "details": [
+            {
+              "key": "sample:1",
+              "group": "sample",
+              "index": 1,
+              "label": "Mẫu 1",
+              "ordered": true,
+              "received": true,
+              "amount": 4708440,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9",
+              "bucket": "PAID",
+              "status": "ĐÃ THANH TOÁN"
+            },
+            {
+              "key": "sample:2",
+              "group": "sample",
+              "index": 2,
+              "label": "Mẫu 2",
+              "ordered": true,
+              "received": true,
+              "amount": 4490000,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9",
+              "bucket": "PAID",
+              "status": "ĐÃ THANH TOÁN"
+            },
+            {
+              "key": "end:1",
+              "group": "end",
+              "index": 1,
+              "label": "End 1",
+              "ordered": true,
+              "received": true,
+              "amount": 1996000,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9",
+              "bucket": "PAID",
+              "status": "ĐÃ THANH TOÁN"
+            },
+            {
+              "key": "end:2",
+              "group": "end",
+              "index": 2,
+              "label": "End 2",
+              "ordered": true,
+              "received": true,
+              "amount": 2000000,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9",
+              "bucket": "PAID",
+              "status": "ĐÃ THANH TOÁN"
+            }
+          ]
+        },
+        "refund": {
+          "total": 9198440,
+          "missing": 0
+        },
+        "projectedProfit": -3036000
+      },
+      "observationDifferences": []
+    },
+    {
+      "key": "AFF_PRODUCT_colosbaby lactoferrin loại không 6lon (đen)",
+      "name": "ColosBaby Lactoferrin loại không 6lon (Đen)",
+      "activeRelativeToXlsx": true,
+      "row": 20,
+      "encoding": "gzip-base64",
+      "decodedSha256": "9231b208b52db4ccd26799463e51b10f6c238e932386b09288be519fb24a958d",
+      "schemaVersion": "9.1",
+      "currentProgress": "Đặt End 1",
+      "historyCount": 10,
+      "historyTypes": {
+        "REFUND_QTY_EDIT": 1,
+        "ENTER_STAGE": 3,
+        "PIC_EDIT": 2,
+        "PRICE_EDIT": 1,
+        "LEAVE_STAGE": 2,
+        "END_BUY_PRICE_EDIT": 1
+      },
+      "firstHistory": "2026-10-05 01:25:15",
+      "lastHistory": "2026-10-13 01:29:31",
+      "snapshotCount": 3,
+      "oracle": {
+        "payment": {
+          "paid": 4718880,
+          "unpaid": 2132370,
+          "incurred": 6851250,
+          "sampleTotal": 4718880,
+          "endTotal": 2132370,
+          "missing": 0,
+          "review": 1,
+          "details": [
+            {
+              "key": "sample:1",
+              "group": "sample",
+              "index": 1,
+              "label": "Mẫu 1",
+              "ordered": true,
+              "received": true,
+              "amount": 4718880,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9",
+              "bucket": "PAID",
+              "status": "ĐÃ THANH TOÁN"
+            },
+            {
+              "key": "end:1",
+              "group": "end",
+              "index": 1,
+              "label": "End 1",
+              "ordered": true,
+              "received": false,
+              "amount": 2132370,
+              "verified": true,
+              "issue": "",
+              "bucket": "UNPAID",
+              "status": "CHƯA THANH TOÁN"
+            }
+          ]
+        },
+        "refund": {
+          "total": 0,
+          "missing": 0
+        },
+        "projectedProfit": -2132370
+      },
+      "observationDifferences": []
+    },
+    {
+      "key": "AFF_PRODUCT_combo 04 lon sữa bột nutifood sweden growplus+ cao lớn vượt trội (bạc) 800g",
+      "name": "Combo 04 Lon Sữa Bột Nutifood Sweden\nGrowPLUS+ Cao lớn vượt trội (Bạc) 800g",
+      "activeRelativeToXlsx": true,
+      "row": 25,
+      "encoding": "gzip-base64",
+      "decodedSha256": "dcc7716d47ade34c955e5a2c8abad6a72367e5b6e006d677f12d1a397a699ebf",
+      "schemaVersion": "9.1",
+      "currentProgress": "Đặt mẫu 3",
+      "historyCount": 21,
+      "historyTypes": {
+        "REFUND_QTY_EDIT": 1,
+        "ENTER_STAGE": 8,
+        "PIC_EDIT": 2,
+        "PRICE_EDIT": 3,
+        "LEAVE_STAGE": 6,
+        "FIELD_EDIT": 1
+      },
+      "firstHistory": "2026-10-06 01:26:22",
+      "lastHistory": "2026-10-12 10:04:42",
+      "snapshotCount": 5,
+      "oracle": {
+        "payment": {
+          "paid": 4532756,
+          "unpaid": 2312000,
+          "incurred": 6844756,
+          "sampleTotal": 6844756,
+          "endTotal": 0,
+          "missing": 0,
+          "review": 2,
+          "details": [
+            {
+              "key": "sample:1",
+              "group": "sample",
+              "index": 1,
+              "label": "Mẫu 1",
+              "ordered": true,
+              "received": true,
+              "amount": 2320000,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9",
+              "bucket": "PAID",
+              "status": "ĐÃ THANH TOÁN"
+            },
+            {
+              "key": "sample:2",
+              "group": "sample",
+              "index": 2,
+              "label": "Mẫu 2",
+              "ordered": true,
+              "received": true,
+              "amount": 2212756,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9",
+              "bucket": "PAID",
+              "status": "ĐÃ THANH TOÁN"
+            },
+            {
+              "key": "sample:3",
+              "group": "sample",
+              "index": 3,
+              "label": "Mẫu 3",
+              "ordered": true,
+              "received": false,
+              "amount": 2312000,
+              "verified": true,
+              "issue": "",
+              "bucket": "UNPAID",
+              "status": "CHƯA THANH TOÁN"
+            }
+          ]
+        },
+        "refund": {
+          "total": 0,
+          "missing": 0
+        },
+        "projectedProfit": 1200000
+      },
+      "observationDifferences": []
+    },
+    {
+      "key": "AFF_PRODUCT_combo 04 lon sữa bột nutifood sweden growplus+ colostrum lactoferrin 800g",
+      "name": "Combo 04 Lon Sữa bột Nutifood Sweden\nGrowPLUS+ Colostrum Lactoferrin 800g",
+      "activeRelativeToXlsx": true,
+      "row": 23,
+      "encoding": "gzip-base64",
+      "decodedSha256": "313c184bce471d061c78f7c66c453081ff73d6a6225d54b5fbcc3a0219a97472",
+      "schemaVersion": "9.1",
+      "currentProgress": "Đặt mẫu 3",
+      "historyCount": 15,
+      "historyTypes": {
+        "REFUND_QTY_EDIT": 1,
+        "ENTER_STAGE": 5,
+        "PIC_EDIT": 2,
+        "PRICE_EDIT": 3,
+        "LEAVE_STAGE": 4
+      },
+      "firstHistory": "2026-10-05 13:55:58",
+      "lastHistory": "2026-10-12 10:04:15",
+      "snapshotCount": 5,
+      "oracle": {
+        "payment": {
+          "paid": 5518345,
+          "unpaid": 2691000,
+          "incurred": 8209345,
+          "sampleTotal": 8209345,
+          "endTotal": 0,
+          "missing": 0,
+          "review": 2,
+          "details": [
+            {
+              "key": "sample:1",
+              "group": "sample",
+              "index": 1,
+              "label": "Mẫu 1",
+              "ordered": true,
+              "received": true,
+              "amount": 2789000,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9",
+              "bucket": "PAID",
+              "status": "ĐÃ THANH TOÁN"
+            },
+            {
+              "key": "sample:2",
+              "group": "sample",
+              "index": 2,
+              "label": "Mẫu 2",
+              "ordered": true,
+              "received": true,
+              "amount": 2729345,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9",
+              "bucket": "PAID",
+              "status": "ĐÃ THANH TOÁN"
+            },
+            {
+              "key": "sample:3",
+              "group": "sample",
+              "index": 3,
+              "label": "Mẫu 3",
+              "ordered": true,
+              "received": false,
+              "amount": 2691000,
+              "verified": true,
+              "issue": "",
+              "bucket": "UNPAID",
+              "status": "CHƯA THANH TOÁN"
+            }
+          ]
+        },
+        "refund": {
+          "total": 0,
+          "missing": 0
+        },
+        "projectedProfit": 0
+      },
+      "observationDifferences": []
+    },
+    {
+      "key": "AFF_PRODUCT_combo 04 lon sữa bột nutifood sweden growplus+ sữa non immunel lon 800 g (bao bì t...",
+      "name": "Combo 04 Lon Sữa Bột Nutifood Sweden\nGrowPLUS+ Sữa Non Immunel lon 800 g (Bao bì t...",
+      "activeRelativeToXlsx": true,
+      "row": 22,
+      "encoding": "gzip-base64",
+      "decodedSha256": "6b1ba16e6dc0c57093cf7b2b450f82c45ce463f8a8072ae4e4bd418233142896",
+      "schemaVersion": "9.1",
+      "currentProgress": "Đặt mẫu 3",
+      "historyCount": 27,
+      "historyTypes": {
+        "REFUND_QTY_EDIT": 1,
+        "ENTER_STAGE": 5,
+        "PIC_EDIT": 2,
+        "PRICE_EDIT": 4,
+        "LEAVE_STAGE": 4,
+        "END_BUY_PRICE_EDIT": 1,
+        "END_SELL_PRICE_EDIT": 2,
+        "END_SELL_QTY_EDIT": 3,
+        "FIELD_EDIT": 5
+      },
+      "firstHistory": "2026-10-05 13:54:16",
+      "lastHistory": "2026-10-12 10:02:21",
+      "snapshotCount": 5,
+      "oracle": {
+        "payment": {
+          "paid": 5448000,
+          "unpaid": 2656000,
+          "incurred": 8104000,
+          "sampleTotal": 8104000,
+          "endTotal": 0,
+          "missing": 0,
+          "review": 2,
+          "details": [
+            {
+              "key": "sample:1",
+              "group": "sample",
+              "index": 1,
+              "label": "Mẫu 1",
+              "ordered": true,
+              "received": true,
+              "amount": 2754000,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9",
+              "bucket": "PAID",
+              "status": "ĐÃ THANH TOÁN"
+            },
+            {
+              "key": "sample:2",
+              "group": "sample",
+              "index": 2,
+              "label": "Mẫu 2",
+              "ordered": true,
+              "received": true,
+              "amount": 2694000,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9",
+              "bucket": "PAID",
+              "status": "ĐÃ THANH TOÁN"
+            },
+            {
+              "key": "sample:3",
+              "group": "sample",
+              "index": 3,
+              "label": "Mẫu 3",
+              "ordered": true,
+              "received": false,
+              "amount": 2656000,
+              "verified": true,
+              "issue": "",
+              "bucket": "UNPAID",
+              "status": "CHƯA THANH TOÁN"
+            }
+          ]
+        },
+        "refund": {
+          "total": 0,
+          "missing": 0
+        },
+        "projectedProfit": 5120000
+      },
+      "observationDifferences": []
+    },
+    {
+      "key": "AFF_PRODUCT_combo 3 lon sữa bột pediasureb/a vani 400g, 850g, 1.6kg hỗ trợ phát triển thể chất",
+      "name": "Combo 3 Lon Sữa bột PediasureB/A Vani\n400G, 850G, 1.6KG Hỗ Trợ Phát Triển Thể Chất",
+      "activeRelativeToXlsx": true,
+      "row": 18,
+      "encoding": "gzip-base64",
+      "decodedSha256": "0739a28dfcdd271d2ce495b4ce1fca1194ccb82acf34f20fb5d14469b9ca5797",
+      "schemaVersion": "9.1",
+      "currentProgress": "Đặt mẫu 3",
+      "historyCount": 109,
+      "historyTypes": {
+        "REFUND_QTY_EDIT": 1,
+        "PIC_EDIT": 4,
+        "ENTER_STAGE": 41,
+        "PRICE_EDIT": 3,
+        "END_BUY_PRICE_EDIT": 7,
+        "LEAVE_STAGE": 38,
+        "FIELD_EDIT": 6,
+        "NOTE_EDIT": 2,
+        "AUTO_STATUS": 3,
+        "DATE_EDIT": 4
+      },
+      "firstHistory": "2026-10-01 13:33:56",
+      "lastHistory": "2026-10-13 15:30:11",
+      "snapshotCount": 10,
+      "oracle": {
+        "payment": {
+          "paid": 10977299,
+          "unpaid": 5084000,
+          "incurred": 16061299,
+          "sampleTotal": 12353299,
+          "endTotal": 3708000,
+          "missing": 1,
+          "review": 4,
+          "details": [
+            {
+              "key": "sample:1",
+              "group": "sample",
+              "index": 1,
+              "label": "Mẫu 1",
+              "ordered": true,
+              "received": true,
+              "amount": 3467000,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9",
+              "bucket": "PAID",
+              "status": "ĐÃ THANH TOÁN"
+            },
+            {
+              "key": "sample:2",
+              "group": "sample",
+              "index": 2,
+              "label": "Mẫu 2",
+              "ordered": true,
+              "received": true,
+              "amount": 4682299,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9",
+              "bucket": "PAID",
+              "status": "ĐÃ THANH TOÁN"
+            },
+            {
+              "key": "sample:3",
+              "group": "sample",
+              "index": 3,
+              "label": "Mẫu 3",
+              "ordered": true,
+              "received": false,
+              "amount": 4204000,
+              "verified": true,
+              "issue": "",
+              "bucket": "UNPAID",
+              "status": "CHƯA THANH TOÁN"
+            },
+            {
+              "key": "end:1",
+              "group": "end",
+              "index": 1,
+              "label": "End 1",
+              "ordered": true,
+              "received": false,
+              "amount": 880000,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9 | THIẾU GIÁ ĐẶT",
+              "bucket": "UNPAID",
+              "status": "CHƯA THANH TOÁN"
+            },
+            {
+              "key": "end:2",
+              "group": "end",
+              "index": 2,
+              "label": "End 2",
+              "ordered": true,
+              "received": true,
+              "amount": 2828000,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9",
+              "bucket": "PAID",
+              "status": "ĐÃ THANH TOÁN"
+            },
+            {
+              "key": "end:3",
+              "group": "end",
+              "index": 3,
+              "label": "End 3",
+              "ordered": true,
+              "received": false,
+              "amount": null,
+              "verified": true,
+              "issue": "",
+              "bucket": "MISSING_ORDER_PRICE",
+              "status": "THIẾU GIÁ ĐẶT"
+            }
+          ]
+        },
+        "refund": {
+          "total": 4682299,
+          "missing": 0
+        },
+        "projectedProfit": 2242000
+      },
+      "observationDifferences": []
+    },
+    {
+      "key": "AFF_PRODUCT_enfagrow a+3 1,7kg đợt 2",
+      "name": "Enfagrow A+3 1,7kg đợt 2",
+      "activeRelativeToXlsx": true,
+      "row": 26,
+      "encoding": "gzip-base64",
+      "decodedSha256": "c1ea871e20ad579bfa688714d8fce43e9aa08c545a23567ba7938d3166091678",
+      "schemaVersion": "9.1",
+      "currentProgress": "Đặt mẫu 2",
+      "historyCount": 10,
+      "historyTypes": {
+        "REFUND_QTY_EDIT": 1,
+        "ENTER_STAGE": 3,
+        "PIC_EDIT": 1,
+        "PRICE_EDIT": 2,
+        "LEAVE_STAGE": 2,
+        "NOTE_EDIT": 1
+      },
+      "firstHistory": "2026-10-06 01:27:35",
+      "lastHistory": "2026-10-12 15:30:24",
+      "snapshotCount": 3,
+      "oracle": {
+        "payment": {
+          "paid": 1794000,
+          "unpaid": 1548000,
+          "incurred": 3342000,
+          "sampleTotal": 3342000,
+          "endTotal": 0,
+          "missing": 0,
+          "review": 1,
+          "details": [
+            {
+              "key": "sample:1",
+              "group": "sample",
+              "index": 1,
+              "label": "Mẫu 1",
+              "ordered": true,
+              "received": true,
+              "amount": 1794000,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9",
+              "bucket": "PAID",
+              "status": "ĐÃ THANH TOÁN"
+            },
+            {
+              "key": "sample:2",
+              "group": "sample",
+              "index": 2,
+              "label": "Mẫu 2",
+              "ordered": true,
+              "received": false,
+              "amount": 1548000,
+              "verified": true,
+              "issue": "",
+              "bucket": "UNPAID",
+              "status": "CHƯA THANH TOÁN"
+            }
+          ]
+        },
+        "refund": {
+          "total": 0,
+          "missing": 0
+        },
+        "projectedProfit": 0
+      },
+      "observationDifferences": []
+    },
+    {
+      "key": "AFF_PRODUCT_enfagrow a+3 neuro pro",
+      "name": "Enfagrow A+3 Neuro Pro",
+      "activeRelativeToXlsx": true,
+      "row": 8,
+      "encoding": "gzip-base64",
+      "decodedSha256": "d6b8bed3730027ddb6243ae983a3937015b9b2d14f92769f84bce36b8b9150cd",
+      "schemaVersion": "9.1",
+      "currentProgress": "Nhận mẫu 2",
+      "historyCount": 28,
+      "historyTypes": {
+        "FIELD_EDIT": 4,
+        "LEAVE_STAGE": 4,
+        "ENTER_STAGE": 4,
+        "PIC_EDIT": 2,
+        "PRICE_EDIT": 1,
+        "END_BUY_PRICE_EDIT": 1,
+        "AUTO_STATUS": 1,
+        "END_SELL_QTY_EDIT": 3,
+        "END_SELL_PRICE_EDIT": 8
+      },
+      "firstHistory": "2026-09-29 20:08:18",
+      "lastHistory": "2026-10-05 00:36:39",
+      "snapshotCount": 4,
+      "oracle": {
+        "payment": {
+          "paid": 2624000,
+          "unpaid": 0,
+          "incurred": 2624000,
+          "sampleTotal": 2624000,
+          "endTotal": 0,
+          "missing": 0,
+          "review": 2,
+          "details": [
+            {
+              "key": "sample:1",
+              "group": "sample",
+              "index": 1,
+              "label": "Mẫu 1",
+              "ordered": true,
+              "received": true,
+              "amount": 884000,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9",
+              "bucket": "PAID",
+              "status": "ĐÃ THANH TOÁN"
+            },
+            {
+              "key": "sample:2",
+              "group": "sample",
+              "index": 2,
+              "label": "Mẫu 2",
+              "ordered": true,
+              "received": true,
+              "amount": 1740000,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9",
+              "bucket": "PAID",
+              "status": "ĐÃ THANH TOÁN"
+            }
+          ]
+        },
+        "refund": {
+          "total": 0,
+          "missing": 0
+        },
+        "projectedProfit": 350000
+      },
+      "observationDifferences": []
+    },
+    {
+      "key": "AFF_PRODUCT_kendamil bò 800g organic số 1 6lon",
+      "name": "Kendamil bò 800g organic số 1 6lon",
+      "activeRelativeToXlsx": true,
+      "row": 17,
+      "encoding": "gzip-base64",
+      "decodedSha256": "537a6d0f80c5dcb38aad8141b90550e8989264742a1033089b6fcef04d79ef7b",
+      "schemaVersion": "9.1",
+      "currentProgress": "Nhận End 2",
+      "historyCount": 8,
+      "historyTypes": {
+        "LEAVE_STAGE": 2,
+        "ENTER_STAGE": 2,
+        "END_BUY_PRICE_EDIT": 1,
+        "FIELD_EDIT": 3
+      },
+      "firstHistory": "2026-10-05 00:24:09",
+      "lastHistory": "2026-10-11 00:30:11",
+      "snapshotCount": 3,
+      "oracle": {
+        "payment": {
+          "paid": 7920000,
+          "unpaid": 0,
+          "incurred": 7920000,
+          "sampleTotal": 5250000,
+          "endTotal": 2670000,
+          "missing": 0,
+          "review": 2,
+          "details": [
+            {
+              "key": "sample:1",
+              "group": "sample",
+              "index": 1,
+              "label": "Mẫu 1",
+              "ordered": true,
+              "received": true,
+              "amount": 5250000,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9",
+              "bucket": "PAID",
+              "status": "ĐÃ THANH TOÁN"
+            },
+            {
+              "key": "end:2",
+              "group": "end",
+              "index": 2,
+              "label": "End 2",
+              "ordered": true,
+              "received": true,
+              "amount": 2670000,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9",
+              "bucket": "PAID",
+              "status": "ĐÃ THANH TOÁN"
+            }
+          ]
+        },
+        "refund": {
+          "total": 0,
+          "missing": 1
+        },
+        "projectedProfit": 1830000
+      },
+      "observationDifferences": []
+    },
+    {
+      "key": "AFF_PRODUCT_kendamil dê 800g",
+      "name": "Kendamil Dê 800g",
+      "activeRelativeToXlsx": false,
+      "encoding": "raw-json",
+      "decodedSha256": "424ef9310ee0afdffcd4f8fe0c88af7b0e72f1b963a6fdd5d1605fa4cd972fee",
+      "schemaVersion": "legacy",
+      "currentProgress": "",
+      "historyCount": 0,
+      "historyTypes": {},
+      "snapshotCount": 0
+    },
+    {
+      "key": "AFF_PRODUCT_kendamil dê 800g 6lon số 2",
+      "name": "Kendamil Dê 800g 6lon số 2",
+      "activeRelativeToXlsx": false,
+      "encoding": "raw-json",
+      "decodedSha256": "05e90882d43514c57944d9e0df3925ae338d6d18a7c810a98912fa66d7a1e8b1",
+      "schemaVersion": "legacy",
+      "currentProgress": "",
+      "historyCount": 0,
+      "historyTypes": {},
+      "snapshotCount": 0
+    },
+    {
+      "key": "AFF_PRODUCT_kendamil dê 800g số 2 6lon",
+      "name": "Kendamil Dê 800g số 2 6lon",
+      "activeRelativeToXlsx": true,
+      "row": 16,
+      "encoding": "gzip-base64",
+      "decodedSha256": "7c649e1f263f2f208aa82d23417c57012cb62a8e426300c157e1b7c9b1283f37",
+      "schemaVersion": "9.1",
+      "currentProgress": "Nhận End 2",
+      "historyCount": 32,
+      "historyTypes": {
+        "REFUND_QTY_EDIT": 1,
+        "PIC_EDIT": 1,
+        "ENTER_STAGE": 8,
+        "PRICE_EDIT": 2,
+        "LEAVE_STAGE": 7,
+        "END_BUY_PRICE_EDIT": 3,
+        "AUTO_STATUS": 1,
+        "FIELD_EDIT": 9
+      },
+      "firstHistory": "2026-09-29 21:29:21",
+      "lastHistory": "2026-10-11 00:30:20",
+      "snapshotCount": 5,
+      "oracle": {
+        "payment": {
+          "paid": 11880000,
+          "unpaid": 0,
+          "incurred": 11880000,
+          "sampleTotal": 7890000,
+          "endTotal": 3990000,
+          "missing": 1,
+          "review": 3,
+          "details": [
+            {
+              "key": "sample:1",
+              "group": "sample",
+              "index": 1,
+              "label": "Mẫu 1",
+              "ordered": true,
+              "received": true,
+              "amount": 7890000,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9",
+              "bucket": "PAID",
+              "status": "ĐÃ THANH TOÁN"
+            },
+            {
+              "key": "end:1",
+              "group": "end",
+              "index": 1,
+              "label": "End 1",
+              "ordered": true,
+              "received": false,
+              "amount": null,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9 | THIẾU GIÁ ĐẶT",
+              "bucket": "MISSING_ORDER_PRICE",
+              "status": "THIẾU GIÁ ĐẶT"
+            },
+            {
+              "key": "end:2",
+              "group": "end",
+              "index": 2,
+              "label": "End 2",
+              "ordered": true,
+              "received": true,
+              "amount": 3990000,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9",
+              "bucket": "PAID",
+              "status": "ĐÃ THANH TOÁN"
+            }
+          ]
+        },
+        "refund": {
+          "total": 0,
+          "missing": 1
+        },
+        "projectedProfit": 2310000
+      },
+      "observationDifferences": []
+    },
+    {
+      "key": "AFF_PRODUCT_kendamil dê vàng 800g organic số 1 6lon",
+      "name": "Kendamil dê vàng 800g organic số 1 6lon",
+      "activeRelativeToXlsx": false,
+      "encoding": "raw-json",
+      "decodedSha256": "66cc5cd5ccfd639a9c3117abaa2ab0a7bb76e1815dddc0df4395df790ae3816c",
+      "schemaVersion": "legacy",
+      "currentProgress": "Nhận mẫu 1",
+      "historyCount": 12,
+      "historyTypes": {
+        "REFUND_QTY_EDIT": 1,
+        "PRICE_EDIT": 3,
+        "ENTER_STAGE": 2,
+        "PIC_EDIT": 1,
+        "END_BUY_PRICE_EDIT": 2,
+        "LEAVE_STAGE": 1,
+        "FIELD_EDIT": 2
+      },
+      "firstHistory": "2026-09-29 21:49:02",
+      "lastHistory": "2026-10-04 23:39:53",
+      "snapshotCount": 2
+    },
+    {
+      "key": "AFF_PRODUCT_kendamil nguyên kem classic 800g",
+      "name": "Kendamil Nguyên Kem Classic 800g",
+      "activeRelativeToXlsx": true,
+      "row": 10,
+      "encoding": "gzip-base64",
+      "decodedSha256": "01c8ddcd44bd892c00341af8f49442a14130316aaaa37f55edcf5149f99f1a73",
+      "schemaVersion": "9.1",
+      "currentProgress": "Nhận End 2",
+      "historyCount": 244,
+      "historyTypes": {
+        "AUTO_STATUS": 5,
+        "LEAVE_STAGE": 76,
+        "ENTER_STAGE": 76,
+        "PIC_EDIT": 15,
+        "END_PRICE_EDIT": 42,
+        "DATE_EDIT": 10,
+        "PRICE_EDIT": 4,
+        "FIELD_EDIT": 6,
+        "END_BUY_PRICE_EDIT": 1,
+        "END_SELL_PRICE_EDIT": 4,
+        "END_SELL_QTY_EDIT": 5
+      },
+      "firstHistory": "2026-09-28 16:02:00",
+      "lastHistory": "2026-10-13 10:31:13",
+      "snapshotCount": 8,
+      "oracle": {
+        "payment": {
+          "paid": 11690001,
+          "unpaid": 0,
+          "incurred": 11690001,
+          "sampleTotal": 8240001,
+          "endTotal": 3450000,
+          "missing": 0,
+          "review": 4,
+          "details": [
+            {
+              "key": "sample:1",
+              "group": "sample",
+              "index": 1,
+              "label": "Mẫu 1",
+              "ordered": true,
+              "received": true,
+              "amount": 4120000,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9",
+              "bucket": "PAID",
+              "status": "ĐÃ THANH TOÁN"
+            },
+            {
+              "key": "sample:2",
+              "group": "sample",
+              "index": 2,
+              "label": "Mẫu 2",
+              "ordered": true,
+              "received": true,
+              "amount": 4120001,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9",
+              "bucket": "PAID",
+              "status": "ĐÃ THANH TOÁN"
+            },
+            {
+              "key": "end:1",
+              "group": "end",
+              "index": 1,
+              "label": "End 1",
+              "ordered": true,
+              "received": true,
+              "amount": 2070000,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9",
+              "bucket": "PAID",
+              "status": "ĐÃ THANH TOÁN"
+            },
+            {
+              "key": "end:2",
+              "group": "end",
+              "index": 2,
+              "label": "End 2",
+              "ordered": true,
+              "received": true,
+              "amount": 1380000,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9",
+              "bucket": "PAID",
+              "status": "ĐÃ THANH TOÁN"
+            }
+          ]
+        },
+        "refund": {
+          "total": 8240001,
+          "missing": 0
+        },
+        "projectedProfit": 3350000
+      },
+      "observationDifferences": []
+    },
+    {
+      "key": "AFF_PRODUCT_mevabebee - sữa aptamil profutura kid cesarbiotik 3 growing up milk formula",
+      "name": "MevaBeBEE - Sữa Aptamil Profutura Kid\nCesarbiotik 3 Growing Up Milk Formula",
+      "activeRelativeToXlsx": true,
+      "row": 9,
+      "encoding": "gzip-base64",
+      "decodedSha256": "0702ee6cca72a4d7f0ba176b9f2ef7bd2b36c61ee6127139216f941f678ae7c3",
+      "schemaVersion": "9.1",
+      "currentProgress": "Nhận End 2",
+      "historyCount": 27,
+      "historyTypes": {
+        "FIELD_EDIT": 5,
+        "LEAVE_STAGE": 6,
+        "ENTER_STAGE": 6,
+        "END_SELL_PRICE_EDIT": 2,
+        "END_SELL_QTY_EDIT": 5,
+        "PRICE_EDIT": 2,
+        "PIC_EDIT": 1
+      },
+      "firstHistory": "2026-09-29 23:55:36",
+      "lastHistory": "2026-10-05 00:37:12",
+      "snapshotCount": 5,
+      "oracle": {
+        "payment": {
+          "paid": 2039000,
+          "unpaid": 0,
+          "incurred": 2039000,
+          "sampleTotal": 1640000,
+          "endTotal": 399000,
+          "missing": 1,
+          "review": 3,
+          "details": [
+            {
+              "key": "sample:1",
+              "group": "sample",
+              "index": 1,
+              "label": "Mẫu 1",
+              "ordered": true,
+              "received": false,
+              "amount": null,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9 | THIẾU GIÁ ĐẶT",
+              "bucket": "MISSING_ORDER_PRICE",
+              "status": "THIẾU GIÁ ĐẶT"
+            },
+            {
+              "key": "sample:2",
+              "group": "sample",
+              "index": 2,
+              "label": "Mẫu 2",
+              "ordered": true,
+              "received": true,
+              "amount": 1640000,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9",
+              "bucket": "PAID",
+              "status": "ĐÃ THANH TOÁN"
+            },
+            {
+              "key": "end:2",
+              "group": "end",
+              "index": 2,
+              "label": "End 2",
+              "ordered": true,
+              "received": true,
+              "amount": 399000,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9",
+              "bucket": "PAID",
+              "status": "ĐÃ THANH TOÁN"
+            }
+          ]
+        },
+        "refund": {
+          "total": 1640000,
+          "missing": 0
+        },
+        "projectedProfit": -399000
+      },
+      "observationDifferences": []
+    },
+    {
+      "key": "AFF_PRODUCT_similac tatol protection",
+      "name": "Similac tatol protection",
+      "activeRelativeToXlsx": false,
+      "encoding": "raw-json",
+      "decodedSha256": "9f316ec4e73a195913079ef541385a79c50f9c547242e9d46680199c0805709a",
+      "schemaVersion": "legacy",
+      "currentProgress": "",
+      "historyCount": 0,
+      "historyTypes": {},
+      "snapshotCount": 0
+    },
+    {
+      "key": "AFF_PRODUCT_similac tatol protection 2 hộp bản o 800g",
+      "name": "Similac tatol protection 2 hộp bản O 800g",
+      "activeRelativeToXlsx": true,
+      "row": 5,
+      "encoding": "gzip-base64",
+      "decodedSha256": "a23e483e427e02e3a8ab6901f7d30b2f7c51cebe8e2e85373e7712ffc7548357",
+      "schemaVersion": "9.1",
+      "currentProgress": "Nhận mẫu 2",
+      "historyCount": 29,
+      "historyTypes": {
+        "AUTO_STATUS": 15,
+        "END_PRICE_EDIT": 2,
+        "FIELD_EDIT": 2,
+        "END_BUY_PRICE_EDIT": 2,
+        "PRICE_EDIT": 4,
+        "LEAVE_STAGE": 2,
+        "ENTER_STAGE": 2
+      },
+      "firstHistory": "2026-09-28 16:11:27",
+      "lastHistory": "2026-10-11 00:10:51",
+      "snapshotCount": 4,
+      "oracle": {
+        "payment": {
+          "paid": 1870000,
+          "unpaid": 0,
+          "incurred": 1870000,
+          "sampleTotal": 1870000,
+          "endTotal": 0,
+          "missing": 2,
+          "review": 3,
+          "details": [
+            {
+              "key": "sample:1",
+              "group": "sample",
+              "index": 1,
+              "label": "Mẫu 1",
+              "ordered": true,
+              "received": true,
+              "amount": null,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9 | THIẾU GIÁ ĐẶT",
+              "bucket": "MISSING_ORDER_PRICE",
+              "status": "THIẾU GIÁ ĐẶT"
+            },
+            {
+              "key": "sample:2",
+              "group": "sample",
+              "index": 2,
+              "label": "Mẫu 2",
+              "ordered": true,
+              "received": true,
+              "amount": 1870000,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9",
+              "bucket": "PAID",
+              "status": "ĐÃ THANH TOÁN"
+            },
+            {
+              "key": "end:2",
+              "group": "end",
+              "index": 2,
+              "label": "End 2",
+              "ordered": true,
+              "received": true,
+              "amount": null,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9 | THIẾU GIÁ ĐẶT",
+              "bucket": "MISSING_ORDER_PRICE",
+              "status": "THIẾU GIÁ ĐẶT"
+            }
+          ]
+        },
+        "refund": {
+          "total": 1870000,
+          "missing": 0
+        },
+        "projectedProfit": 1000000
+      },
+      "observationDifferences": []
+    },
+    {
+      "key": "AFF_PRODUCT_sữa aptamil newzealand lon 800g",
+      "name": "Sữa Aptamil NewZealand Lon 800g",
+      "activeRelativeToXlsx": true,
+      "row": 11,
+      "encoding": "gzip-base64",
+      "decodedSha256": "396e34c8bb4df29adb443e12df0daed5578b353a6563403043d761c4210b81c6",
+      "schemaVersion": "9.1",
+      "currentProgress": "Nhận End 2",
+      "historyCount": 26,
+      "historyTypes": {
+        "END_PRICE_EDIT": 12,
+        "LEAVE_STAGE": 5,
+        "ENTER_STAGE": 5,
+        "END_SELL_PRICE_EDIT": 2,
+        "PIC_EDIT": 1,
+        "PRICE_EDIT": 1
+      },
+      "firstHistory": "2026-09-28 16:21:03",
+      "lastHistory": "2026-10-02 14:56:49",
+      "snapshotCount": 4,
+      "oracle": {
+        "payment": {
+          "paid": 4918000,
+          "unpaid": 0,
+          "incurred": 4918000,
+          "sampleTotal": 4173000,
+          "endTotal": 745000,
+          "missing": 0,
+          "review": 2,
+          "details": [
+            {
+              "key": "sample:2",
+              "group": "sample",
+              "index": 2,
+              "label": "Mẫu 2",
+              "ordered": true,
+              "received": true,
+              "amount": 4173000,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9",
+              "bucket": "PAID",
+              "status": "ĐÃ THANH TOÁN"
+            },
+            {
+              "key": "end:2",
+              "group": "end",
+              "index": 2,
+              "label": "End 2",
+              "ordered": true,
+              "received": true,
+              "amount": 745000,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9",
+              "bucket": "PAID",
+              "status": "ĐÃ THANH TOÁN"
+            }
+          ]
+        },
+        "refund": {
+          "total": 4173000,
+          "missing": 0
+        },
+        "projectedProfit": -745000
+      },
+      "observationDifferences": []
+    },
+    {
+      "key": "AFF_PRODUCT_sữa aptamil profutura úc lon 900g số 1 2 3",
+      "name": "Sữa Aptamil Profutura\nÚc lon 900g số 1 2 3",
+      "activeRelativeToXlsx": true,
+      "row": 12,
+      "encoding": "gzip-base64",
+      "decodedSha256": "8117ef7c26804862e36775454a374d72514f40e6ede09bfb2378b1651e2b0174",
+      "schemaVersion": "9.1",
+      "currentProgress": "Đặt End 2",
+      "historyCount": 91,
+      "historyTypes": {
+        "END_PRICE_EDIT": 21,
+        "LEAVE_STAGE": 24,
+        "ENTER_STAGE": 24,
+        "PIC_EDIT": 2,
+        "PRICE_EDIT": 4,
+        "END_SELL_PRICE_EDIT": 3,
+        "NOTE_EDIT": 2,
+        "AUTO_STATUS": 1,
+        "END_BUY_PRICE_EDIT": 9,
+        "DATE_EDIT": 1
+      },
+      "firstHistory": "2026-09-28 16:19:18",
+      "lastHistory": "2026-10-10 16:21:37",
+      "snapshotCount": 7,
+      "oracle": {
+        "payment": {
+          "paid": 11195000,
+          "unpaid": 2646000,
+          "incurred": 13841000,
+          "sampleTotal": 9418000,
+          "endTotal": 4423000,
+          "missing": 0,
+          "review": 4,
+          "details": [
+            {
+              "key": "sample:1",
+              "group": "sample",
+              "index": 1,
+              "label": "Mẫu 1",
+              "ordered": true,
+              "received": true,
+              "amount": 4750000,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9",
+              "bucket": "PAID",
+              "status": "ĐÃ THANH TOÁN"
+            },
+            {
+              "key": "sample:2",
+              "group": "sample",
+              "index": 2,
+              "label": "Mẫu 2",
+              "ordered": true,
+              "received": true,
+              "amount": 4668000,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9",
+              "bucket": "PAID",
+              "status": "ĐÃ THANH TOÁN"
+            },
+            {
+              "key": "end:1",
+              "group": "end",
+              "index": 1,
+              "label": "End 1",
+              "ordered": true,
+              "received": true,
+              "amount": 1777000,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9",
+              "bucket": "PAID",
+              "status": "ĐÃ THANH TOÁN"
+            },
+            {
+              "key": "end:2",
+              "group": "end",
+              "index": 2,
+              "label": "End 2",
+              "ordered": true,
+              "received": false,
+              "amount": 2646000,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9",
+              "bucket": "UNPAID",
+              "status": "CHƯA THANH TOÁN"
+            }
+          ]
+        },
+        "refund": {
+          "total": 4750000,
+          "missing": 0
+        },
+        "projectedProfit": -4423000
+      },
+      "observationDifferences": []
+    },
+    {
+      "key": "AFF_PRODUCT_sữa bột aptamil profutura úc 900g - số 3 | sữa công thức cho bé 1-3 tuổi đã bán",
+      "name": "Sữa bột Aptamil Profutura Úc 900g\n- Số 3 | Sữa công thức cho bé 1-3 tuổi\nĐã bán",
+      "activeRelativeToXlsx": false,
+      "encoding": "raw-json",
+      "decodedSha256": "9fed8d5c7ed00d754882d358e74c4e4722d08251fc93f427b1d16b505167f470",
+      "schemaVersion": "legacy",
+      "currentProgress": "Đặt mẫu 1",
+      "historyCount": 8,
+      "historyTypes": {
+        "REFUND_QTY_EDIT": 1,
+        "PRICE_EDIT": 2,
+        "PIC_EDIT": 1,
+        "ENTER_STAGE": 1,
+        "END_BUY_PRICE_EDIT": 3
+      },
+      "firstHistory": "2026-09-29 23:49:27",
+      "lastHistory": "2026-10-02 15:31:26",
+      "snapshotCount": 1
+    },
+    {
+      "key": "AFF_PRODUCT_sữa bột aptamil profutura úc 900g chính hãng | số 1 - 2 - 3 - 4",
+      "name": "Sữa bột Aptamil Profutura Úc 900g\nChính Hãng | Số 1 - 2 - 3 - 4",
+      "activeRelativeToXlsx": true,
+      "row": 13,
+      "encoding": "gzip-base64",
+      "decodedSha256": "35a9c3dcb87f210a13e0ca512f4b7610cfc9d6bc4072db7b52d65ca84cee52ef",
+      "schemaVersion": "9.1",
+      "currentProgress": "Đặt End 2",
+      "historyCount": 124,
+      "historyTypes": {
+        "END_PRICE_EDIT": 18,
+        "FIELD_EDIT": 6,
+        "LEAVE_STAGE": 38,
+        "ENTER_STAGE": 39,
+        "PIC_EDIT": 3,
+        "PRICE_EDIT": 4,
+        "END_BUY_PRICE_EDIT": 7,
+        "DATE_EDIT": 6,
+        "AUTO_STATUS": 1,
+        "NOTE_EDIT": 2
+      },
+      "firstHistory": "2026-09-28 16:19:33",
+      "lastHistory": "2026-10-11 00:37:01",
+      "snapshotCount": 8,
+      "oracle": {
+        "payment": {
+          "paid": 9551520,
+          "unpaid": 2918000,
+          "incurred": 12469520,
+          "sampleTotal": 7704520,
+          "endTotal": 4765000,
+          "missing": 0,
+          "review": 4,
+          "details": [
+            {
+              "key": "sample:1",
+              "group": "sample",
+              "index": 1,
+              "label": "Mẫu 1",
+              "ordered": true,
+              "received": true,
+              "amount": 3865000,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9",
+              "bucket": "PAID",
+              "status": "ĐÃ THANH TOÁN"
+            },
+            {
+              "key": "sample:2",
+              "group": "sample",
+              "index": 2,
+              "label": "Mẫu 2",
+              "ordered": true,
+              "received": true,
+              "amount": 3839520,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9",
+              "bucket": "PAID",
+              "status": "ĐÃ THANH TOÁN"
+            },
+            {
+              "key": "end:1",
+              "group": "end",
+              "index": 1,
+              "label": "End 1",
+              "ordered": true,
+              "received": true,
+              "amount": 1847000,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9",
+              "bucket": "PAID",
+              "status": "ĐÃ THANH TOÁN"
+            },
+            {
+              "key": "end:2",
+              "group": "end",
+              "index": 2,
+              "label": "End 2",
+              "ordered": true,
+              "received": false,
+              "amount": 2918000,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9 | Đặt hiện tại khác lịch sử Nhận",
+              "bucket": "UNPAID",
+              "status": "CHƯA THANH TOÁN"
+            }
+          ]
+        },
+        "refund": {
+          "total": 3865000,
+          "missing": 0
+        },
+        "projectedProfit": 7585000
+      },
+      "observationDifferences": []
+    },
+    {
+      "key": "AFF_PRODUCT_sữa công thức hipp combiotic hmp-sữa công thức",
+      "name": "SỮA CÔNG THỨC HIPP COMBIOTIC HMP-SỮA\nCÔNG THỨC",
+      "activeRelativeToXlsx": true,
+      "row": 14,
+      "encoding": "gzip-base64",
+      "decodedSha256": "2d8e3b4bca01040197f046aaed519696ee05dc6c1a8313366ca84130e59ebe9f",
+      "schemaVersion": "9.1",
+      "currentProgress": "Nhận mẫu 1",
+      "historyCount": 28,
+      "historyTypes": {
+        "AUTO_STATUS": 14,
+        "END_PRICE_EDIT": 12,
+        "FIELD_EDIT": 2
+      },
+      "firstHistory": "2026-09-28 16:11:34",
+      "lastHistory": "2026-10-11 00:11:01",
+      "snapshotCount": 1,
+      "oracle": {
+        "payment": {
+          "paid": 2034000,
+          "unpaid": 0,
+          "incurred": 2034000,
+          "sampleTotal": 2034000,
+          "endTotal": 0,
+          "missing": 0,
+          "review": 1,
+          "details": [
+            {
+              "key": "sample:1",
+              "group": "sample",
+              "index": 1,
+              "label": "Mẫu 1",
+              "ordered": true,
+              "received": true,
+              "amount": 2034000,
+              "verified": false,
+              "issue": "CẦN ĐỐI SOÁT V9",
+              "bucket": "PAID",
+              "status": "ĐÃ THANH TOÁN"
+            }
+          ]
+        },
+        "refund": {
+          "total": 0,
+          "missing": 0
+        },
+        "projectedProfit": 1000000
+      },
+      "observationDifferences": []
+    },
+    {
+      "key": "AFF_PRODUCT_totql",
+      "name": "Totql",
+      "activeRelativeToXlsx": false,
+      "encoding": "raw-json",
+      "decodedSha256": "d22f039750e81a051637b835ed00863fd7b94849bf818f59c7cfd0fffe28d571",
+      "schemaVersion": "legacy",
+      "currentProgress": "",
+      "historyCount": 0,
+      "historyTypes": {},
+      "snapshotCount": 0
+    }
+  ],
+  "gate0Complete": false,
+  "limitations": [
+    "Active set based on supplied XLSX, not current row metadata in this export.",
+    "No source-export checksum, runtime fingerprints/timezone, or concurrent-read stability proof.",
+    "Legacy source oracle comparison is preliminary; missing prices/history completeness remain unresolved.",
+    "No import, repair, source mutation, migration or database access."
+  ]
+}
