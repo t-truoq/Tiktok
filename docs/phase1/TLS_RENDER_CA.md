@@ -31,4 +31,6 @@ Adapter PrismaPg dùng external pg.Pool. SSL object giữ rejectUnauthorized=tru
 - db:verify hai URLs và health:verify realDEV PASS; live/ready200, UTC/TLSv1.3. Production start:prod smoke PASS, process cleanup PASS.
 
 Không migration/db push/import hoặc business logic changes. GitHubActions vẫn BLOCKED_BY_BILLING. **Gate1 chưa PASS** cho đến khi staging sau khi cấu hình CA/deploy trả đủ haiHTTP200 và readiness contract hợp lệ.
+
+Kiểm tra HTTP thực tế sau push bản sửa b83696e: Render live200/status=ok, ready503/application/problem+json. Chưa xác minh revision chạy trên Render hoặc CA file sau chỉnh cấu hình; không ghi readiness PASS. Evidence mới nhất nằm REMOTE_GATE1_EVIDENCE.json.
 <!-- truonglt Render Supabase CA trust report end -->

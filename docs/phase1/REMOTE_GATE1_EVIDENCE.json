@@ -1,12 +1,12 @@
 {
-  "capturedAtUtc": "2026-10-14T04:53:13.879Z",
+  "capturedAtUtc": "2026-10-14T05:27:15.899Z",
   "gate1": "NOT_PASS",
   "databaseWrites": false,
   "staging": [
     {
       "url": "https://tiktok-6kwu.onrender.com/api/v1/health/live",
       "endpoint": "live",
-      "verifiedAtUtc": "2026-10-14T04:53:13.880Z",
+      "verifiedAtUtc": "2026-10-14T05:27:15.900Z",
       "httpStatus": null,
       "body": null,
       "passed": false,
@@ -15,7 +15,7 @@
     {
       "url": "https://tiktok-6kwu.onrender.com/api/v1/health/ready",
       "endpoint": "ready",
-      "verifiedAtUtc": "2026-10-14T04:53:13.880Z",
+      "verifiedAtUtc": "2026-10-14T05:27:15.900Z",
       "httpStatus": null,
       "body": null,
       "passed": false,
