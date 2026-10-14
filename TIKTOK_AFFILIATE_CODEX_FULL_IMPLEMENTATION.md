@@ -1,5 +1,13 @@
 # TikTok Affiliate — Implementation Blueprint for Codex (GPT-6.1 Sol Light)
 
+<!-- truonglt Phase3 current implementation status start -->
+## Trạng thái thực tế 14/10/2026 — ưu tiên hơn các trạng thái planning lịch sử bên dưới
+
+Phase2 migration schema-only đã APPLIED bằng Prisma7 theo OWNER OVERRIDE; checksum SQL giữ nguyên `148e77f65ba5c08720afddc569e3535512017b3257a1384ba39cdb7c5cb37c93`. Catalog và 73 synthetic checks có evidence trong docs/phase2; không có import. Bằng chứng race nhiều session chưa có; không thay kết quả kiểm thử lịch sử thành PASS.
+
+Owner ch?t Phase3 cho root hi?n c?, defer create/rename/archive. Finance parity46/46 v? per-round V9.1/V9.2 PASS; runtime security migration APPLIED, real ADMIN JWT HTTP/RLS11, live RLS21, concurrency3, backend100/preservation104/Python14 PASS, audit0 vulnerabilities. Timezone Asia/Ho_Chi_Minh. Xem docs/phase3/IMPLEMENTATION_REPORT.md. Public Business API disabled, kh?ng import HISTORY/Frontend/Phase4; public writes c?n approval ri?ng. GitHub Actions BLOCKED_BY_BILLING, CLI exception ???c owner duy?t.
+<!-- truonglt Phase3 current implementation status end -->
+
 <!-- truonglt owner source decision start -->
 ## Quyết định nguồn dữ liệu của owner — 14/10/2026
 

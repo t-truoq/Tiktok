@@ -22,5 +22,11 @@
     "db:verify": "node apps/api/dist/verify-db.js",
     "health:verify": "node apps/api/scripts/verify-health.cjs"
   },
+  "_truonglt_phase3_1_security_overrides_start": "Reviewed patched transitive versions; keep Prisma 7.10.0; validate/build/config/parity regressions required",
+  "overrides": {
+    "@prisma/config@7.10.0": {"deepmerge-ts": "8.0.2"},
+    "prisma@7.10.0": {"mysql2": "3.24.6"}
+  },
+  "_truonglt_phase3_1_security_overrides_end": "No npm audit fix --force or Prisma major change",
   "engines": {"node": ">=24 <25"}
 }

@@ -1,0 +1,78 @@
+{
+  "startedAtUtc": "2026-10-14T09:14:24.618Z",
+  "status": "PASS_REAL_ADMIN_JWT_HTTP_RUNTIME_RLS",
+  "realJwt": true,
+  "realActor": "c918885f-c09c-40b0-a43a-4edcbdf69317",
+  "role": "ADMIN",
+  "tests": [
+    {
+      "name": "real signed JWT resolves owner ADMIN from database and lists scoped synthetic product",
+      "status": "PASS"
+    },
+    {
+      "name": "anonymous mutation denied with no writes",
+      "status": "PASS"
+    },
+    {
+      "name": "tampered real JWT subject denied",
+      "status": "PASS"
+    },
+    {
+      "name": "request body actor_id cannot spoof verified JWT identity",
+      "status": "PASS"
+    },
+    {
+      "name": "real JWT authenticated stage mutation passes RLS and appends actor audit",
+      "status": "PASS"
+    },
+    {
+      "name": "identical HTTP retry replays stored outcome and does not duplicate history",
+      "status": "PASS"
+    },
+    {
+      "name": "real HTTP version/key conflicts are409",
+      "status": "PASS"
+    },
+    {
+      "name": "round3 buy/receive/End sale/refund workflow keeps Decimal and history atomic",
+      "status": "PASS"
+    },
+    {
+      "name": "Decimal/BIGINT HTTP serialization and read-only resources are accessible to real actor",
+      "status": "PASS"
+    },
+    {
+      "name": "HTTP injected failure after writes rolls back version/round/snapshot/history/request",
+      "status": "PASS"
+    },
+    {
+      "name": "Done snapshot/history through real JWT HTTP",
+      "status": "PASS"
+    }
+  ],
+  "publicWritesEnabled": false,
+  "loopbackOnly": true,
+  "sourceImported": false,
+  "fixtureProductId": "24ac3e38-1b41-4020-916a-633fa22af4e9",
+  "viewerHttpEvidence": "UNIT_SYNTHETIC_JWT_PLUS_LIVE_RLS_NOT_REAL_VIEWER_TOKEN",
+  "beforeCounts": {
+    "products": 0,
+    "purchase_rounds": 0,
+    "sales_details": 0,
+    "stage_snapshots": 0,
+    "product_history": 0,
+    "mutation_requests": 0
+  },
+  "databaseRole": "tiktok_api_runtime",
+  "transactionRollback": "PASS",
+  "afterCounts": {
+    "products": 0,
+    "purchase_rounds": 0,
+    "sales_details": 0,
+    "stage_snapshots": 0,
+    "product_history": 0,
+    "mutation_requests": 0
+  },
+  "cleanup": "PASS_EXACT_FIXTURE_COUNTS_RESTORED",
+  "finishedAtUtc": "2026-10-14T09:15:14.602Z"
+}

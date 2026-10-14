@@ -6,6 +6,9 @@ import { config } from 'dotenv';
 import { resolve } from 'node:path';
 import { createDatabaseClient, DatabaseClient, sanitizedDatabaseError, unavailableDatabaseClient, databaseErrorReason } from './database';
 import { DATABASE, HealthController } from './health';
+// truonglt Phase3 fail-closed business module start
+import { BusinessModule } from './business/controller';
+// truonglt Phase3 fail-closed business module end
 
 @Module({
   controllers: [HealthController],
@@ -34,7 +37,11 @@ export class AppModule implements OnApplicationShutdown {
 
 export async function createApp() {
   config({ path: resolve(__dirname, '../.env'), quiet: true });
-  const app = await NestFactory.create(AppModule, { logger: ['error', 'warn'] });
+  // truonglt Phase3.1 public business route enablement start
+  // Disabled means no Business API routes are registered, not merely rejected writes.
+  const entryModule = { module: AppModule, imports: process.env.BUSINESS_API_ENABLED === 'true' ? [BusinessModule] : [] };
+  const app = await NestFactory.create(entryModule, { logger: ['error', 'warn'] });
+  // truonglt Phase3.1 public business route enablement end
   app.setGlobalPrefix('api/v1');
   app.enableShutdownHooks();
   return app;

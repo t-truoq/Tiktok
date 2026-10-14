@@ -1,0 +1,38 @@
+{
+  "verifiedAtUtc": "2026-10-14T09:15:14.898Z",
+  "phase3Deployed": false,
+  "databaseWrites": false,
+  "checks": [
+    {
+      "name": "jwks",
+      "httpStatus": 200,
+      "publicKeyCount": 1,
+      "algorithms": [
+        "ES256"
+      ],
+      "usableAsymmetricKeys": true
+    },
+    {
+      "name": "staging-live",
+      "status": "UNREACHABLE_OR_INVALID_RESPONSE"
+    },
+    {
+      "name": "staging-ready",
+      "httpStatus": 200,
+      "body": {
+        "status": "ready",
+        "database": "ok",
+        "tls": true,
+        "timezone": "UTC",
+        "tlsProtocol": "TLSv1.3"
+      }
+    },
+    {
+      "name": "staging-live-retry",
+      "httpStatus": 200,
+      "body": {
+        "status": "ok"
+      }
+    }
+  ]
+}

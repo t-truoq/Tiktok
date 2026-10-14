@@ -1,0 +1,414 @@
+{
+  "startedAtUtc": "2026-10-14T09:15:14.708Z",
+  "status": "PASS_DATABASE_SECURITY_REAL_ACTOR_HTTP_PENDING",
+  "evidenceScope": "LIVE_POSTGRESQL_RLS_NOT_REAL_JWT_HTTP",
+  "tests": [
+    {
+      "name": "unbound runtime cannot read users or synthetic product",
+      "status": "PASS"
+    },
+    {
+      "name": "actor_id mismatch denied even with valid subject",
+      "status": "PASS"
+    },
+    {
+      "name": "subject mismatch denied even with valid actor_id",
+      "status": "PASS"
+    },
+    {
+      "name": "bound ADMIN reads and updates mutable product column",
+      "status": "PASS"
+    },
+    {
+      "name": "bound ADMIN inserts round, history and snapshot",
+      "status": "PASS"
+    },
+    {
+      "name": "product identity/classification/archive columns cannot be changed",
+      "status": "PASS",
+      "sqlState": "42501"
+    },
+    {
+      "name": "round identity cannot be reassigned",
+      "status": "PASS",
+      "sqlState": "42501"
+    },
+    {
+      "name": "runtime cannot edit users",
+      "status": "PASS",
+      "sqlState": "42501"
+    },
+    {
+      "name": "runtime cannot read archive bytes",
+      "status": "PASS",
+      "sqlState": "42501"
+    },
+    {
+      "name": "runtime cannot insert source archives",
+      "status": "PASS",
+      "sqlState": "42501"
+    },
+    {
+      "name": "runtime cannot update immutable history",
+      "status": "PASS",
+      "sqlState": "42501"
+    },
+    {
+      "name": "runtime cannot delete history",
+      "status": "PASS",
+      "sqlState": "42501"
+    },
+    {
+      "name": "runtime cannot append history as another actor",
+      "status": "PASS",
+      "sqlState": "42501"
+    },
+    {
+      "name": "runtime cannot append imported snapshots",
+      "status": "PASS",
+      "sqlState": "42501"
+    },
+    {
+      "name": "VIEWER sees data but row policy filters updates",
+      "status": "PASS"
+    },
+    {
+      "name": "VIEWER cannot insert financial round",
+      "status": "PASS",
+      "sqlState": "42501"
+    },
+    {
+      "name": "EDITOR financial updates allowed",
+      "status": "PASS"
+    },
+    {
+      "name": "LOGIN role cannot SET ROLE postgres",
+      "status": "PASS",
+      "sqlState": "42501"
+    },
+    {
+      "name": "LOGIN role cannot SET ROLE privilege role",
+      "status": "PASS",
+      "sqlState": "42501"
+    },
+    {
+      "name": "LOGIN role cannot create roles",
+      "status": "PASS",
+      "sqlState": "42501"
+    },
+    {
+      "name": "transaction-local context does not leak to next pooled borrower",
+      "status": "PASS"
+    }
+  ],
+  "authUsersCreated": false,
+  "importsExecuted": false,
+  "roles": [
+    {
+      "rolname": "tiktok_api_access",
+      "rolsuper": false,
+      "rolbypassrls": false,
+      "rolcreatedb": false,
+      "rolcreaterole": false,
+      "rolcanlogin": false,
+      "rolinherit": false
+    },
+    {
+      "rolname": "tiktok_api_runtime",
+      "rolsuper": false,
+      "rolbypassrls": false,
+      "rolcreatedb": false,
+      "rolcreaterole": false,
+      "rolcanlogin": true,
+      "rolinherit": true
+    }
+  ],
+  "membership": [
+    {
+      "inherit_option": true,
+      "set_option": false,
+      "admin_option": false
+    }
+  ],
+  "policies": [
+    {
+      "tablename": "import_batches",
+      "policyname": "runtime_read",
+      "cmd": "SELECT",
+      "qual": "runtime_actor_can_read()",
+      "with_check": null
+    },
+    {
+      "tablename": "legacy_records",
+      "policyname": "runtime_read",
+      "cmd": "SELECT",
+      "qual": "runtime_actor_can_read()",
+      "with_check": null
+    },
+    {
+      "tablename": "legacy_values",
+      "policyname": "runtime_read",
+      "cmd": "SELECT",
+      "qual": "runtime_actor_can_read()",
+      "with_check": null
+    },
+    {
+      "tablename": "mutation_requests",
+      "policyname": "runtime_read",
+      "cmd": "SELECT",
+      "qual": "runtime_actor_can_read()",
+      "with_check": null
+    },
+    {
+      "tablename": "mutation_requests",
+      "policyname": "runtime_request_insert",
+      "cmd": "INSERT",
+      "qual": null,
+      "with_check": "(runtime_actor_can_write() AND ((actor_id)::text = current_setting('app.actor_id'::text, true)))"
+    },
+    {
+      "tablename": "mutation_requests",
+      "policyname": "runtime_request_update",
+      "cmd": "UPDATE",
+      "qual": "(runtime_actor_can_write() AND ((actor_id)::text = current_setting('app.actor_id'::text, true)))",
+      "with_check": "(runtime_actor_can_write() AND ((actor_id)::text = current_setting('app.actor_id'::text, true)))"
+    },
+    {
+      "tablename": "product_history",
+      "policyname": "runtime_history_append",
+      "cmd": "INSERT",
+      "qual": null,
+      "with_check": "(runtime_actor_can_write() AND (import_batch_id IS NULL) AND (legacy_event_index IS NULL) AND ((actor_id)::text = current_setting('app.actor_id'::text, true)))"
+    },
+    {
+      "tablename": "product_history",
+      "policyname": "runtime_read",
+      "cmd": "SELECT",
+      "qual": "runtime_actor_can_read()",
+      "with_check": null
+    },
+    {
+      "tablename": "product_images",
+      "policyname": "runtime_read",
+      "cmd": "SELECT",
+      "qual": "runtime_actor_can_read()",
+      "with_check": null
+    },
+    {
+      "tablename": "products",
+      "policyname": "runtime_read",
+      "cmd": "SELECT",
+      "qual": "runtime_actor_can_read()",
+      "with_check": null
+    },
+    {
+      "tablename": "products",
+      "policyname": "runtime_update",
+      "cmd": "UPDATE",
+      "qual": "runtime_actor_can_write()",
+      "with_check": "runtime_actor_can_write()"
+    },
+    {
+      "tablename": "purchase_rounds",
+      "policyname": "runtime_insert",
+      "cmd": "INSERT",
+      "qual": null,
+      "with_check": "runtime_actor_can_write()"
+    },
+    {
+      "tablename": "purchase_rounds",
+      "policyname": "runtime_read",
+      "cmd": "SELECT",
+      "qual": "runtime_actor_can_read()",
+      "with_check": null
+    },
+    {
+      "tablename": "purchase_rounds",
+      "policyname": "runtime_update",
+      "cmd": "UPDATE",
+      "qual": "runtime_actor_can_write()",
+      "with_check": "runtime_actor_can_write()"
+    },
+    {
+      "tablename": "refunds",
+      "policyname": "runtime_read",
+      "cmd": "SELECT",
+      "qual": "runtime_actor_can_read()",
+      "with_check": null
+    },
+    {
+      "tablename": "sales_details",
+      "policyname": "runtime_insert",
+      "cmd": "INSERT",
+      "qual": null,
+      "with_check": "runtime_actor_can_write()"
+    },
+    {
+      "tablename": "sales_details",
+      "policyname": "runtime_read",
+      "cmd": "SELECT",
+      "qual": "runtime_actor_can_read()",
+      "with_check": null
+    },
+    {
+      "tablename": "sales_details",
+      "policyname": "runtime_update",
+      "cmd": "UPDATE",
+      "qual": "runtime_actor_can_write()",
+      "with_check": "runtime_actor_can_write()"
+    },
+    {
+      "tablename": "source_archives",
+      "policyname": "runtime_read",
+      "cmd": "SELECT",
+      "qual": "runtime_actor_can_read()",
+      "with_check": null
+    },
+    {
+      "tablename": "stage_snapshots",
+      "policyname": "runtime_read",
+      "cmd": "SELECT",
+      "qual": "runtime_actor_can_read()",
+      "with_check": null
+    },
+    {
+      "tablename": "stage_snapshots",
+      "policyname": "runtime_snapshot_append",
+      "cmd": "INSERT",
+      "qual": null,
+      "with_check": "(runtime_actor_can_write() AND (import_batch_id IS NULL) AND (source_json_pointer IS NULL))"
+    },
+    {
+      "tablename": "users",
+      "policyname": "runtime_identity_lookup",
+      "cmd": "SELECT",
+      "qual": "(auth_subject = current_setting('app.auth_subject'::text, true))",
+      "with_check": null
+    }
+  ],
+  "migrations": [
+    {
+      "migration_name": "20261014063000_preserve_source_baseline",
+      "checksum": "148e77f65ba5c08720afddc569e3535512017b3257a1384ba39cdb7c5cb37c93",
+      "finished_at": "2026-10-14T06:38:54.219Z",
+      "rolled_back_at": null
+    },
+    {
+      "migration_name": "20261014083000_runtime_security",
+      "checksum": "3916a0baca77cd2be19531165d24315d251aae732b54df3437a7a13e561f3a0b",
+      "finished_at": "2026-10-14T08:21:14.928Z",
+      "rolled_back_at": null
+    }
+  ],
+  "catalogDiff": {
+    "columns": "UNCHANGED",
+    "constraints": "UNCHANGED",
+    "indexes": "UNCHANGED",
+    "triggers": "UNCHANGED"
+  },
+  "runtimePrivileges": {
+    "role": "tiktok_api_runtime",
+    "ddl": false,
+    "db_create": false,
+    "owned": 0
+  },
+  "beforeCounts": {
+    "import_batches": 0,
+    "legacy_records": 0,
+    "legacy_values": 0,
+    "mutation_requests": 0,
+    "product_history": 0,
+    "product_images": 0,
+    "products": 0,
+    "purchase_rounds": 0,
+    "refunds": 0,
+    "sales_details": 0,
+    "source_archives": 0,
+    "stage_snapshots": 0,
+    "users": 1
+  },
+  "tableDeleteTruncateDenial": [
+    {
+      "table": "import_batches",
+      "delete": false,
+      "truncate": false
+    },
+    {
+      "table": "legacy_records",
+      "delete": false,
+      "truncate": false
+    },
+    {
+      "table": "legacy_values",
+      "delete": false,
+      "truncate": false
+    },
+    {
+      "table": "mutation_requests",
+      "delete": false,
+      "truncate": false
+    },
+    {
+      "table": "product_history",
+      "delete": false,
+      "truncate": false
+    },
+    {
+      "table": "product_images",
+      "delete": false,
+      "truncate": false
+    },
+    {
+      "table": "products",
+      "delete": false,
+      "truncate": false
+    },
+    {
+      "table": "purchase_rounds",
+      "delete": false,
+      "truncate": false
+    },
+    {
+      "table": "refunds",
+      "delete": false,
+      "truncate": false
+    },
+    {
+      "table": "sales_details",
+      "delete": false,
+      "truncate": false
+    },
+    {
+      "table": "source_archives",
+      "delete": false,
+      "truncate": false
+    },
+    {
+      "table": "stage_snapshots",
+      "delete": false,
+      "truncate": false
+    },
+    {
+      "table": "users",
+      "delete": false,
+      "truncate": false
+    }
+  ],
+  "afterCounts": {
+    "import_batches": 0,
+    "legacy_records": 0,
+    "legacy_values": 0,
+    "mutation_requests": 0,
+    "product_history": 0,
+    "product_images": 0,
+    "products": 0,
+    "purchase_rounds": 0,
+    "refunds": 0,
+    "sales_details": 0,
+    "source_archives": 0,
+    "stage_snapshots": 0,
+    "users": 1
+  },
+  "rollback": "PASS_COUNTS_AND_REAL_ADMIN_RESTORED",
+  "finishedAtUtc": "2026-10-14T09:15:31.399Z"
+}

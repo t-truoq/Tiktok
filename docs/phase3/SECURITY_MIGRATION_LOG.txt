@@ -1,0 +1,13 @@
+Datasource "db": PostgreSQL database "postgres", schema "public" at "aws-0-ap-northeast-2.pooler.supabase.com:5432"
+
+2 migrations found in prisma/migrations
+
+Applying migration `20261014083000_runtime_security`
+
+The following migration(s) have been applied:
+
+migrations/
+  └─ 20261014083000_runtime_security/
+    └─ migration.sql
+
+All migrations have been successfully applied.

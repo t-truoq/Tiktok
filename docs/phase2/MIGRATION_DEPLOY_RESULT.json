@@ -1,0 +1,16 @@
+{
+  "startedAtUtc": "2026-10-14T06:38:50.396Z",
+  "projectRef": "nqdaykgasfnsaixkhbya",
+  "migration": "apps/api/prisma/migrations/20261014063000_preserve_source_baseline/migration.sql",
+  "sha256": "148e77f65ba5c08720afddc569e3535512017b3257a1384ba39cdb7c5cb37c93",
+  "attempts": 1,
+  "backupGate": "WAIVED_BY_OWNER",
+  "separatePrismaTlsPreflight": "WAIVED_BY_OWNER",
+  "tlsRequired": true,
+  "sslaccept": "strict",
+  "command": "Prisma 7 migrate deploy --config apps/api/prisma.config.ts",
+  "status": "CLI_DEPLOY_SUCCEEDED_REQUIRES_CATALOG_VERIFICATION",
+  "importExecuted": false,
+  "exitCode": 0,
+  "finishedAtUtc": "2026-10-14T06:38:54.488Z"
+}

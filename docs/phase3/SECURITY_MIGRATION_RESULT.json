@@ -1,0 +1,12 @@
+{
+  "startedAtUtc": "2026-10-14T08:21:10.425Z",
+  "migration": "apps/api/prisma/migrations/20261014083000_runtime_security/migration.sql",
+  "sha256": "3916a0baca77cd2be19531165d24315d251aae732b54df3437a7a13e561f3a0b",
+  "project": "nqdaykgasfnsaixkhbya",
+  "status": "APPLIED_REQUIRES_CATALOG_VERIFICATION",
+  "attempts": 1,
+  "sslaccept": "strict",
+  "sourceImported": false,
+  "managedSchemasChanged": false,
+  "finishedAtUtc": "2026-10-14T08:21:15.188Z"
+}

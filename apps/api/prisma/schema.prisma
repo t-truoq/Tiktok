@@ -1,5 +1,5 @@
 // truonglt phase2 reviewed schema start
-// Gate1 owner exception passed. Active datamodel; migrations have not been applied.
+// Gate1 owner exception passed. Baseline migration applied under owner override; no data imported.
 generator client {
   provider     = "prisma-client"
   output       = "../src/generated/prisma"

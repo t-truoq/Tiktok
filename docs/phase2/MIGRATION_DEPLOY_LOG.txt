@@ -1,0 +1,13 @@
+Datasource "db": PostgreSQL database "postgres", schema "public" at "aws-0-ap-northeast-2.pooler.supabase.com:5432"
+
+1 migration found in prisma/migrations
+
+Applying migration `20261014063000_preserve_source_baseline`
+
+The following migration(s) have been applied:
+
+migrations/
+  └─ 20261014063000_preserve_source_baseline/
+    └─ migration.sql
+
+All migrations have been successfully applied.

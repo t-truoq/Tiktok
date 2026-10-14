@@ -3,7 +3,7 @@
     "route": "DATABASE_URL",
     "status": "PASS",
     "environment": "DEV",
-    "verifiedAtUtc": "2026-10-14T06:15:37.764Z",
+    "verifiedAtUtc": "2026-10-14T09:15:07.387Z",
     "ok": 1,
     "timezone": "UTC",
     "tls": true,
@@ -44,10 +44,67 @@
           "name": "vault"
         }
       ],
-      "publicObjects": [],
+      "publicObjects": [
+        {
+          "name": "_prisma_migrations",
+          "kind": "r"
+        },
+        {
+          "name": "import_batches",
+          "kind": "r"
+        },
+        {
+          "name": "legacy_records",
+          "kind": "r"
+        },
+        {
+          "name": "legacy_values",
+          "kind": "r"
+        },
+        {
+          "name": "mutation_requests",
+          "kind": "r"
+        },
+        {
+          "name": "product_history",
+          "kind": "r"
+        },
+        {
+          "name": "product_images",
+          "kind": "r"
+        },
+        {
+          "name": "products",
+          "kind": "r"
+        },
+        {
+          "name": "purchase_rounds",
+          "kind": "r"
+        },
+        {
+          "name": "refunds",
+          "kind": "r"
+        },
+        {
+          "name": "sales_details",
+          "kind": "r"
+        },
+        {
+          "name": "source_archives",
+          "kind": "r"
+        },
+        {
+          "name": "stage_snapshots",
+          "kind": "r"
+        },
+        {
+          "name": "users",
+          "kind": "r"
+        }
+      ],
       "migrationHistory": [
         {
-          "exists": false
+          "exists": true
         }
       ],
       "inspectionOnly": true,
@@ -59,7 +116,7 @@
     "route": "DIRECT_URL",
     "status": "PASS",
     "environment": "DEV",
-    "verifiedAtUtc": "2026-10-14T06:15:39.920Z",
+    "verifiedAtUtc": "2026-10-14T09:15:09.990Z",
     "ok": 1,
     "timezone": "UTC",
     "tls": true,
@@ -100,10 +157,67 @@
           "name": "vault"
         }
       ],
-      "publicObjects": [],
+      "publicObjects": [
+        {
+          "name": "_prisma_migrations",
+          "kind": "r"
+        },
+        {
+          "name": "import_batches",
+          "kind": "r"
+        },
+        {
+          "name": "legacy_records",
+          "kind": "r"
+        },
+        {
+          "name": "legacy_values",
+          "kind": "r"
+        },
+        {
+          "name": "mutation_requests",
+          "kind": "r"
+        },
+        {
+          "name": "product_history",
+          "kind": "r"
+        },
+        {
+          "name": "product_images",
+          "kind": "r"
+        },
+        {
+          "name": "products",
+          "kind": "r"
+        },
+        {
+          "name": "purchase_rounds",
+          "kind": "r"
+        },
+        {
+          "name": "refunds",
+          "kind": "r"
+        },
+        {
+          "name": "sales_details",
+          "kind": "r"
+        },
+        {
+          "name": "source_archives",
+          "kind": "r"
+        },
+        {
+          "name": "stage_snapshots",
+          "kind": "r"
+        },
+        {
+          "name": "users",
+          "kind": "r"
+        }
+      ],
       "migrationHistory": [
         {
-          "exists": false
+          "exists": true
         }
       ],
       "inspectionOnly": true,

@@ -1,7 +1,7 @@
 <!-- truonglt reviewed DEV schema-only migration plan start -->
 # Phase 2 — kế hoạch migration DEV để review
 
-Trạng thái **OWNER_APPROVED_CONDITIONAL / BLOCKED_BEFORE_APPLY**. Owner đã duyệt schema-only với SQL hash dưới đây; yêu cầu backup/restore chưa được chứng minh nên chưa chạy. Xem MIGRATION_EXECUTION_BLOCKER.md. Gate1 PASS theo ngoại lệ owner; Gate2 chưa PASS. Không có approval import HISTORY.
+Trạng thái thực thi **APPLIED** theo OWNER OVERRIDE: owner bỏ backup/restore verification và separate Prisma TLS preflight, giữ TLS verification bật. Migrate deploy chạy đúng một lần; checksum và catalog xác minh trong MIGRATION_DEPLOY_RESULT.json / INTEGRATION_LIVE_RESULT.json. 73 checks đạt, 13 bảng rỗng sau synthetic rollback. Race nhiều session chưa kiểm thử; report Gate2 cũ giữ rõ giới hạn đó. MIGRATION_EXECUTION_BLOCKER.md là evidence lịch sử trước override, không còn là blocker thực thi. Không có approval import HISTORY.
 
 ## Artifact cụ thể
 

@@ -1,0 +1,45 @@
+{
+  "startedAtUtc": "2026-10-14T07:41:11.252Z",
+  "syntheticOnly": true,
+  "importsExecuted": false,
+  "schemaChangesExecuted": false,
+  "tests": [
+    {
+      "name": "stage transition commits projection, round, snapshot, audit and request together inside rollback transaction",
+      "status": "PASS"
+    },
+    {
+      "name": "exact replay returns stored outcome with no second event",
+      "status": "PASS"
+    },
+    {
+      "name": "same idempotency key with different payload is HTTP 409",
+      "status": "PASS"
+    },
+    {
+      "name": "stale version is HTTP 409 with no history append",
+      "status": "PASS"
+    }
+  ],
+  "runtimeRoleVerification": "BLOCKED_ROLE_NOT_PROVISIONED",
+  "multiSessionRace": "NOT_EXECUTED",
+  "status": "FAIL",
+  "beforeCounts": {
+    "user": 0,
+    "sourceArchive": 0,
+    "importBatch": 0,
+    "product": 0,
+    "legacyRecord": 0,
+    "legacyValue": 0,
+    "purchaseRound": 0,
+    "salesDetail": 0,
+    "stageSnapshot": 0,
+    "productHistory": 0,
+    "refund": 0,
+    "productImage": 0,
+    "mutationRequest": 0
+  },
+  "runtimePolicies": [],
+  "safeCode": "DATABASE_UNAVAILABLE",
+  "finishedAtUtc": "2026-10-14T07:41:20.667Z"
+}

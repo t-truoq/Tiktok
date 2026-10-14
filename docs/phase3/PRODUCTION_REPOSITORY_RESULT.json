@@ -1,0 +1,18 @@
+{
+  "verifiedAtUtc": "2026-10-14T08:55:47.779Z",
+  "publicWritesEnabled": false,
+  "databaseWrites": false,
+  "status": "PASS_REAL_TOKEN_PRODUCTION_REPOSITORY_INIT_AND_CONTEXT",
+  "initializer": "PASS_NON_OWNER_NOSUPER_NOBYPASS_NO_DDL_NO_OWNER_SET",
+  "readContext": {
+    "role": "tiktok_api_runtime",
+    "actor": "c918885f-c09c-40b0-a43a-4edcbdf69317",
+    "subject": "c918885f-c09c-40b0-a43a-4edcbdf69317",
+    "read_only": "on"
+  },
+  "writeContextWithoutWrites": {
+    "role": "tiktok_api_runtime",
+    "actor": "c918885f-c09c-40b0-a43a-4edcbdf69317",
+    "isolation": "serializable"
+  }
+}

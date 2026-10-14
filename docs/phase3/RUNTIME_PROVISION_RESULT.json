@@ -1,0 +1,45 @@
+{
+  "startedAtUtc": "2026-10-14T08:23:13.807Z",
+  "project": "nqdaykgasfnsaixkhbya",
+  "status": "PASS_LOGIN_ACTOR_PROVISIONED_REAL_JWT_PENDING",
+  "publicWritesEnabled": false,
+  "realAuthSubject": "c918885f-c09c-40b0-a43a-4edcbdf69317",
+  "authUsersCreated": false,
+  "policyCount": 22,
+  "roles": [
+    {
+      "rolname": "tiktok_api_access",
+      "rolsuper": false,
+      "rolbypassrls": false,
+      "rolcreaterole": false,
+      "rolcreatedb": false,
+      "rolcanlogin": false
+    },
+    {
+      "rolname": "tiktok_api_runtime",
+      "rolsuper": false,
+      "rolbypassrls": false,
+      "rolcreaterole": false,
+      "rolcreatedb": false,
+      "rolcanlogin": false
+    }
+  ],
+  "businessActorId": "c918885f-c09c-40b0-a43a-4edcbdf69317",
+  "authorizedBusinessActor": "PROVISIONED_REAL_ADMIN",
+  "tls": {
+    "verified": true,
+    "protocol": "TLSv1.3",
+    "hostnameVerification": true
+  },
+  "identity": {
+    "role": "tiktok_api_runtime",
+    "rolsuper": false,
+    "rolbypassrls": false,
+    "rolcreaterole": false,
+    "rolcreatedb": false,
+    "can_create": false
+  },
+  "login": "PASS_SESSION_POOLER",
+  "secretStorage": "IGNORED_LOCAL_FILES_USER_AND_SYSTEM_ACL",
+  "finishedAtUtc": "2026-10-14T08:23:17.006Z"
+}

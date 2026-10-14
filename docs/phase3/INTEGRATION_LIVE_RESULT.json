@@ -1,0 +1,96 @@
+{
+  "startedAtUtc": "2026-10-14T08:00:29.634Z",
+  "syntheticOnly": true,
+  "importsExecuted": false,
+  "schemaChangesExecuted": false,
+  "tests": [
+    {
+      "name": "stage transition commits projection, round, snapshot, audit and request together inside rollback transaction",
+      "status": "PASS"
+    },
+    {
+      "name": "exact replay returns stored outcome with no second event",
+      "status": "PASS"
+    },
+    {
+      "name": "same idempotency key with different payload is HTTP 409",
+      "status": "PASS"
+    },
+    {
+      "name": "stale version is HTTP 409 with no history append",
+      "status": "PASS"
+    },
+    {
+      "name": "Decimal 12.34 stored exactly and finance recomputed",
+      "status": "PASS"
+    },
+    {
+      "name": "VIEWER denied and transaction role downgrade cannot write",
+      "status": "PASS"
+    },
+    {
+      "name": "failure after product/round/request writes rolls back all effects",
+      "status": "PASS"
+    },
+    {
+      "name": "current priced order cancel follows source header reactivation, preserving price and audit",
+      "status": "PASS"
+    },
+    {
+      "name": "received End matches Sample round refund eligibility and Decimal sales",
+      "status": "PASS"
+    },
+    {
+      "name": "clearing order price distinguishes missing price from zero without deleting audit",
+      "status": "PASS"
+    },
+    {
+      "name": "Done appends snapshot and sequenced immutable leave/enter history",
+      "status": "PASS"
+    },
+    {
+      "name": "history database update rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "outer rollback restores all 13 table counts",
+      "status": "PASS"
+    }
+  ],
+  "runtimeRoleVerification": "BLOCKED_ROLE_NOT_PROVISIONED",
+  "multiSessionRace": "NOT_EXECUTED",
+  "status": "SYNTHETIC_SERVICE_PASS_SECURITY_BLOCKED",
+  "beforeCounts": {
+    "user": 0,
+    "sourceArchive": 0,
+    "importBatch": 0,
+    "product": 0,
+    "legacyRecord": 0,
+    "legacyValue": 0,
+    "purchaseRound": 0,
+    "salesDetail": 0,
+    "stageSnapshot": 0,
+    "productHistory": 0,
+    "refund": 0,
+    "productImage": 0,
+    "mutationRequest": 0
+  },
+  "runtimePolicies": [],
+  "afterCounts": {
+    "user": 0,
+    "sourceArchive": 0,
+    "importBatch": 0,
+    "product": 0,
+    "legacyRecord": 0,
+    "legacyValue": 0,
+    "purchaseRound": 0,
+    "salesDetail": 0,
+    "stageSnapshot": 0,
+    "productHistory": 0,
+    "refund": 0,
+    "productImage": 0,
+    "mutationRequest": 0
+  },
+  "rollback": "PASS",
+  "finishedAtUtc": "2026-10-14T08:01:00.692Z"
+}

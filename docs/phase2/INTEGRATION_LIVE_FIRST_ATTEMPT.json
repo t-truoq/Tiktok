@@ -1,0 +1,506 @@
+{
+  "startedAtUtc": "2026-10-14T06:42:26.164Z",
+  "migrationStatus": "APPLIED",
+  "sha256": "148e77f65ba5c08720afddc569e3535512017b3257a1384ba39cdb7c5cb37c93",
+  "syntheticOnly": true,
+  "realHistoryImported": false,
+  "tests": [
+    {
+      "name": "13 exact tables and 13 RLS enabled",
+      "status": "PASS"
+    },
+    {
+      "name": "all generated/custom constraints validated and indexes present",
+      "status": "PASS"
+    },
+    {
+      "name": "10 exact immutable triggers enabled",
+      "status": "PASS"
+    },
+    {
+      "name": "batch retry unique identity",
+      "status": "PASS",
+      "expectedSqlState": "23505"
+    }
+  ],
+  "truncateTests": "CATALOG_VERIFIED_NOT_EXECUTED",
+  "multiSessionVersionRace": "NOT_RUN_ROLLBACK_ONLY",
+  "gate2": "FAIL_OR_BLOCKED",
+  "migrations": [
+    {
+      "migration_name": "20261014063000_preserve_source_baseline",
+      "checksum": "148e77f65ba5c08720afddc569e3535512017b3257a1384ba39cdb7c5cb37c93",
+      "finished_at": "2026-10-14T06:38:54.219Z",
+      "rolled_back_at": null,
+      "applied_steps_count": 1
+    }
+  ],
+  "catalog": {
+    "tables": [
+      {
+        "name": "import_batches",
+        "rls": true
+      },
+      {
+        "name": "legacy_records",
+        "rls": true
+      },
+      {
+        "name": "legacy_values",
+        "rls": true
+      },
+      {
+        "name": "mutation_requests",
+        "rls": true
+      },
+      {
+        "name": "product_history",
+        "rls": true
+      },
+      {
+        "name": "product_images",
+        "rls": true
+      },
+      {
+        "name": "products",
+        "rls": true
+      },
+      {
+        "name": "purchase_rounds",
+        "rls": true
+      },
+      {
+        "name": "refunds",
+        "rls": true
+      },
+      {
+        "name": "sales_details",
+        "rls": true
+      },
+      {
+        "name": "source_archives",
+        "rls": true
+      },
+      {
+        "name": "stage_snapshots",
+        "rls": true
+      },
+      {
+        "name": "users",
+        "rls": true
+      }
+    ],
+    "constraints": [
+      {
+        "name": "_prisma_migrations_pkey",
+        "validated": true
+      },
+      {
+        "name": "batch_counts_nonnegative",
+        "validated": true
+      },
+      {
+        "name": "batch_plan_checksum_format",
+        "validated": true
+      },
+      {
+        "name": "batch_status_valid",
+        "validated": true
+      },
+      {
+        "name": "decoded_checksum_format",
+        "validated": true
+      },
+      {
+        "name": "history_imported_product_fk",
+        "validated": true
+      },
+      {
+        "name": "import_batches_pkey",
+        "validated": true
+      },
+      {
+        "name": "import_batches_source_archive_id_fkey",
+        "validated": true
+      },
+      {
+        "name": "imported_history_identity",
+        "validated": true
+      },
+      {
+        "name": "imported_snapshot_identity",
+        "validated": true
+      },
+      {
+        "name": "legacy_event_index_nonnegative",
+        "validated": true
+      },
+      {
+        "name": "legacy_records_import_batch_id_fkey",
+        "validated": true
+      },
+      {
+        "name": "legacy_records_pkey",
+        "validated": true
+      },
+      {
+        "name": "legacy_records_product_id_fkey",
+        "validated": true
+      },
+      {
+        "name": "legacy_records_source_archive_id_fkey",
+        "validated": true
+      },
+      {
+        "name": "legacy_values_legacy_record_id_fkey",
+        "validated": true
+      },
+      {
+        "name": "legacy_values_pkey",
+        "validated": true
+      },
+      {
+        "name": "mutation_requests_actor_id_fkey",
+        "validated": true
+      },
+      {
+        "name": "mutation_requests_pkey",
+        "validated": true
+      },
+      {
+        "name": "order_price_state_consistent",
+        "validated": true
+      },
+      {
+        "name": "product_history_actor_id_fkey",
+        "validated": true
+      },
+      {
+        "name": "product_history_import_batch_id_fkey",
+        "validated": true
+      },
+      {
+        "name": "product_history_pkey",
+        "validated": true
+      },
+      {
+        "name": "product_history_product_id_fkey",
+        "validated": true
+      },
+      {
+        "name": "product_images_pkey",
+        "validated": true
+      },
+      {
+        "name": "product_images_product_id_fkey",
+        "validated": true
+      },
+      {
+        "name": "product_version_positive",
+        "validated": true
+      },
+      {
+        "name": "products_pkey",
+        "validated": true
+      },
+      {
+        "name": "purchase_rounds_pkey",
+        "validated": true
+      },
+      {
+        "name": "purchase_rounds_product_id_fkey",
+        "validated": true
+      },
+      {
+        "name": "record_batch_source_fk",
+        "validated": true
+      },
+      {
+        "name": "record_product_key_fk",
+        "validated": true
+      },
+      {
+        "name": "refund_end_product_fk",
+        "validated": true
+      },
+      {
+        "name": "refund_groups_valid",
+        "validated": true
+      },
+      {
+        "name": "refund_sample_product_fk",
+        "validated": true
+      },
+      {
+        "name": "refunds_end_round_id_fkey",
+        "validated": true
+      },
+      {
+        "name": "refunds_pkey",
+        "validated": true
+      },
+      {
+        "name": "refunds_product_id_fkey",
+        "validated": true
+      },
+      {
+        "name": "refunds_sample_round_id_fkey",
+        "validated": true
+      },
+      {
+        "name": "request_checksum_format",
+        "validated": true
+      },
+      {
+        "name": "round_index_positive",
+        "validated": true
+      },
+      {
+        "name": "round_version_positive",
+        "validated": true
+      },
+      {
+        "name": "sales_details_pkey",
+        "validated": true
+      },
+      {
+        "name": "sales_details_round_id_fkey",
+        "validated": true
+      },
+      {
+        "name": "sales_value_states_consistent",
+        "validated": true
+      },
+      {
+        "name": "snapshot_imported_product_fk",
+        "validated": true
+      },
+      {
+        "name": "source_archives_pkey",
+        "validated": true
+      },
+      {
+        "name": "source_checksum_format",
+        "validated": true
+      },
+      {
+        "name": "stage_index_positive",
+        "validated": true
+      },
+      {
+        "name": "stage_snapshots_import_batch_id_fkey",
+        "validated": true
+      },
+      {
+        "name": "stage_snapshots_pkey",
+        "validated": true
+      },
+      {
+        "name": "stage_snapshots_product_id_fkey",
+        "validated": true
+      },
+      {
+        "name": "users_pkey",
+        "validated": true
+      }
+    ],
+    "indexes": [
+      {
+        "name": "_prisma_migrations_pkey"
+      },
+      {
+        "name": "import_batches_id_source_archive_id_key"
+      },
+      {
+        "name": "import_batches_pkey"
+      },
+      {
+        "name": "import_batches_source_archive_id_mapping_version_key"
+      },
+      {
+        "name": "legacy_records_import_batch_id_idx"
+      },
+      {
+        "name": "legacy_records_pkey"
+      },
+      {
+        "name": "legacy_records_product_id_idx"
+      },
+      {
+        "name": "legacy_records_product_id_import_batch_id_key"
+      },
+      {
+        "name": "legacy_records_source_archive_id_legacy_key_key"
+      },
+      {
+        "name": "legacy_values_legacy_record_id_json_pointer_key"
+      },
+      {
+        "name": "legacy_values_pkey"
+      },
+      {
+        "name": "mutation_requests_actor_id_idempotency_key_key"
+      },
+      {
+        "name": "mutation_requests_pkey"
+      },
+      {
+        "name": "product_history_actor_id_idx"
+      },
+      {
+        "name": "product_history_import_batch_id_idx"
+      },
+      {
+        "name": "product_history_pkey"
+      },
+      {
+        "name": "product_history_product_id_import_batch_id_legacy_event_ind_key"
+      },
+      {
+        "name": "product_history_product_id_legacy_event_index_idx"
+      },
+      {
+        "name": "product_history_product_id_recorded_at_idx"
+      },
+      {
+        "name": "product_images_pkey"
+      },
+      {
+        "name": "product_images_product_id_idx"
+      },
+      {
+        "name": "products_classification_archived_idx"
+      },
+      {
+        "name": "products_current_status_current_stage_group_current_stage_i_idx"
+      },
+      {
+        "name": "products_id_legacy_key_key"
+      },
+      {
+        "name": "products_legacy_key_key"
+      },
+      {
+        "name": "products_pkey"
+      },
+      {
+        "name": "products_root_name_normalized_key"
+      },
+      {
+        "name": "purchase_rounds_id_product_id_group_key"
+      },
+      {
+        "name": "purchase_rounds_pkey"
+      },
+      {
+        "name": "purchase_rounds_product_id_group_round_index_key"
+      },
+      {
+        "name": "purchase_rounds_product_id_ordered_received_cancelled_idx"
+      },
+      {
+        "name": "refunds_end_round_id_idx"
+      },
+      {
+        "name": "refunds_pkey"
+      },
+      {
+        "name": "refunds_product_id_idx"
+      },
+      {
+        "name": "refunds_sample_round_id_idx"
+      },
+      {
+        "name": "sales_details_pkey"
+      },
+      {
+        "name": "sales_details_round_id_key"
+      },
+      {
+        "name": "source_archives_pkey"
+      },
+      {
+        "name": "source_archives_sha256_key"
+      },
+      {
+        "name": "stage_snapshots_import_batch_id_idx"
+      },
+      {
+        "name": "stage_snapshots_pkey"
+      },
+      {
+        "name": "stage_snapshots_product_id_import_batch_id_source_json_poin_key"
+      },
+      {
+        "name": "stage_snapshots_product_id_source_label_idx"
+      },
+      {
+        "name": "users_auth_subject_key"
+      },
+      {
+        "name": "users_pkey"
+      }
+    ],
+    "triggers": [
+      {
+        "name": "history_append_only",
+        "enabled": "O"
+      },
+      {
+        "name": "history_no_truncate",
+        "enabled": "O"
+      },
+      {
+        "name": "legacy_record_immutable",
+        "enabled": "O"
+      },
+      {
+        "name": "legacy_record_no_truncate",
+        "enabled": "O"
+      },
+      {
+        "name": "legacy_value_immutable",
+        "enabled": "O"
+      },
+      {
+        "name": "legacy_value_no_truncate",
+        "enabled": "O"
+      },
+      {
+        "name": "snapshot_append_only",
+        "enabled": "O"
+      },
+      {
+        "name": "snapshot_no_truncate",
+        "enabled": "O"
+      },
+      {
+        "name": "source_archive_immutable",
+        "enabled": "O"
+      },
+      {
+        "name": "source_archive_no_truncate",
+        "enabled": "O"
+      }
+    ]
+  },
+  "beforeCounts": {
+    "users": 0,
+    "source_archives": 0,
+    "import_batches": 0,
+    "products": 0,
+    "legacy_records": 0,
+    "legacy_values": 0,
+    "purchase_rounds": 0,
+    "sales_details": 0,
+    "stage_snapshots": 0,
+    "product_history": 0,
+    "refunds": 0,
+    "product_images": 0,
+    "mutation_requests": 0
+  },
+  "testStatus": "FAIL",
+  "errorCategory": "DATABASE_UNAVAILABLE",
+  "errorName": "error",
+  "finishedAtUtc": "2026-10-14T06:42:30.683Z"
+}
