@@ -1,4 +1,6 @@
 # truonglt byte preservation start
 # Preserve authoritative source bytes, including the TXT original CRLF line endings.
 TikTok_Affiliate_Phase0_References/references/** -text
+tests/golden/*.json -text
+docs/phase0/*.json -text
 # truonglt byte preservation end
