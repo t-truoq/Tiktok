@@ -29,3 +29,6 @@ Không chạy lại full Node/Python suites cũ theo yêu cầu owner; chỉ reg
 
 Render Build npm ci --include=dev && npm run build; Start npm run start:prod. Không migration/import trong build/start. Không cần env mới; giữ runtime URL/CA/API/WRITE owner đã cấu hình. Vercel rewrite cùng origin, không cần mở CORS. Gate5 browser acceptance còn PARTIAL; migration/backend integration có evidence PASS.
 <!-- truonglt Phase5 implemented management and preservation evidence end -->
+<!-- truonglt actual management deployment evidence start -->
+Deployment verified: code commit 847aa7005681a7bbf589a8a22afa2bd2dd9664a1 on Render, live/ready200, TLS/UTC; anonymous products/image401. Vercel https://tiktok-six-rho.vercel.app/ serves exact new ProductDrawer-CSk91TCK.js artifact. Real owner JWT through Vercel session/products200, canCreate/canUpload true and concurrent-round response contract present. Evidence MANAGEMENT_DEPLOYMENT_RESULT.json. Browser create/upload interaction remains unexecuted, not claimed PASS. Mutable operational ledger reconciliation is retained only in ignored local artifacts; no reset to source balances was performed.
+<!-- truonglt actual management deployment evidence end -->
