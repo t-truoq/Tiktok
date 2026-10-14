@@ -1,5 +1,7 @@
 # Chuẩn bị CI và backend staging
 
+Cập nhật: repository đã có origin/main và source đã push; owner tạm ngừng Actions do BLOCKED_BY_BILLING. Xem [GATE1_EXCEPTION_REPORT.md](GATE1_EXCEPTION_REPORT.md) và [OWNER_RENDER_SETUP.md](OWNER_RENDER_SETUP.md) để biết trạng thái hiện tại. Các đoạn “chưa có repository” bên dưới là lịch sử chuẩn bị ban đầu.
+
 CI workflow `.github/workflows/backend.yml` chạy npm ci, Node/Python validation, schema preview offline, build/backend tests và Docker build. Job staging chỉ chạy qua workflow_dispatch sau local-validation, dùng GitHub environment `staging`; chỉ SELECT/health, không có deploy/migrate/import step.
 
 Đã có Dockerfile multi-stage, non-root runtime, HOST=0.0.0.0 và healthcheck liveness. `.dockerignore` loại env/cert/nguồn HISTORY khỏi build context; runtime chỉ chứa dependencies và compiled backend. Readiness là `/api/v1/health/ready`; không dùng liveness để tuyên bố DB sẵn sàng. Container build chưa chạy local vì chưa có docker executable.

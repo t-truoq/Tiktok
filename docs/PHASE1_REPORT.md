@@ -1,6 +1,8 @@
 <!-- truonglt phase1 report start -->
 # Phase 1 — kết nối DEV thật và nền backend
 
+Báo cáo mới nhất theo ngoại lệ owner: [GATE1_EXCEPTION_REPORT.md](phase1/GATE1_EXCEPTION_REPORT.md). CLI PASS; Actions BLOCKED_BY_BILLING; Render build/readiness chưa xác minh, Gate1 chưa nghiệm thu.
+
 Cập nhật ngày 14/10/2026 (Asia/Ho_Chi_Minh). Xác nhận mới nhất của owner: project `nqdaykgasfnsaixkhbya` là DEV dành riêng cho TikTok Affiliate. Xác nhận này thay trạng thái “đang vận hành” trước đó; không yêu cầu tạo project DEV mới.
 
 ## Kết quả kết nối thật

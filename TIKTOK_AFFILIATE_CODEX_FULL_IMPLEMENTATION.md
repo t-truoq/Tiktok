@@ -16,6 +16,14 @@ Phần này ưu tiên hơn các yêu cầu lấy lại Google Sheets/Document Pr
 Baseline canonical: `tests/golden/baseline-input.json`, `baseline-expected.json`. XLSX chỉ là tham chiếu phân loại: `xlsx-observed-input.json`, `xlsx-observed-expected.json`. Báo cáo Gate0: `docs/GATE0_SIGNOFF.md`; findings đầy đủ: `docs/phase0/SOURCE_BASELINE_VALIDATION.json`.
 <!-- truonglt owner source decision end -->
 
+<!-- truonglt owner gate1 billing exception start -->
+## Ngoại lệ nghiệm thu Gate 1 do owner xác nhận — 14/10/2026
+
+GitHub Actions đang `BLOCKED_BY_BILLING`, không được ghi PASS. Tạm ngừng automatic Actions. Owner cho phép **đề xuất nghiệm thu Gate 1 theo ngoại lệ** khi có đủ bằng chứng CLI Prisma validate/build/unit tests/db:verify/health:verify PASS, Render build/runtime thành công và staging live/ready HTTP 200 với database/TLS/UTC đúng contract. Local/mock tests không thay thế Render evidence. Sau đó mới chuyển schema sang Prisma chính/tạo migration chính thức; mọi migration/db push/import vẫn chưa được phê duyệt.
+
+Giữ HISTORY JSON nguyên bản local và loại khỏi commit mới theo yêu cầu mới. Source checksum/46 records/1.224 events/133 snapshots không đổi. File đã được push trước theo xác nhận cho phép công khai; không tự rewrite lịch sử Git hoặc xóa dữ liệu nguồn. Các golden fixtures đã công khai vẫn chứa bản sao dữ liệu theo phê duyệt trước đó.
+<!-- truonglt owner gate1 billing exception end -->
+
 > **Purpose:** Rebuild the existing Google Sheets + Apps Script V9.1/V9.2 TikTok Affiliate workflow as a responsive, friendly web application. **Database-first, backend-entities-second, frontend-tables-third.** Preserve every verified financial rule, existing record and audit history. This is an implementation contract, not permission to invent business rules.
 >
 > **Reference source files (must be provided to Codex):** `Tiktok_Affiliate_V9.1_Original_Backup.gs`, `Tiktok_Affiliate_V9.2_Optimized.gs`, `Pasted text(20261014-015629).txt`, `Tiktok affiliate.xlsx`. The Excel snapshot DOES NOT include all Apps Script Document Properties. Never claim a complete migration from Excel alone.

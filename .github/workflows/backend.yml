@@ -1,8 +1,10 @@
 # truonglt phase1 ci start
 name: Backend phase gates
 on:
-  push:
-  pull_request:
+  # truonglt owner billing exception start
+  # Owner temporarily disabled automatic Actions; CLI + Render evidence is used.
+  # Retain manual workflow for use after account billing is unlocked.
+  # truonglt owner billing exception end
   workflow_dispatch:
 permissions:
   contents: read

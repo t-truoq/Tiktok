@@ -1,0 +1,56 @@
+{
+  "capturedAtUtc": "2026-10-14T04:45:50.965Z",
+  "gate1": "NOT_PASS",
+  "databaseWrites": false,
+  "staging": [
+    {
+      "url": "https://tiktok-6kwu.onrender.com/api/v1/health/live",
+      "endpoint": "live",
+      "verifiedAtUtc": "2026-10-14T04:45:50.966Z",
+      "httpStatus": null,
+      "body": null,
+      "passed": false,
+      "errorCode": "TIMEOUT_NO_HTTP_EVIDENCE"
+    },
+    {
+      "url": "https://tiktok-6kwu.onrender.com/api/v1/health/ready",
+      "endpoint": "ready",
+      "verifiedAtUtc": "2026-10-14T04:45:51.006Z",
+      "httpStatus": null,
+      "body": null,
+      "passed": false,
+      "errorCode": "TIMEOUT_NO_HTTP_EVIDENCE"
+    }
+  ],
+  "ci": {
+    "id": 38512835618,
+    "sha": "2e1435092b80d09af7612504417f14cca92b6eb0",
+    "status": "completed",
+    "conclusion": "failure",
+    "url": "https://github.com/t-truoq/Tiktok/actions/runs/38512835618",
+    "jobs": [
+      {
+        "id": 115684999594,
+        "name": "local-validation",
+        "conclusion": "failure",
+        "steps": [],
+        "annotations": [
+          {
+            "level": "failure",
+            "message": "The job was not started because your account is locked due to a billing issue."
+          },
+          {
+            "level": "notice",
+            "message": "\"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+          }
+        ]
+      },
+      {
+        "id": 115685016852,
+        "name": "staging-readonly",
+        "conclusion": "skipped",
+        "steps": []
+      }
+    ]
+  }
+}

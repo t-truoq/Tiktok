@@ -13,5 +13,8 @@ coverage/
 apps/api/src/generated/
 exports/
 artifacts/
+# truonglt owner history exclusion start
+TikTok_Affiliate_Phase0_References/references/TikTok_Affiliate_HISTORY_20261014_104638.json
+# truonglt owner history exclusion end
 __pycache__/
 # truonglt repository ignore end
