@@ -1,0 +1,114 @@
+[
+  {
+    "route": "DATABASE_URL",
+    "status": "PASS",
+    "environment": "DEV",
+    "verifiedAtUtc": "2026-10-14T03:39:55.454Z",
+    "ok": 1,
+    "timezone": "UTC",
+    "tls": true,
+    "tlsScope": "client-to-endpoint",
+    "tlsProtocol": "TLSv1.3",
+    "postgresSessionTls": false,
+    "inspection": {
+      "identity": [
+        {
+          "database": "postgres",
+          "schema": "public",
+          "readOnly": "on"
+        }
+      ],
+      "schemas": [
+        {
+          "name": "auth"
+        },
+        {
+          "name": "extensions"
+        },
+        {
+          "name": "graphql"
+        },
+        {
+          "name": "graphql_public"
+        },
+        {
+          "name": "public"
+        },
+        {
+          "name": "realtime"
+        },
+        {
+          "name": "storage"
+        },
+        {
+          "name": "vault"
+        }
+      ],
+      "publicObjects": [],
+      "migrationHistory": [
+        {
+          "exists": false
+        }
+      ],
+      "inspectionOnly": true,
+      "migrationsExecuted": false
+    },
+    "note": "Read-only route connectivity/schema inspection; no migration executed. TLS scopes reported separately."
+  },
+  {
+    "route": "DIRECT_URL",
+    "status": "PASS",
+    "environment": "DEV",
+    "verifiedAtUtc": "2026-10-14T03:39:58.638Z",
+    "ok": 1,
+    "timezone": "UTC",
+    "tls": true,
+    "tlsScope": "client-to-endpoint",
+    "tlsProtocol": "TLSv1.3",
+    "postgresSessionTls": false,
+    "inspection": {
+      "identity": [
+        {
+          "database": "postgres",
+          "schema": "public",
+          "readOnly": "on"
+        }
+      ],
+      "schemas": [
+        {
+          "name": "auth"
+        },
+        {
+          "name": "extensions"
+        },
+        {
+          "name": "graphql"
+        },
+        {
+          "name": "graphql_public"
+        },
+        {
+          "name": "public"
+        },
+        {
+          "name": "realtime"
+        },
+        {
+          "name": "storage"
+        },
+        {
+          "name": "vault"
+        }
+      ],
+      "publicObjects": [],
+      "migrationHistory": [
+        {
+          "exists": false
+        }
+      ],
+      "inspectionOnly": true,
+      "migrationsExecuted": false
+    },
+    "note": "Read-only route connectivity/schema inspection; no migration executed. TLS scopes reported separately."
+  }
+]

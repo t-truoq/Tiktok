@@ -1,0 +1,26 @@
+[
+  {
+    "endpoint": "live",
+    "httpStatus": 200,
+    "body": {
+      "status": "ok"
+    },
+    "verifiedAtUtc": "2026-10-14T03:41:08.363Z",
+    "runtime": "LOCAL_NESTJS_REAL_DEV_DATABASE"
+  },
+  {
+    "endpoint": "ready",
+    "httpStatus": 200,
+    "body": {
+      "status": "ready",
+      "database": "ok",
+      "tls": true,
+      "timezone": "UTC",
+      "tlsScope": "client-to-endpoint",
+      "tlsProtocol": "TLSv1.3",
+      "postgresSessionTls": false
+    },
+    "verifiedAtUtc": "2026-10-14T03:41:09.578Z",
+    "runtime": "LOCAL_NESTJS_REAL_DEV_DATABASE"
+  }
+]

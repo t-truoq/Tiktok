@@ -86,5 +86,5 @@ Synthetic tests được ghi rõ ở file test; không giả làm fixtures sản
 
 Source inventory/rule map/exporter/local tests đã hoàn thành. Còn thiếu export Properties thật, xác minh fingerprint/timezone project gốc, golden expected từng sản phẩm/round, history count/latest dates và reconciliation report. Số mismatch với hệ thống thật chưa xác định, không phải 0. Không chuyển đổi/import trước khi dữ liệu được xác minh.
 
-Phase1 chỉ làm nền backend độc lập theo chỉ đạo mới; xem `PHASE1_REPORT.md`. Project Supabase supplied đã được owner xác nhận là đang vận hành; kết nối direct chưa thành công, chưa có DEV riêng/staging. Không entity/migration/Frontend.
+Phase1 chỉ làm nền backend độc lập theo chỉ đạo mới; xem `PHASE1_REPORT.md`. Xác nhận mới nhất: project supplied là DEV dành riêng; hai URI Session Pooler đã SELECT 1 thành công với UTC và TLS socket được xác minh. Public schema đã được kiểm kê bằng transaction chỉ đọc và không có tables/views; Gate1 còn staging/CI thực tế. Không entity/migration/Frontend và không yêu cầu tạo DEV mới.
 <!-- truonglt baseline report end -->

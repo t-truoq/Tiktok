@@ -24,8 +24,10 @@ export class HealthController {
     response.setHeader('Cache-Control', 'no-store');
     try {
       if (!this.database) throw new Error('DATABASE_NOT_CONFIGURED');
-      await probeDatabase(this.database);
-      response.status(200).json({ status: 'ready', database: 'ok', tls: true, timezone: 'UTC' });
+      const result = await probeDatabase(this.database);
+      response.status(200).json({ status: 'ready', database: 'ok', tls: result.tls,
+        timezone: result.timezone, tlsScope: result.tlsScope, tlsProtocol: result.tlsProtocol,
+        postgresSessionTls: result.postgresSessionTls });
     } catch (error) {
       this.logger.warn(JSON.stringify({ event: 'database_readiness_failed', code: sanitizedDatabaseError(error) }));
       response.setHeader('Content-Type', 'application/problem+json');

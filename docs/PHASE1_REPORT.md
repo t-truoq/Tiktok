@@ -1,52 +1,79 @@
 <!-- truonglt phase1 report start -->
-# Phase 1 — nền backend và kết nối PostgreSQL
+# Phase 1 — kết nối DEV thật và nền backend
 
-Ngày kiểm tra: 14/10/2026. Chỉ làm các bước độc lập được người dùng cho phép khi Gate0 đang chờ export.
+Cập nhật ngày 14/10/2026 (Asia/Ho_Chi_Minh). Xác nhận mới nhất của owner: project `nqdaykgasfnsaixkhbya` là DEV dành riêng cho TikTok Affiliate. Xác nhận này thay trạng thái “đang vận hành” trước đó; không yêu cầu tạo project DEV mới.
 
-## Đã thiết lập
+## Kết quả kết nối thật
 
-- Node.js v24.21.0, npm 11.19.0, Git 2.56.0.windows.2 hoạt động bằng đường dẫn đầy đủ. PATH đầu phiên không chứa công cụ; không cần cài lại. PowerShell execution policy không cho npm.ps1, dùng npm.cmd và không đổi execution policy.
-- Monorepo npm chỉ có apps/api, NestJS 12.1.3, TypeScript 5.9.3, Prisma/client/adapter-pg 7.10.0 (ổn định, không chọn npm latest8rc). Dependency lock được lưu.
-- Prisma7 dùng prisma.config.ts cho CLI/migration URL và adapter-pg dùng DATABASE_URL cho runtime. Schema hiện không có model nghiệp vụ/migration. Offline validate/generate dùng URI unreachable giả nếu DIRECT_URL chưa có; không nhận đó là connection pass.
-- /api/v1/health/live trả200; /api/v1/health/ready query SELECT1 cùng TimeZone/TLS session, chỉ trả200 khi DB query thành công, TLS=true và timezoneUTC. Lỗi/config thiếu trả503 problem+json tiếng Việt, no-store.
-- SSL certificate verification luôn bật; tùy chọn CA PEM chính thức qua DATABASE_CA_CERT_PATH. URL SSL flags không được override rejectUnauthorized. Runtime pool max4/timeouts3s, idle10s; session options UTC và default_transaction_read_only=on. Không tự migration startup.
-- Chỉ log allowlisted error code/category, không message/stack/SQL/connection URI/user/password. API secret không dùng. Supabase URL/JWKS config chưa được coi là kết nối PostgreSQL.
-- `.env`/certificates/keys/exports/generated/build/deps/cache được Git ignore; `.env.example` chỉ placeholder. Không tạo FE.
+Đã dùng chính hostname/user/port Session Pooler owner cung cấp cho cả DATABASE_URL và DIRECT_URL. Password được lấy từ env local đã có, giữ URL-encoded; không dùng placeholder YOUR_PASSWORD_ENCODED và không in/commit credentials.
 
-## Kiểm thử và giới hạn
+| Kiểm tra | DATABASE_URL | DIRECT_URL |
+|---|---|---|
+| Environment | DEV đã xác nhận | Cùng DEV |
+| Host/port | aws-0-ap-northeast-2.pooler.supabase.com:5432 | Cùng Session Pooler |
+| SELECT 1 | 1 — PASS | 1 — PASS |
+| TimeZone | UTC — PASS | UTC — PASS |
+| TLS socket backend → endpoint | TLSv1.3, encrypted và authorized — PASS | TLSv1.3, encrypted và authorized — PASS |
+| Certificate/hostname validation | rejectUnauthorized=true, servername đúng hostname, CA Supabase | Cùng cấu hình |
+| current_database/current_schema | postgres / public | postgres / public |
+| Transaction chỉ đọc khi kiểm kê | transaction_read_only=on | transaction_read_only=on |
+| Public tables/views/materialized views/foreign tables/sequences | Không có | Không có |
+| public._prisma_migrations | Chưa có | Chưa có |
+| Migration/DDL chạy | Không | Không |
+
+Bằng chứng machine-readable: `phase1/live-db-verification.json`. Hai phép kiểm tra cuối lúc 10:39:55 và 10:39:58 ngày 14/10/2026, giờ Việt Nam. Schema hiện có: auth, extensions, graphql, graphql_public, public, realtime, storage, vault; không đổi các schema Supabase quản lý.
+
+DIRECT_URL ở đây là tên biến route cho Prisma CLI, không khẳng định đó là direct hostname db.*. Owner cung cấp Session Pooler cho route này; kết nối đọc đã chứng minh, chưa thử DDL hoặc migration write capability khi Gate0 còn thiếu. Trước Phase2 cần kiểm kê lại schema, không dùng db push hoặc tự tạo bảng trên Dashboard.
+
+## Hai lớp TLS phải báo riêng
+
+Sau khi thêm CA, SELECT đã chạy nhưng pg_stat_ssl trả false. Kiểm tra cũ coi flag này là TLS client và từ chối readiness; đã sửa cách kiểm tra đúng transport:
+
+- Socket backend → Session Pooler: encrypted=true, authorized=true, protocol TLSv1.3; không tắt xác minh CA/hostname.
+- `pg_stat_ssl` của session phía PostgreSQL sau pooler: `postgresSessionTls=false`. Đây không phải flag của socket backend → pooler; không tuyên bố TLS toàn tuyến. Giá trị false được giữ công khai trong evidence và readiness, không đổi thành true.
+
+CA tải qua HTTPS từ endpoint Supabase phân phối: `https://supabase-downloads.s3-ap-southeast-1.amazonaws.com/prod/ssl/prod-ca-2021.crt`. Subject Supabase Root 2021 CA, isCa=true, self-signature verified; fingerprint SHA-256 `80:70:25:AD:50:D4:ED:21:9D:2C:9C:7D:29:9C:00:4F:82:4E:B0:0C:F7:F6:5A:FE:F6:07:D0:7B:72:E6:CA:FA`, expires 26/04/2031. Certificate và env đều Git ignored; không đổi trust store Windows.
+
+Startup option default_transaction_read_only không được pooler áp dụng (đã quan sát off), nên không dựa vào option này để tuyên bố chỉ đọc. Wrapper query dùng Prisma interactive transaction + SET TRANSACTION READ ONLY, sau đó chỉ SELECT; mọi metadata probe thực tế trả readOnly=on. Transaction control không tạo/sửa table, view hoặc dữ liệu. CLI migrations không được gọi.
+
+## Backend và kiểm thử
+
+Node24.21.0/npm11.19.0/Git2.56.0.windows.2; NestJS12.1.3, TypeScript5.9.3, Prisma/client/adapter7.10.0. Type declarations pg được đồng bộ với adapter để build không gặp xung đột. Prisma schema vẫn không có entity nghiệp vụ hoặc migration.
 
 | Kiểm tra | Kết quả |
 |---|---|
 | prisma validate | PASS local |
-| Prisma generate + tsc build | PASS local |
-| Health HTTP200/503, mock SELECT/TLS/UTC, driver-error masking | 8/8 PASS local |
-| Pure legacy/exporter Node regression | 35/35 PASS local, synthetic/mock |
-| Envelope/record/history integrity validator | 5/5 PASS local, synthetic |
-| Runtime PostgreSQL tới supplied direct hostname | FAIL: DATABASE_NOT_REACHABLE |
-| DIRECT_URL route | NOT_RUN: thiếu URL thực tế từ Dashboard |
-| TLS/UTC trên DB thật | CHƯA XÁC MINH vì chưa kết nối thành công |
-| Pooler mode/host/port, migration capability | CHƯA XÁC MINH |
-| Supabase DEV riêng | Chưa có; người dùng xác nhận supplied project đang vận hành |
-| Backend staging connection | Chưa có runtime staging |
-| GitHub CI run | Workflow đã tạo; chưa có remote/run thực tế |
+| Prisma generate + TypeScript build | PASS local |
+| Health/transport/error/schema unit và HTTP mock tests | 12/12 PASS |
+| HTTP /api/v1/health/live từ NestJS local thật | 200 |
+| HTTP /api/v1/health/ready từ NestJS local với DEV thật | 200, UTC, TLSv1.3 |
+| SELECT 1/TLS/UTC qua hai env routes | PASS thật |
+| Catalog inspection trong read-only transaction | PASS thật, public không có objects |
+| Phase0 regression/export integrity | Kết quả trước: 35 Node + 5 Python PASS; tài chính không đổi trong lượt này |
+| GitHub CI execution | Chưa chạy thực tế; workflow offline đã có |
+| Kết nối từ backend staging đã triển khai | Chưa có runtime staging để kiểm tra |
 
-Đã thử query chỉ đọc cả trong và ngoài sandbox; driver Prisma báo P2010 với adapter cause.kind=DatabaseNotReachable. Chỉ in category đã lọc; không dump error/raw credential. Chưa chứng minh nguyên nhân là IPv6, password, project pause hoặc DNS. Theo [Supabase connection guide](https://supabase.com/docs/guides/database/connecting-to-postgres), direct connection thường phụ thuộc IPv6; cần copy đúng Session Pooler URI từ Connect nếu direct route không dùng được, không invent hostname/port/user.
+HTTP evidence: `phase1/live-health-verification.json`, kiểm tra lúc 10:41:08–10:41:09 giờ Việt Nam. Script khởi động local NestJS ở port tạm, gửi GET health rồi tự đóng app/pool; không deploy hoặc giữ background service.
 
-`tsx` từng lỗi uv_os_get_passwd trong sandbox; đã chuyển công cụ db:verify sang compiled Node script. Không cần nới PowerShell execution policy hoặc thay logic tính toán.
+Secrets, credentials và errors: `.env` local ignored; `.env.example` chỉ placeholder. Chỉ log allowlisted codes, không dump error message/SQL/stack/URI. Không dùng secret API đã lộ trong chat. Trước deployment phải hoàn tất rotate/revoke secret theo security gate của blueprint.
 
-## Gate 1: CHƯA ĐẠT
+## Gate 1: LOCAL PASS, CHƯA NGHIỆM THU TOÀN BỘ
 
-Live connection/local+staging và DEV isolation còn thiếu; không cho phép tiến Phase2. Mọi thử kết nối tới project hiện tại đều read-only, không tạo bảng/import/update/delete/repair. `.env` local giữ riêng runtime URI được người dùng cung cấp, không chứa secret API; không log/commit credentials.
+Còn thiếu hai kiểm tra bắt buộc: kết nối từ backend staging runtime và lần CI thực tế thành công. Không còn thiếu project DEV hoặc hai env routes local; không yêu cầu tạo DEV mới. TLS scopes khác nhau đã được ghi nhận rõ, không tự chỉnh cấu hình SSL server trên Supabase.
+
+Gate0 chưa đạt vì chưa có export Document Properties thật và per-product/per-round/history reconciliation. Không Phase2, entity tables, Prisma migrations hoặc Frontend trước khi cả hai gate đạt.
 
 ## Chạy lại
 
-1. Xác nhận/tạo Supabase DEV riêng. Copy runtime URI và migration URI thật từ Dashboard>Connect vào apps/api/.env, đặt DB_ENVIRONMENT=DEV. URL-encode password; không gửi keys/password qua chat.
-2. Nếu provider yêu cầu CA, tải CA chính thức và đặt DATABASE_CA_CERT_PATH. Không tắt certificate verification.
-3. Tại root: npm.cmd run prisma:validate → npm.cmd run build → npm.cmd run test:phase1 → npm.cmd run db:verify. Trong phiên PowerShell hiện tại cần thêm C:\Program Files\nodejs vào PATH hoặc gọi npm.cmd bằng full path.
-4. Kiểm tra liveness/readiness ở http://localhost:3000/api/v1/health/live và /ready. Trên staging dùng cùng URI DEV/secrets được quản lý riêng, xác nhận TLS/UTC thật và pooler/migration route.
-5. Nếu chỉ chẩn đoán project đang vận hành đã được user xác nhận: DB_ENVIRONMENT=EXISTING, npm.cmd run db:verify -- --existing-readonly. Kết quả này không chứng nhận DEV/staging Gate1.
+Từ root (Node phải có trên PATH; dùng npm.cmd trên Windows):
 
-Không cần API secret để SELECT1. Secret API đã xuất hiện trong chat phải được rotate/revoke trước deployment theo security gate của blueprint; không dùng giá trị đó trong development.
+    npm.cmd run prisma:validate
+    npm.cmd run build
+    npm.cmd run test:phase1
+    npm.cmd run db:verify
+    npm.cmd run health:verify
 
-Tài liệu chính thức đã kiểm tra: [NestJS](https://docs.nestjs.com/first-steps), [Prisma config](https://docs.prisma.io/docs/orm/reference/prisma-config-reference), [Prisma PostgreSQL/adapter](https://docs.prisma.io/docs/orm/core-concepts/supported-databases/postgresql), [Supabase Prisma](https://supabase.com/docs/guides/database/prisma).
+Env local hiện đã có DEV, hai URI và DATABASE_CA_CERT_PATH. Không cần gửi lại password/API keys. Khi cấu hình staging, dùng cùng DEV và CA chính thức qua secure environment management. Không bỏ kiểm tra chứng chỉ để tránh lỗi TLS.
+
+Tài liệu chính thức: [Supabase SSL modes/CA](https://supabase.com/docs/guides/platform/ssl-enforcement), [Supabase connections](https://supabase.com/docs/guides/database/connecting-to-postgres), [Node TLS](https://nodejs.org/docs/latest-v24.x/api/tls.html), [node-postgres pool](https://node-postgres.com/apis/pool), [Prisma config](https://docs.prisma.io/docs/orm/reference/prisma-config-reference).
 <!-- truonglt phase1 report end -->

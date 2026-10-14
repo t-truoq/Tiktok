@@ -23,7 +23,7 @@ Node24/npm, Python3 và Git cần có trên PATH. Với máy hiện tại: dùng
     npm.cmd run test:phase1
     npm.cmd run start:api
 
-Database chưa sẵn sàng: liveness vẫn200, readiness503. Sau khi cung cấp cấu hình DEV riêng theo apps/api/.env.example, chạy npm.cmd run db:verify. Không dùng db push/migrate hoặc setup/repair legacy trong Phase0/1.
+Project nqdaykgasfnsaixkhbya được owner xác nhận là DEV. Hai route Session Pooler local đã SELECT 1/UTC và TLS socket được xác minh; live/ready HTTP200 với DB thật. Chạy npm.cmd run db:verify và npm.cmd run health:verify để lặp lại kiểm tra. Khi DB không sẵn sàng, live vẫn200 và ready503. Không dùng db push/migrate hoặc setup/repair legacy trong Phase0/1.
 
-GitHub workflow chỉ thực hiện offline validation/mocked HTTP; không được gọi là live DB pass. CI thực tế và staging chưa chạy. Financial baseline/reconciliation chỉ được nghiệm thu sau export gốc đầy đủ.
+GitHub workflow chỉ thực hiện offline validation/mocked HTTP; không được gọi là live DB pass. CI thực tế và staging chưa chạy; Gate1 local pass chưa phải toàn bộ gate. Financial baseline/reconciliation chỉ được nghiệm thu sau export gốc đầy đủ. Không cần project DEV mới.
 <!-- truonglt project readme end -->

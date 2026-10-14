@@ -5,7 +5,8 @@ require('reflect-metadata');
 const { Module, Logger } = require('@nestjs/common');
 const { NestFactory } = require('@nestjs/core');
 const { HealthController, DATABASE } = require('../dist/health');
-const { createDatabaseClient, probeDatabase, sanitizedDatabaseError } = require('../dist/database');
+const { createDatabaseClient, probeDatabase, inspectDatabase, sanitizedDatabaseError } = require('../dist/database');
+const verifyTransport = async () => ({ encrypted: true, authorized: true, protocol: 'TLSv1.3' });
 
 async function withApp(database, callback) {
   class TestModule {}
@@ -31,7 +32,7 @@ test('HTTP live 200 and ready 503 without DB configuration', async () => {
 
 test('HTTP ready executes harmless query and checks TLS/UTC; mock is not real Supabase', async () => {
   let calls = 0;
-  const database = { $queryRaw: async strings => {
+  const database = { verifyTransport, $queryRaw: async strings => {
     calls++;
     assert.match(strings.join(''), /SELECT 1::integer/);
     assert.doesNotMatch(strings.join(''), /INSERT|UPDATE|DELETE|CREATE|ALTER/);
@@ -40,7 +41,8 @@ test('HTTP ready executes harmless query and checks TLS/UTC; mock is not real Su
   await withApp(database, async url => {
     const response = await fetch(url + '/api/v1/health/ready');
     assert.equal(response.status, 200);
-    assert.deepEqual(await response.json(), { status: 'ready', database: 'ok', tls: true, timezone: 'UTC' });
+    assert.deepEqual(await response.json(), { status: 'ready', database: 'ok', tls: true, timezone: 'UTC',
+      tlsScope: 'client-to-endpoint', tlsProtocol: 'TLSv1.3', postgresSessionTls: true });
     assert.equal(calls, 1);
   });
 });
@@ -48,7 +50,7 @@ test('HTTP ready executes harmless query and checks TLS/UTC; mock is not real Su
 test('HTTP DB error sanitizes credentials in both response and logs', async () => {
   const logs = [];
   Logger.overrideLogger({ warn: value => logs.push(String(value)), log() {}, error() {}, debug() {}, verbose() {} });
-  const database = { $queryRaw: async () => {
+  const database = { verifyTransport, $queryRaw: async () => {
     throw Object.assign(new Error('postgresql://postgres:SECRET@private-host/db'), { code: 'P1001' });
   } };
   await withApp(database, async url => {
@@ -63,10 +65,10 @@ for (const [name, rows] of [
   ['missing result', []],
   ['wrong select result', [{ ok: 0, timezone: 'UTC', tls: true }]],
   ['wrong timezone', [{ ok: 1, timezone: 'Asia/Ho_Chi_Minh', tls: true }]],
-  ['TLS disabled', [{ ok: 1, timezone: 'UTC', tls: false }]],
+  ['missing upstream TLS observation', [{ ok: 1, timezone: 'UTC', tls: null }]],
 ]) {
   test(`probe rejects ${name}`, async () => {
-    await assert.rejects(probeDatabase({ $queryRaw: async () => rows }), /DATABASE_VERIFICATION_FAILED/);
+    await assert.rejects(probeDatabase({ verifyTransport, $queryRaw: async () => rows }), /DATABASE_VERIFICATION_FAILED/);
   });
 }
 
@@ -79,5 +81,44 @@ test('TLS disabling URLs and malformed URLs rejected before connection', () => {
   assert.equal(sanitizedDatabaseError({ code: 'P2010', meta: {
     driverAdapterError: { cause: { kind: 'DatabaseNotReachable', message: 'SECRET' } } } }),
     'DATABASE_NOT_REACHABLE');
+});
+
+test('pooler upstream pg_stat_ssl false is reported independently from verified client TLS', async () => {
+  const result = await probeDatabase({ verifyTransport,
+    $queryRaw: async () => [{ ok: 1, timezone: 'UTC', tls: false }] });
+  assert.equal(result.tls, true);
+  assert.equal(result.postgresSessionTls, false);
+  assert.equal(result.tlsScope, 'client-to-endpoint');
+});
+
+test('reject unencrypted, unauthorized or obsolete transport before SQL', async () => {
+  for (const transport of [
+    { encrypted: false, authorized: true, protocol: 'TLSv1.3' },
+    { encrypted: true, authorized: false, protocol: 'TLSv1.3' },
+    { encrypted: true, authorized: true, protocol: 'TLSv1' },
+  ]) {
+    await assert.rejects(probeDatabase({ verifyTransport: async () => transport,
+      $queryRaw: async () => { throw Error('SQL must not run'); } }), /DATABASE_TLS_VERIFICATION_FAILED/);
+  }
+});
+
+test('schema inspection uses only SELECTs and reports public objects without DDL', async () => {
+  let calls = 0;
+  const answers = [[{ database: 'postgres', schema: 'public', readOnly: 'on' }],
+    [{ name: 'public' }], [], [{ exists: false }]];
+  const result = await inspectDatabase({ $queryRaw: async strings => {
+    assert.match(strings.join('').trim(), /^SELECT/);
+    assert.doesNotMatch(strings.join(''), /\b(?:CREATE|ALTER|INSERT|UPDATE|DELETE|DROP)\b/i);
+    return answers[calls++];
+  } });
+  assert.equal(calls, 4);
+  assert.deepEqual(result.publicObjects, []);
+  assert.equal(result.migrationsExecuted, false);
+});
+
+test('schema inspection refuses a session not protected by READ ONLY transaction', async () => {
+  await assert.rejects(inspectDatabase({ $queryRaw: async () => [
+    { database: 'postgres', schema: 'public', readOnly: 'off' },
+  ] }), /READ_ONLY_INSPECTION_REQUIRED/);
 });
 // truonglt phase1 health tests end
