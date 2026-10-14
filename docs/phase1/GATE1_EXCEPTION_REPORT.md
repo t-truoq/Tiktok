@@ -21,6 +21,7 @@ Evidence: `live-db-verification.json`, `live-health-verification.json`, `REMOTE_
 
 - `746d42c`: offline schema constraints/FK/indexes và preservation/independent tests.
 - `2e14350`: CI/container/read-only staging verifier và Render setup reference. Cả hai đã push main.
+- `8c37bac`: production binding, cập nhật blueprint ngoại lệ owner, CLI DB/health evidence và bỏ HISTORY khỏi HEAD mới. Đã push main; staging sau push vẫn chưa có HTTP/JSON evidence.
 - Production host mặc định0.0.0.0, development127.0.0.1, HOST override giữ nguyên. Sửa portability đã được kiểm thử; **chưa xác nhận là nguyên nhân Render timeout**.
 - Tạm bỏ automatic Actions triggers theo owner, giữ workflow_dispatch sau billing recovery.
 - HISTORY JSON giữ nguyên local, loại khỏi index/HEAD mới; file đã có trong lịch sử remote trước theo phê duyệt công khai. Không tự force-push/rewrite lịch sử. Golden fixtures đã công khai vẫn chứa dữ liệu theo phê duyệt trước.

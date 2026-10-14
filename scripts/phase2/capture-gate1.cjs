@@ -27,6 +27,10 @@ async function health(endpoint, request = fetch) {
     result.passed = true;
   } catch (error) {
     result.errorCode = error.name === 'TimeoutError' ? 'TIMEOUT_NO_HTTP_EVIDENCE' : 'HEALTH_NOT_VERIFIED';
+    const allowed = ['ENOTFOUND', 'EAI_AGAIN', 'ECONNREFUSED', 'ECONNRESET', 'ETIMEDOUT',
+      'UND_ERR_CONNECT_TIMEOUT', 'UNABLE_TO_VERIFY_LEAF_SIGNATURE', 'CERT_HAS_EXPIRED',
+      'ERR_TLS_CERT_ALTNAME_INVALID', 'SELF_SIGNED_CERT_IN_CHAIN'];
+    if (allowed.includes(error.cause?.code)) result.transportErrorCode = error.cause.code;
   }
   return result;
 }
@@ -52,8 +56,12 @@ async function main() {
       report.ci.jobs.push(evidence);
     }
   } else report.ci = { status: 'EVIDENCE_UNAVAILABLE' };
-  if (Array.isArray(report.staging) && report.staging.every(r => r.passed) &&
-      report.ci.conclusion === 'success') report.gate1 = 'HEALTH_AND_CI_PASS_REQUIRES_REVISION_REVIEW';
+  report.acceptanceMode = 'OWNER_CLI_RENDER_EXCEPTION';
+  report.remoteHealthContractPass = Array.isArray(report.staging) && report.staging.every(r => r.passed);
+  report.renderBuildEvidence = 'NOT_AVAILABLE';
+  report.githubActions = report.ci.jobs?.some(j => j.annotations?.some(a =>
+    a.message.includes('locked due to a billing issue'))) ? 'BLOCKED_BY_BILLING' : 'NOT_CERTIFIED';
+  // A GET success alone cannot certify the separate Render build/revision requirement.
   fs.mkdirSync('docs/phase1', { recursive: true });
   fs.writeFileSync('docs/phase1/REMOTE_GATE1_EVIDENCE.json', JSON.stringify(report, null, 2) + '\n');
   console.log(JSON.stringify({ gate1: report.gate1, ci: report.ci.conclusion,

@@ -13,5 +13,10 @@ test('evidence mock preserves HTTP failure/timeout and strips arbitrary secret e
   assert.equal(JSON.stringify(timeout).includes('SYNTHETIC_SECRET'), false);
   const success = await health('live', async () => Response.json({ status: 'ok' }));
   assert.equal(success.passed, true);
+  const network = await health('live', async () => {
+    throw Object.assign(new Error('SYNTHETIC_SECRET'), { cause: { code: 'ECONNRESET' } });
+  });
+  assert.equal(network.transportErrorCode, 'ECONNRESET');
+  assert.equal(JSON.stringify(network).includes('SYNTHETIC_SECRET'), false);
 });
 // truonglt gate1 evidence error tests end
