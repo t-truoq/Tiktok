@@ -1,6 +1,8 @@
 <!-- truonglt gate1 owner exception report start -->
 # Gate 1 — ngoại lệ CI theo quyết định owner
 
+TLS readiness cập nhật: [TLS_RENDER_CA.md](TLS_RENDER_CA.md). Owner đã xác nhận NestJS staging chạy được; ảnh Dashboard cho thấy Secret File cấu hình nhầm tên/nội dung thay cho CA và environment variable. Chờ sửa và kiểm tra readiness sau deploy.
+
 Cập nhật lỗi runtime owner cung cấp và bản sửa root Start Command: [START_PROD_REPORT.md](START_PROD_REPORT.md). Owner báo Build PASS, runtime Missing script: start:prod; bản sửa đã được kiểm thử CLI, chưa xác minh readiness sau redeploy.
 
 14/10/2026. **Chưa đủ điều kiện đề xuất nghiệm thu**. GitHub Actions: **BLOCKED_BY_BILLING**, không phải PASS. Owner cho phép CLI và Render độc lập; chưa có Render build/readiness PASS.

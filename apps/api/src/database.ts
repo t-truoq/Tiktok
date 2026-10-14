@@ -4,6 +4,31 @@ import { PrismaPg } from '@prisma/adapter-pg';
 import { PrismaClient } from './generated/prisma/client';
 import { Client, Pool } from 'pg';
 import { TLSSocket } from 'node:tls';
+import { X509Certificate } from 'node:crypto';
+
+// truonglt explicit provider CA validation start
+export function databaseTlsOptions(hostname: string, caPath = process.env.DATABASE_CA_CERT_PATH) {
+  // Supabase's private root is not guaranteed to be in a Linux/Node trust store.
+  if (!caPath && /(?:^|\.)supabase\.(?:com|co)$/.test(hostname)) throw Error('CA_FILE_NOT_FOUND');
+  let ca: string | undefined;
+  if (caPath) {
+    try { ca = readFileSync(caPath, 'utf8'); } catch (error) {
+      if ((error as NodeJS.ErrnoException).code === 'ENOENT') throw Error('CA_FILE_NOT_FOUND');
+      throw Error('CA_FILE_UNREADABLE');
+    }
+    try {
+      const blocks = ca.match(/-----BEGIN CERTIFICATE-----[\s\S]+?-----END CERTIFICATE-----/g);
+      if (!blocks?.length) throw Error('INVALID_PEM');
+      for (const block of blocks) {
+        const certificate = new X509Certificate(block);
+        if (!certificate.ca || Date.now() < Date.parse(certificate.validFrom) ||
+            Date.now() > Date.parse(certificate.validTo)) throw Error('INVALID_CA');
+      }
+    } catch { throw Error('TLS_CERTIFICATE_INVALID'); }
+  }
+  return { rejectUnauthorized: true as const, servername: hostname, ...(ca ? { ca } : {}) };
+}
+// truonglt explicit provider CA validation end
 
 export type Transport = { encrypted: boolean; authorized: boolean; protocol: string | null };
 export type Probe = { ok: number; timezone: string; tls: boolean;
@@ -46,7 +71,8 @@ class ReadonlyDatabaseClient implements DatabaseClient {
   }
 }
 
-export function createDatabaseClient(connectionString: string): DatabaseClient {
+// truonglt pg connection string TLS override protection start
+export function databaseConnectionOptions(connectionString: string, caPath = process.env.DATABASE_CA_CERT_PATH) {
   const url = new URL(connectionString);
   if (!['postgres:', 'postgresql:'].includes(url.protocol) || !url.password || !url.hostname) {
     throw new Error('INVALID_DATABASE_CONFIGURATION');
@@ -55,13 +81,17 @@ export function createDatabaseClient(connectionString: string): DatabaseClient {
   if (mode && !['require', 'verify-ca', 'verify-full'].includes(mode)) {
     throw new Error('TLS_REQUIRED');
   }
+  if (['0', 'false'].includes(url.searchParams.get('ssl') || '')) throw Error('TLS_REQUIRED');
   // Configure TLS explicitly; URL SSL parameters must not override certificate validation.
-  for (const key of ['sslmode', 'sslcert', 'sslkey', 'sslrootcert']) url.searchParams.delete(key);
-  const caPath = process.env.DATABASE_CA_CERT_PATH;
+  for (const key of ['ssl', 'sslmode', 'sslcert', 'sslkey', 'sslrootcert', 'sslnegotiation', 'uselibpqcompat'])
+    url.searchParams.delete(key);
+  return { connectionString: url.toString(), ssl: databaseTlsOptions(url.hostname, caPath) };
+}
+// truonglt pg connection string TLS override protection end
+
+export function createDatabaseClient(connectionString: string): DatabaseClient {
   const pool = new Pool({
-    connectionString: url.toString(),
-    ssl: { rejectUnauthorized: true, servername: url.hostname,
-      ...(caPath ? { ca: readFileSync(caPath, 'utf8') } : {}) },
+    ...databaseConnectionOptions(connectionString),
     max: 4,
     connectionTimeoutMillis: 3000,
     idleTimeoutMillis: 10000,
@@ -124,13 +154,15 @@ export function sanitizedDatabaseError(error: unknown): string {
   const adapterKind = (error as { meta?: { driverAdapterError?: { cause?: { kind?: string } } } })
     ?.meta?.driverAdapterError?.cause?.kind;
   if (adapterKind === 'DatabaseNotReachable') return 'DATABASE_NOT_REACHABLE';
-  if (adapterKind === 'TlsConnectionError') return 'DATABASE_TLS_ERROR';
+  if (adapterKind === 'TlsConnectionError') return 'TLS_CERTIFICATE_INVALID';
   const message = error instanceof Error ? error.message : '';
+  if (['CA_FILE_NOT_FOUND', 'CA_FILE_UNREADABLE', 'TLS_CERTIFICATE_INVALID'].includes(message)) return message;
   if (['DATABASE_TLS_VERIFICATION_FAILED', 'DATABASE_VERIFICATION_FAILED'].includes(message)) return message;
   const code = error && typeof error === 'object' && 'code' in error ? String(error.code) : '';
-  return ['ECONNREFUSED', 'ENOTFOUND', 'ETIMEDOUT', 'SELF_SIGNED_CERT_IN_CHAIN',
-    'UNABLE_TO_VERIFY_LEAF_SIGNATURE', 'CERT_HAS_EXPIRED', 'ERR_TLS_CERT_ALTNAME_INVALID',
-    'P1000', 'P1001', 'P1002', 'P1011']
+  if (['SELF_SIGNED_CERT_IN_CHAIN', 'DEPTH_ZERO_SELF_SIGNED_CERT', 'UNABLE_TO_VERIFY_LEAF_SIGNATURE',
+    'UNABLE_TO_GET_ISSUER_CERT_LOCALLY', 'CERT_HAS_EXPIRED', 'CERT_NOT_YET_VALID',
+    'ERR_TLS_CERT_ALTNAME_INVALID', 'P1011'].includes(code)) return 'TLS_CERTIFICATE_INVALID';
+  return ['ECONNREFUSED', 'ENOTFOUND', 'ETIMEDOUT', 'P1000', 'P1001', 'P1002']
     .includes(code) ? code : 'DATABASE_UNAVAILABLE';
 }
 // truonglt phase1 database end

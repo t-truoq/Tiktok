@@ -1,12 +1,12 @@
 {
   "status": "PASS",
-  "verifiedAtUtc": "2026-10-14T05:05:34.880Z",
+  "verifiedAtUtc": "2026-10-14T05:22:06.779Z",
   "command": "npm run start:prod",
   "entrypoint": "apps/api/dist/main.js",
   "environment": "production",
   "host": "0.0.0.0",
   "portSource": "process.env.PORT",
-  "testedPort": 49179,
+  "testedPort": 53614,
   "endpoint": "/api/v1/health/live",
   "httpStatus": 200,
   "body": {

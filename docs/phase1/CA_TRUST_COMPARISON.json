@@ -1,0 +1,32 @@
+{
+  "runtime": "LOCAL_NODE_TRUST_COMPARISON",
+  "platform": "win32",
+  "verifiedAtUtc": "2026-10-14T05:24:03.802Z",
+  "fingerprint256": "80:70:25:AD:50:D4:ED:21:9D:2C:9C:7D:29:9C:00:4F:82:4E:B0:0C:F7:F6:5A:FE:F6:07:D0:7B:72:E6:CA:FA",
+  "sqlExecuted": false,
+  "databaseWrites": false,
+  "attempts": [
+    {
+      "configuredCA": false,
+      "wrongHostname": false,
+      "status": "FAIL",
+      "category": "TLS_CERTIFICATE_INVALID",
+      "driverCode": "SELF_SIGNED_CERT_IN_CHAIN"
+    },
+    {
+      "configuredCA": true,
+      "wrongHostname": false,
+      "status": "PASS",
+      "encrypted": true,
+      "authorized": true,
+      "protocol": "TLSv1.3"
+    },
+    {
+      "configuredCA": true,
+      "wrongHostname": true,
+      "status": "FAIL",
+      "category": "TLS_CERTIFICATE_INVALID",
+      "driverCode": "ERR_TLS_CERT_ALTNAME_INVALID"
+    }
+  ]
+}

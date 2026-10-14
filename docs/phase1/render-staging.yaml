@@ -21,11 +21,11 @@ services:
       - key: DB_ENVIRONMENT
         value: DEV
       - key: DATABASE_CA_CERT_PATH
-        value: /etc/secrets/database-ca.crt
+        value: /etc/secrets/supabase-ca.crt
       - key: DATABASE_URL
         sync: false
       - key: DIRECT_URL
         sync: false
-# Render supplies PORT. Owner uploads the provider CA as database-ca.crt using
+# Render supplies PORT. Owner uploads the provider CA as supabase-ca.crt using
 # Secret Files. Do not configure preDeployCommand/migrations/seeds/db push.
 # truonglt render staging reference end
