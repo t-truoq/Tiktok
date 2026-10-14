@@ -9,6 +9,9 @@ const subject='c918885f-c09c-40b0-a43a-4edcbdf69317',product=crypto.randomUUID()
 const report={startedAtUtc:new Date().toISOString(),status:'RUNNING',realJwt:false,realActor:subject,role:'ADMIN',tests:[],
   publicWritesEnabled:false,loopbackOnly:true,sourceImported:false,fixtureProductId:product,viewerHttpEvidence:'UNIT_SYNTHETIC_JWT_PLUS_LIVE_RLS_NOT_REAL_VIEWER_TOKEN'};
 async function main(){
+  // truonglt Phase4 opt-in applies only to the loopback rollback test process start
+  process.env.BUSINESS_WRITE_ENABLED='true';
+  // truonglt Phase4 opt-in applies only to the loopback rollback test process end
   const tokenFile=path.join(root,'artifacts/phase3-real-actor.jwt');if(!fs.existsSync(tokenFile)){report.status='BLOCKED_REAL_ACTOR_E2E';return;}
   const token=fs.readFileSync(tokenFile,'utf8').trim();assert.equal(await new JwtVerifier().verify(token),subject);report.realJwt=true;
   assert.equal(process.env.BUSINESS_API_ENABLED,'false');assert.equal(process.env.DB_ENVIRONMENT,'DEV');assert.equal(new URL(process.env.RUNTIME_DATABASE_URL).username,'tiktok_api_runtime.nqdaykgasfnsaixkhbya');

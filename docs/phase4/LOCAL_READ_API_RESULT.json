@@ -1,0 +1,136 @@
+{
+  "verifiedAtUtc": "2026-10-14T09:34:35.248Z",
+  "databaseWrites": false,
+  "historyImported": false,
+  "tests": [
+    {
+      "path": "/health/live",
+      "method": "GET",
+      "authenticated": false,
+      "httpStatus": 200,
+      "expectedStatus": 200,
+      "revision": null,
+      "businessMode": "read-only"
+    },
+    {
+      "path": "/health/ready",
+      "method": "GET",
+      "authenticated": false,
+      "httpStatus": 200,
+      "expectedStatus": 200,
+      "revision": null,
+      "businessMode": "read-only"
+    },
+    {
+      "path": "/products",
+      "method": "GET",
+      "authenticated": false,
+      "httpStatus": 401,
+      "expectedStatus": 401,
+      "revision": null,
+      "businessMode": "read-only"
+    },
+    {
+      "path": "/products?limit=10",
+      "method": "GET",
+      "authenticated": true,
+      "httpStatus": 200,
+      "expectedStatus": 200,
+      "revision": null,
+      "businessMode": "read-only"
+    },
+    {
+      "path": "/finance/summary",
+      "method": "GET",
+      "authenticated": true,
+      "httpStatus": 200,
+      "expectedStatus": 200,
+      "revision": null,
+      "businessMode": "read-only"
+    },
+    {
+      "path": "/source-archives",
+      "method": "GET",
+      "authenticated": true,
+      "httpStatus": 200,
+      "expectedStatus": 200,
+      "revision": null,
+      "businessMode": "read-only"
+    },
+    {
+      "path": "/import-batches",
+      "method": "GET",
+      "authenticated": true,
+      "httpStatus": 200,
+      "expectedStatus": 200,
+      "revision": null,
+      "businessMode": "read-only"
+    },
+    {
+      "path": "/products/00000000-0000-4000-8000-000000000000",
+      "method": "GET",
+      "authenticated": true,
+      "httpStatus": 404,
+      "expectedStatus": 404,
+      "revision": null,
+      "businessMode": "read-only"
+    },
+    {
+      "path": "/products/00000000-0000-4000-8000-000000000000/rounds",
+      "method": "GET",
+      "authenticated": true,
+      "httpStatus": 404,
+      "expectedStatus": 404,
+      "revision": null,
+      "businessMode": "read-only"
+    },
+    {
+      "path": "/products/00000000-0000-4000-8000-000000000000/sales",
+      "method": "GET",
+      "authenticated": true,
+      "httpStatus": 404,
+      "expectedStatus": 404,
+      "revision": null,
+      "businessMode": "read-only"
+    },
+    {
+      "path": "/products/00000000-0000-4000-8000-000000000000/stages",
+      "method": "GET",
+      "authenticated": true,
+      "httpStatus": 404,
+      "expectedStatus": 404,
+      "revision": null,
+      "businessMode": "read-only"
+    },
+    {
+      "path": "/products/00000000-0000-4000-8000-000000000000/history",
+      "method": "GET",
+      "authenticated": true,
+      "httpStatus": 404,
+      "expectedStatus": 404,
+      "revision": null,
+      "businessMode": "read-only"
+    },
+    {
+      "path": "/products/00000000-0000-4000-8000-000000000000/snapshots",
+      "method": "GET",
+      "authenticated": true,
+      "httpStatus": 404,
+      "expectedStatus": 404,
+      "revision": null,
+      "businessMode": "read-only"
+    },
+    {
+      "path": "/products/00000000-0000-4000-8000-000000000000/mutations",
+      "method": "POST",
+      "authenticated": true,
+      "httpStatus": 403,
+      "expectedStatus": 403,
+      "revision": null,
+      "businessMode": "read-only"
+    }
+  ],
+  "status": "PASS_REAL_JWT_READ_ONLY_HTTP",
+  "target": "LOCAL_PRODUCTION_APP",
+  "sourceDataPresent": false
+}

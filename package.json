@@ -2,6 +2,7 @@
   "name": "tiktok-affiliate",
   "version": "0.0.0",
   "private": true,
+  "_truonglt_phase4_commands_start": "Offline HISTORY dry-run and read-only API/Render verification; no build/start import hook",
   "description": "Phase 0 source preservation and Phase 1 backend foundation",
   "workspaces": ["apps/api"],
   "scripts": {
@@ -20,8 +21,13 @@
     "start:prod": "node apps/api/dist/main.js",
     "start:prod:verify": "node scripts/phase2/verify-start-prod.cjs",
     "db:verify": "node apps/api/dist/verify-db.js",
-    "health:verify": "node apps/api/scripts/verify-health.cjs"
+    "health:verify": "node apps/api/scripts/verify-health.cjs",
+    "phase4:dry-run": "node scripts/phase4/history-import.cjs --dry-run",
+    "phase4:read-verify": "node scripts/phase4/verify-read-api.cjs",
+    "phase4:render-verify": "node scripts/phase4/verify-read-api.cjs --render",
+    "phase4:render-env": "node scripts/phase4/prepare-render-env.cjs"
   },
+  "_truonglt_phase4_commands_end": "Apply importer requires separate plan-specific owner approval, never a public endpoint",
   "_truonglt_phase3_1_security_overrides_start": "Reviewed patched transitive versions; keep Prisma 7.10.0; validate/build/config/parity regressions required",
   "overrides": {
     "@prisma/config@7.10.0": {"deepmerge-ts": "8.0.2"},

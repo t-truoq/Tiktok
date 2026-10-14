@@ -3,13 +3,15 @@
 
 All routes below use `/api/v1`. Bearer JWT is required; issuer is the owner-confirmed Supabase project, audience/role `authenticated`, ES256 or RS256 with JWKS signature verification. The database `users` row supplies ADMIN/EDITOR/VIEWER; JWT metadata cannot elevate business roles. No user auto-provisioning endpoint exists.
 
-Business API remains disabled unless `BUSINESS_API_ENABLED=true` and a separately provisioned `RUNTIME_DATABASE_URL` passes the non-owner role check. Never reuse postgres migration/health credentials for that variable. Readiness currently verifies infrastructure database health, **not business runtime authorization**.
+Business READ API remains disabled unless `BUSINESS_API_ENABLED=true` and a separately provisioned `RUNTIME_DATABASE_URL` passes the non-owner role check. Writes additionally require BUSINESS_WRITE_ENABLED=true; Phase4 public writes remain false. Never reuse postgres migration/health credentials for that variable. Readiness currently verifies infrastructure database health, **not business runtime authorization**.
 
 | Method | Path | Access/behavior |
 |---|---|---|
 | GET | `/products` | Authenticated list/filter/sort/pagination |
 | GET | `/products/:id` | Product, rounds/sales and computed financial detail |
 | GET | `/finance/summary` | Consistent transaction rollup; no default XLSX/legacy exclusion |
+| GET | `/products/:id/sales` | Paginated End sales details |
+| GET | `/products/:id/stages` | Alias immutable snapshots |
 | GET | `/products/:id/rounds` | Rounds and sales, read-only |
 | GET | `/products/:id/snapshots` | Immutable snapshots, read-only |
 | GET | `/products/:id/history` | Immutable history, read-only |

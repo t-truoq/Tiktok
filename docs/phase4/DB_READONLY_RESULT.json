@@ -1,0 +1,25 @@
+{
+  "verifiedAtUtc": "2026-10-14T09:39:49.908Z",
+  "status": "PASS_READONLY_NO_HISTORY_PRESENT",
+  "databaseWrites": false,
+  "identity": {
+    "role": "tiktok_api_runtime",
+    "timezone": "UTC"
+  },
+  "counts": {
+    "users": 1,
+    "source_archives": 0,
+    "import_batches": 0,
+    "products": 0,
+    "legacy_records": 0,
+    "legacy_values": 0,
+    "purchase_rounds": 0,
+    "sales_details": 0,
+    "stage_snapshots": 0,
+    "product_history": 0,
+    "refunds": 0,
+    "product_images": 0,
+    "mutation_requests": 0
+  },
+  "tlsVerified": true
+}

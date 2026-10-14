@@ -25,7 +25,9 @@ export function hydrateProduct(product: any): RecordData {
   const fields = product.sourceFieldStates || {};
   if (fields.runtimeRecord) return structuredClone(fields.runtimeRecord);
   const legacy = product.legacyRecords?.[0];
-  if (legacy) return normalizeRecord(legacy.calculationProjection || legacy.rawJson);
+  // truonglt Phase4 tolerate archived oracle envelope without losing its record start
+  if (legacy) return normalizeRecord(legacy.calculationProjection?.normalizedCopy || legacy.calculationProjection || legacy.rawJson);
+  // truonglt Phase4 tolerate archived oracle envelope without losing its record end
   const r: RecordData = { name: product.rootName, schemaVersion: '9.1', history: [], stageData: {}, purchaseState: {}, currentProgress: product.currentStageLabel || '',
     currentDate: product.currentDateText || '', status: product.currentStatus || '', note: product.note || '', pic: product.pic || '',
     wholesale: product.wholesale?.toString() ?? null, qty: product.sampleSalesQuantity?.toString() ?? null, refundQty: product.refundQuantity?.toString() ?? null };
@@ -71,17 +73,22 @@ export class BusinessService {
     }, actor);
   }
   resource(id: string, resource: string, query: Record<string, unknown>, actor: Actor) {
-    const map: Record<string, string> = { rounds: 'purchaseRound', snapshots: 'stageSnapshot', history: 'productHistory', refunds: 'refund', images: 'productImage', legacy: 'legacyRecord' };
+    // truonglt Phase4 frontend resource aliases and sales query start
+    if (resource === 'stages') resource = 'snapshots';
+    const map: Record<string, string> = { rounds: 'purchaseRound', sales: 'salesDetail', snapshots: 'stageSnapshot', history: 'productHistory', refunds: 'refund', images: 'productImage', legacy: 'legacyRecord' };
+    // truonglt Phase4 frontend resource aliases and sales query end
     if (!map[resource]) fail('RESOURCE_NOT_FOUND', 404);
     const filters: Record<string, string[]> = { rounds: ['group', 'roundIndex', 'ordered', 'received', 'cancelled', 'verified'],
-      history: ['eventType', 'stageLabel'], snapshots: ['sourceLabel'], legacy: ['importBatchId'], refunds: [], images: [] };
+      sales: [], history: ['eventType', 'stageLabel'], snapshots: ['sourceLabel'], legacy: ['importBatchId'], refunds: [], images: [] };
     const sorts: Record<string, string[]> = { rounds: ['roundIndex', 'group'], history: ['recordedAt', 'legacyEventIndex'],
-      snapshots: ['createdAt', 'sourceLabel'], legacy: ['createdAt'], refunds: ['createdAt'], images: ['createdAt'] };
+      sales: ['id'], snapshots: ['createdAt', 'sourceLabel'], legacy: ['createdAt'], refunds: ['createdAt'], images: ['createdAt'] };
     keys(query, ['page', 'limit', 'sort', 'direction', ...filters[resource]]);
     const { skip, take, page } = pagination({ page: query.page, limit: query.limit });
     const sort = String(query.sort ?? sorts[resource][0]), direction = String(query.direction ?? 'asc');
     if (!sorts[resource].includes(sort) || !['asc', 'desc'].includes(direction)) fail('INVALID_SORT');
-    const where: any = { productId: id };
+    // truonglt Phase4 sales belongs to product through its purchase round start
+    const where: any = resource === 'sales' ? { round: { productId: id } } : { productId: id };
+    // truonglt Phase4 sales belongs to product through its purchase round end
     for (const field of filters[resource]) if (query[field] !== undefined) {
       const value = String(query[field]);
       if (['ordered', 'received', 'cancelled', 'verified'].includes(field)) { if (!['true','false'].includes(value)) fail('INVALID_FILTER'); where[field] = value === 'true'; }
@@ -95,7 +102,7 @@ export class BusinessService {
       const model = tx[map[resource]];
       return { page, limit: take, total: await model.count({ where }), items: await model.findMany({ where, skip, take,
         orderBy: [{ [sort]: direction }, { id: 'asc' }],
-        ...(resource === 'rounds' ? { include: { sales: true } } : {}) }) };
+        ...(resource === 'rounds' ? { include: { sales: true } } : resource === 'sales' ? { include: { round: { select: { group: true, roundIndex: true } } } } : {}) }) };
     }, actor);
   }
   metadata(resource: 'sourceArchive' | 'importBatch', query: Record<string, unknown>, actor: Actor) {

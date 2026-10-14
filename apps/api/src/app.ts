@@ -8,6 +8,9 @@ import { createDatabaseClient, DatabaseClient, sanitizedDatabaseError, unavailab
 import { DATABASE, HealthController } from './health';
 // truonglt Phase3 fail-closed business module start
 import { BusinessModule } from './business/controller';
+// truonglt Phase4 read runtime bootstrap verification start
+import { BusinessRepository } from './business/repository';
+// truonglt Phase4 read runtime bootstrap verification end
 // truonglt Phase3 fail-closed business module end
 
 @Module({
@@ -43,6 +46,24 @@ export async function createApp() {
   const app = await NestFactory.create(entryModule, { logger: ['error', 'warn'] });
   // truonglt Phase3.1 public business route enablement end
   app.setGlobalPrefix('api/v1');
+  // truonglt Phase4 exact CORS allowlist and deployment evidence start
+  const origins = (process.env.CORS_ALLOWED_ORIGINS || '').split(',').map(x => x.trim()).filter(Boolean);
+  for (const origin of origins) {
+    const parsed = new URL(origin);
+    if (!['http:', 'https:'].includes(parsed.protocol) || parsed.origin !== origin || parsed.username || parsed.password) throw new Error('INVALID_CORS_ORIGIN');
+  }
+  if (origins.length) app.enableCors({ origin: origins, credentials: false, methods: ['GET', 'HEAD', 'OPTIONS', ...(process.env.BUSINESS_WRITE_ENABLED === 'true' ? ['POST'] : [])],
+    allowedHeaders: ['Authorization', 'Content-Type', 'Idempotency-Key'], exposedHeaders: ['X-Backend-Revision', 'X-Business-Mode'] });
+  app.use((_req: unknown, res: any, next: () => void) => {
+    const revision = process.env.RENDER_GIT_COMMIT;
+    if (revision && /^[a-f0-9]{40}$/.test(revision)) res.setHeader('X-Backend-Revision', revision);
+    res.setHeader('X-Business-Mode', process.env.BUSINESS_API_ENABLED !== 'true' ? 'disabled' : process.env.BUSINESS_WRITE_ENABLED === 'true' ? 'read-write' : 'read-only');
+    next();
+  });
+  if (process.env.BUSINESS_API_ENABLED === 'true') {
+    try { await app.get(BusinessRepository).db(); } catch (error) { await app.close(); throw error; }
+  }
+  // truonglt Phase4 exact CORS allowlist and deployment evidence end
   app.enableShutdownHooks();
   return app;
 }

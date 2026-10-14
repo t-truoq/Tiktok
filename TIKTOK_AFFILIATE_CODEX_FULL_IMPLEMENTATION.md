@@ -1,3 +1,9 @@
+<!-- truonglt Phase4 owner read-only deployment scope start -->
+## Phase4 current status ? 14/10/2026
+
+Owner authorized implementation/dry-run + authenticated READ deployment, no Swagger; authoritative HISTORY import and public WRITE remain unapproved. Importer mappings/round-trip/idempotency/rollback implemented offline;107 backend tests,104 preservation,14 Python PASS; financial parity46/46 and active24 unchanged. Local real JWT read-only API PASS, DEV remains users1/all12source-business tables0. Render READ activation pending runtime environment and actual revision/API evidence; see docs/phase4/IMPLEMENTATION_REPORT.md and OWNER_RENDER_SETUP.md. CORS temporarily not enabled per owner; Vercel exact origin required when browser integration starts. No Frontend built.
+<!-- truonglt Phase4 owner read-only deployment scope end -->
+
 # TikTok Affiliate — Implementation Blueprint for Codex (GPT-6.1 Sol Light)
 
 <!-- truonglt Phase3 current implementation status start -->

@@ -4,7 +4,7 @@ import { map } from 'rxjs';
 import { BusinessGuard } from './security';
 import { BusinessRepository } from './repository';
 import { BusinessService } from './service';
-import { Actor, mutationDto, uuid } from './contracts';
+import { Actor, fail, mutationDto, uuid } from './contracts';
 import { SourceDateError } from '../finance/source-time';
 @Catch()
 export class BusinessErrorFilter implements ExceptionFilter {
@@ -35,6 +35,9 @@ export class BusinessController {
   @Get('source-archives') sources(@Query() q: Record<string, unknown>, @Req() req: { actor: Actor }) { return this.service.metadata('sourceArchive', q, req.actor); }
   @Get('import-batches') batches(@Query() q: Record<string, unknown>, @Req() req: { actor: Actor }) { return this.service.metadata('importBatch', q, req.actor); }
   @Post('products/:id/mutations') mutate(@Param('id') id: string, @Body() body: unknown, @Headers('idempotency-key') key: string, @Req() req: { actor: Actor }) {
+    // truonglt Phase4 independently disabled public writes start
+    if (process.env.BUSINESS_WRITE_ENABLED !== 'true') fail('BUSINESS_WRITES_DISABLED', 403);
+    // truonglt Phase4 independently disabled public writes end
     return this.service.mutate(uuid(id), mutationDto(body), req.actor, key);
   }
 }
