@@ -130,10 +130,10 @@ def workbook_inventory():
                                'needsReviewRows': sum(1 for r in s['rows'][1:] if r['cells'].get('G', {}).get('value') == 'Can doi soat')}
                               for s in sheets if s['name'].startswith('PAYMENT_AUDIT_')],
         })
-        write_json(ROOT / 'tests/golden/baseline-input.json', {
+        write_json(ROOT / 'tests/golden/xlsx-observed-input.json', {
             'kind': 'XLSX_OBSERVATIONS_ONLY', 'sourceSha256': report['sourceSha256'],
             'legacyRecordsAvailable': False, 'products': products})
-        write_json(ROOT / 'tests/golden/baseline-expected.json', {
+        write_json(ROOT / 'tests/golden/xlsx-observed-expected.json', {
             'kind': 'OBSERVED_OUTPUTS_NOT_RECONCILED', 'sourceSha256': report['sourceSha256'],
             'verifiedAgainstLegacyEngine': False,
             'products': [{'row': r['row'], 'name': r['cells']['A']['value'],

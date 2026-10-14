@@ -2301,6 +2301,7 @@
     }
   ],
   "gate0Complete": false,
+  "reportStatus": "HISTORICAL_INSPECTION_SUPERSEDED_BY_OWNER_SOURCE_DECISION_SEE_GATE0_SIGNOFF",
   "limitations": [
     "Active set based on supplied XLSX, not current row metadata in this export.",
     "No source-export checksum, runtime fingerprints/timezone, or concurrent-read stability proof.",

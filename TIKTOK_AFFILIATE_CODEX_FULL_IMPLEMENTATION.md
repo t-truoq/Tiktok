@@ -1,5 +1,21 @@
 # TikTok Affiliate — Implementation Blueprint for Codex (GPT-6.1 Sol Light)
 
+<!-- truonglt owner source decision start -->
+## Quyết định nguồn dữ liệu của owner — 14/10/2026
+
+Phần này ưu tiên hơn các yêu cầu lấy lại Google Sheets/Document Properties ở các phần cũ bên dưới.
+
+- Source of Truth là nguyên bản `TikTok_Affiliate_Phase0_References/references/TikTok_Affiliate_HISTORY_20261014_104638.json`, SHA-256 `b946ef84f65001034d771656bdb56533c158c45b7a8b7c4ca9db139dc3c3f2db`. Không yêu cầu export lại Google Sheets để xác nhận nguồn này.
+- Phạm vi migration baseline: toàn bộ **46 product root records**, không phải metadata productCount=70 (có cả chunk). Phân loại **24 XLSX_MATCHED** và **22 LEGACY_UNMATCHED** chỉ để trình bày/đối chiếu; không xóa, gộp, rename, tự archive hoặc sửa record nào.
+- Giữ nguyên decoded JSON text, nguyên bản file nguồn và các manifest/chunk; bảo toàn mọi history event, stageData, purchaseState, price/sales slot, image/status, trạng thái verified, local date text và kiểu missing/null/blank/zero. Không fabricate actor hoặc UTC cho lịch sử chưa có timezone.
+- Thuật toán V9.1 là oracle chuẩn; so sánh V9.2 trên cả 46 record. V9.1 ensureRecord chỉ được chạy trên bản sao để tạo projection tính toán; không dùng normalized copy ghi đè raw source, đặc biệt với 22 record legacy.
+- Gate0 theo quyết định mới: checksum nguồn pinned và fixture checksums đạt; đủ 46 record/71 properties được account; bảo toàn raw values/types/history/state/snapshots; golden per-product/per-round V9.1 bằng V9.2; validation độc lập decode/types và Decimal math đạt; toàn bộ missing-price/unverified/history conflicts có báo cáo. Những vấn đề đã tồn tại trong source được giữ làm findings, không sửa để đạt gate. Mismatch do mất dữ liệu/đổi kiểu/tính sai vẫn chặn gate.
+- Owner xác nhận project `nqdaykgasfnsaixkhbya` là DEV; không yêu cầu project DEV mới. Gate1 local connectivity/health đã đạt; staging và CI thực tế vẫn cần nghiệm thu.
+- Sau Gate0, được chuẩn bị proposal Prisma schema, mapping và SQL preview Phase2 hoàn toàn offline. Không áp dụng migration/DDL/import Supabase cho đến khi các gate bắt buộc đạt và có phê duyệt riêng cho hành động cụ thể. Việc chấp nhận source không phải phê duyệt import.
+
+Baseline canonical: `tests/golden/baseline-input.json`, `baseline-expected.json`. XLSX chỉ là tham chiếu phân loại: `xlsx-observed-input.json`, `xlsx-observed-expected.json`. Báo cáo Gate0: `docs/GATE0_SIGNOFF.md`; findings đầy đủ: `docs/phase0/SOURCE_BASELINE_VALIDATION.json`.
+<!-- truonglt owner source decision end -->
+
 > **Purpose:** Rebuild the existing Google Sheets + Apps Script V9.1/V9.2 TikTok Affiliate workflow as a responsive, friendly web application. **Database-first, backend-entities-second, frontend-tables-third.** Preserve every verified financial rule, existing record and audit history. This is an implementation contract, not permission to invent business rules.
 >
 > **Reference source files (must be provided to Codex):** `Tiktok_Affiliate_V9.1_Original_Backup.gs`, `Tiktok_Affiliate_V9.2_Optimized.gs`, `Pasted text(20261014-015629).txt`, `Tiktok affiliate.xlsx`. The Excel snapshot DOES NOT include all Apps Script Document Properties. Never claim a complete migration from Excel alone.
@@ -92,6 +108,8 @@ Frontend **renders** tables; only BE Prisma migration **creates** physical DB ta
 - **Critical:** PropertiesService Document Properties contains compressed/chunked manifests: `AFFZ91|version|parts|size` and keys under `AFF_PRODUCT_...`; source record contains `purchaseState`, `stageData`, `history`, `priceMauN`, `priceEndN`, `sellEndN`, `qtySellEndN`, etc. Spreadsheet export alone cannot reconstruct this. Provide a **read-only export Apps Script** on original project: enumerate only active product keys, validate manifest/chunks, decode/ungzip, checksum, dump full JSON + row display + metadata to a safe export. Never write source Properties as part of exporter.
 - Produce `docs/LEGACY_RULE_MAP.md`, `docs/BASELINE_REPORT.md` and baseline JSON fixtures with expected paid/unpaid/refund/profit.
 - Gate 0: no conversion starts without source inventory and auditable fixtures.
+
+Theo quyết định owner ở đầu tài liệu, thay yêu cầu export live bằng JSON Source of Truth đã được xác nhận; dùng acceptance/checksums/fixtures mới. Exporter read-only vẫn là công cụ tham khảo, không còn là điều kiện yêu cầu owner chạy lại để hoàn tất Gate0.
 
 ### Phase 1 — Supabase DB connection FIRST
 

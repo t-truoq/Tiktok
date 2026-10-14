@@ -1,0 +1,1169 @@
+{
+  "sourceSha256": "b946ef84f65001034d771656bdb56533c158c45b7a8b7c4ca9db139dc3c3f2db",
+  "baselineInputSha256": "01139e96c078927e53caa2694755f9a06bf86a3174b4db7a3c88e55c6a7ba5f5",
+  "baselineExpectedSha256": "dcca4c9a8e999e238dbeaea6821d98d0676ddb21606eb017d0327486532b3151",
+  "records": 46,
+  "matched": 24,
+  "legacy": 22,
+  "rawHistoryCount": 1224,
+  "rawSnapshotCount": 133,
+  "parityMismatches": 0,
+  "findings": [
+    {
+      "key": "AFF_PRODUCT_(sữa non 24h) sữa bột nutifood growplus+ sữa non 24h hỗ trợ tăng đề kháng ( lon 800g)",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "sample:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_(sữa non 24h) sữa bột nutifood growplus+ sữa non 24h hỗ trợ tăng đề kháng ( lon 800g)",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "sample:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_apta new hỗ trợ tiêu hoá b.a 800g",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "sample:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_apta new hỗ trợ tiêu hoá b.a 800g",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "sample:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_apta new hỗ trợ tiêu hoá b.a 800g",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "sample:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_apta new hỗ trợ tiêu hoá b.a 800g",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "sample:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_apta new hỗ trợ tiêu hoá b.a 800g",
+      "classification": "XLSX_MATCHED",
+      "kind": "MISSING_ORDER_PRICE",
+      "round": "end:1",
+      "origin": "RAW_STATE"
+    },
+    {
+      "key": "AFF_PRODUCT_apta new hỗ trợ tiêu hoá b.a 800g",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "end:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9 | THIẾU GIÁ ĐẶT"
+    },
+    {
+      "key": "AFF_PRODUCT_apta new hỗ trợ tiêu hoá b.a 800g",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "end:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9 | THIẾU GIÁ ĐẶT"
+    },
+    {
+      "key": "AFF_PRODUCT_apta new hỗ trợ tiêu hoá b.a 800g",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED_NOT_INCURRED",
+      "round": "end:2",
+      "origin": "RAW_STATE",
+      "issue": "Đã xóa giá tại bước Đặt: không tính công nợ"
+    },
+    {
+      "key": "AFF_PRODUCT_apta new hỗ trợ tiêu hoá b.a 800g",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "end:2",
+      "origin": "RAW_STATE",
+      "issue": "Đã xóa giá tại bước Đặt: không tính công nợ"
+    },
+    {
+      "key": "AFF_PRODUCT_aptamil newzealand",
+      "classification": "LEGACY_UNMATCHED",
+      "kind": "MISSING_ORDER_PRICE",
+      "round": "end:2",
+      "origin": "DERIVED_V91_ONLY"
+    },
+    {
+      "key": "AFF_PRODUCT_aptamil newzealand",
+      "classification": "LEGACY_UNMATCHED",
+      "kind": "UNVERIFIED",
+      "round": "end:2",
+      "origin": "DERIVED_V91_ONLY",
+      "issue": "CẦN ĐỐI SOÁT V9 | THIẾU GIÁ ĐẶT"
+    },
+    {
+      "key": "AFF_PRODUCT_aptamil newzealand",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "end:2",
+      "origin": "DERIVED_V91_ONLY",
+      "issue": "CẦN ĐỐI SOÁT V9 | THIẾU GIÁ ĐẶT"
+    },
+    {
+      "key": "AFF_PRODUCT_aptamil newzealand 2 hộp gđ 800g mẹ và bé",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "sample:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_aptamil newzealand 2 hộp gđ 800g mẹ và bé",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "sample:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_aptamil newzealand 2 hộp gđ 800g mẹ và bé",
+      "classification": "XLSX_MATCHED",
+      "kind": "MISSING_ORDER_PRICE",
+      "round": "end:1",
+      "origin": "RAW_STATE"
+    },
+    {
+      "key": "AFF_PRODUCT_aptamil newzealand 2 hộp gđ 800g mẹ và bé",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "end:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9 | THIẾU GIÁ ĐẶT"
+    },
+    {
+      "key": "AFF_PRODUCT_aptamil newzealand 2 hộp gđ 800g mẹ và bé",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "end:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9 | THIẾU GIÁ ĐẶT"
+    },
+    {
+      "key": "AFF_PRODUCT_aptamil newzealand 2 hộp gđ 800g mẹ và bé",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "end:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_aptamil newzealand 2 hộp gđ 800g mẹ và bé",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "end:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_aptamil newzealand 2 hộp gđ 800g mẹ và bé (đen)",
+      "classification": "LEGACY_UNMATCHED",
+      "kind": "UNVERIFIED",
+      "round": "sample:1",
+      "origin": "DERIVED_V91_ONLY",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_aptamil newzealand 2 hộp gđ 800g mẹ và bé (đen)",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "sample:1",
+      "origin": "DERIVED_V91_ONLY",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_aptamil newzealand 5",
+      "classification": "LEGACY_UNMATCHED",
+      "kind": "UNVERIFIED",
+      "round": "sample:1",
+      "origin": "DERIVED_V91_ONLY",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_aptamil newzealand 5",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "sample:1",
+      "origin": "DERIVED_V91_ONLY",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_aptamil newzealand 5 hộp 800g mẹ và bé",
+      "classification": "XLSX_MATCHED",
+      "kind": "MISSING_ORDER_PRICE",
+      "round": "sample:1",
+      "origin": "RAW_STATE"
+    },
+    {
+      "key": "AFF_PRODUCT_aptamil newzealand 5 hộp 800g mẹ và bé",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "sample:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9 | THIẾU GIÁ ĐẶT"
+    },
+    {
+      "key": "AFF_PRODUCT_aptamil newzealand 5 hộp 800g mẹ và bé",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "sample:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9 | THIẾU GIÁ ĐẶT"
+    },
+    {
+      "key": "AFF_PRODUCT_aptamil newzealand 5 hộp 800g mẹ và bé",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "sample:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_aptamil newzealand 5 hộp 800g mẹ và bé",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "sample:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_aptamil newzealand 5 hộp 800g mẹ và bé",
+      "classification": "XLSX_MATCHED",
+      "kind": "MISSING_ORDER_PRICE",
+      "round": "end:1",
+      "origin": "RAW_STATE"
+    },
+    {
+      "key": "AFF_PRODUCT_aptamil newzealand 5 hộp 800g mẹ và bé",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "end:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9 | THIẾU GIÁ ĐẶT"
+    },
+    {
+      "key": "AFF_PRODUCT_aptamil newzealand 5 hộp 800g mẹ và bé",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "end:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9 | THIẾU GIÁ ĐẶT"
+    },
+    {
+      "key": "AFF_PRODUCT_aptamil newzealand 5 hộp 800g mẹ và bé",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "end:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_aptamil newzealand 5 hộp 800g mẹ và bé",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "end:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_aptamil newzealand 5 hộp 800g mẹ và bé (2)",
+      "classification": "LEGACY_UNMATCHED",
+      "kind": "MISSING_ORDER_PRICE",
+      "round": "end:2",
+      "origin": "DERIVED_V91_ONLY"
+    },
+    {
+      "key": "AFF_PRODUCT_aptamil newzealand 5 hộp 800g mẹ và bé (2)",
+      "classification": "LEGACY_UNMATCHED",
+      "kind": "UNVERIFIED",
+      "round": "end:2",
+      "origin": "DERIVED_V91_ONLY",
+      "issue": "CẦN ĐỐI SOÁT V9 | THIẾU GIÁ ĐẶT"
+    },
+    {
+      "key": "AFF_PRODUCT_aptamil newzealand 5 hộp 800g mẹ và bé (2)",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "end:2",
+      "origin": "DERIVED_V91_ONLY",
+      "issue": "CẦN ĐỐI SOÁT V9 | THIẾU GIÁ ĐẶT"
+    },
+    {
+      "key": "AFF_PRODUCT_aptamil newzealand 5 hộp 800g mẹ và bé (đen)",
+      "classification": "LEGACY_UNMATCHED",
+      "kind": "UNVERIFIED",
+      "round": "sample:1",
+      "origin": "DERIVED_V91_ONLY",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_aptamil newzealand 5 hộp 800g mẹ và bé (đen)",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "sample:1",
+      "origin": "DERIVED_V91_ONLY",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_aptamil newzealand 5 mẫu h.a.i",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "sample:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_aptamil newzealand 5 mẫu h.a.i",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "sample:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_aptamil newzealand 5 mẫu h.a.i",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED_NOT_INCURRED",
+      "round": "end:2",
+      "origin": "RAW_STATE",
+      "issue": "Đã xóa giá tại bước Đặt: không tính công nợ"
+    },
+    {
+      "key": "AFF_PRODUCT_aptamil newzealand 5 mẫu h.a.i",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "end:2",
+      "origin": "RAW_STATE",
+      "issue": "Đã xóa giá tại bước Đặt: không tính công nợ"
+    },
+    {
+      "key": "AFF_PRODUCT_bellamy's organic guard - dòng sữa hữu cơ cao cấp từ úc, đạt chuẩn certified organic",
+      "classification": "LEGACY_UNMATCHED",
+      "kind": "UNVERIFIED",
+      "round": "sample:1",
+      "origin": "DERIVED_V91_ONLY",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_bellamy's organic guard - dòng sữa hữu cơ cao cấp từ úc, đạt chuẩn certified organic",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "sample:1",
+      "origin": "DERIVED_V91_ONLY",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_colosbaby gold cải tiến loại không 6lon",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "sample:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_colosbaby gold cải tiến loại không 6lon",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "sample:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_colosbaby gold cải tiến loại không 6lon",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "sample:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_colosbaby gold cải tiến loại không 6lon",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "sample:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_colosbaby gold cải tiến loại không 6lon",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "end:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_colosbaby gold cải tiến loại không 6lon",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "end:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_colosbaby gold cải tiến loại không 6lon",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "end:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_colosbaby gold cải tiến loại không 6lon",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "end:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_colosbaby gold cải tiến loại không 6lon (đen)",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "sample:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_colosbaby gold cải tiến loại không 6lon (đen)",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "sample:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_colosbaby lactoferrin loại không 6lon",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "sample:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_colosbaby lactoferrin loại không 6lon",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "sample:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_colosbaby lactoferrin loại không 6lon",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "sample:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_colosbaby lactoferrin loại không 6lon",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "sample:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_colosbaby lactoferrin loại không 6lon",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "end:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_colosbaby lactoferrin loại không 6lon",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "end:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_colosbaby lactoferrin loại không 6lon",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "end:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_colosbaby lactoferrin loại không 6lon",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "end:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_colosbaby lactoferrin loại không 6lon (đen)",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "sample:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_colosbaby lactoferrin loại không 6lon (đen)",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "sample:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_combo 04 lon sữa bột nutifood sweden growplus+ cao lớn vượt trội (bạc) 800g",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "sample:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_combo 04 lon sữa bột nutifood sweden growplus+ cao lớn vượt trội (bạc) 800g",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "sample:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_combo 04 lon sữa bột nutifood sweden growplus+ cao lớn vượt trội (bạc) 800g",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "sample:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_combo 04 lon sữa bột nutifood sweden growplus+ cao lớn vượt trội (bạc) 800g",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "sample:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_combo 04 lon sữa bột nutifood sweden growplus+ colostrum lactoferrin 800g",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "sample:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_combo 04 lon sữa bột nutifood sweden growplus+ colostrum lactoferrin 800g",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "sample:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_combo 04 lon sữa bột nutifood sweden growplus+ colostrum lactoferrin 800g",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "sample:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_combo 04 lon sữa bột nutifood sweden growplus+ colostrum lactoferrin 800g",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "sample:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_combo 04 lon sữa bột nutifood sweden growplus+ sữa non immunel lon 800 g (bao bì t...",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "sample:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_combo 04 lon sữa bột nutifood sweden growplus+ sữa non immunel lon 800 g (bao bì t...",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "sample:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_combo 04 lon sữa bột nutifood sweden growplus+ sữa non immunel lon 800 g (bao bì t...",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "sample:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_combo 04 lon sữa bột nutifood sweden growplus+ sữa non immunel lon 800 g (bao bì t...",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "sample:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_combo 3 lon sữa bột pediasureb/a vani 400g, 850g, 1.6kg hỗ trợ phát triển thể chất",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "sample:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_combo 3 lon sữa bột pediasureb/a vani 400g, 850g, 1.6kg hỗ trợ phát triển thể chất",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "sample:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_combo 3 lon sữa bột pediasureb/a vani 400g, 850g, 1.6kg hỗ trợ phát triển thể chất",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "sample:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_combo 3 lon sữa bột pediasureb/a vani 400g, 850g, 1.6kg hỗ trợ phát triển thể chất",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "sample:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_combo 3 lon sữa bột pediasureb/a vani 400g, 850g, 1.6kg hỗ trợ phát triển thể chất",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "end:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9 | THIẾU GIÁ ĐẶT"
+    },
+    {
+      "key": "AFF_PRODUCT_combo 3 lon sữa bột pediasureb/a vani 400g, 850g, 1.6kg hỗ trợ phát triển thể chất",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "end:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9 | THIẾU GIÁ ĐẶT"
+    },
+    {
+      "key": "AFF_PRODUCT_combo 3 lon sữa bột pediasureb/a vani 400g, 850g, 1.6kg hỗ trợ phát triển thể chất",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "end:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_combo 3 lon sữa bột pediasureb/a vani 400g, 850g, 1.6kg hỗ trợ phát triển thể chất",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "end:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_combo 3 lon sữa bột pediasureb/a vani 400g, 850g, 1.6kg hỗ trợ phát triển thể chất",
+      "classification": "XLSX_MATCHED",
+      "kind": "MISSING_ORDER_PRICE",
+      "round": "end:3",
+      "origin": "RAW_STATE"
+    },
+    {
+      "key": "AFF_PRODUCT_enfagrow a+3 1,7kg đợt 2",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "sample:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_enfagrow a+3 1,7kg đợt 2",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "sample:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_enfagrow a+3 neuro pro",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "sample:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_enfagrow a+3 neuro pro",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "sample:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_enfagrow a+3 neuro pro",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "sample:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_enfagrow a+3 neuro pro",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "sample:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_kendamil bò 800g organic số 1 6lon",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "sample:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_kendamil bò 800g organic số 1 6lon",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "sample:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_kendamil bò 800g organic số 1 6lon",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "end:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_kendamil bò 800g organic số 1 6lon",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "end:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_kendamil dê 800g số 2 6lon",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "sample:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_kendamil dê 800g số 2 6lon",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "sample:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_kendamil dê 800g số 2 6lon",
+      "classification": "XLSX_MATCHED",
+      "kind": "MISSING_ORDER_PRICE",
+      "round": "end:1",
+      "origin": "RAW_STATE"
+    },
+    {
+      "key": "AFF_PRODUCT_kendamil dê 800g số 2 6lon",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "end:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9 | THIẾU GIÁ ĐẶT"
+    },
+    {
+      "key": "AFF_PRODUCT_kendamil dê 800g số 2 6lon",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "end:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9 | THIẾU GIÁ ĐẶT"
+    },
+    {
+      "key": "AFF_PRODUCT_kendamil dê 800g số 2 6lon",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "end:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_kendamil dê 800g số 2 6lon",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "end:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_kendamil dê vàng 800g organic số 1 6lon",
+      "classification": "LEGACY_UNMATCHED",
+      "kind": "UNVERIFIED",
+      "round": "sample:1",
+      "origin": "DERIVED_V91_ONLY",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_kendamil dê vàng 800g organic số 1 6lon",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "sample:1",
+      "origin": "DERIVED_V91_ONLY",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_kendamil nguyên kem classic 800g",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "sample:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_kendamil nguyên kem classic 800g",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "sample:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_kendamil nguyên kem classic 800g",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "sample:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_kendamil nguyên kem classic 800g",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "sample:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_kendamil nguyên kem classic 800g",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "end:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_kendamil nguyên kem classic 800g",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "end:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_kendamil nguyên kem classic 800g",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "end:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_kendamil nguyên kem classic 800g",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "end:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_mevabebee - sữa aptamil profutura kid cesarbiotik 3 growing up milk formula",
+      "classification": "XLSX_MATCHED",
+      "kind": "MISSING_ORDER_PRICE",
+      "round": "sample:1",
+      "origin": "RAW_STATE"
+    },
+    {
+      "key": "AFF_PRODUCT_mevabebee - sữa aptamil profutura kid cesarbiotik 3 growing up milk formula",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "sample:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9 | THIẾU GIÁ ĐẶT"
+    },
+    {
+      "key": "AFF_PRODUCT_mevabebee - sữa aptamil profutura kid cesarbiotik 3 growing up milk formula",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "sample:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9 | THIẾU GIÁ ĐẶT"
+    },
+    {
+      "key": "AFF_PRODUCT_mevabebee - sữa aptamil profutura kid cesarbiotik 3 growing up milk formula",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "sample:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_mevabebee - sữa aptamil profutura kid cesarbiotik 3 growing up milk formula",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "sample:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_mevabebee - sữa aptamil profutura kid cesarbiotik 3 growing up milk formula",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "end:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_mevabebee - sữa aptamil profutura kid cesarbiotik 3 growing up milk formula",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "end:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_similac tatol protection 2 hộp bản o 800g",
+      "classification": "XLSX_MATCHED",
+      "kind": "MISSING_ORDER_PRICE",
+      "round": "sample:1",
+      "origin": "RAW_STATE"
+    },
+    {
+      "key": "AFF_PRODUCT_similac tatol protection 2 hộp bản o 800g",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "sample:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9 | THIẾU GIÁ ĐẶT"
+    },
+    {
+      "key": "AFF_PRODUCT_similac tatol protection 2 hộp bản o 800g",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "sample:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9 | THIẾU GIÁ ĐẶT"
+    },
+    {
+      "key": "AFF_PRODUCT_similac tatol protection 2 hộp bản o 800g",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "sample:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_similac tatol protection 2 hộp bản o 800g",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "sample:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_similac tatol protection 2 hộp bản o 800g",
+      "classification": "XLSX_MATCHED",
+      "kind": "MISSING_ORDER_PRICE",
+      "round": "end:2",
+      "origin": "RAW_STATE"
+    },
+    {
+      "key": "AFF_PRODUCT_similac tatol protection 2 hộp bản o 800g",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "end:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9 | THIẾU GIÁ ĐẶT"
+    },
+    {
+      "key": "AFF_PRODUCT_similac tatol protection 2 hộp bản o 800g",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "end:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9 | THIẾU GIÁ ĐẶT"
+    },
+    {
+      "key": "AFF_PRODUCT_sữa aptamil newzealand lon 800g",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "sample:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_sữa aptamil newzealand lon 800g",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "sample:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_sữa aptamil newzealand lon 800g",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "end:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_sữa aptamil newzealand lon 800g",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "end:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_sữa aptamil profutura úc lon 900g số 1 2 3",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "sample:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_sữa aptamil profutura úc lon 900g số 1 2 3",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "sample:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_sữa aptamil profutura úc lon 900g số 1 2 3",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "sample:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_sữa aptamil profutura úc lon 900g số 1 2 3",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "sample:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_sữa aptamil profutura úc lon 900g số 1 2 3",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "end:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_sữa aptamil profutura úc lon 900g số 1 2 3",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "end:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_sữa aptamil profutura úc lon 900g số 1 2 3",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "end:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_sữa aptamil profutura úc lon 900g số 1 2 3",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "end:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_sữa bột aptamil profutura úc 900g - số 3 | sữa công thức cho bé 1-3 tuổi đã bán",
+      "classification": "LEGACY_UNMATCHED",
+      "kind": "UNVERIFIED",
+      "round": "sample:1",
+      "origin": "DERIVED_V91_ONLY",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_sữa bột aptamil profutura úc 900g - số 3 | sữa công thức cho bé 1-3 tuổi đã bán",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "sample:1",
+      "origin": "DERIVED_V91_ONLY",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_sữa bột aptamil profutura úc 900g chính hãng | số 1 - 2 - 3 - 4",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "sample:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_sữa bột aptamil profutura úc 900g chính hãng | số 1 - 2 - 3 - 4",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "sample:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_sữa bột aptamil profutura úc 900g chính hãng | số 1 - 2 - 3 - 4",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "sample:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_sữa bột aptamil profutura úc 900g chính hãng | số 1 - 2 - 3 - 4",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "sample:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_sữa bột aptamil profutura úc 900g chính hãng | số 1 - 2 - 3 - 4",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "end:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_sữa bột aptamil profutura úc 900g chính hãng | số 1 - 2 - 3 - 4",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "end:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_sữa bột aptamil profutura úc 900g chính hãng | số 1 - 2 - 3 - 4",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "end:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9 | Đặt hiện tại khác lịch sử Nhận"
+    },
+    {
+      "key": "AFF_PRODUCT_sữa bột aptamil profutura úc 900g chính hãng | số 1 - 2 - 3 - 4",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "end:2",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9 | Đặt hiện tại khác lịch sử Nhận"
+    },
+    {
+      "key": "AFF_PRODUCT_sữa bột aptamil profutura úc 900g chính hãng | số 1 - 2 - 3 - 4",
+      "kind": "CURRENT_ORDER_WITH_RECEIVE_HISTORY",
+      "round": "end:2",
+      "origin": "RAW_STATE",
+      "resolution": "PRESERVE_SOURCE_NO_REPAIR"
+    },
+    {
+      "key": "AFF_PRODUCT_sữa công thức hipp combiotic hmp-sữa công thức",
+      "classification": "XLSX_MATCHED",
+      "kind": "UNVERIFIED",
+      "round": "sample:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    },
+    {
+      "key": "AFF_PRODUCT_sữa công thức hipp combiotic hmp-sữa công thức",
+      "kind": "STORED_OR_DERIVED_ISSUE",
+      "round": "sample:1",
+      "origin": "RAW_STATE",
+      "issue": "CẦN ĐỐI SOÁT V9"
+    }
+  ],
+  "independentValidation": "PASS",
+  "importApproved": false,
+  "timestampPolicy": "Preserve raw local timestamp text; do not invent UTC or actor.",
+  "gate0Status": "PASS_OWNER_CONFIRMED_SOURCE_BASELINE",
+  "sourceDecisionDate": "2026-10-14",
+  "nodeTestsPassed": 89,
+  "pythonTests": "unittest discovery passed; detailed cases in tests/phase0/*_test.py"
+}

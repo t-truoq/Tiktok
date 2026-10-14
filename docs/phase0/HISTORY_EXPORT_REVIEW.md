@@ -1,6 +1,8 @@
 <!-- truonglt history export review start -->
 # Đọc dữ liệu TikTok Affiliate HISTORY JSON
 
+Báo cáo inspection ban đầu. Owner sau đó đã chấp nhận file này làm Source of Truth; các điều kiện live export/metadata bên dưới không còn chặn Gate0. Trạng thái nghiệm thu hiện hành: docs/GATE0_SIGNOFF.md; canonical all46 fixtures và independent validation đã đạt. Không yêu cầu export lại.
+
 Nguồn: `TikTok_Affiliate_Phase0_References/references/TikTok_Affiliate_HISTORY_20261014_104638.json`.
 SHA-256: `b946ef84f65001034d771656bdb56533c158c45b7a8b7c4ca9db139dc3c3f2db`.
 ExportedAt: 2026-10-14T03:46:38.068Z, tức 10:46:38 ngày 14/10/2026 giờ Việt Nam. Đã đọc toàn bộ properties, kiểm tra manifest/chunks/base64/gzip/JSON và lịch sử trên bản sao; file nguồn không đổi.

@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "errors": [],
+  "records": 46,
+  "historyCount": 1224,
+  "snapshotCount": 133,
+  "method": "Independent Python gzip/JSON/type comparison plus exact Decimal finance on V9.1 calculation projections",
+  "limitations": "Legacy normalization is checked V9.1 vs V9.2; Python math is independent after that projection. Raw source is never replaced."
+}

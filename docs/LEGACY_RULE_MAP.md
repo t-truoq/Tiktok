@@ -101,5 +101,5 @@ Hàm đọc/mapping: readRow, affiliateRowFromArraysV92, getMainSheet. Hàm cell
 
 P/Q/R row2 khớp tổng observed product cells bằng Decimal, chưa đối chiếu record. N có2blank, pure profit/hasMoney khác nhau; M product cells đều blank nhưng M2=2 có thể đến từ historical End slots. Không sửa hoặc infer round từ totals.
 
-Gate0 chưa đạt: chờ export gốc, fingerprints/timezone, per-product/per-round expected và history count/date/mismatch report. Regression inputs trong tests là synthetic, không giả làm golden baseline sản phẩm thật. Không conversion trước provenance.
+Gate0 hiện đã đạt theo quyết định owner chấp nhận HISTORY JSON làm Source of Truth. Canonical golden fixtures bao gồm đủ 46 raw records và V9.1 oracle, cùng independent validation; xem GATE0_SIGNOFF.md. Các synthetic regression inputs vẫn giữ riêng, không giả làm production data. Không export lại, không import/migrate trước approval.
 <!-- truonglt legacy rule map end -->

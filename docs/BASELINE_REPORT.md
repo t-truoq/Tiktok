@@ -3,6 +3,8 @@
 
 Ngày kiểm tra: 14/10/2026, Asia/Ho_Chi_Minh. Báo cáo này thay bản kiểm kê ban đầu khi chưa có references.
 
+**Cập nhật quyết định owner: Gate0 đã ĐẠT cho Source of Truth HISTORY JSON.** Nghiệm thu hiện hành nằm ở `GATE0_SIGNOFF.md`. Phần workbook/inspection bên dưới là lịch sử kiểm kê; không còn yêu cầu export lại hoặc live fingerprints để xác nhận nguồn mới. Đủ 46 records, 1.224 history events, 133 snapshots được bảo toàn; independent validation PASS và 89 Node/11 Python tests PASS.
+
 ## Kiểm kê nguồn thực tế
 
 Thư mục: `TikTok_Affiliate_Phase0_References/references/` (không phải references ngay tại root). Đã đọc toàn bộ blueprint, hai Apps Script và TXT, đọc toàn bộ cells/formulas/type trong XLSX qua OOXML chỉ đọc.
@@ -55,8 +57,10 @@ Kiểu dữ liệu OOXML: text shared strings, numeric, blank; F là serial nume
 
 ## Fixtures/quan sát đã tạo
 
-- `tests/golden/baseline-input.json`: toàn bộ 24 product rows, raw typed cells, formulas, source hash; kind XLSX_OBSERVATIONS_ONLY.
-- `tests/golden/baseline-expected.json`: các ô observed N/P/Q/R/S từng sản phẩm, authoritativeExpected=null, verifiedAgainstLegacyEngine=false. Không gọi các số này là expected đã chứng minh.
+- `tests/golden/xlsx-observed-input.json`: toàn bộ 24 product rows, raw typed cells, formulas, source hash; kind XLSX_OBSERVATIONS_ONLY.
+- `tests/golden/xlsx-observed-expected.json`: các ô observed N/P/Q/R/S từng sản phẩm; chỉ là tham khảo.
+- `tests/golden/baseline-input.json`: canonical 46 raw records từ owner-approved JSON, decoded text/manifests/chunks/checksums/types/classification.
+- `tests/golden/baseline-expected.json`: V9.1 expected per-product/per-round trên 46 records, đối chiếu V9.2; normalization projection tách riêng raw.
 - `phase0/workbook-inventory.json`: toàn bộ 3 sheet và metadata/media hashes.
 - `phase0/workbook-observations.json`: duplicate check và Decimal sum diagnostics. Không có duplicate normalized names trong 24 rows snapshot.
 
@@ -86,9 +90,9 @@ Synthetic tests được ghi rõ ở file test; không giả làm fixtures sản
 
 Đã nhận và đọc `TikTok_Affiliate_HISTORY_20261014_104638.json`; xem `phase0/HISTORY_EXPORT_REVIEW.md` và JSON report. Cả 46 root records decode được, gồm đủ 24 tên sản phẩm XLSX với 1.186 history events. Pure source V9.1/V9.2 cho kết quả số bằng nhau và khớp các ô numeric P/Q/R/N đã biết; hai N blank được giữ là khác biệt nullable, không tự coi bằng0. Vẫn còn 9 lượt thiếu giá và 61 lượt cần verify. Metadata/checksum/fingerprints/timezone/stability từ exporter gốc chưa đầy đủ.
 
-## Gate 0: CHƯA ĐẠT
+## Gate 0: ĐẠT theo Source of Truth đã xác nhận
 
-Source inventory/rule map/exporter/local tests đã hoàn thành. Đã có Properties JSON để đọc và đối chiếu sơ bộ; còn thiếu metadata/fingerprint/timezone/stability của project gốc, golden fixture sign-off từng sản phẩm/round và full history/nullable reconciliation. Kết quả numeric sơ bộ không thay thế nghiệm thu toàn bộ. Không chuyển đổi/import trước khi dữ liệu được xác minh.
+Owner chấp nhận nguyên bản HISTORY JSON làm nguồn chuẩn, thay điều kiện xác nhận bằng live export. Checksums/type/preservation/coverage/parity/independent Decimal và corruption tests đã đạt; findings được giữ nguyên, không sửa dữ liệu. Không còn yêu cầu export lại. Gate0 pass không phải import approval; xem GATE0_SIGNOFF.md cho acceptance hiện hành.
 
 Phase1 chỉ làm nền backend độc lập theo chỉ đạo mới; xem `PHASE1_REPORT.md`. Xác nhận mới nhất: project supplied là DEV dành riêng; hai URI Session Pooler đã SELECT 1 thành công với UTC và TLS socket được xác minh. Public schema đã được kiểm kê bằng transaction chỉ đọc và không có tables/views; Gate1 còn staging/CI thực tế. Không entity/migration/Frontend và không yêu cầu tạo DEV mới.
 <!-- truonglt baseline report end -->

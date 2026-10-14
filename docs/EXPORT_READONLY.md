@@ -1,6 +1,8 @@
 <!-- truonglt export runbook start -->
 # Export chỉ đọc từ Apps Script gốc
 
+Owner đã xác nhận HISTORY JSON là Source of Truth ngày 14/10/2026. Runbook này giữ làm công cụ tham khảo; **không còn yêu cầu export lại** để nghiệm thu nguồn/Gate0. Quyết định ưu tiên nằm ở đầu blueprint và docs/GATE0_SIGNOFF.md.
+
 ## Cách chạy
 
 1. Mở spreadsheet gốc → Extensions → Apps Script. Phải dùng project đang vận hành: Document Properties không chia sẻ giữa các project script.

@@ -12,7 +12,7 @@ const source = JSON.parse(bytes.toString('utf8').replace(/^\uFEFF/, ''));
 const props = source.properties;
 const hash = value => crypto.createHash('sha256').update(value).digest('hex');
 const normalize = value => String(value || '').trim().toLowerCase().replace(/\s+/g, ' ');
-const baseline = JSON.parse(fs.readFileSync(path.join(root, 'tests/golden/baseline-input.json'), 'utf8'));
+const baseline = JSON.parse(fs.readFileSync(path.join(root, 'tests/golden/xlsx-observed-input.json'), 'utf8'));
 const active = new Map(baseline.products.map(row => ['AFF_PRODUCT_' + normalize(row.cells.A.value), row]));
 
 function runtime(filename) {
@@ -108,6 +108,7 @@ const report = { sourceFile: path.relative(root, sourcePath), sourceSha256: hash
   missingActiveKeys: [...active.keys()].filter(key => !products.some(p => p.key === key)),
   problems, totals, products,
   gate0Complete: false,
+  reportStatus: 'HISTORICAL_INSPECTION_SUPERSEDED_BY_OWNER_SOURCE_DECISION_SEE_GATE0_SIGNOFF',
   limitations: ['Active set based on supplied XLSX, not current row metadata in this export.',
     'No source-export checksum, runtime fingerprints/timezone, or concurrent-read stability proof.',
     'Legacy source oracle comparison is preliminary; missing prices/history completeness remain unresolved.',
