@@ -1,0 +1,10 @@
+{
+  "verifiedAtUtc": "2026-10-14T05:26:35.649Z",
+  "gate1": "NOT_PASS",
+  "deploymentRevisionVerified": false,
+  "observations": [
+    {"endpoint": "/api/v1/health/live", "httpStatus": 200, "body": {"status": "ok"}, "passed": true},
+    {"endpoint": "/api/v1/health/ready", "httpStatus": 503, "body": {"status": 503}, "passed": false}
+  ],
+  "note": "Observed HTTP response captured from the remote health tool. A later separate capture could not obtain HTTP evidence; readiness has not passed."
+}
