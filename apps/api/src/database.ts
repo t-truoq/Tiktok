@@ -7,6 +7,20 @@ import { TLSSocket } from 'node:tls';
 import { X509Certificate } from 'node:crypto';
 
 // truonglt explicit provider CA validation start
+type CaFailureReason = 'CA_PEM_INVALID' | 'CA_NOT_AUTHORITY' | 'CA_CERTIFICATE_EXPIRED' | 'CA_CERTIFICATE_NOT_YET_VALID';
+class DatabaseCaError extends Error {
+  constructor(readonly reason: CaFailureReason) { super('TLS_CERTIFICATE_INVALID'); }
+}
+export function databaseErrorReason(error: unknown): CaFailureReason | undefined {
+  return error instanceof DatabaseCaError ? error.reason : undefined;
+}
+
+// Preserve a configuration error for readiness without opening a pool or issuing SQL.
+export function unavailableDatabaseClient(error: unknown): DatabaseClient {
+  return { verifyTransport: async () => { throw error; },
+    $queryRaw: async () => { throw error; }, $disconnect: async () => {} };
+}
+
 export function databaseTlsOptions(hostname: string, caPath = process.env.DATABASE_CA_CERT_PATH) {
   // Supabase's private root is not guaranteed to be in a Linux/Node trust store.
   if (!caPath && /(?:^|\.)supabase\.(?:com|co)$/.test(hostname)) throw Error('CA_FILE_NOT_FOUND');
@@ -16,15 +30,16 @@ export function databaseTlsOptions(hostname: string, caPath = process.env.DATABA
       if ((error as NodeJS.ErrnoException).code === 'ENOENT') throw Error('CA_FILE_NOT_FOUND');
       throw Error('CA_FILE_UNREADABLE');
     }
-    try {
-      const blocks = ca.match(/-----BEGIN CERTIFICATE-----[\s\S]+?-----END CERTIFICATE-----/g);
-      if (!blocks?.length) throw Error('INVALID_PEM');
-      for (const block of blocks) {
-        const certificate = new X509Certificate(block);
-        if (!certificate.ca || Date.now() < Date.parse(certificate.validFrom) ||
-            Date.now() > Date.parse(certificate.validTo)) throw Error('INVALID_CA');
-      }
-    } catch { throw Error('TLS_CERTIFICATE_INVALID'); }
+    const blocks = ca.match(/-----BEGIN CERTIFICATE-----[\s\S]+?-----END CERTIFICATE-----/g);
+    if (!blocks?.length) throw new DatabaseCaError('CA_PEM_INVALID');
+    for (const block of blocks) {
+      let certificate: X509Certificate;
+      try { certificate = new X509Certificate(block); }
+      catch { throw new DatabaseCaError('CA_PEM_INVALID'); }
+      if (!certificate.ca) throw new DatabaseCaError('CA_NOT_AUTHORITY');
+      if (Date.now() < Date.parse(certificate.validFrom)) throw new DatabaseCaError('CA_CERTIFICATE_NOT_YET_VALID');
+      if (Date.now() > Date.parse(certificate.validTo)) throw new DatabaseCaError('CA_CERTIFICATE_EXPIRED');
+    }
   }
   return { rejectUnauthorized: true as const, servername: hostname, ...(ca ? { ca } : {}) };
 }
@@ -73,7 +88,9 @@ class ReadonlyDatabaseClient implements DatabaseClient {
 
 // truonglt pg connection string TLS override protection start
 export function databaseConnectionOptions(connectionString: string, caPath = process.env.DATABASE_CA_CERT_PATH) {
-  const url = new URL(connectionString);
+  let url: URL;
+  try { url = new URL(connectionString); }
+  catch { throw Error('INVALID_DATABASE_CONFIGURATION'); }
   if (!['postgres:', 'postgresql:'].includes(url.protocol) || !url.password || !url.hostname) {
     throw new Error('INVALID_DATABASE_CONFIGURATION');
   }
@@ -156,7 +173,8 @@ export function sanitizedDatabaseError(error: unknown): string {
   if (adapterKind === 'DatabaseNotReachable') return 'DATABASE_NOT_REACHABLE';
   if (adapterKind === 'TlsConnectionError') return 'TLS_CERTIFICATE_INVALID';
   const message = error instanceof Error ? error.message : '';
-  if (['CA_FILE_NOT_FOUND', 'CA_FILE_UNREADABLE', 'TLS_CERTIFICATE_INVALID'].includes(message)) return message;
+  if (['CA_FILE_NOT_FOUND', 'CA_FILE_UNREADABLE', 'TLS_CERTIFICATE_INVALID',
+    'DATABASE_NOT_CONFIGURED', 'INVALID_DATABASE_CONFIGURATION', 'TLS_REQUIRED'].includes(message)) return message;
   if (['DATABASE_TLS_VERIFICATION_FAILED', 'DATABASE_VERIFICATION_FAILED'].includes(message)) return message;
   const code = error && typeof error === 'object' && 'code' in error ? String(error.code) : '';
   if (['SELF_SIGNED_CERT_IN_CHAIN', 'DEPTH_ZERO_SELF_SIGNED_CERT', 'UNABLE_TO_VERIFY_LEAF_SIGNATURE',

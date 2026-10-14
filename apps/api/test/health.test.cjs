@@ -122,3 +122,36 @@ test('schema inspection refuses a session not protected by READ ONLY transaction
   ] }), /READ_ONLY_INSPECTION_REQUIRED/);
 });
 // truonglt phase1 health tests end
+
+// truonglt real app preserves CA initialization failure tests start
+test('real app readiness retains invalid PEM reason instead of replacing it with generic unavailable', async () => {
+  const fs = require('node:fs');
+  const os = require('node:os');
+  const path = require('node:path');
+  const { createApp } = require('../dist/app');
+  const folder = fs.mkdtempSync(path.join(os.tmpdir(), 'tiktok-readiness-ca-'));
+  const file = path.join(folder, 'ca.crt');
+  fs.writeFileSync(file, '/etc/secrets/supabase-ca.crt SYNTHETIC_SECRET');
+  const prior = { DATABASE_URL: process.env.DATABASE_URL, DATABASE_CA_CERT_PATH: process.env.DATABASE_CA_CERT_PATH };
+  let app;
+  try {
+    process.env.DATABASE_URL = 'postgresql://synthetic:synthetic@aws-0-ap-northeast-2.pooler.supabase.com/postgres';
+    process.env.DATABASE_CA_CERT_PATH = file;
+    app = await createApp();
+    await app.listen(0, '127.0.0.1');
+    const response = await fetch((await app.getUrl()) + '/api/v1/health/ready');
+    assert.equal(response.status, 503);
+    const body = await response.json();
+    assert.equal(body.code, 'TLS_CERTIFICATE_INVALID');
+    assert.equal(body.reason, 'CA_PEM_INVALID');
+    assert.doesNotMatch(JSON.stringify(body), /SYNTHETIC_SECRET|postgresql|\/etc\/secrets/);
+  } finally {
+    if (app) await app.close();
+    for (const [key, value] of Object.entries(prior)) {
+      if (value === undefined) delete process.env[key]; else process.env[key] = value;
+    }
+    fs.unlinkSync(file);
+    fs.rmdirSync(folder);
+  }
+});
+// truonglt real app preserves CA initialization failure tests end

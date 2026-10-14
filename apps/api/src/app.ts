@@ -4,7 +4,7 @@ import { Logger, Module, OnApplicationShutdown, Inject } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { config } from 'dotenv';
 import { resolve } from 'node:path';
-import { createDatabaseClient, DatabaseClient, sanitizedDatabaseError } from './database';
+import { createDatabaseClient, DatabaseClient, sanitizedDatabaseError, unavailableDatabaseClient, databaseErrorReason } from './database';
 import { DATABASE, HealthController } from './health';
 
 @Module({
@@ -17,8 +17,10 @@ import { DATABASE, HealthController } from './health';
         return createDatabaseClient(process.env.DATABASE_URL);
       } catch (error) {
         new Logger('Database').warn(JSON.stringify({ event: 'database_configuration_failed',
-          code: sanitizedDatabaseError(error) }));
-        return null;
+          code: sanitizedDatabaseError(error), reason: databaseErrorReason(error) }));
+        // truonglt preserve safe configuration failure for readiness start
+        return unavailableDatabaseClient(error);
+        // truonglt preserve safe configuration failure for readiness end
       }
     },
   }],

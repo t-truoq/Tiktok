@@ -3,7 +3,8 @@ const { test } = require('node:test');
 const assert = require('node:assert/strict');
 const { health } = require('../../scripts/phase2/capture-gate1.cjs');
 test('evidence mock preserves HTTP failure/timeout and strips arbitrary secret error fields', async () => {
-  const failure = await health('ready', async () => Response.json({ status: 503, password: 'SYNTHETIC_SECRET' }, { status: 503 }));
+  const failure = await health('ready', async () => Response.json({ status: 503,
+    password: 'SYNTHETIC_SECRET', code: 'SYNTHETIC_SECRET', reason: 'SYNTHETIC_SECRET' }, { status: 503 }));
   assert.equal(failure.httpStatus, 503);
   assert.equal(failure.passed, false);
   assert.equal(JSON.stringify(failure).includes('SYNTHETIC_SECRET'), false);
@@ -18,5 +19,9 @@ test('evidence mock preserves HTTP failure/timeout and strips arbitrary secret e
   });
   assert.equal(network.transportErrorCode, 'ECONNRESET');
   assert.equal(JSON.stringify(network).includes('SYNTHETIC_SECRET'), false);
+  const ca = await health('ready', async () => Response.json({ status: 503,
+    code: 'TLS_CERTIFICATE_INVALID', reason: 'CA_PEM_INVALID' }, { status: 503 }));
+  assert.equal(ca.body.code, 'TLS_CERTIFICATE_INVALID');
+  assert.equal(ca.body.reason, 'CA_PEM_INVALID');
 });
 // truonglt gate1 evidence error tests end

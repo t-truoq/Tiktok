@@ -23,6 +23,13 @@ async function health(endpoint, request = fetch) {
     // Record only the public health contract; never preserve arbitrary error stacks.
     result.body = Object.fromEntries(['status', 'database', 'tls', 'timezone', 'tlsScope',
       'tlsProtocol', 'postgresSessionTls'].filter(k => Object.hasOwn(body, k)).map(k => [k, body[k]]));
+    // truonglt retain allowlisted remote configuration diagnostic start
+    const codes = ['CA_FILE_NOT_FOUND', 'CA_FILE_UNREADABLE', 'TLS_CERTIFICATE_INVALID',
+      'DATABASE_NOT_CONFIGURED', 'INVALID_DATABASE_CONFIGURATION', 'TLS_REQUIRED'];
+    const reasons = ['CA_PEM_INVALID', 'CA_NOT_AUTHORITY', 'CA_CERTIFICATE_EXPIRED', 'CA_CERTIFICATE_NOT_YET_VALID'];
+    if (codes.includes(body.code)) result.body.code = body.code;
+    if (reasons.includes(body.reason)) result.body.reason = body.reason;
+    // truonglt retain allowlisted remote configuration diagnostic end
     assertHealth(endpoint, response.status, body);
     result.passed = true;
   } catch (error) {

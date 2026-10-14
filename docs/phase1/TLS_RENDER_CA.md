@@ -1,6 +1,21 @@
 <!-- truonglt Render Supabase CA trust report start -->
 # Render TLS — Supabase Root CA 2021
 
+### Bản sửa diagnostic sau log DATABASE_UNAVAILABLE lặp lại
+
+Factory trước đây bắt lỗi cấu hình CA rồi trảnull; health sau đó chỉ biết client không tồn tại và làm mất nguyên nhân gốc. Đã giữ lỗi cấu hình qua failed client không có pool/SQL, và trả code/reason allowlisted ở HTTP503/logs. Không trả URL/path/password/certificate contents hoặc stack.
+
+| Code / reason mới | Mục cần kiểm tra |
+|---|---|
+| CA_FILE_NOT_FOUND | Environment Variable DATABASE_CA_CERT_PATH và Secret File filename/path phải khớp |
+| CA_FILE_UNREADABLE | File tồn tại nhưng runtime không đọc được |
+| TLS_CERTIFICATE_INVALID / CA_PEM_INVALID | Contents phải là PEM đầy đủ, không phải đường dẫn, literal\\n, JSON hoặc placeholder |
+| TLS_CERTIFICATE_INVALID / CA_NOT_AUTHORITY | Đã dán leaf/server cert; cần root CA chính thức |
+| TLS_CERTIFICATE_INVALID / CA_CERTIFICATE_EXPIRED hoặc CA_CERTIFICATE_NOT_YET_VALID | File CA/ngày hợp lệ không đúng |
+| DATABASE_NOT_CONFIGURED hoặc INVALID_DATABASE_CONFIGURATION | Thiếu DATABASE_URL hoặc URI không hợp lệ; không gửi giá trị URI lên chat |
+
+Build/17backend tests PASS, gồm actual Nest factory + HTTP503 với invalid PEM: giữ reason CA_PEM_INVALID và không lộ nội dung file. CA text đã xác minh có thể mở từ local artifacts/supabase-ca.txt rồi copy trọnBEGIN..END vào Secret Files. Không sửa đường dẫn thêm lần nữa nếu đã đúng; diagnostic phải xác định lỗi còn lại.
+
 Owner báo staging đã chạy NestJS nhưng readiness lỗi SELF_SIGNED_CERT_IN_CHAIN. Ảnh Dashboard mới cho thấy cấu hình cụ thể sai: Secret File có filename DATABASE_CA_CERT_PATH và Contents chỉ là /etc/secrets/supabase-ca.crt. Đây là file chứa một dòng đường dẫn, không phải CA; nó cũng không tạo environment variable DATABASE_CA_CERT_PATH.
 
 ## Sửa đúng hai mục riêng

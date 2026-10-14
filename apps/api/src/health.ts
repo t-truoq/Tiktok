@@ -1,6 +1,6 @@
 // truonglt phase1 health start
 import { Controller, Get, Inject, Logger, Res } from '@nestjs/common';
-import { DatabaseClient, probeDatabase, sanitizedDatabaseError } from './database';
+import { DatabaseClient, probeDatabase, sanitizedDatabaseError, databaseErrorReason } from './database';
 
 export const DATABASE = Symbol('DATABASE');
 type HealthResponse = {
@@ -29,10 +29,15 @@ export class HealthController {
         timezone: result.timezone, tlsScope: result.tlsScope, tlsProtocol: result.tlsProtocol,
         postgresSessionTls: result.postgresSessionTls });
     } catch (error) {
-      this.logger.warn(JSON.stringify({ event: 'database_readiness_failed', code: sanitizedDatabaseError(error) }));
+      // truonglt expose allowlisted readiness error category start
+      const code = sanitizedDatabaseError(error);
+      const reason = databaseErrorReason(error);
+      this.logger.warn(JSON.stringify({ event: 'database_readiness_failed', code, reason }));
       response.setHeader('Content-Type', 'application/problem+json');
       response.status(503).json({ type: 'about:blank', title: 'Cơ sở dữ liệu chưa sẵn sàng',
-        status: 503, detail: 'Kiểm tra cấu hình kết nối và trạng thái Supabase DEV, rồi thử lại.' });
+        status: 503, code, ...(reason ? { reason } : {}),
+        detail: 'Kiểm tra cấu hình kết nối và trạng thái Supabase DEV, rồi thử lại.' });
+      // truonglt expose allowlisted readiness error category end
     }
   }
 }
