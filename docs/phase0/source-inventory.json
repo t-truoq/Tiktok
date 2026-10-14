@@ -1,0 +1,4741 @@
+{
+  "sources": {
+    "Pasted text(20261014-015629).txt": {
+      "bytes": 73784,
+      "sha256": "3a28373c1f110c80f5b9371855a38140e8df00d4bccef48554e1552c875d8910"
+    },
+    "Tiktok affiliate.xlsx": {
+      "bytes": 3124692,
+      "sha256": "21707788d9515e05229d9b3fd6f92c6fcb8d0871868d67d481268d39e5fda078"
+    },
+    "Tiktok_Affiliate_V9.1_Original_Backup.gs": {
+      "bytes": 70443,
+      "sha256": "b1e40ac2df19f7bc74c87a0de92594c929d223b062a3a6f805b56d45d9a1df6c"
+    },
+    "Tiktok_Affiliate_V9.2_Optimized.gs": {
+      "bytes": 74685,
+      "sha256": "19a94f4465f9aa579c16838f6f2e698ff3f99727fef78bc2b7c3d9cc6059e65d"
+    }
+  },
+  "functions": {
+    "Pasted text(20261014-015629).txt": [
+      {
+        "name": "onEdit",
+        "line": 52,
+        "sectionSha256": "2fe6f73698776d33c93ffea17ed61b596fc591fb5e4ee6a1c9d5398b3bb6ab52",
+        "calls": [
+          "catch",
+          "colorStatusCell",
+          "finalizeUserEdit",
+          "getColumn",
+          "getDocumentLock",
+          "getName",
+          "getNumRows",
+          "getRootName",
+          "getRow",
+          "getSheet",
+          "handleDateEdit",
+          "handleEndPriceEdit",
+          "handlePicEdit",
+          "handlePriceEdit",
+          "handleProgressChange",
+          "handleRootName",
+          "handleSellEndEdit",
+          "handleSellEndQtyEdit",
+          "if",
+          "refreshStatusForRow",
+          "releaseLock",
+          "saveCurrentRow",
+          "switch",
+          "updateHeaderTotals",
+          "updateProfitForRow",
+          "waitLock"
+        ]
+      },
+      {
+        "name": "handleRootName",
+        "line": 261,
+        "sectionSha256": "e9738d6a45d6ab750d8ca4aa14f881c71896c53a1ddc568ae5c770d9172e10fd",
+        "calls": [
+          "createEmptyRecord",
+          "getActive",
+          "getRootName",
+          "if",
+          "loadRecord",
+          "refreshStatusForRow",
+          "restoreRecord",
+          "saveCurrentRow",
+          "saveRecord",
+          "toast"
+        ]
+      },
+      {
+        "name": "handleProgressChange",
+        "line": 353,
+        "sectionSha256": "51fbc4a43c956279099881b9a5c570f9599c02bc18f7f74b95efe5444701af74",
+        "calls": [
+          "appendHistory",
+          "buildSnapshot",
+          "clearContent",
+          "createEmptyRecord",
+          "ensureRecord",
+          "getRange",
+          "getRootName",
+          "getValue",
+          "if",
+          "initializeStage",
+          "loadRecord",
+          "normalizeProgress",
+          "parseAffiliateStage",
+          "recordStageSafe91",
+          "refreshStatusForRow",
+          "restoreStage",
+          "saveRecord"
+        ]
+      },
+      {
+        "name": "initializeStage",
+        "line": 361,
+        "sectionSha256": "072d9a75ce05a9a9098bcb8537f0a6487dfef99b55155c683799094a56820970",
+        "calls": [
+          "Date",
+          "assign",
+          "buildSnapshot",
+          "clearContent",
+          "find",
+          "getPaymentPurchaseConfigs",
+          "getRange",
+          "if",
+          "loadNumber",
+          "loadPrice",
+          "parseAffiliateStage",
+          "setValue"
+        ]
+      },
+      {
+        "name": "restoreStage",
+        "line": 371,
+        "sectionSha256": "d7dce647e10bba30709f17334d435199e184c769fcede5b8e2a38a4d71e3d5a7",
+        "calls": [
+          "Date",
+          "clearContent",
+          "getRange",
+          "if",
+          "isoToDate",
+          "loadNumber",
+          "loadPrice",
+          "parseAffiliateStage",
+          "setValue"
+        ]
+      },
+      {
+        "name": "handlePriceEdit",
+        "line": 377,
+        "sectionSha256": "dc4e9a5cdd7e95614e5b67bc87dceffeb7e092d9350e566c500815e06a100afd",
+        "calls": [
+          "editBuy91"
+        ]
+      },
+      {
+        "name": "getPriceSlot",
+        "line": 379,
+        "sectionSha256": "8ad263b752b520f9b9dd695a6505977e8ef607e056f42390c72b5ef118d83bf9",
+        "calls": [
+          "parseAffiliateStage"
+        ]
+      },
+      {
+        "name": "getEndBuyPriceSlot",
+        "line": 381,
+        "sectionSha256": "cab53f9dd96d5246b2d21e8255a5dc125c01e95ae4d1353469e20ac83c1fd7ee",
+        "calls": [
+          "parseAffiliateStage"
+        ]
+      },
+      {
+        "name": "getEndBuyWriteSlot",
+        "line": 383,
+        "sectionSha256": "39db2b3a2dc9d8017bd4f062bd5747d672ef44b2a788fee7d1ea3eddbd9d684d",
+        "calls": [
+          "parseAffiliateStage"
+        ]
+      },
+      {
+        "name": "getEndSellPriceSlot",
+        "line": 385,
+        "sectionSha256": "9b2ae900e4aef58981b0ac30f74e2451cb21eb9041a4b45a17294eef4bb3175a",
+        "calls": [
+          "parseAffiliateStage"
+        ]
+      },
+      {
+        "name": "getEndSellQtySlot",
+        "line": 387,
+        "sectionSha256": "471cbcf6c5c781ece2c4cdd40754e1f41ecff9f8228cb754dfb63141dfa53efb",
+        "calls": [
+          "parseAffiliateStage"
+        ]
+      },
+      {
+        "name": "handleEndPriceEdit",
+        "line": 389,
+        "sectionSha256": "3076a683eb9b3df28566e95c77675e61af2eae25735dc4f5a9f6ace6ab31d90f",
+        "calls": [
+          "editBuy91"
+        ]
+      },
+      {
+        "name": "handleSellEndEdit",
+        "line": 391,
+        "sectionSha256": "dc3057eabe0fd20db7f0dab266d2cbc318b961a85efb4c2d1dd832daa93341e4",
+        "calls": [
+          "Number",
+          "createEmptyRecord",
+          "ensureRecord",
+          "getActive",
+          "getCurrentProgress",
+          "getEndSellPriceSlot",
+          "getRange",
+          "getRootName",
+          "getValue",
+          "if",
+          "isNumericMoney",
+          "loadRecord",
+          "saveRecord",
+          "toast"
+        ]
+      },
+      {
+        "name": "handleSellEndQtyEdit",
+        "line": 447,
+        "sectionSha256": "f8479373ab8912275b1e7857dec59a7c172ee00f7d37c63dba0dcb0933973e70",
+        "calls": [
+          "Number",
+          "createEmptyRecord",
+          "ensureRecord",
+          "getActive",
+          "getCurrentProgress",
+          "getEndSellQtySlot",
+          "getRange",
+          "getRootName",
+          "getValue",
+          "if",
+          "isNumericMoney",
+          "loadRecord",
+          "saveRecord",
+          "toast"
+        ]
+      },
+      {
+        "name": "getEndBuyTotal",
+        "line": 498,
+        "sectionSha256": "7e47bc97bded3cfd663815d45fc11765c5ed5c5e432301f3107cec684c69d1f9",
+        "calls": [
+          "getPaymentSummaryForRecord"
+        ]
+      },
+      {
+        "name": "getEndSellRevenue",
+        "line": 500,
+        "sectionSha256": "3cc10b4ae446fbc0da34c0521f90913f421f35245d58135f30c9698b068984c0",
+        "calls": [
+          "amount91",
+          "ensureRecord",
+          "filter",
+          "getPaymentPurchaseConfigs",
+          "reduce"
+        ]
+      },
+      {
+        "name": "getEndSellQtyTotal",
+        "line": 502,
+        "sectionSha256": "3db31727e6f35a0927f81fbb79252da29d10693efe7a5d2a57929c0e8bd7b74b",
+        "calls": [
+          "amount91",
+          "ensureRecord",
+          "filter",
+          "getPaymentPurchaseConfigs",
+          "reduce"
+        ]
+      },
+      {
+        "name": "calculateProjectedProfit",
+        "line": 504,
+        "sectionSha256": "29491b23ff423c703f6df3510f8fa4f223f42da12120aa165529e8b9b7914e47",
+        "calls": [
+          "Number",
+          "ensureRecord",
+          "getEndBuyTotal",
+          "getEndSellRevenue",
+          "return",
+          "toMoney"
+        ]
+      },
+      {
+        "name": "updateProfitForRow",
+        "line": 540,
+        "sectionSha256": "ab7f79a37b394b720b523d6a4d099cbe9de5eef7e468adba4273cb5970507b1e",
+        "calls": [
+          "amount91",
+          "calculateProjectedProfit",
+          "clearContent",
+          "createEmptyRecord",
+          "ensureRecord",
+          "getEndSellQtyTotal",
+          "getPurchaseLedger",
+          "getRange",
+          "getRootName",
+          "if",
+          "loadRecord",
+          "readRow",
+          "saveRecord",
+          "setValue",
+          "some"
+        ]
+      },
+      {
+        "name": "handlePicEdit",
+        "line": 542,
+        "sectionSha256": "f92b972001f650132e3bd6a3ea32d88d5889fc6a37bf78ab9b9caae68dc66794",
+        "calls": [
+          "createEmptyRecord",
+          "ensureRecord",
+          "getCurrentProgress",
+          "getDisplayValue",
+          "getRange",
+          "getRootName",
+          "if",
+          "loadRecord",
+          "parseAffiliateStage",
+          "saveRecord",
+          "trim"
+        ]
+      },
+      {
+        "name": "handleDateEdit",
+        "line": 544,
+        "sectionSha256": "90bb027e34a04107ebf9f231f3ca1774e6e75b7c36164167caed89d564534feb",
+        "calls": [
+          "createEmptyRecord",
+          "dateToISO",
+          "ensureRecord",
+          "getCurrentProgress",
+          "getRange",
+          "getRootName",
+          "getValue",
+          "if",
+          "loadRecord",
+          "saveRecord"
+        ]
+      },
+      {
+        "name": "calculateStatus",
+        "line": 668,
+        "sectionSha256": "26c8a41282f151a9b9354638d4d324d9702deb98d3a0fbe9080b0b2b42c24f51",
+        "calls": [
+          "Date",
+          "ceil",
+          "daysBetween",
+          "if",
+          "isFinalRefundStatus",
+          "isOutOfStock",
+          "parseAffiliateStage",
+          "passedHours",
+          "statusResult"
+        ]
+      },
+      {
+        "name": "refreshStatusForRow",
+        "line": 676,
+        "sectionSha256": "54d411acdcd3a407c9aa78a25ede8cde6fc414a04ec20cb562d3b11e76654f0e",
+        "calls": [
+          "Number",
+          "appendHistory",
+          "buildSnapshot",
+          "calculateStatus",
+          "clearNote",
+          "colorStatusCell",
+          "createEmptyRecord",
+          "ensureRecord",
+          "getCurrentProgress",
+          "getRange",
+          "getRootName",
+          "if",
+          "loadRecord",
+          "readRow",
+          "saveRecord",
+          "setNote",
+          "setValue",
+          "snapshotStage"
+        ]
+      },
+      {
+        "name": "snapshotStage",
+        "line": 910,
+        "sectionSha256": "13001e7b21d5bb191f6b1f5b1f89e9cd33a30be8000d750d53c2b89689ee9806",
+        "calls": [
+          "ensureRecord",
+          "if",
+          "recordStageSafe91"
+        ]
+      },
+      {
+        "name": "buildSnapshot",
+        "line": 912,
+        "sectionSha256": "b0ee7298f1fba91fdbb670fa11cd81833f629c5789901fced4125459370a1a8d",
+        "calls": [
+          "Date",
+          "dateToISO",
+          "readRow",
+          "serializeDate"
+        ]
+      },
+      {
+        "name": "saveCurrentRow",
+        "line": 982,
+        "sectionSha256": "6c28fd876dd4f7c9dacd906d7262cc54b23ccb627d62221c65f293a95233b3b5",
+        "calls": [
+          "amount91",
+          "calculateProjectedProfit",
+          "createEmptyRecord",
+          "ensureRecord",
+          "if",
+          "loadRecord",
+          "normalizeProgress",
+          "parseAffiliateStage",
+          "readRow",
+          "recordStageSafe91",
+          "saveImageToRecord",
+          "saveRecord",
+          "serializeDate"
+        ]
+      },
+      {
+        "name": "restoreRecord",
+        "line": 986,
+        "sectionSha256": "c32115965c6ef78df72f8e07228461ae7bb19e40949c7bfa617d7c35dfa56562",
+        "calls": [
+          "clearContent",
+          "colorStatusCell",
+          "ensureRecord",
+          "getEndBuyPriceSlot",
+          "getEndSellPriceSlot",
+          "getPriceSlot",
+          "getRange",
+          "if",
+          "isoToDate",
+          "loadPrice",
+          "normalizeProgress",
+          "restoreImageFromRecord",
+          "restoreStage",
+          "setCell",
+          "setIfExists",
+          "updateProfitForRow"
+        ]
+      },
+      {
+        "name": "finalizeUserEdit",
+        "line": 1170,
+        "sectionSha256": "09b09e581dd1f1f5de7773dfd247e2880d9e4fbeb0d7da846860de9001adf0a8",
+        "calls": [
+          "appendHistory",
+          "buildSnapshot",
+          "createEmptyRecord",
+          "ensureRecord",
+          "getCurrentProgress",
+          "getRootName",
+          "if",
+          "loadRecord",
+          "saveCurrentRow",
+          "saveRecord"
+        ]
+      },
+      {
+        "name": "appendHistory",
+        "line": 1262,
+        "sectionSha256": "a767a34d0f4307b1feecf0995605d63d25e6a134490594a489bd240384a5e378",
+        "calls": [
+          "Date",
+          "dateToISO",
+          "ensureRecord",
+          "push"
+        ]
+      },
+      {
+        "name": "syncCurrentOrder91",
+        "line": 1324,
+        "sectionSha256": "e53f54f501458f99467d1d7ca016890c7406ff9a54639b3e0d47abb192e7ba24",
+        "calls": [
+          "amount91",
+          "assign",
+          "ensureRecord",
+          "if",
+          "parseAffiliateStage"
+        ]
+      },
+      {
+        "name": "updateHeaderTotals",
+        "line": 1349,
+        "sectionSha256": "975d5958a5821ebb1653d38cba27a6c37ea545eabe858e6ed566ebb025c6da1c",
+        "calls": [
+          "Error",
+          "Number",
+          "Set",
+          "add",
+          "calculateProjectedProfit",
+          "ensureRecord",
+          "for",
+          "forEach",
+          "getEndSellQtyTotal",
+          "getLastRow",
+          "getPaymentSummaryForRecord",
+          "getRange",
+          "getRefundEligible91",
+          "has",
+          "if",
+          "loadRecord",
+          "normalizeRootName",
+          "readRow",
+          "saveRecord",
+          "set",
+          "setNote",
+          "setValue",
+          "setValues",
+          "stylePaymentSummary",
+          "syncCurrentOrder91"
+        ]
+      },
+      {
+        "name": "hasAffiliateStage",
+        "line": 1353,
+        "sectionSha256": "87fd23f29d7a8840aff92e78a0f585ff540291427968663e00341e370bdc590d",
+        "calls": [
+          "ensureRecord",
+          "if",
+          "isArray",
+          "normalizeProgress",
+          "some"
+        ]
+      },
+      {
+        "name": "getAffiliateProgressRank",
+        "line": 1399,
+        "sectionSha256": "13dc18c0ccb50616d5a5200c256fb52f47c38d6b2fb55a20bea490b22dc4e154",
+        "calls": [
+          "normalizeProgress"
+        ]
+      },
+      {
+        "name": "getHistoryStageAmount",
+        "line": 1417,
+        "sectionSha256": "7ddabb2959013e56d25eff0a04bbf7f2d016ef39bb19a9cd35b9f07ab020c481",
+        "calls": [
+          "Number",
+          "ensureRecord",
+          "for",
+          "if",
+          "isArray",
+          "isNumericMoney",
+          "normalizeProgress"
+        ]
+      },
+      {
+        "name": "getStrictOrderedStageValue",
+        "line": 1453,
+        "sectionSha256": "2b020c258081c67c17dccf6b07f000a957b1ece65fee3c5277fb0a5f60090830",
+        "calls": [
+          "Number",
+          "ensureRecord",
+          "getHistoryStageAmount",
+          "if",
+          "isNumericMoney",
+          "normalizeProgress"
+        ]
+      },
+      {
+        "name": "getOrderStagePurchaseAmount",
+        "line": 1488,
+        "sectionSha256": "02f4f3ec1eaf383121a784bd5139682a53cec5b45297e28421f9e77c49d0e1ba",
+        "calls": [
+          "amount91",
+          "ensureRecord"
+        ]
+      },
+      {
+        "name": "isEnd1FlowRequired",
+        "line": 1490,
+        "sectionSha256": "dc7c9a466f3a78c0008dc4d6b9e295125a894e79c9bc91aaf5b2afb97bbfdf7d",
+        "calls": [
+          "Number",
+          "ensureRecord",
+          "hasAffiliateStage",
+          "if"
+        ]
+      },
+      {
+        "name": "didOrderStageOccur",
+        "line": 1505,
+        "sectionSha256": "d548eabdba0909346f84202dc62ce0381036a330d0b69c395b1eda6b0d88b996",
+        "calls": [
+          "ensureRecord"
+        ]
+      },
+      {
+        "name": "didReceiveStageOccur",
+        "line": 1507,
+        "sectionSha256": "0ca6d6ebf20da4434684240902973a7186743fed5700003ea9cd833ed3d34aa6",
+        "calls": [
+          "ensureRecord"
+        ]
+      },
+      {
+        "name": "getPaymentPurchaseConfigs",
+        "line": 1509,
+        "sectionSha256": "3185b61e6ca86de10dd55c9c2131a49b9b6dfd42b08de0fd7dec3743af3fdbf2",
+        "calls": [
+          "Number",
+          "Set",
+          "add",
+          "amount91",
+          "catch",
+          "concat",
+          "exec",
+          "filter",
+          "forEach",
+          "if",
+          "includes",
+          "isSafeInteger",
+          "keys",
+          "map",
+          "parseAffiliateStage",
+          "price",
+          "sort",
+          "split"
+        ]
+      },
+      {
+        "name": "getPurchaseLedger",
+        "line": 1517,
+        "sectionSha256": "e3bd617fa7cbfcc293aea5f799f7ad93fc837bb9b0d12d4d6a92ea55733eb1c8",
+        "calls": [
+          "amount91",
+          "ensureRecord",
+          "getPaymentPurchaseConfigs",
+          "map"
+        ]
+      },
+      {
+        "name": "getPaymentSummaryForRecord",
+        "line": 1519,
+        "sectionSha256": "7c14199a6bba1b9b45a526e446931907177ca3e9195b3ef11acb194853d26f4e",
+        "calls": [
+          "assign",
+          "forEach",
+          "getPurchaseLedger",
+          "if",
+          "push"
+        ]
+      },
+      {
+        "name": "stylePaymentSummary",
+        "line": 1522,
+        "sectionSha256": "aa70389b41d3d348c3a00d09e59a888f95834356b480e1b97369a9c78c663380",
+        "calls": [
+          "ensureAffiliateSummaryColumns",
+          "for",
+          "getDisplayValue",
+          "getRange",
+          "if",
+          "setValue"
+        ]
+      },
+      {
+        "name": "ensureAffiliateSummaryColumns",
+        "line": 1538,
+        "sectionSha256": "295ffc59dfecddcdd264c60bd9ba5fe92d4eb83ecc4aee1dda087314f89bc79c",
+        "calls": [
+          "getMaxColumns",
+          "if",
+          "insertColumnsAfter"
+        ]
+      },
+      {
+        "name": "getSampleTotal",
+        "line": 1540,
+        "sectionSha256": "2658033fdf3e332f5110d7fd5cf74c10e2df3f1f142c17acc6d2151c91b82f20",
+        "calls": [
+          "getPaymentSummaryForRecord"
+        ]
+      },
+      {
+        "name": "colorStatusCell",
+        "line": 1542,
+        "sectionSha256": "542aa0902afcfb63cff500ef14ef7d4bbe5cee82c7ba52c8f5c2483d9b5fd4d8",
+        "calls": [
+          "extractRemainingDays",
+          "getDisplayValue",
+          "getRange",
+          "if",
+          "setBackground",
+          "setFontColor",
+          "setFontWeight",
+          "startsWith",
+          "styleStatus",
+          "trim"
+        ]
+      },
+      {
+        "name": "checkAffiliateStatus",
+        "line": 1846,
+        "sectionSha256": "9b3fd9081fbb3dba1b866fb63723115c09c597e6218d31e5e35f40d478b27d38",
+        "calls": [
+          "for",
+          "getLastRow",
+          "getMainSheet",
+          "getRootName",
+          "if",
+          "refreshStatusForRow"
+        ]
+      },
+      {
+        "name": "refreshAllAffiliateStatus",
+        "line": 1848,
+        "sectionSha256": "f7c04caeed0e74bbcbc4b33604cc2085947cd9e7fb607890b9230c8cc3fd7248",
+        "calls": [
+          "checkAffiliateStatus",
+          "recalculatePaymentSummary"
+        ]
+      },
+      {
+        "name": "onOpen",
+        "line": 1850,
+        "sectionSha256": "fdb0efa584c24c1ef35f76005b6f71f047ef1ca01aeb5343783a90650d51ffdc",
+        "calls": [
+          "R",
+          "addItem",
+          "addToUi",
+          "createMenu",
+          "getUi",
+          "hàng",
+          "nợ"
+        ]
+      },
+      {
+        "name": "repairAffiliateFinancialData",
+        "line": 1852,
+        "sectionSha256": "8d801f2f965f6b315a24358312455ca1662fa8ab1a829ac374e7a6c3557fbc19",
+        "calls": [
+          "Number",
+          "Set",
+          "add",
+          "calculateProjectedProfit",
+          "call",
+          "createEmptyRecord",
+          "ensureRecord",
+          "for",
+          "getActive",
+          "getEndSellPriceSlot",
+          "getEndSellQtySlot",
+          "getLastRow",
+          "getMainSheet",
+          "getStrictOrderedStageValue",
+          "has",
+          "if",
+          "isNumericMoney",
+          "loadRecord",
+          "normalizeProgress",
+          "normalizeRootName",
+          "readRow",
+          "saveRecord",
+          "toast",
+          "updateHeaderTotals",
+          "updateProfitForRow"
+        ]
+      },
+      {
+        "name": "migrateAffiliateLayout",
+        "line": 2003,
+        "sectionSha256": "a3f96b6d9cd33e2c410cc5068ae0a33d93b511d3ef611272711d627cddda0535",
+        "calls": [
+          "String",
+          "alert",
+          "applyAffiliateHeaders",
+          "ensureAffiliateSummaryColumns",
+          "getActive",
+          "getDisplayValues",
+          "getLastColumn",
+          "getMainSheet",
+          "getMaxRows",
+          "getRange",
+          "getUi",
+          "if",
+          "insertColumnBefore",
+          "map",
+          "min",
+          "moveColumns",
+          "toLowerCase",
+          "toast",
+          "trim",
+          "updateHeaderTotals"
+        ]
+      },
+      {
+        "name": "applyAffiliateHeaders",
+        "line": 2097,
+        "sectionSha256": "ee009b37e1278b8d3a4a1316eec18259d23d8e6d3a3ce30291d15c1275d5fc5c",
+        "calls": [
+          "ensureAffiliateSummaryColumns",
+          "getRange",
+          "setValue",
+          "setValues",
+          "stylePaymentSummary"
+        ]
+      },
+      {
+        "name": "setupAffiliateAutomation",
+        "line": 2133,
+        "sectionSha256": "7f44bb94b24cda57e196d90068bc431c5f710401ef501d8294cdca5202584b71",
+        "calls": [
+          "Date",
+          "Error",
+          "amount91",
+          "auditPaymentSummary",
+          "create",
+          "deleteTrigger",
+          "ensureAffiliateSummaryColumns",
+          "everyHours",
+          "filter",
+          "for",
+          "forEach",
+          "forSpreadsheet",
+          "getActiveSpreadsheet",
+          "getDocumentProperties",
+          "getHandlerFunction",
+          "getLastRow",
+          "getMainSheet",
+          "getProjectTriggers",
+          "getProperty",
+          "getRootName",
+          "if",
+          "includes",
+          "loadRecord",
+          "log",
+          "newTrigger",
+          "onEdit",
+          "parseAffiliateStage",
+          "preflightAffiliateV91",
+          "push",
+          "readRow",
+          "saveRecord",
+          "setProperty",
+          "timeBased",
+          "toISOString",
+          "updateHeaderTotals"
+        ]
+      },
+      {
+        "name": "recalculatePaymentSummary",
+        "line": 2174,
+        "sectionSha256": "5f7a423aafef850d6cab79aa133e5a88ee1741e0545608a197ca07304d4d97e7",
+        "calls": [
+          "Error",
+          "getMainSheet",
+          "if",
+          "updateHeaderTotals"
+        ]
+      },
+      {
+        "name": "auditPaymentSummary",
+        "line": 2176,
+        "sectionSha256": "dc2f9ca2003aa4af1f1dafc9444c2e6c70609564fff53f6721184335612aaf40",
+        "calls": [
+          "Date",
+          "Error",
+          "Set",
+          "add",
+          "flush",
+          "for",
+          "formatDate",
+          "getActiveSpreadsheet",
+          "getLastRow",
+          "getMainSheet",
+          "getPaymentSummaryForRecord",
+          "getRange",
+          "getRefundEligible91",
+          "getScriptTimeZone",
+          "getSheetByName",
+          "has",
+          "if",
+          "insertSheet",
+          "loadRecord",
+          "log",
+          "normalizeRootName",
+          "push",
+          "readRow",
+          "setValues",
+          "toast",
+          "while"
+        ]
+      },
+      {
+        "name": "createEmptyRecord",
+        "line": 2227,
+        "sectionSha256": "0ac4857975a7b0e18425b7c0ad1a10ac981b5a080f9ecf751f2216b77740066c",
+        "calls": []
+      },
+      {
+        "name": "lastBuyEdit91",
+        "line": 2230,
+        "sectionSha256": "fdaa436b28a422faa6b1d5fad721d43ec3395f4267387e7ca6d41f566584fc67",
+        "calls": [
+          "amount91",
+          "catch",
+          "for",
+          "if",
+          "isArray",
+          "normalizeProgress"
+        ]
+      },
+      {
+        "name": "findStage91",
+        "line": 2243,
+        "sectionSha256": "8547a3ef9e10398ba03b9b294f97d8358dc5dd1cc2eb0517e8857d9960c5f6b9",
+        "calls": [
+          "catch",
+          "find",
+          "keys",
+          "normalizeProgress"
+        ]
+      },
+      {
+        "name": "ensureRecord",
+        "line": 2249,
+        "sectionSha256": "ef3c65ae7cb6ecee9e2909a9638bb54d19bfc1d7a072e2331919584ba2bfdb98",
+        "calls": [
+          "amount91",
+          "call",
+          "catch",
+          "entries",
+          "filter",
+          "findStage91",
+          "forEach",
+          "getPaymentPurchaseConfigs",
+          "if",
+          "includes",
+          "isArray",
+          "lastBuyEdit91",
+          "normalizeProgress",
+          "parseAffiliateStage",
+          "some"
+        ]
+      },
+      {
+        "name": "saveRecord",
+        "line": 2297,
+        "sectionSha256": "4816fe8e3adfec2210fd0163b0f07be43ace9919e86d35c37dbea8196e1807bb",
+        "calls": [
+          "Error",
+          "Number",
+          "base64Encode",
+          "catch",
+          "deleteProperty",
+          "ensureRecord",
+          "for",
+          "forEach",
+          "getBytes",
+          "getDocumentProperties",
+          "getProperty",
+          "getStorageKey",
+          "getUuid",
+          "gzip",
+          "if",
+          "manifest",
+          "match",
+          "newBlob",
+          "replace",
+          "setProperty",
+          "slice",
+          "split",
+          "startsWith",
+          "stringify"
+        ]
+      },
+      {
+        "name": "loadRecord",
+        "line": 2322,
+        "sectionSha256": "8a020f9665c8a51185da3020596277486ef6e9dab2ca8d1f9ced7062ff403d51",
+        "calls": [
+          "Error",
+          "Number",
+          "base64Decode",
+          "catch",
+          "ensureRecord",
+          "for",
+          "getDataAsString",
+          "getDocumentProperties",
+          "getProperty",
+          "getStorageKey",
+          "if",
+          "isSafeInteger",
+          "newBlob",
+          "parse",
+          "split",
+          "startsWith",
+          "ungzip"
+        ]
+      },
+      {
+        "name": "readRow",
+        "line": 2351,
+        "sectionSha256": "3fb9d456086b0ce0384bcc4142705aaaff54e65f83371fa47df31c3747fb1fc5",
+        "calls": [
+          "String",
+          "getDisplayValues",
+          "getRange",
+          "getValues",
+          "trim"
+        ]
+      },
+      {
+        "name": "saveImageToRecord",
+        "line": 2440,
+        "sectionSha256": "14f83593747da8f26abb1ef9f2e0641c2442cc7e4f2e602fa75fab4581adcac0",
+        "calls": [
+          "getFormula",
+          "getRange",
+          "getValue",
+          "if"
+        ]
+      },
+      {
+        "name": "restoreImageFromRecord",
+        "line": 2522,
+        "sectionSha256": "7dbc8ee277cdca4c4ec8aa56e39c9751572582333d384afbf5bda84a81647e99",
+        "calls": [
+          "getRange",
+          "if",
+          "setFormula",
+          "setValue"
+        ]
+      },
+      {
+        "name": "isSample1",
+        "line": 2584,
+        "sectionSha256": "35a0467aa65ed31d3c88b24417745423c497cd4196a9abc894b017eedc366040",
+        "calls": [
+          "parseAffiliateStage"
+        ]
+      },
+      {
+        "name": "isSample2",
+        "line": 2586,
+        "sectionSha256": "45612695ecebbacc1b1a7f6c46c0045d8207ceaeb9e4495602a2824aa6055a77",
+        "calls": [
+          "parseAffiliateStage"
+        ]
+      },
+      {
+        "name": "isReceivedSample",
+        "line": 2588,
+        "sectionSha256": "204b5d6f1e56cf9248c8c4e6ee543ad4264f6b9c1e9a8854668c7c306facb6c9",
+        "calls": [
+          "parseAffiliateStage"
+        ]
+      },
+      {
+        "name": "isEndProgress",
+        "line": 2590,
+        "sectionSha256": "c9b160132685d51808bcc10ff615fbad863f9d03d35d9413e545a76f95e2fd11",
+        "calls": [
+          "parseAffiliateStage"
+        ]
+      },
+      {
+        "name": "isFinalRefundStatus",
+        "line": 2592,
+        "sectionSha256": "a2e18d917ed3219576b88e6e61d355ff5d0a16aae956f1b1640fe0bc8743ed23",
+        "calls": [
+          "return"
+        ]
+      },
+      {
+        "name": "isOutOfStock",
+        "line": 2608,
+        "sectionSha256": "2466b6720287db3b324876f3e77dbae34a0ef6a3bb0e2e70cdf60b05c1448c98",
+        "calls": [
+          "String",
+          "hàng",
+          "test"
+        ]
+      },
+      {
+        "name": "normalizeProgress",
+        "line": 2610,
+        "sectionSha256": "9a46c8b43e55526933601e329ee397cb6093fe34a03b7b6c3a1ab50edcb5799f",
+        "calls": [
+          "parseAffiliateStage"
+        ]
+      },
+      {
+        "name": "passedHours",
+        "line": 2612,
+        "sectionSha256": "c32ced212063046b29670c9ae834c47d1f4d1ff5cfd4cfac05568ba7c6372969",
+        "calls": [
+          "hoursBetween",
+          "return"
+        ]
+      },
+      {
+        "name": "hoursBetween",
+        "line": 2638,
+        "sectionSha256": "c7166071243af31622525373ba3a19344ba6dccda0d46f4bc762a2f08b592c8c",
+        "calls": [
+          "getTime",
+          "return"
+        ]
+      },
+      {
+        "name": "daysBetween",
+        "line": 2658,
+        "sectionSha256": "96477ac2da4bfe81544490d39c5f5b4e344433a5637bc9f35d42c48ac0f467f8",
+        "calls": [
+          "hoursBetween",
+          "return"
+        ]
+      },
+      {
+        "name": "dateToISO",
+        "line": 2680,
+        "sectionSha256": "b0644dc61ab54de95b0742e39f89395c1518aa025d896ecd9f816984cac0c599",
+        "calls": [
+          "formatDate",
+          "getScriptTimeZone"
+        ]
+      },
+      {
+        "name": "isoToDate",
+        "line": 2702,
+        "sectionSha256": "e64ac64545519c4cf959039a34882b9a5bee48fcb791050e5bafab93d05a07e5",
+        "calls": [
+          "Date",
+          "Number",
+          "String",
+          "if",
+          "match"
+        ]
+      },
+      {
+        "name": "serializeDate",
+        "line": 2750,
+        "sectionSha256": "3f656322d35326b5cfa35fde2ff968ae8aa5d952e1b0d8b713283a8ee5a48546",
+        "calls": [
+          "dateToISO",
+          "return"
+        ]
+      },
+      {
+        "name": "formatDate",
+        "line": 2768,
+        "sectionSha256": "be09a2425da84d8d65504b67386293dd63a53d27ef4104cb16ff92b32638679b",
+        "calls": [
+          "getScriptTimeZone"
+        ]
+      },
+      {
+        "name": "statusResult",
+        "line": 2800,
+        "sectionSha256": "a9a9109b09c20324b2a34e7b7cb1ac4944b717f7113df610ef504cd3d1823b17",
+        "calls": []
+      },
+      {
+        "name": "extractRemainingDays",
+        "line": 2822,
+        "sectionSha256": "c51bb8e6bc961ba228eab1c165d5ecc38dbfd2ab94a65b09075010cf53c85a84",
+        "calls": [
+          "Number",
+          "String",
+          "còn",
+          "match"
+        ]
+      },
+      {
+        "name": "styleStatus",
+        "line": 2848,
+        "sectionSha256": "8f86127d42e16d74620946f55d93398006d0b1a128d92a5408f573f4d32d0524",
+        "calls": [
+          "setBackground",
+          "setFontColor",
+          "setFontWeight"
+        ]
+      },
+      {
+        "name": "getMainSheet",
+        "line": 2896,
+        "sectionSha256": "240d31e505e315890cccc10a0667ff9aff42c756737441ad1b7d35b39733b3f8",
+        "calls": [
+          "getActiveSpreadsheet",
+          "getSheetByName"
+        ]
+      },
+      {
+        "name": "getRootName",
+        "line": 2910,
+        "sectionSha256": "8a7477a4cf95da603d6cb11ba39569da33666b0eac11e032129f173183c6fe31",
+        "calls": [
+          "getDisplayValue",
+          "getRange",
+          "trim"
+        ]
+      },
+      {
+        "name": "getCurrentProgress",
+        "line": 2934,
+        "sectionSha256": "573e304f25f947d7f5932d1a7f6a44beaf3f6a57d7fff4b595b3434353e08901",
+        "calls": [
+          "getDisplayValue",
+          "getRange",
+          "normalizeProgress"
+        ]
+      },
+      {
+        "name": "normalizeRootName",
+        "line": 2960,
+        "sectionSha256": "f419a348eb199ea44b52bd76d357167734d89ebe9512fc6455515e296a65ca85",
+        "calls": [
+          "normalizeText",
+          "replace"
+        ]
+      },
+      {
+        "name": "normalizeText",
+        "line": 2982,
+        "sectionSha256": "2dc4f295359f69c2722d14e2a37736f4876250cd4a4a0a1d8325003d3b669faa",
+        "calls": [
+          "String",
+          "toLowerCase",
+          "trim"
+        ]
+      },
+      {
+        "name": "getStorageKey",
+        "line": 3000,
+        "sectionSha256": "2f79ebe2bd2cd4125b87752640b949c622e4e62dae3646d11d086b418cb23ccb",
+        "calls": [
+          "normalizeRootName",
+          "return"
+        ]
+      },
+      {
+        "name": "isNumericMoney",
+        "line": 3016,
+        "sectionSha256": "15eef0fe0d7aa309002e813f4a45e9ab4a8a31a0b5935213c06006944512d721",
+        "calls": [
+          "Number",
+          "isFinite"
+        ]
+      },
+      {
+        "name": "toMoney",
+        "line": 3018,
+        "sectionSha256": "24c243ac4372a0971e4d77612f9622f7e94f67e7646156fa34e676298169da76",
+        "calls": [
+          "Number",
+          "isNumericMoney"
+        ]
+      },
+      {
+        "name": "loadPrice",
+        "line": 3036,
+        "sectionSha256": "d1894d028d2284d1fd0dd8c93c85fa01b7c945a4db1b4e4485773e82f1d96af0",
+        "calls": [
+          "clearContent",
+          "if",
+          "setValue",
+          "toMoney"
+        ]
+      },
+      {
+        "name": "loadNumber",
+        "line": 3066,
+        "sectionSha256": "dc484500344251853c14e681f898101158e96efc8addc74cdc917a17c74b3c7f",
+        "calls": [
+          "clearContent",
+          "if",
+          "setValue",
+          "toMoney"
+        ]
+      },
+      {
+        "name": "setCell",
+        "line": 3075,
+        "sectionSha256": "ff8e61e3d011eded590d988afd9bd4dcb74ca76b1f2a4c2c619deae520bca9de",
+        "calls": [
+          "getRange",
+          "setValue"
+        ]
+      },
+      {
+        "name": "setIfExists",
+        "line": 3105,
+        "sectionSha256": "b7637298171e8f03c1e30c685c6b7f1912d7c35dfd80d02770a079204066f3cc",
+        "calls": [
+          "if",
+          "setCell"
+        ]
+      },
+      {
+        "name": "validateFlow",
+        "line": 3151,
+        "sectionSha256": "13df679a149b1a82b201bc560f12a2da7f35c75ab008de584cb33209d56d4823",
+        "calls": [
+          "Number",
+          "getActive",
+          "getRange",
+          "getValue",
+          "if",
+          "toast"
+        ]
+      },
+      {
+        "name": "parseAffiliateStage",
+        "line": 3217,
+        "sectionSha256": "24e177e0f2a7a9e0be63b3f3d933d98f7691f3098cf8f652f6f738a8d12bb616",
+        "calls": [
+          "Error",
+          "Number",
+          "String",
+          "exec",
+          "if",
+          "isSafeInteger",
+          "replace",
+          "test",
+          "toLowerCase",
+          "trim"
+        ]
+      },
+      {
+        "name": "amount91",
+        "line": 3226,
+        "sectionSha256": "53bfa2777eb066d0dd8d3dd562bed237dbc16f9c9de28cb6fbb8d5e67af27604",
+        "calls": [
+          "Number",
+          "isNumericMoney"
+        ]
+      },
+      {
+        "name": "stageExists91",
+        "line": 3228,
+        "sectionSha256": "89e5ca6ceee044f2b1139cf06fb197ff3f014e217aef193ff7c6fd38a92d4193",
+        "calls": [
+          "catch",
+          "includes",
+          "keys",
+          "normalizeProgress",
+          "some"
+        ]
+      },
+      {
+        "name": "getRefundEligible91",
+        "line": 3230,
+        "sectionSha256": "03245c67a8e8a74c0008cb958c51e13f2737c527b221ed4b48883d029ca74409",
+        "calls": [
+          "Map",
+          "filter",
+          "forEach",
+          "get",
+          "getPurchaseLedger",
+          "if",
+          "map"
+        ]
+      },
+      {
+        "name": "recordStageSafe91",
+        "line": 3232,
+        "sectionSha256": "b3adfd9174ebc9b5452f6c071045039523991e0f308b85d62071bf678ba8a7f7",
+        "calls": [
+          "buildSnapshot",
+          "if",
+          "parseAffiliateStage"
+        ]
+      },
+      {
+        "name": "editBuy91",
+        "line": 3234,
+        "sectionSha256": "9a25e4843591e4e3e47f9aa4c5c4f6d8a76dd67be5e2d728ec157a12d6ea7434",
+        "calls": [
+          "Error",
+          "amount91",
+          "createEmptyRecord",
+          "ensureRecord",
+          "getCurrentProgress",
+          "getRange",
+          "getRootName",
+          "getValue",
+          "if",
+          "isNumericMoney",
+          "loadPrice",
+          "loadRecord",
+          "parseAffiliateStage",
+          "saveRecord"
+        ]
+      },
+      {
+        "name": "getPaymentPurchaseConfigsLegacy",
+        "line": 3239,
+        "sectionSha256": "f7f1be4613f7727ccc28c2a00e62f7f2bae19ed45aa3354ef19199ae736ac0d9",
+        "calls": []
+      },
+      {
+        "name": "selectedStage91",
+        "line": 3241,
+        "sectionSha256": "d0dd576edc4277036c62ca337995a0af4336dfe0dcf5587bfba29c5217b3b464",
+        "calls": [
+          "Error",
+          "ensureRecord",
+          "getActiveRange",
+          "getCurrentProgress",
+          "getMainSheet",
+          "getRootName",
+          "getRow",
+          "if",
+          "loadRecord",
+          "parseAffiliateStage"
+        ]
+      },
+      {
+        "name": "changeSelectedStage91",
+        "line": 3243,
+        "sectionSha256": "203cfcab29054320c867764ee7238e737ee77d9fdfd1c1568a1e3d0908c96abd",
+        "calls": [
+          "Error",
+          "appendHistory",
+          "auditPaymentSummary",
+          "fn",
+          "if",
+          "saveRecord",
+          "selectedStage91",
+          "updateHeaderTotals"
+        ]
+      },
+      {
+        "name": "verifySelectedAffiliateStage91",
+        "line": 3245,
+        "sectionSha256": "01c903ffb027d76dc1eee276fa94dd0ed39c297dfd3685fd69e65dce6de6d6d3",
+        "calls": [
+          "Error",
+          "amount91",
+          "changeSelectedStage91",
+          "if"
+        ]
+      },
+      {
+        "name": "markSelectedUnreceived91",
+        "line": 3247,
+        "sectionSha256": "8ad9cdb35751cb61d8aa0f5d8eb21e3dc65147fefa03c5520c0af8c507d95ff0",
+        "calls": [
+          "changeSelectedStage91"
+        ]
+      },
+      {
+        "name": "cancelSelectedAffiliateStage91",
+        "line": 3249,
+        "sectionSha256": "de6aabd1e3701b5cec0ad5946015588a54feda66fcf5a7b2f7b642d2fd17b5a2",
+        "calls": [
+          "changeSelectedStage91"
+        ]
+      },
+      {
+        "name": "restoreSelectedAffiliateStage91",
+        "line": 3251,
+        "sectionSha256": "4534ca412535e4b5a7aadb15f8f8f1901ab6c56f78194f9983cc376fe31a0128",
+        "calls": [
+          "changeSelectedStage91"
+        ]
+      },
+      {
+        "name": "preflightAffiliateV91",
+        "line": 3256,
+        "sectionSha256": "ebb8b4563eafd777afd6eed7a3d27096ffc799df3b15feb53adfe9c40ec9a831",
+        "calls": [
+          "Error",
+          "Set",
+          "String",
+          "add",
+          "catch",
+          "for",
+          "getActive",
+          "getDocumentProperties",
+          "getLastRow",
+          "getMainSheet",
+          "getName",
+          "getProperty",
+          "getRootName",
+          "getStorageKey",
+          "has",
+          "if",
+          "loadRecord",
+          "log",
+          "normalizeRootName",
+          "push",
+          "stringify",
+          "toast"
+        ]
+      },
+      {
+        "name": "backupAffiliateV9Properties91",
+        "line": 3275,
+        "sectionSha256": "081da58ae9104a28374716d0ea41cc908ab96171c83040f2f0891b97f1a39464",
+        "calls": [
+          "Date",
+          "Error",
+          "Number",
+          "String",
+          "copyTo",
+          "entries",
+          "forEach",
+          "formatDate",
+          "getActiveSpreadsheet",
+          "getDocumentProperties",
+          "getMainSheet",
+          "getMaxRows",
+          "getName",
+          "getProperties",
+          "getRange",
+          "getScriptTimeZone",
+          "getValues",
+          "if",
+          "insertRowsAfter",
+          "insertSheet",
+          "join",
+          "log",
+          "match",
+          "preflightAffiliateV91",
+          "push",
+          "setName",
+          "setNumberFormat",
+          "setProperty",
+          "setValues"
+        ]
+      },
+      {
+        "name": "previewAffiliateV91RootFix",
+        "line": 3296,
+        "sectionSha256": "b4d59bf17fdf380cbb83799cc0e85bee7650553ed9c12d3afc4c9b11ce03c3a2",
+        "calls": [
+          "Error",
+          "filter",
+          "for",
+          "forEach",
+          "getLastRow",
+          "getMainSheet",
+          "getPaymentSummaryForRecord",
+          "getRange",
+          "getRootName",
+          "getValue",
+          "if",
+          "join",
+          "loadRecord",
+          "log",
+          "parseAffiliateStage",
+          "push",
+          "readRow",
+          "stringify",
+          "syncCurrentOrder91"
+        ]
+      },
+      {
+        "name": "finishAffiliateSetupWithoutMigration91",
+        "line": 3323,
+        "sectionSha256": "53c72a4f4a90f5ecd19f8bcb32ab54ac52f26e7be1d6e6c20abf5f0be07e4f1b",
+        "calls": [
+          "Date",
+          "Error",
+          "Set",
+          "create",
+          "deleteTrigger",
+          "everyHours",
+          "filter",
+          "forEach",
+          "forSpreadsheet",
+          "getActiveSpreadsheet",
+          "getDocumentProperties",
+          "getHandlerFunction",
+          "getMainSheet",
+          "getProjectTriggers",
+          "has",
+          "if",
+          "log",
+          "newTrigger",
+          "onEdit",
+          "preflightAffiliateV91",
+          "setProperty",
+          "timeBased",
+          "toISOString"
+        ]
+      }
+    ],
+    "Tiktok_Affiliate_V9.1_Original_Backup.gs": [
+      {
+        "name": "onEdit",
+        "line": 52,
+        "sectionSha256": "6eb751d19631d3388e6b8ca88f3c52c8245f27bdff8a767df736796e9bc010c5",
+        "calls": [
+          "catch",
+          "colorStatusCell",
+          "finalizeUserEdit",
+          "getColumn",
+          "getDocumentLock",
+          "getName",
+          "getNumRows",
+          "getRootName",
+          "getRow",
+          "getSheet",
+          "handleDateEdit",
+          "handleEndPriceEdit",
+          "handlePicEdit",
+          "handlePriceEdit",
+          "handleProgressChange",
+          "handleRootName",
+          "handleSellEndEdit",
+          "handleSellEndQtyEdit",
+          "if",
+          "refreshStatusForRow",
+          "releaseLock",
+          "saveCurrentRow",
+          "switch",
+          "updateHeaderTotals",
+          "updateProfitForRow",
+          "waitLock"
+        ]
+      },
+      {
+        "name": "handleRootName",
+        "line": 261,
+        "sectionSha256": "5042d4ea7dd4d3f1a230e2133afcfbad00b765c607562d98cee014d9a0bc7ebd",
+        "calls": [
+          "createEmptyRecord",
+          "getActive",
+          "getRootName",
+          "if",
+          "loadRecord",
+          "refreshStatusForRow",
+          "restoreRecord",
+          "saveCurrentRow",
+          "saveRecord",
+          "toast"
+        ]
+      },
+      {
+        "name": "handleProgressChange",
+        "line": 353,
+        "sectionSha256": "de8d0caf0872f279cdd6f3104a3bbd8d9b572f38bf1b146112663e6576b401f9",
+        "calls": [
+          "appendHistory",
+          "buildSnapshot",
+          "clearContent",
+          "createEmptyRecord",
+          "ensureRecord",
+          "getRange",
+          "getRootName",
+          "getValue",
+          "if",
+          "initializeStage",
+          "loadRecord",
+          "normalizeProgress",
+          "parseAffiliateStage",
+          "recordStageSafe91",
+          "refreshStatusForRow",
+          "restoreStage",
+          "saveRecord"
+        ]
+      },
+      {
+        "name": "initializeStage",
+        "line": 361,
+        "sectionSha256": "b67e047afa4b6848b580b1095f33b474c2f115d1144c3ddd01ba16f858662b9f",
+        "calls": [
+          "Date",
+          "assign",
+          "buildSnapshot",
+          "clearContent",
+          "find",
+          "getPaymentPurchaseConfigs",
+          "getRange",
+          "if",
+          "loadNumber",
+          "loadPrice",
+          "parseAffiliateStage",
+          "setValue"
+        ]
+      },
+      {
+        "name": "restoreStage",
+        "line": 371,
+        "sectionSha256": "93eed57f016af67d3b44b0db306fa1d12c206c30945d72a295412327b39ecff4",
+        "calls": [
+          "Date",
+          "clearContent",
+          "getRange",
+          "if",
+          "isoToDate",
+          "loadNumber",
+          "loadPrice",
+          "parseAffiliateStage",
+          "setValue"
+        ]
+      },
+      {
+        "name": "handlePriceEdit",
+        "line": 377,
+        "sectionSha256": "b6bbf55717fb83027d9fb95482829709c3d48b3310371de8b500c5799ff83e4d",
+        "calls": [
+          "editBuy91"
+        ]
+      },
+      {
+        "name": "getPriceSlot",
+        "line": 379,
+        "sectionSha256": "e10bddbbc911f24de41cd35ae57cfd3f22415ff263b671fba16d5869cc9a0d2a",
+        "calls": [
+          "parseAffiliateStage"
+        ]
+      },
+      {
+        "name": "getEndBuyPriceSlot",
+        "line": 381,
+        "sectionSha256": "b56bd6c9d0a2b7313385a3b3b6ac6342e61f9d494a0555c6ee55f792b326d445",
+        "calls": [
+          "parseAffiliateStage"
+        ]
+      },
+      {
+        "name": "getEndBuyWriteSlot",
+        "line": 383,
+        "sectionSha256": "c1dc9f537737a0896b14fdbae8ff60910b490cc46abd6073fef8d6d236429206",
+        "calls": [
+          "parseAffiliateStage"
+        ]
+      },
+      {
+        "name": "getEndSellPriceSlot",
+        "line": 385,
+        "sectionSha256": "a5b5bb2777c0155139ebc1a2ede840a24d99886ee24c71235eb627c93933e666",
+        "calls": [
+          "parseAffiliateStage"
+        ]
+      },
+      {
+        "name": "getEndSellQtySlot",
+        "line": 387,
+        "sectionSha256": "6632ce2c6630a6e93ccc11646693eee330d3a4bebe8e7e1d7095b8d74ca15bcd",
+        "calls": [
+          "parseAffiliateStage"
+        ]
+      },
+      {
+        "name": "handleEndPriceEdit",
+        "line": 389,
+        "sectionSha256": "35b603dfbaf8091843d93fa78c080b5f390f9519c76934a76365189c7fbf4d24",
+        "calls": [
+          "editBuy91"
+        ]
+      },
+      {
+        "name": "handleSellEndEdit",
+        "line": 391,
+        "sectionSha256": "683c8b2bba25447ea582fa4ce0519819a3b0091f9839207462b483386a86208f",
+        "calls": [
+          "Number",
+          "createEmptyRecord",
+          "ensureRecord",
+          "getActive",
+          "getCurrentProgress",
+          "getEndSellPriceSlot",
+          "getRange",
+          "getRootName",
+          "getValue",
+          "if",
+          "isNumericMoney",
+          "loadRecord",
+          "saveRecord",
+          "toast"
+        ]
+      },
+      {
+        "name": "handleSellEndQtyEdit",
+        "line": 447,
+        "sectionSha256": "6b4ef50b7c32826da060262d6c4c6fca00423c9b922c545d83032352cc9871f9",
+        "calls": [
+          "Number",
+          "createEmptyRecord",
+          "ensureRecord",
+          "getActive",
+          "getCurrentProgress",
+          "getEndSellQtySlot",
+          "getRange",
+          "getRootName",
+          "getValue",
+          "if",
+          "isNumericMoney",
+          "loadRecord",
+          "saveRecord",
+          "toast"
+        ]
+      },
+      {
+        "name": "getEndBuyTotal",
+        "line": 498,
+        "sectionSha256": "1d46aaf1620620ea7078b68eeab9e0b8e2d6e7653b560f52597262a1483aa3d1",
+        "calls": [
+          "getPaymentSummaryForRecord"
+        ]
+      },
+      {
+        "name": "getEndSellRevenue",
+        "line": 500,
+        "sectionSha256": "be19e5c7ec3c91a99ce17cd88c0de6bcb403d75a999f63c8fa582073e340ab80",
+        "calls": [
+          "amount91",
+          "ensureRecord",
+          "filter",
+          "getPaymentPurchaseConfigs",
+          "reduce"
+        ]
+      },
+      {
+        "name": "getEndSellQtyTotal",
+        "line": 502,
+        "sectionSha256": "bcbce29c64e24f489f59c75e8cd6a9697e8461c05f2cc7c26e1d5831bc4ba34b",
+        "calls": [
+          "amount91",
+          "ensureRecord",
+          "filter",
+          "getPaymentPurchaseConfigs",
+          "reduce"
+        ]
+      },
+      {
+        "name": "calculateProjectedProfit",
+        "line": 504,
+        "sectionSha256": "ddc2fb6e95918aa96c720f9bfc2edab364568336a6a4d19a29a4f6fd5ec0f352",
+        "calls": [
+          "Number",
+          "ensureRecord",
+          "getEndBuyTotal",
+          "getEndSellRevenue",
+          "return",
+          "toMoney"
+        ]
+      },
+      {
+        "name": "updateProfitForRow",
+        "line": 540,
+        "sectionSha256": "30e967cb86fda9c1a39e9de2bb893c781a63027db8872703ef069b9f43866667",
+        "calls": [
+          "amount91",
+          "calculateProjectedProfit",
+          "clearContent",
+          "createEmptyRecord",
+          "ensureRecord",
+          "getEndSellQtyTotal",
+          "getPurchaseLedger",
+          "getRange",
+          "getRootName",
+          "if",
+          "loadRecord",
+          "readRow",
+          "saveRecord",
+          "setValue",
+          "some"
+        ]
+      },
+      {
+        "name": "handlePicEdit",
+        "line": 542,
+        "sectionSha256": "b9a833dbd6a20007d29e83e32e5f8704164f2eca21f983952425ad88a043a9ea",
+        "calls": [
+          "createEmptyRecord",
+          "ensureRecord",
+          "getCurrentProgress",
+          "getDisplayValue",
+          "getRange",
+          "getRootName",
+          "if",
+          "loadRecord",
+          "parseAffiliateStage",
+          "saveRecord",
+          "trim"
+        ]
+      },
+      {
+        "name": "handleDateEdit",
+        "line": 544,
+        "sectionSha256": "be435bca54a84e55a7251b6e0c412f6698a281af6ec8c1c6596ffc533ab06d54",
+        "calls": [
+          "createEmptyRecord",
+          "dateToISO",
+          "ensureRecord",
+          "getCurrentProgress",
+          "getRange",
+          "getRootName",
+          "getValue",
+          "if",
+          "loadRecord",
+          "saveRecord"
+        ]
+      },
+      {
+        "name": "calculateStatus",
+        "line": 668,
+        "sectionSha256": "15b8089fccfe4f0acb647f14c23c776db683ee3688564eea672c94776ef4cad8",
+        "calls": [
+          "Date",
+          "ceil",
+          "daysBetween",
+          "if",
+          "isFinalRefundStatus",
+          "isOutOfStock",
+          "parseAffiliateStage",
+          "passedHours",
+          "statusResult"
+        ]
+      },
+      {
+        "name": "refreshStatusForRow",
+        "line": 676,
+        "sectionSha256": "dbc8140f3fcc24ff4d8723981a14d7375a61285a6fbc53d6b70d99e3d998d1e1",
+        "calls": [
+          "Number",
+          "appendHistory",
+          "buildSnapshot",
+          "calculateStatus",
+          "clearNote",
+          "colorStatusCell",
+          "createEmptyRecord",
+          "ensureRecord",
+          "getCurrentProgress",
+          "getRange",
+          "getRootName",
+          "if",
+          "loadRecord",
+          "readRow",
+          "saveRecord",
+          "setNote",
+          "setValue",
+          "snapshotStage"
+        ]
+      },
+      {
+        "name": "snapshotStage",
+        "line": 910,
+        "sectionSha256": "91304182a1d7310a460588528c0a735d5b2772ae5dcc9d221362710be5b57797",
+        "calls": [
+          "ensureRecord",
+          "if",
+          "recordStageSafe91"
+        ]
+      },
+      {
+        "name": "buildSnapshot",
+        "line": 912,
+        "sectionSha256": "36c88061a7bfb2c943d7dc6bb89e425d73114d948a1b617563f81a0ea0320465",
+        "calls": [
+          "Date",
+          "dateToISO",
+          "readRow",
+          "serializeDate"
+        ]
+      },
+      {
+        "name": "saveCurrentRow",
+        "line": 982,
+        "sectionSha256": "a57172fa29b021f5b7c33e06400ad2caafed48daaa1204a536b5c29aa85b19e8",
+        "calls": [
+          "amount91",
+          "calculateProjectedProfit",
+          "createEmptyRecord",
+          "ensureRecord",
+          "if",
+          "loadRecord",
+          "normalizeProgress",
+          "parseAffiliateStage",
+          "readRow",
+          "recordStageSafe91",
+          "saveImageToRecord",
+          "saveRecord",
+          "serializeDate"
+        ]
+      },
+      {
+        "name": "restoreRecord",
+        "line": 986,
+        "sectionSha256": "135d05c7719237a2b7cefedab6a69e777a46920551148bd0cb4642181d0e02eb",
+        "calls": [
+          "clearContent",
+          "colorStatusCell",
+          "ensureRecord",
+          "getEndBuyPriceSlot",
+          "getEndSellPriceSlot",
+          "getPriceSlot",
+          "getRange",
+          "if",
+          "isoToDate",
+          "loadPrice",
+          "normalizeProgress",
+          "restoreImageFromRecord",
+          "restoreStage",
+          "setCell",
+          "setIfExists",
+          "updateProfitForRow"
+        ]
+      },
+      {
+        "name": "finalizeUserEdit",
+        "line": 1170,
+        "sectionSha256": "b386da3360980af0973c0c776b152649b7eddf40daab25b30ba354cfb4847a12",
+        "calls": [
+          "appendHistory",
+          "buildSnapshot",
+          "createEmptyRecord",
+          "ensureRecord",
+          "getCurrentProgress",
+          "getRootName",
+          "if",
+          "loadRecord",
+          "saveCurrentRow",
+          "saveRecord"
+        ]
+      },
+      {
+        "name": "appendHistory",
+        "line": 1262,
+        "sectionSha256": "51adc83accf91cf37c48674a44752b782e715da6297b9ba8ea554f88b780c806",
+        "calls": [
+          "Date",
+          "dateToISO",
+          "ensureRecord",
+          "push"
+        ]
+      },
+      {
+        "name": "syncCurrentOrder91",
+        "line": 1324,
+        "sectionSha256": "98962ee98dc41b511d2cef05706a188f283b635d1efb2cee6510f88d2c470d95",
+        "calls": [
+          "amount91",
+          "assign",
+          "ensureRecord",
+          "if",
+          "parseAffiliateStage"
+        ]
+      },
+      {
+        "name": "updateHeaderTotals",
+        "line": 1349,
+        "sectionSha256": "57aea9207f0bf157387d449d0e01bea19defdbd45a547a687658751f6d418bec",
+        "calls": [
+          "Error",
+          "Number",
+          "Set",
+          "add",
+          "calculateProjectedProfit",
+          "ensureRecord",
+          "for",
+          "forEach",
+          "getEndSellQtyTotal",
+          "getLastRow",
+          "getPaymentSummaryForRecord",
+          "getRange",
+          "getRefundEligible91",
+          "has",
+          "if",
+          "loadRecord",
+          "normalizeRootName",
+          "readRow",
+          "saveRecord",
+          "set",
+          "setNote",
+          "setValue",
+          "setValues",
+          "stylePaymentSummary",
+          "syncCurrentOrder91"
+        ]
+      },
+      {
+        "name": "hasAffiliateStage",
+        "line": 1353,
+        "sectionSha256": "2de04ca12a8154f76f4bacb9db0e603c7c9fb8a6d004425f1de6f9ed03fef2ff",
+        "calls": [
+          "ensureRecord",
+          "if",
+          "isArray",
+          "normalizeProgress",
+          "some"
+        ]
+      },
+      {
+        "name": "getAffiliateProgressRank",
+        "line": 1399,
+        "sectionSha256": "cadb5111086e10d07518ba0202e127b7ac2898bb97805575bef68ddf588db349",
+        "calls": [
+          "normalizeProgress"
+        ]
+      },
+      {
+        "name": "getHistoryStageAmount",
+        "line": 1417,
+        "sectionSha256": "288c10cc83985cf9b76482db9b95691756b1f8dab891aca0dcf5068c421c9012",
+        "calls": [
+          "Number",
+          "ensureRecord",
+          "for",
+          "if",
+          "isArray",
+          "isNumericMoney",
+          "normalizeProgress"
+        ]
+      },
+      {
+        "name": "getStrictOrderedStageValue",
+        "line": 1453,
+        "sectionSha256": "6c65332ce37e97993ebcb93192af4fdfe624702a9c8b4af87d633c1e35283191",
+        "calls": [
+          "Number",
+          "ensureRecord",
+          "getHistoryStageAmount",
+          "if",
+          "isNumericMoney",
+          "normalizeProgress"
+        ]
+      },
+      {
+        "name": "getOrderStagePurchaseAmount",
+        "line": 1488,
+        "sectionSha256": "3e11c5aa37c42607e1ce5e329620a4f4a6626ade0aacd77b3c928e051e27c1b6",
+        "calls": [
+          "amount91",
+          "ensureRecord"
+        ]
+      },
+      {
+        "name": "isEnd1FlowRequired",
+        "line": 1490,
+        "sectionSha256": "2330de4fa57d520ceac77ffc986f8e5970b6ecc8e14e6bdce4ac2b6a6153dc98",
+        "calls": [
+          "Number",
+          "ensureRecord",
+          "hasAffiliateStage",
+          "if"
+        ]
+      },
+      {
+        "name": "didOrderStageOccur",
+        "line": 1505,
+        "sectionSha256": "667fa7311208d20020e09fcee955274cc982bf6c77d8ab1970816904460eecb5",
+        "calls": [
+          "ensureRecord"
+        ]
+      },
+      {
+        "name": "didReceiveStageOccur",
+        "line": 1507,
+        "sectionSha256": "d2a84aef13d52984a204dd90ae303cd50b68d1731bddc4e1f87dfd33be86f10e",
+        "calls": [
+          "ensureRecord"
+        ]
+      },
+      {
+        "name": "getPaymentPurchaseConfigs",
+        "line": 1509,
+        "sectionSha256": "f83c1701ff6ae41d3a488862fb83a56db88e87220acb6a23f9f22f5a1a0dae9c",
+        "calls": [
+          "Number",
+          "Set",
+          "add",
+          "amount91",
+          "catch",
+          "concat",
+          "exec",
+          "filter",
+          "forEach",
+          "if",
+          "includes",
+          "isSafeInteger",
+          "keys",
+          "map",
+          "parseAffiliateStage",
+          "price",
+          "sort",
+          "split"
+        ]
+      },
+      {
+        "name": "getPurchaseLedger",
+        "line": 1517,
+        "sectionSha256": "3762c65d4401ca3c70f48db6233993df7160e3e945dda5ab223fff1f16da2723",
+        "calls": [
+          "amount91",
+          "ensureRecord",
+          "getPaymentPurchaseConfigs",
+          "map"
+        ]
+      },
+      {
+        "name": "getPaymentSummaryForRecord",
+        "line": 1519,
+        "sectionSha256": "94327e14a8054fb2a349ec0cf04537cfdc20fca7c56198a98c5c39dae9df10c5",
+        "calls": [
+          "assign",
+          "forEach",
+          "getPurchaseLedger",
+          "if",
+          "push"
+        ]
+      },
+      {
+        "name": "stylePaymentSummary",
+        "line": 1522,
+        "sectionSha256": "6a97358492e8ad94402a8e5fd8d7cb3feb0eed355e4899b2cfeafc03758d581a",
+        "calls": [
+          "ensureAffiliateSummaryColumns",
+          "for",
+          "getDisplayValue",
+          "getRange",
+          "if",
+          "setValue"
+        ]
+      },
+      {
+        "name": "ensureAffiliateSummaryColumns",
+        "line": 1538,
+        "sectionSha256": "f2af61c1ddfda7a5d3981ec10288a5b5a0f12c366e068ebdc0e8a8f5f29f42dd",
+        "calls": [
+          "getMaxColumns",
+          "if",
+          "insertColumnsAfter"
+        ]
+      },
+      {
+        "name": "getSampleTotal",
+        "line": 1540,
+        "sectionSha256": "11d5fdd79a0b3dbfc2813993e645b4c737607e3e398b9cfd72098cf7b0a274ab",
+        "calls": [
+          "getPaymentSummaryForRecord"
+        ]
+      },
+      {
+        "name": "colorStatusCell",
+        "line": 1542,
+        "sectionSha256": "cc2cae69aa4d3110d65728164942feed9304b9e85efcfa372ec734f0f9cf1a0c",
+        "calls": [
+          "extractRemainingDays",
+          "getDisplayValue",
+          "getRange",
+          "if",
+          "setBackground",
+          "setFontColor",
+          "setFontWeight",
+          "startsWith",
+          "styleStatus",
+          "trim"
+        ]
+      },
+      {
+        "name": "checkAffiliateStatus",
+        "line": 1846,
+        "sectionSha256": "ac801d1dc9de4a89a108fcf11d37f29b640c521467e7b8709810c589369405ed",
+        "calls": [
+          "for",
+          "getLastRow",
+          "getMainSheet",
+          "getRootName",
+          "if",
+          "refreshStatusForRow"
+        ]
+      },
+      {
+        "name": "refreshAllAffiliateStatus",
+        "line": 1848,
+        "sectionSha256": "66aecfbfde23cd4b7b25cd50d4ba3ed73880787f859ab4402e2928f7f781f0e4",
+        "calls": [
+          "checkAffiliateStatus",
+          "recalculatePaymentSummary"
+        ]
+      },
+      {
+        "name": "onOpen",
+        "line": 1850,
+        "sectionSha256": "7541cbb615d164f94ebbcc72b430783a807766666192aaf94efb63562799663d",
+        "calls": [
+          "R",
+          "addItem",
+          "addToUi",
+          "createMenu",
+          "getUi",
+          "hàng",
+          "nợ"
+        ]
+      },
+      {
+        "name": "repairAffiliateFinancialData",
+        "line": 1852,
+        "sectionSha256": "0fb11cfd1d59b6f74a6eef15fadcad16f8214880ab80303c4dedf10a0fc31d13",
+        "calls": [
+          "Number",
+          "Set",
+          "add",
+          "calculateProjectedProfit",
+          "call",
+          "createEmptyRecord",
+          "ensureRecord",
+          "for",
+          "getActive",
+          "getEndSellPriceSlot",
+          "getEndSellQtySlot",
+          "getLastRow",
+          "getMainSheet",
+          "getStrictOrderedStageValue",
+          "has",
+          "if",
+          "isNumericMoney",
+          "loadRecord",
+          "normalizeProgress",
+          "normalizeRootName",
+          "readRow",
+          "saveRecord",
+          "toast",
+          "updateHeaderTotals",
+          "updateProfitForRow"
+        ]
+      },
+      {
+        "name": "migrateAffiliateLayout",
+        "line": 2003,
+        "sectionSha256": "3dbc8e6c7d99889e01c4d2389d26a86238a23b09bbb8e73e8708e65653800568",
+        "calls": [
+          "String",
+          "alert",
+          "applyAffiliateHeaders",
+          "ensureAffiliateSummaryColumns",
+          "getActive",
+          "getDisplayValues",
+          "getLastColumn",
+          "getMainSheet",
+          "getMaxRows",
+          "getRange",
+          "getUi",
+          "if",
+          "insertColumnBefore",
+          "map",
+          "min",
+          "moveColumns",
+          "toLowerCase",
+          "toast",
+          "trim",
+          "updateHeaderTotals"
+        ]
+      },
+      {
+        "name": "applyAffiliateHeaders",
+        "line": 2097,
+        "sectionSha256": "e4553c4991cff6e2230c8cf99c4fd0083865065442e146a2b87570fddc1ed015",
+        "calls": [
+          "ensureAffiliateSummaryColumns",
+          "getRange",
+          "setValue",
+          "setValues",
+          "stylePaymentSummary"
+        ]
+      },
+      {
+        "name": "setupAffiliateAutomation",
+        "line": 2133,
+        "sectionSha256": "1bbc43df333a0108f592bc9e83be786d4e2401d5bbad2db9cad5a95ccf6f4ab1",
+        "calls": [
+          "Date",
+          "Error",
+          "amount91",
+          "auditPaymentSummary",
+          "create",
+          "deleteTrigger",
+          "ensureAffiliateSummaryColumns",
+          "everyHours",
+          "filter",
+          "for",
+          "forEach",
+          "forSpreadsheet",
+          "getActiveSpreadsheet",
+          "getDocumentProperties",
+          "getHandlerFunction",
+          "getLastRow",
+          "getMainSheet",
+          "getProjectTriggers",
+          "getProperty",
+          "getRootName",
+          "if",
+          "includes",
+          "loadRecord",
+          "log",
+          "newTrigger",
+          "onEdit",
+          "parseAffiliateStage",
+          "preflightAffiliateV91",
+          "push",
+          "readRow",
+          "saveRecord",
+          "setProperty",
+          "timeBased",
+          "toISOString",
+          "updateHeaderTotals"
+        ]
+      },
+      {
+        "name": "recalculatePaymentSummary",
+        "line": 2174,
+        "sectionSha256": "40c05d0d252efbd229f9776d665f7dc55f8c16fc8cda760d4b1e1d70a4f81ee4",
+        "calls": [
+          "Error",
+          "getMainSheet",
+          "if",
+          "updateHeaderTotals"
+        ]
+      },
+      {
+        "name": "auditPaymentSummary",
+        "line": 2176,
+        "sectionSha256": "a3cb2c2dbdd7c96cb9983ed0792dc514cff9fdf8d8ccf4653e943a68c1b1f10a",
+        "calls": [
+          "Date",
+          "Error",
+          "Set",
+          "add",
+          "flush",
+          "for",
+          "formatDate",
+          "getActiveSpreadsheet",
+          "getLastRow",
+          "getMainSheet",
+          "getPaymentSummaryForRecord",
+          "getRange",
+          "getRefundEligible91",
+          "getScriptTimeZone",
+          "getSheetByName",
+          "has",
+          "if",
+          "insertSheet",
+          "loadRecord",
+          "log",
+          "normalizeRootName",
+          "push",
+          "readRow",
+          "setValues",
+          "toast",
+          "while"
+        ]
+      },
+      {
+        "name": "createEmptyRecord",
+        "line": 2227,
+        "sectionSha256": "9eee94544e796166bc0cfc6cbc8d392a296ff7ee8c666a98c4d3d512ecb8d79f",
+        "calls": []
+      },
+      {
+        "name": "lastBuyEdit91",
+        "line": 2230,
+        "sectionSha256": "1753ccd95279ab7b8cd1c5235ba7fa4924dea53cfd1d8b756a003406eea37c8b",
+        "calls": [
+          "amount91",
+          "catch",
+          "for",
+          "if",
+          "isArray",
+          "normalizeProgress"
+        ]
+      },
+      {
+        "name": "findStage91",
+        "line": 2243,
+        "sectionSha256": "c73e6f02042a3b29c454835c45887634247de4d15a211308ba995c8c8dd65dbb",
+        "calls": [
+          "catch",
+          "find",
+          "keys",
+          "normalizeProgress"
+        ]
+      },
+      {
+        "name": "ensureRecord",
+        "line": 2249,
+        "sectionSha256": "d69f060e199b1d417c6d3d8e2920b9618de6c4ade8a32d1fb583ee5b9864a14c",
+        "calls": [
+          "amount91",
+          "call",
+          "catch",
+          "entries",
+          "filter",
+          "findStage91",
+          "forEach",
+          "getPaymentPurchaseConfigs",
+          "if",
+          "includes",
+          "isArray",
+          "lastBuyEdit91",
+          "normalizeProgress",
+          "parseAffiliateStage",
+          "some"
+        ]
+      },
+      {
+        "name": "saveRecord",
+        "line": 2297,
+        "sectionSha256": "c9e57ae2988bbdd8bb7d635783075f29b9ea0262029734b1761a0da6c1dc3cbd",
+        "calls": [
+          "Error",
+          "Number",
+          "base64Encode",
+          "catch",
+          "deleteProperty",
+          "ensureRecord",
+          "for",
+          "forEach",
+          "getBytes",
+          "getDocumentProperties",
+          "getProperty",
+          "getStorageKey",
+          "getUuid",
+          "gzip",
+          "if",
+          "manifest",
+          "match",
+          "newBlob",
+          "replace",
+          "setProperty",
+          "slice",
+          "split",
+          "startsWith",
+          "stringify"
+        ]
+      },
+      {
+        "name": "loadRecord",
+        "line": 2322,
+        "sectionSha256": "ed0f5dc8ec8c71c021fd87258c75c97d994a0142f436b563e8b38fe9ad5fd7a8",
+        "calls": [
+          "Error",
+          "Number",
+          "base64Decode",
+          "catch",
+          "ensureRecord",
+          "for",
+          "getDataAsString",
+          "getDocumentProperties",
+          "getProperty",
+          "getStorageKey",
+          "if",
+          "isSafeInteger",
+          "newBlob",
+          "parse",
+          "split",
+          "startsWith",
+          "ungzip"
+        ]
+      },
+      {
+        "name": "readRow",
+        "line": 2351,
+        "sectionSha256": "d871b2ad2e8f81320675d3f8438df154507f6d38a73a6be43e2b3482f59e9acc",
+        "calls": [
+          "String",
+          "getDisplayValues",
+          "getRange",
+          "getValues",
+          "trim"
+        ]
+      },
+      {
+        "name": "saveImageToRecord",
+        "line": 2440,
+        "sectionSha256": "2cd02f167afef28dfaed9d2e2c76d4f26f0bd299fc82e7f2dce78af5bb643880",
+        "calls": [
+          "getFormula",
+          "getRange",
+          "getValue",
+          "if"
+        ]
+      },
+      {
+        "name": "restoreImageFromRecord",
+        "line": 2522,
+        "sectionSha256": "ad955901c7d439296578dc1df03b6c0f8ae430610825e2b1b660505d5adf630a",
+        "calls": [
+          "getRange",
+          "if",
+          "setFormula",
+          "setValue"
+        ]
+      },
+      {
+        "name": "isSample1",
+        "line": 2584,
+        "sectionSha256": "3e5f52fc15ed309245533abd47cc916615bafc280459f5d4dc6c32f85b07ae05",
+        "calls": [
+          "parseAffiliateStage"
+        ]
+      },
+      {
+        "name": "isSample2",
+        "line": 2586,
+        "sectionSha256": "e0f0bb48fc608a6469f7dd179480042fc9b9c5e811d9021547c318d17d3a2ad6",
+        "calls": [
+          "parseAffiliateStage"
+        ]
+      },
+      {
+        "name": "isReceivedSample",
+        "line": 2588,
+        "sectionSha256": "986fac24aaa65631ac8d336aa317e3398be04f1335acf492ae59bf41c13369e1",
+        "calls": [
+          "parseAffiliateStage"
+        ]
+      },
+      {
+        "name": "isEndProgress",
+        "line": 2590,
+        "sectionSha256": "ce80166d0b4114a30ef33b19783f834518a1d5f9b12a95dfd4622babb1160d1d",
+        "calls": [
+          "parseAffiliateStage"
+        ]
+      },
+      {
+        "name": "isFinalRefundStatus",
+        "line": 2592,
+        "sectionSha256": "c2a02553ca410d740d35d678a19b42cdc44a5149806a4bfc78260867bfac926a",
+        "calls": [
+          "return"
+        ]
+      },
+      {
+        "name": "isOutOfStock",
+        "line": 2608,
+        "sectionSha256": "672c5057cebcbddfa6d3d852f9da1858d7d9401cbe1e61cfc3ee0dcc43cc8db4",
+        "calls": [
+          "String",
+          "hàng",
+          "test"
+        ]
+      },
+      {
+        "name": "normalizeProgress",
+        "line": 2610,
+        "sectionSha256": "0ace79f5d0539b2c73aef1138908f4fca8632fb86be80b3eeed2fc2288da9e17",
+        "calls": [
+          "parseAffiliateStage"
+        ]
+      },
+      {
+        "name": "passedHours",
+        "line": 2612,
+        "sectionSha256": "0fe2322c32e05d86194073457be9ea645134d57362c994fd08252f54dab6aa0e",
+        "calls": [
+          "hoursBetween",
+          "return"
+        ]
+      },
+      {
+        "name": "hoursBetween",
+        "line": 2638,
+        "sectionSha256": "f11875976b0978cd5538617df86750d6a3b3362ba900d10a4e0d8326dc57d501",
+        "calls": [
+          "getTime",
+          "return"
+        ]
+      },
+      {
+        "name": "daysBetween",
+        "line": 2658,
+        "sectionSha256": "ea948fbd5c76f022d58aeab46d1e0187130f718ed2491314915f147837029d33",
+        "calls": [
+          "hoursBetween",
+          "return"
+        ]
+      },
+      {
+        "name": "dateToISO",
+        "line": 2680,
+        "sectionSha256": "4a24f4a892bcf2dee4c821938ff0ba4eb86692a6dc3c62f2042f1aba75e03156",
+        "calls": [
+          "formatDate",
+          "getScriptTimeZone"
+        ]
+      },
+      {
+        "name": "isoToDate",
+        "line": 2702,
+        "sectionSha256": "482c59bb6b764a4d3f90084412dc6a05e4d0d7d250109f226987b4228f39e5cf",
+        "calls": [
+          "Date",
+          "Number",
+          "String",
+          "if",
+          "match"
+        ]
+      },
+      {
+        "name": "serializeDate",
+        "line": 2750,
+        "sectionSha256": "83e356059301c9687b2f2f99c8770bf99390315f3a8f349ce56ad2820fe693e0",
+        "calls": [
+          "dateToISO",
+          "return"
+        ]
+      },
+      {
+        "name": "formatDate",
+        "line": 2768,
+        "sectionSha256": "0b77fb06f4a5399ce59b926e90a14a5dffd8efda7834655a42e4a05217fbf3c7",
+        "calls": [
+          "getScriptTimeZone"
+        ]
+      },
+      {
+        "name": "statusResult",
+        "line": 2800,
+        "sectionSha256": "f0e957c782a77bfa486697a5c40a31a036c0c38c45e8f104f959cf7398407268",
+        "calls": []
+      },
+      {
+        "name": "extractRemainingDays",
+        "line": 2822,
+        "sectionSha256": "ccb25926712a38814b8440cd1c34e6c6cebe4d43375ce4381120617acdb25d92",
+        "calls": [
+          "Number",
+          "String",
+          "còn",
+          "match"
+        ]
+      },
+      {
+        "name": "styleStatus",
+        "line": 2848,
+        "sectionSha256": "865a3113ae184f39b9b3bef9b63e0e34e885352712427c554c9c3e362b9743a5",
+        "calls": [
+          "setBackground",
+          "setFontColor",
+          "setFontWeight"
+        ]
+      },
+      {
+        "name": "getMainSheet",
+        "line": 2896,
+        "sectionSha256": "cef03b2174b4611f116f042d7e94c24e2c2e585d50e548f322a4fca694439db3",
+        "calls": [
+          "getActiveSpreadsheet",
+          "getSheetByName"
+        ]
+      },
+      {
+        "name": "getRootName",
+        "line": 2910,
+        "sectionSha256": "c9aa5665ceccf8fd497f9d22236921e2193742d06be79abe936fa24f7257c6cc",
+        "calls": [
+          "getDisplayValue",
+          "getRange",
+          "trim"
+        ]
+      },
+      {
+        "name": "getCurrentProgress",
+        "line": 2934,
+        "sectionSha256": "f77be0dd13f44f08de3237e13327c4c1d124ae8547635eedb8c246c863197b0b",
+        "calls": [
+          "getDisplayValue",
+          "getRange",
+          "normalizeProgress"
+        ]
+      },
+      {
+        "name": "normalizeRootName",
+        "line": 2960,
+        "sectionSha256": "20a614afef5370ef93d84f8018917b634ee253605441d06eab66f0e4242831cd",
+        "calls": [
+          "normalizeText",
+          "replace"
+        ]
+      },
+      {
+        "name": "normalizeText",
+        "line": 2982,
+        "sectionSha256": "8fe7ec5a2e043321deda886411feca2b215feade049872e9344b324a5c9c8dab",
+        "calls": [
+          "String",
+          "toLowerCase",
+          "trim"
+        ]
+      },
+      {
+        "name": "getStorageKey",
+        "line": 3000,
+        "sectionSha256": "f0c8edd44d73005c4f2f97b3f09cc829ff03d1b7ac4a86bbf1b42dfb976a2546",
+        "calls": [
+          "normalizeRootName",
+          "return"
+        ]
+      },
+      {
+        "name": "isNumericMoney",
+        "line": 3016,
+        "sectionSha256": "6169a707348e8beceb28c9c11ff5064f97c1384f33eb81ffacaf836fcaa1abd4",
+        "calls": [
+          "Number",
+          "isFinite"
+        ]
+      },
+      {
+        "name": "toMoney",
+        "line": 3018,
+        "sectionSha256": "8bf60634099e1981814a47d9897625f393fd310b32089dcbdd2e437cc1b58f06",
+        "calls": [
+          "Number",
+          "isNumericMoney"
+        ]
+      },
+      {
+        "name": "loadPrice",
+        "line": 3036,
+        "sectionSha256": "3312b46bfcc30468b46e13cdad01241b5293105b35d8e23eb931ae567cbdd955",
+        "calls": [
+          "clearContent",
+          "if",
+          "setValue",
+          "toMoney"
+        ]
+      },
+      {
+        "name": "loadNumber",
+        "line": 3066,
+        "sectionSha256": "47f587f74e0ebd8d14d0f3654df9100d58d50e0fa6eaaf51775fb1ec1b91dae4",
+        "calls": [
+          "clearContent",
+          "if",
+          "setValue",
+          "toMoney"
+        ]
+      },
+      {
+        "name": "setCell",
+        "line": 3075,
+        "sectionSha256": "6c9456d80a17fd284212dad165ca8b80ced93883fc58101acde03d9e8bc2baaf",
+        "calls": [
+          "getRange",
+          "setValue"
+        ]
+      },
+      {
+        "name": "setIfExists",
+        "line": 3105,
+        "sectionSha256": "39c85501b65ccbffd41f4848d084039fdd51750d125bdaf27c2c13eb204a66e8",
+        "calls": [
+          "if",
+          "setCell"
+        ]
+      },
+      {
+        "name": "validateFlow",
+        "line": 3151,
+        "sectionSha256": "9b11e2f6b848411532f5d9270fa4f13dec0d21aa536fe346ff43f5b20007e680",
+        "calls": [
+          "Number",
+          "getActive",
+          "getRange",
+          "getValue",
+          "if",
+          "toast"
+        ]
+      },
+      {
+        "name": "parseAffiliateStage",
+        "line": 3217,
+        "sectionSha256": "8203dcf27800088495d2db6aebb094dcf2bc1efa128c9f74e92d1ab3abd1bf85",
+        "calls": [
+          "Error",
+          "Number",
+          "String",
+          "exec",
+          "if",
+          "isSafeInteger",
+          "replace",
+          "test",
+          "toLowerCase",
+          "trim"
+        ]
+      },
+      {
+        "name": "amount91",
+        "line": 3226,
+        "sectionSha256": "db7f93bc737d058bed20cbd386d288287b3ec456d1991982511ff6a3328a11e3",
+        "calls": [
+          "Number",
+          "isNumericMoney"
+        ]
+      },
+      {
+        "name": "stageExists91",
+        "line": 3228,
+        "sectionSha256": "4ffb78245de3433d411195c463ce2f0794b69896c669803262758c7a600e632b",
+        "calls": [
+          "catch",
+          "includes",
+          "keys",
+          "normalizeProgress",
+          "some"
+        ]
+      },
+      {
+        "name": "getRefundEligible91",
+        "line": 3230,
+        "sectionSha256": "5e297ee6ad1fa7e9602f2f493e94b442705baf7945820ef508d848332891f2d5",
+        "calls": [
+          "Map",
+          "filter",
+          "forEach",
+          "get",
+          "getPurchaseLedger",
+          "if",
+          "map"
+        ]
+      },
+      {
+        "name": "recordStageSafe91",
+        "line": 3232,
+        "sectionSha256": "377effdd484fe4e215ba9b266707492c8424f529666a66bdf0780e7924d65b3d",
+        "calls": [
+          "buildSnapshot",
+          "if",
+          "parseAffiliateStage"
+        ]
+      },
+      {
+        "name": "editBuy91",
+        "line": 3234,
+        "sectionSha256": "4dd3852476b9b801f4c28260bdb0a4aa2c31cd093a56e78a8dc024c1adf59ab9",
+        "calls": [
+          "Error",
+          "amount91",
+          "createEmptyRecord",
+          "ensureRecord",
+          "getCurrentProgress",
+          "getRange",
+          "getRootName",
+          "getValue",
+          "if",
+          "isNumericMoney",
+          "loadPrice",
+          "loadRecord",
+          "parseAffiliateStage",
+          "saveRecord"
+        ]
+      },
+      {
+        "name": "getPaymentPurchaseConfigsLegacy",
+        "line": 3239,
+        "sectionSha256": "8c48beefd99f280625911745a15b73154d4443b8569282e7cc421734bb4189d1",
+        "calls": []
+      },
+      {
+        "name": "selectedStage91",
+        "line": 3241,
+        "sectionSha256": "a0abe32c28ace4115090eaf6b07639b487a7107b191de076a85e2905b92cc322",
+        "calls": [
+          "Error",
+          "ensureRecord",
+          "getActiveRange",
+          "getCurrentProgress",
+          "getMainSheet",
+          "getRootName",
+          "getRow",
+          "if",
+          "loadRecord",
+          "parseAffiliateStage"
+        ]
+      },
+      {
+        "name": "changeSelectedStage91",
+        "line": 3243,
+        "sectionSha256": "1e3bac848fbb5e6967ed2a76539ca989d44b7cebc23ec9d4da698ad9c1389f07",
+        "calls": [
+          "Error",
+          "appendHistory",
+          "auditPaymentSummary",
+          "fn",
+          "if",
+          "saveRecord",
+          "selectedStage91",
+          "updateHeaderTotals"
+        ]
+      },
+      {
+        "name": "verifySelectedAffiliateStage91",
+        "line": 3245,
+        "sectionSha256": "3975115b6fe351b170ba2031cfb9f2bc313e5a3c0d20f812645f1c766e5fd18b",
+        "calls": [
+          "Error",
+          "amount91",
+          "changeSelectedStage91",
+          "if"
+        ]
+      },
+      {
+        "name": "markSelectedUnreceived91",
+        "line": 3247,
+        "sectionSha256": "9756d4adebc6dcbf91315804b0180edd189b2c72d2f4985fc9f933f64c7c65d6",
+        "calls": [
+          "changeSelectedStage91"
+        ]
+      },
+      {
+        "name": "cancelSelectedAffiliateStage91",
+        "line": 3249,
+        "sectionSha256": "26a1af5593f4d1acefdd9daa256fd784a97aa8d2e3048cc7571933e64a7d1fdd",
+        "calls": [
+          "changeSelectedStage91"
+        ]
+      },
+      {
+        "name": "restoreSelectedAffiliateStage91",
+        "line": 3251,
+        "sectionSha256": "8f9e6caa58ddbaaa177fedcd5c44b89e597c5bcba61103331b50e04eca93a33f",
+        "calls": [
+          "changeSelectedStage91"
+        ]
+      },
+      {
+        "name": "preflightAffiliateV91",
+        "line": 3256,
+        "sectionSha256": "77dc78ec70f7389b982131ac7121e0ae6d014298d39dfb186e32df1cbaf69b60",
+        "calls": [
+          "Error",
+          "Set",
+          "String",
+          "add",
+          "catch",
+          "for",
+          "getActive",
+          "getDocumentProperties",
+          "getLastRow",
+          "getMainSheet",
+          "getName",
+          "getProperty",
+          "getRootName",
+          "getStorageKey",
+          "has",
+          "if",
+          "loadRecord",
+          "log",
+          "normalizeRootName",
+          "push",
+          "stringify",
+          "toast"
+        ]
+      },
+      {
+        "name": "backupAffiliateV9Properties91",
+        "line": 3275,
+        "sectionSha256": "d4dbe08f4630e7782a626864328fc61d8a793735a9b5040fdc2ebfd85268f628",
+        "calls": [
+          "Date",
+          "Error",
+          "Number",
+          "String",
+          "copyTo",
+          "entries",
+          "forEach",
+          "formatDate",
+          "getActiveSpreadsheet",
+          "getDocumentProperties",
+          "getMainSheet",
+          "getMaxRows",
+          "getName",
+          "getProperties",
+          "getRange",
+          "getScriptTimeZone",
+          "getValues",
+          "if",
+          "insertRowsAfter",
+          "insertSheet",
+          "join",
+          "log",
+          "match",
+          "preflightAffiliateV91",
+          "push",
+          "setName",
+          "setNumberFormat",
+          "setProperty",
+          "setValues"
+        ]
+      },
+      {
+        "name": "previewAffiliateV91RootFix",
+        "line": 3296,
+        "sectionSha256": "add418eac92637e2563d0a5ad6c3ddbf346bb0ce41994d4ec78e01f2ad21e1e9",
+        "calls": [
+          "Error",
+          "filter",
+          "for",
+          "forEach",
+          "getLastRow",
+          "getMainSheet",
+          "getPaymentSummaryForRecord",
+          "getRange",
+          "getRootName",
+          "getValue",
+          "if",
+          "join",
+          "loadRecord",
+          "log",
+          "parseAffiliateStage",
+          "push",
+          "readRow",
+          "stringify",
+          "syncCurrentOrder91"
+        ]
+      },
+      {
+        "name": "finishAffiliateSetupWithoutMigration91",
+        "line": 3323,
+        "sectionSha256": "402b0436b23ee50ae92f34a5313d21d401c8854c8385f3b1a7443bf65f55c659",
+        "calls": [
+          "Date",
+          "Error",
+          "Set",
+          "create",
+          "deleteTrigger",
+          "everyHours",
+          "filter",
+          "forEach",
+          "forSpreadsheet",
+          "getActiveSpreadsheet",
+          "getDocumentProperties",
+          "getHandlerFunction",
+          "getMainSheet",
+          "getProjectTriggers",
+          "has",
+          "if",
+          "log",
+          "newTrigger",
+          "onEdit",
+          "preflightAffiliateV91",
+          "setProperty",
+          "timeBased",
+          "toISOString"
+        ]
+      }
+    ],
+    "Tiktok_Affiliate_V9.2_Optimized.gs": [
+      {
+        "name": "onEdit",
+        "line": 52,
+        "sectionSha256": "6eb751d19631d3388e6b8ca88f3c52c8245f27bdff8a767df736796e9bc010c5",
+        "calls": [
+          "catch",
+          "colorStatusCell",
+          "finalizeUserEdit",
+          "getColumn",
+          "getDocumentLock",
+          "getName",
+          "getNumRows",
+          "getRootName",
+          "getRow",
+          "getSheet",
+          "handleDateEdit",
+          "handleEndPriceEdit",
+          "handlePicEdit",
+          "handlePriceEdit",
+          "handleProgressChange",
+          "handleRootName",
+          "handleSellEndEdit",
+          "handleSellEndQtyEdit",
+          "if",
+          "refreshStatusForRow",
+          "releaseLock",
+          "saveCurrentRow",
+          "switch",
+          "updateHeaderTotals",
+          "updateProfitForRow",
+          "waitLock"
+        ]
+      },
+      {
+        "name": "handleRootName",
+        "line": 261,
+        "sectionSha256": "5042d4ea7dd4d3f1a230e2133afcfbad00b765c607562d98cee014d9a0bc7ebd",
+        "calls": [
+          "createEmptyRecord",
+          "getActive",
+          "getRootName",
+          "if",
+          "loadRecord",
+          "refreshStatusForRow",
+          "restoreRecord",
+          "saveCurrentRow",
+          "saveRecord",
+          "toast"
+        ]
+      },
+      {
+        "name": "handleProgressChange",
+        "line": 353,
+        "sectionSha256": "de8d0caf0872f279cdd6f3104a3bbd8d9b572f38bf1b146112663e6576b401f9",
+        "calls": [
+          "appendHistory",
+          "buildSnapshot",
+          "clearContent",
+          "createEmptyRecord",
+          "ensureRecord",
+          "getRange",
+          "getRootName",
+          "getValue",
+          "if",
+          "initializeStage",
+          "loadRecord",
+          "normalizeProgress",
+          "parseAffiliateStage",
+          "recordStageSafe91",
+          "refreshStatusForRow",
+          "restoreStage",
+          "saveRecord"
+        ]
+      },
+      {
+        "name": "initializeStage",
+        "line": 361,
+        "sectionSha256": "b67e047afa4b6848b580b1095f33b474c2f115d1144c3ddd01ba16f858662b9f",
+        "calls": [
+          "Date",
+          "assign",
+          "buildSnapshot",
+          "clearContent",
+          "find",
+          "getPaymentPurchaseConfigs",
+          "getRange",
+          "if",
+          "loadNumber",
+          "loadPrice",
+          "parseAffiliateStage",
+          "setValue"
+        ]
+      },
+      {
+        "name": "restoreStage",
+        "line": 371,
+        "sectionSha256": "93eed57f016af67d3b44b0db306fa1d12c206c30945d72a295412327b39ecff4",
+        "calls": [
+          "Date",
+          "clearContent",
+          "getRange",
+          "if",
+          "isoToDate",
+          "loadNumber",
+          "loadPrice",
+          "parseAffiliateStage",
+          "setValue"
+        ]
+      },
+      {
+        "name": "handlePriceEdit",
+        "line": 377,
+        "sectionSha256": "b6bbf55717fb83027d9fb95482829709c3d48b3310371de8b500c5799ff83e4d",
+        "calls": [
+          "editBuy91"
+        ]
+      },
+      {
+        "name": "getPriceSlot",
+        "line": 379,
+        "sectionSha256": "e10bddbbc911f24de41cd35ae57cfd3f22415ff263b671fba16d5869cc9a0d2a",
+        "calls": [
+          "parseAffiliateStage"
+        ]
+      },
+      {
+        "name": "getEndBuyPriceSlot",
+        "line": 381,
+        "sectionSha256": "b56bd6c9d0a2b7313385a3b3b6ac6342e61f9d494a0555c6ee55f792b326d445",
+        "calls": [
+          "parseAffiliateStage"
+        ]
+      },
+      {
+        "name": "getEndBuyWriteSlot",
+        "line": 383,
+        "sectionSha256": "c1dc9f537737a0896b14fdbae8ff60910b490cc46abd6073fef8d6d236429206",
+        "calls": [
+          "parseAffiliateStage"
+        ]
+      },
+      {
+        "name": "getEndSellPriceSlot",
+        "line": 385,
+        "sectionSha256": "a5b5bb2777c0155139ebc1a2ede840a24d99886ee24c71235eb627c93933e666",
+        "calls": [
+          "parseAffiliateStage"
+        ]
+      },
+      {
+        "name": "getEndSellQtySlot",
+        "line": 387,
+        "sectionSha256": "6632ce2c6630a6e93ccc11646693eee330d3a4bebe8e7e1d7095b8d74ca15bcd",
+        "calls": [
+          "parseAffiliateStage"
+        ]
+      },
+      {
+        "name": "handleEndPriceEdit",
+        "line": 389,
+        "sectionSha256": "35b603dfbaf8091843d93fa78c080b5f390f9519c76934a76365189c7fbf4d24",
+        "calls": [
+          "editBuy91"
+        ]
+      },
+      {
+        "name": "handleSellEndEdit",
+        "line": 391,
+        "sectionSha256": "683c8b2bba25447ea582fa4ce0519819a3b0091f9839207462b483386a86208f",
+        "calls": [
+          "Number",
+          "createEmptyRecord",
+          "ensureRecord",
+          "getActive",
+          "getCurrentProgress",
+          "getEndSellPriceSlot",
+          "getRange",
+          "getRootName",
+          "getValue",
+          "if",
+          "isNumericMoney",
+          "loadRecord",
+          "saveRecord",
+          "toast"
+        ]
+      },
+      {
+        "name": "handleSellEndQtyEdit",
+        "line": 447,
+        "sectionSha256": "6b4ef50b7c32826da060262d6c4c6fca00423c9b922c545d83032352cc9871f9",
+        "calls": [
+          "Number",
+          "createEmptyRecord",
+          "ensureRecord",
+          "getActive",
+          "getCurrentProgress",
+          "getEndSellQtySlot",
+          "getRange",
+          "getRootName",
+          "getValue",
+          "if",
+          "isNumericMoney",
+          "loadRecord",
+          "saveRecord",
+          "toast"
+        ]
+      },
+      {
+        "name": "getEndBuyTotal",
+        "line": 498,
+        "sectionSha256": "1d46aaf1620620ea7078b68eeab9e0b8e2d6e7653b560f52597262a1483aa3d1",
+        "calls": [
+          "getPaymentSummaryForRecord"
+        ]
+      },
+      {
+        "name": "getEndSellRevenue",
+        "line": 500,
+        "sectionSha256": "be19e5c7ec3c91a99ce17cd88c0de6bcb403d75a999f63c8fa582073e340ab80",
+        "calls": [
+          "amount91",
+          "ensureRecord",
+          "filter",
+          "getPaymentPurchaseConfigs",
+          "reduce"
+        ]
+      },
+      {
+        "name": "getEndSellQtyTotal",
+        "line": 502,
+        "sectionSha256": "bcbce29c64e24f489f59c75e8cd6a9697e8461c05f2cc7c26e1d5831bc4ba34b",
+        "calls": [
+          "amount91",
+          "ensureRecord",
+          "filter",
+          "getPaymentPurchaseConfigs",
+          "reduce"
+        ]
+      },
+      {
+        "name": "calculateProjectedProfit",
+        "line": 504,
+        "sectionSha256": "ddc2fb6e95918aa96c720f9bfc2edab364568336a6a4d19a29a4f6fd5ec0f352",
+        "calls": [
+          "Number",
+          "ensureRecord",
+          "getEndBuyTotal",
+          "getEndSellRevenue",
+          "return",
+          "toMoney"
+        ]
+      },
+      {
+        "name": "updateProfitForRow",
+        "line": 540,
+        "sectionSha256": "30e967cb86fda9c1a39e9de2bb893c781a63027db8872703ef069b9f43866667",
+        "calls": [
+          "amount91",
+          "calculateProjectedProfit",
+          "clearContent",
+          "createEmptyRecord",
+          "ensureRecord",
+          "getEndSellQtyTotal",
+          "getPurchaseLedger",
+          "getRange",
+          "getRootName",
+          "if",
+          "loadRecord",
+          "readRow",
+          "saveRecord",
+          "setValue",
+          "some"
+        ]
+      },
+      {
+        "name": "handlePicEdit",
+        "line": 542,
+        "sectionSha256": "b9a833dbd6a20007d29e83e32e5f8704164f2eca21f983952425ad88a043a9ea",
+        "calls": [
+          "createEmptyRecord",
+          "ensureRecord",
+          "getCurrentProgress",
+          "getDisplayValue",
+          "getRange",
+          "getRootName",
+          "if",
+          "loadRecord",
+          "parseAffiliateStage",
+          "saveRecord",
+          "trim"
+        ]
+      },
+      {
+        "name": "handleDateEdit",
+        "line": 544,
+        "sectionSha256": "be435bca54a84e55a7251b6e0c412f6698a281af6ec8c1c6596ffc533ab06d54",
+        "calls": [
+          "createEmptyRecord",
+          "dateToISO",
+          "ensureRecord",
+          "getCurrentProgress",
+          "getRange",
+          "getRootName",
+          "getValue",
+          "if",
+          "loadRecord",
+          "saveRecord"
+        ]
+      },
+      {
+        "name": "calculateStatus",
+        "line": 668,
+        "sectionSha256": "15b8089fccfe4f0acb647f14c23c776db683ee3688564eea672c94776ef4cad8",
+        "calls": [
+          "Date",
+          "ceil",
+          "daysBetween",
+          "if",
+          "isFinalRefundStatus",
+          "isOutOfStock",
+          "parseAffiliateStage",
+          "passedHours",
+          "statusResult"
+        ]
+      },
+      {
+        "name": "refreshStatusForRow",
+        "line": 676,
+        "sectionSha256": "dbc8140f3fcc24ff4d8723981a14d7375a61285a6fbc53d6b70d99e3d998d1e1",
+        "calls": [
+          "Number",
+          "appendHistory",
+          "buildSnapshot",
+          "calculateStatus",
+          "clearNote",
+          "colorStatusCell",
+          "createEmptyRecord",
+          "ensureRecord",
+          "getCurrentProgress",
+          "getRange",
+          "getRootName",
+          "if",
+          "loadRecord",
+          "readRow",
+          "saveRecord",
+          "setNote",
+          "setValue",
+          "snapshotStage"
+        ]
+      },
+      {
+        "name": "snapshotStage",
+        "line": 910,
+        "sectionSha256": "91304182a1d7310a460588528c0a735d5b2772ae5dcc9d221362710be5b57797",
+        "calls": [
+          "ensureRecord",
+          "if",
+          "recordStageSafe91"
+        ]
+      },
+      {
+        "name": "buildSnapshot",
+        "line": 912,
+        "sectionSha256": "36c88061a7bfb2c943d7dc6bb89e425d73114d948a1b617563f81a0ea0320465",
+        "calls": [
+          "Date",
+          "dateToISO",
+          "readRow",
+          "serializeDate"
+        ]
+      },
+      {
+        "name": "saveCurrentRow",
+        "line": 982,
+        "sectionSha256": "a57172fa29b021f5b7c33e06400ad2caafed48daaa1204a536b5c29aa85b19e8",
+        "calls": [
+          "amount91",
+          "calculateProjectedProfit",
+          "createEmptyRecord",
+          "ensureRecord",
+          "if",
+          "loadRecord",
+          "normalizeProgress",
+          "parseAffiliateStage",
+          "readRow",
+          "recordStageSafe91",
+          "saveImageToRecord",
+          "saveRecord",
+          "serializeDate"
+        ]
+      },
+      {
+        "name": "restoreRecord",
+        "line": 986,
+        "sectionSha256": "135d05c7719237a2b7cefedab6a69e777a46920551148bd0cb4642181d0e02eb",
+        "calls": [
+          "clearContent",
+          "colorStatusCell",
+          "ensureRecord",
+          "getEndBuyPriceSlot",
+          "getEndSellPriceSlot",
+          "getPriceSlot",
+          "getRange",
+          "if",
+          "isoToDate",
+          "loadPrice",
+          "normalizeProgress",
+          "restoreImageFromRecord",
+          "restoreStage",
+          "setCell",
+          "setIfExists",
+          "updateProfitForRow"
+        ]
+      },
+      {
+        "name": "finalizeUserEdit",
+        "line": 1170,
+        "sectionSha256": "b386da3360980af0973c0c776b152649b7eddf40daab25b30ba354cfb4847a12",
+        "calls": [
+          "appendHistory",
+          "buildSnapshot",
+          "createEmptyRecord",
+          "ensureRecord",
+          "getCurrentProgress",
+          "getRootName",
+          "if",
+          "loadRecord",
+          "saveCurrentRow",
+          "saveRecord"
+        ]
+      },
+      {
+        "name": "appendHistory",
+        "line": 1262,
+        "sectionSha256": "51adc83accf91cf37c48674a44752b782e715da6297b9ba8ea554f88b780c806",
+        "calls": [
+          "Date",
+          "dateToISO",
+          "ensureRecord",
+          "push"
+        ]
+      },
+      {
+        "name": "syncCurrentOrder91",
+        "line": 1324,
+        "sectionSha256": "2d7841b9e8bb4506b1d17c4eaa1178e3ff433508d5824ddf9b993405438a7045",
+        "calls": [
+          "amount91",
+          "assign",
+          "ensureRecord",
+          "if",
+          "parseAffiliateStage"
+        ]
+      },
+      {
+        "name": "updateHeaderTotals",
+        "line": 1352,
+        "sectionSha256": "29c657d86837a4b5d9ec310888da5b30ebaae911921af3da526d5939f32166f0",
+        "calls": [
+          "Error",
+          "Number",
+          "Set",
+          "add",
+          "affiliateRowFromArraysV92",
+          "calculateProjectedProfit",
+          "catch",
+          "ensureRecord",
+          "for",
+          "forEach",
+          "getDisplayValues",
+          "getEndSellQtyTotal",
+          "getLastRow",
+          "getPaymentSummaryForRecord",
+          "getRange",
+          "getRefundEligible91",
+          "getValues",
+          "has",
+          "if",
+          "loadRecord",
+          "map",
+          "max",
+          "normalizeRootName",
+          "push",
+          "readRow",
+          "saveRecord",
+          "set",
+          "setNote",
+          "setNotes",
+          "setValue",
+          "setValues",
+          "slice",
+          "stylePaymentSummary",
+          "syncCurrentOrder91",
+          "while"
+        ]
+      },
+      {
+        "name": "affiliateRowFromArraysV92",
+        "line": 1430,
+        "sectionSha256": "376f33588145d01be3c892d94c69ca2171cde1a245528b4c15f3b0d4c2da713f",
+        "calls": [
+          "String",
+          "trim"
+        ]
+      },
+      {
+        "name": "hasAffiliateStage",
+        "line": 1446,
+        "sectionSha256": "2de04ca12a8154f76f4bacb9db0e603c7c9fb8a6d004425f1de6f9ed03fef2ff",
+        "calls": [
+          "ensureRecord",
+          "if",
+          "isArray",
+          "normalizeProgress",
+          "some"
+        ]
+      },
+      {
+        "name": "getAffiliateProgressRank",
+        "line": 1492,
+        "sectionSha256": "cadb5111086e10d07518ba0202e127b7ac2898bb97805575bef68ddf588db349",
+        "calls": [
+          "normalizeProgress"
+        ]
+      },
+      {
+        "name": "getHistoryStageAmount",
+        "line": 1510,
+        "sectionSha256": "288c10cc83985cf9b76482db9b95691756b1f8dab891aca0dcf5068c421c9012",
+        "calls": [
+          "Number",
+          "ensureRecord",
+          "for",
+          "if",
+          "isArray",
+          "isNumericMoney",
+          "normalizeProgress"
+        ]
+      },
+      {
+        "name": "getStrictOrderedStageValue",
+        "line": 1546,
+        "sectionSha256": "6c65332ce37e97993ebcb93192af4fdfe624702a9c8b4af87d633c1e35283191",
+        "calls": [
+          "Number",
+          "ensureRecord",
+          "getHistoryStageAmount",
+          "if",
+          "isNumericMoney",
+          "normalizeProgress"
+        ]
+      },
+      {
+        "name": "getOrderStagePurchaseAmount",
+        "line": 1581,
+        "sectionSha256": "3e11c5aa37c42607e1ce5e329620a4f4a6626ade0aacd77b3c928e051e27c1b6",
+        "calls": [
+          "amount91",
+          "ensureRecord"
+        ]
+      },
+      {
+        "name": "isEnd1FlowRequired",
+        "line": 1583,
+        "sectionSha256": "2330de4fa57d520ceac77ffc986f8e5970b6ecc8e14e6bdce4ac2b6a6153dc98",
+        "calls": [
+          "Number",
+          "ensureRecord",
+          "hasAffiliateStage",
+          "if"
+        ]
+      },
+      {
+        "name": "didOrderStageOccur",
+        "line": 1598,
+        "sectionSha256": "667fa7311208d20020e09fcee955274cc982bf6c77d8ab1970816904460eecb5",
+        "calls": [
+          "ensureRecord"
+        ]
+      },
+      {
+        "name": "didReceiveStageOccur",
+        "line": 1600,
+        "sectionSha256": "d2a84aef13d52984a204dd90ae303cd50b68d1731bddc4e1f87dfd33be86f10e",
+        "calls": [
+          "ensureRecord"
+        ]
+      },
+      {
+        "name": "getPaymentPurchaseConfigs",
+        "line": 1602,
+        "sectionSha256": "f83c1701ff6ae41d3a488862fb83a56db88e87220acb6a23f9f22f5a1a0dae9c",
+        "calls": [
+          "Number",
+          "Set",
+          "add",
+          "amount91",
+          "catch",
+          "concat",
+          "exec",
+          "filter",
+          "forEach",
+          "if",
+          "includes",
+          "isSafeInteger",
+          "keys",
+          "map",
+          "parseAffiliateStage",
+          "price",
+          "sort",
+          "split"
+        ]
+      },
+      {
+        "name": "getPurchaseLedger",
+        "line": 1610,
+        "sectionSha256": "3762c65d4401ca3c70f48db6233993df7160e3e945dda5ab223fff1f16da2723",
+        "calls": [
+          "amount91",
+          "ensureRecord",
+          "getPaymentPurchaseConfigs",
+          "map"
+        ]
+      },
+      {
+        "name": "getPaymentSummaryForRecord",
+        "line": 1612,
+        "sectionSha256": "94327e14a8054fb2a349ec0cf04537cfdc20fca7c56198a98c5c39dae9df10c5",
+        "calls": [
+          "assign",
+          "forEach",
+          "getPurchaseLedger",
+          "if",
+          "push"
+        ]
+      },
+      {
+        "name": "stylePaymentSummary",
+        "line": 1615,
+        "sectionSha256": "6a97358492e8ad94402a8e5fd8d7cb3feb0eed355e4899b2cfeafc03758d581a",
+        "calls": [
+          "ensureAffiliateSummaryColumns",
+          "for",
+          "getDisplayValue",
+          "getRange",
+          "if",
+          "setValue"
+        ]
+      },
+      {
+        "name": "ensureAffiliateSummaryColumns",
+        "line": 1631,
+        "sectionSha256": "f2af61c1ddfda7a5d3981ec10288a5b5a0f12c366e068ebdc0e8a8f5f29f42dd",
+        "calls": [
+          "getMaxColumns",
+          "if",
+          "insertColumnsAfter"
+        ]
+      },
+      {
+        "name": "getSampleTotal",
+        "line": 1633,
+        "sectionSha256": "11d5fdd79a0b3dbfc2813993e645b4c737607e3e398b9cfd72098cf7b0a274ab",
+        "calls": [
+          "getPaymentSummaryForRecord"
+        ]
+      },
+      {
+        "name": "colorStatusCell",
+        "line": 1635,
+        "sectionSha256": "cc2cae69aa4d3110d65728164942feed9304b9e85efcfa372ec734f0f9cf1a0c",
+        "calls": [
+          "extractRemainingDays",
+          "getDisplayValue",
+          "getRange",
+          "if",
+          "setBackground",
+          "setFontColor",
+          "setFontWeight",
+          "startsWith",
+          "styleStatus",
+          "trim"
+        ]
+      },
+      {
+        "name": "checkAffiliateStatus",
+        "line": 1939,
+        "sectionSha256": "ac801d1dc9de4a89a108fcf11d37f29b640c521467e7b8709810c589369405ed",
+        "calls": [
+          "for",
+          "getLastRow",
+          "getMainSheet",
+          "getRootName",
+          "if",
+          "refreshStatusForRow"
+        ]
+      },
+      {
+        "name": "refreshAllAffiliateStatus",
+        "line": 1941,
+        "sectionSha256": "66aecfbfde23cd4b7b25cd50d4ba3ed73880787f859ab4402e2928f7f781f0e4",
+        "calls": [
+          "checkAffiliateStatus",
+          "recalculatePaymentSummary"
+        ]
+      },
+      {
+        "name": "onOpen",
+        "line": 1943,
+        "sectionSha256": "7541cbb615d164f94ebbcc72b430783a807766666192aaf94efb63562799663d",
+        "calls": [
+          "R",
+          "addItem",
+          "addToUi",
+          "createMenu",
+          "getUi",
+          "hàng",
+          "nợ"
+        ]
+      },
+      {
+        "name": "repairAffiliateFinancialData",
+        "line": 1945,
+        "sectionSha256": "0fb11cfd1d59b6f74a6eef15fadcad16f8214880ab80303c4dedf10a0fc31d13",
+        "calls": [
+          "Number",
+          "Set",
+          "add",
+          "calculateProjectedProfit",
+          "call",
+          "createEmptyRecord",
+          "ensureRecord",
+          "for",
+          "getActive",
+          "getEndSellPriceSlot",
+          "getEndSellQtySlot",
+          "getLastRow",
+          "getMainSheet",
+          "getStrictOrderedStageValue",
+          "has",
+          "if",
+          "isNumericMoney",
+          "loadRecord",
+          "normalizeProgress",
+          "normalizeRootName",
+          "readRow",
+          "saveRecord",
+          "toast",
+          "updateHeaderTotals",
+          "updateProfitForRow"
+        ]
+      },
+      {
+        "name": "migrateAffiliateLayout",
+        "line": 2096,
+        "sectionSha256": "3dbc8e6c7d99889e01c4d2389d26a86238a23b09bbb8e73e8708e65653800568",
+        "calls": [
+          "String",
+          "alert",
+          "applyAffiliateHeaders",
+          "ensureAffiliateSummaryColumns",
+          "getActive",
+          "getDisplayValues",
+          "getLastColumn",
+          "getMainSheet",
+          "getMaxRows",
+          "getRange",
+          "getUi",
+          "if",
+          "insertColumnBefore",
+          "map",
+          "min",
+          "moveColumns",
+          "toLowerCase",
+          "toast",
+          "trim",
+          "updateHeaderTotals"
+        ]
+      },
+      {
+        "name": "applyAffiliateHeaders",
+        "line": 2190,
+        "sectionSha256": "e4553c4991cff6e2230c8cf99c4fd0083865065442e146a2b87570fddc1ed015",
+        "calls": [
+          "ensureAffiliateSummaryColumns",
+          "getRange",
+          "setValue",
+          "setValues",
+          "stylePaymentSummary"
+        ]
+      },
+      {
+        "name": "setupAffiliateAutomation",
+        "line": 2226,
+        "sectionSha256": "1bbc43df333a0108f592bc9e83be786d4e2401d5bbad2db9cad5a95ccf6f4ab1",
+        "calls": [
+          "Date",
+          "Error",
+          "amount91",
+          "auditPaymentSummary",
+          "create",
+          "deleteTrigger",
+          "ensureAffiliateSummaryColumns",
+          "everyHours",
+          "filter",
+          "for",
+          "forEach",
+          "forSpreadsheet",
+          "getActiveSpreadsheet",
+          "getDocumentProperties",
+          "getHandlerFunction",
+          "getLastRow",
+          "getMainSheet",
+          "getProjectTriggers",
+          "getProperty",
+          "getRootName",
+          "if",
+          "includes",
+          "loadRecord",
+          "log",
+          "newTrigger",
+          "onEdit",
+          "parseAffiliateStage",
+          "preflightAffiliateV91",
+          "push",
+          "readRow",
+          "saveRecord",
+          "setProperty",
+          "timeBased",
+          "toISOString",
+          "updateHeaderTotals"
+        ]
+      },
+      {
+        "name": "recalculatePaymentSummary",
+        "line": 2267,
+        "sectionSha256": "40c05d0d252efbd229f9776d665f7dc55f8c16fc8cda760d4b1e1d70a4f81ee4",
+        "calls": [
+          "Error",
+          "getMainSheet",
+          "if",
+          "updateHeaderTotals"
+        ]
+      },
+      {
+        "name": "auditPaymentSummary",
+        "line": 2269,
+        "sectionSha256": "a3cb2c2dbdd7c96cb9983ed0792dc514cff9fdf8d8ccf4653e943a68c1b1f10a",
+        "calls": [
+          "Date",
+          "Error",
+          "Set",
+          "add",
+          "flush",
+          "for",
+          "formatDate",
+          "getActiveSpreadsheet",
+          "getLastRow",
+          "getMainSheet",
+          "getPaymentSummaryForRecord",
+          "getRange",
+          "getRefundEligible91",
+          "getScriptTimeZone",
+          "getSheetByName",
+          "has",
+          "if",
+          "insertSheet",
+          "loadRecord",
+          "log",
+          "normalizeRootName",
+          "push",
+          "readRow",
+          "setValues",
+          "toast",
+          "while"
+        ]
+      },
+      {
+        "name": "createEmptyRecord",
+        "line": 2320,
+        "sectionSha256": "9eee94544e796166bc0cfc6cbc8d392a296ff7ee8c666a98c4d3d512ecb8d79f",
+        "calls": []
+      },
+      {
+        "name": "lastBuyEdit91",
+        "line": 2323,
+        "sectionSha256": "1753ccd95279ab7b8cd1c5235ba7fa4924dea53cfd1d8b756a003406eea37c8b",
+        "calls": [
+          "amount91",
+          "catch",
+          "for",
+          "if",
+          "isArray",
+          "normalizeProgress"
+        ]
+      },
+      {
+        "name": "findStage91",
+        "line": 2336,
+        "sectionSha256": "c73e6f02042a3b29c454835c45887634247de4d15a211308ba995c8c8dd65dbb",
+        "calls": [
+          "catch",
+          "find",
+          "keys",
+          "normalizeProgress"
+        ]
+      },
+      {
+        "name": "ensureRecord",
+        "line": 2342,
+        "sectionSha256": "d69f060e199b1d417c6d3d8e2920b9618de6c4ade8a32d1fb583ee5b9864a14c",
+        "calls": [
+          "amount91",
+          "call",
+          "catch",
+          "entries",
+          "filter",
+          "findStage91",
+          "forEach",
+          "getPaymentPurchaseConfigs",
+          "if",
+          "includes",
+          "isArray",
+          "lastBuyEdit91",
+          "normalizeProgress",
+          "parseAffiliateStage",
+          "some"
+        ]
+      },
+      {
+        "name": "saveRecord",
+        "line": 2390,
+        "sectionSha256": "56dc79b65f76d21b8dba6267ea4254490353c9b15948981c0071f1c8f8122e4b",
+        "calls": [
+          "Error",
+          "Number",
+          "base64Encode",
+          "catch",
+          "deleteProperty",
+          "ensureRecord",
+          "for",
+          "forEach",
+          "getBytes",
+          "getDocumentProperties",
+          "getProperty",
+          "getStorageKey",
+          "getUuid",
+          "gzip",
+          "if",
+          "manifest",
+          "match",
+          "newBlob",
+          "replace",
+          "setProperties",
+          "setProperty",
+          "slice",
+          "split",
+          "startsWith",
+          "stringify"
+        ]
+      },
+      {
+        "name": "loadRecord",
+        "line": 2419,
+        "sectionSha256": "ed0f5dc8ec8c71c021fd87258c75c97d994a0142f436b563e8b38fe9ad5fd7a8",
+        "calls": [
+          "Error",
+          "Number",
+          "base64Decode",
+          "catch",
+          "ensureRecord",
+          "for",
+          "getDataAsString",
+          "getDocumentProperties",
+          "getProperty",
+          "getStorageKey",
+          "if",
+          "isSafeInteger",
+          "newBlob",
+          "parse",
+          "split",
+          "startsWith",
+          "ungzip"
+        ]
+      },
+      {
+        "name": "readRow",
+        "line": 2448,
+        "sectionSha256": "d871b2ad2e8f81320675d3f8438df154507f6d38a73a6be43e2b3482f59e9acc",
+        "calls": [
+          "String",
+          "getDisplayValues",
+          "getRange",
+          "getValues",
+          "trim"
+        ]
+      },
+      {
+        "name": "saveImageToRecord",
+        "line": 2537,
+        "sectionSha256": "2cd02f167afef28dfaed9d2e2c76d4f26f0bd299fc82e7f2dce78af5bb643880",
+        "calls": [
+          "getFormula",
+          "getRange",
+          "getValue",
+          "if"
+        ]
+      },
+      {
+        "name": "restoreImageFromRecord",
+        "line": 2619,
+        "sectionSha256": "ad955901c7d439296578dc1df03b6c0f8ae430610825e2b1b660505d5adf630a",
+        "calls": [
+          "getRange",
+          "if",
+          "setFormula",
+          "setValue"
+        ]
+      },
+      {
+        "name": "isSample1",
+        "line": 2681,
+        "sectionSha256": "3e5f52fc15ed309245533abd47cc916615bafc280459f5d4dc6c32f85b07ae05",
+        "calls": [
+          "parseAffiliateStage"
+        ]
+      },
+      {
+        "name": "isSample2",
+        "line": 2683,
+        "sectionSha256": "e0f0bb48fc608a6469f7dd179480042fc9b9c5e811d9021547c318d17d3a2ad6",
+        "calls": [
+          "parseAffiliateStage"
+        ]
+      },
+      {
+        "name": "isReceivedSample",
+        "line": 2685,
+        "sectionSha256": "986fac24aaa65631ac8d336aa317e3398be04f1335acf492ae59bf41c13369e1",
+        "calls": [
+          "parseAffiliateStage"
+        ]
+      },
+      {
+        "name": "isEndProgress",
+        "line": 2687,
+        "sectionSha256": "ce80166d0b4114a30ef33b19783f834518a1d5f9b12a95dfd4622babb1160d1d",
+        "calls": [
+          "parseAffiliateStage"
+        ]
+      },
+      {
+        "name": "isFinalRefundStatus",
+        "line": 2689,
+        "sectionSha256": "c2a02553ca410d740d35d678a19b42cdc44a5149806a4bfc78260867bfac926a",
+        "calls": [
+          "return"
+        ]
+      },
+      {
+        "name": "isOutOfStock",
+        "line": 2705,
+        "sectionSha256": "672c5057cebcbddfa6d3d852f9da1858d7d9401cbe1e61cfc3ee0dcc43cc8db4",
+        "calls": [
+          "String",
+          "hàng",
+          "test"
+        ]
+      },
+      {
+        "name": "normalizeProgress",
+        "line": 2707,
+        "sectionSha256": "0ace79f5d0539b2c73aef1138908f4fca8632fb86be80b3eeed2fc2288da9e17",
+        "calls": [
+          "parseAffiliateStage"
+        ]
+      },
+      {
+        "name": "passedHours",
+        "line": 2709,
+        "sectionSha256": "0fe2322c32e05d86194073457be9ea645134d57362c994fd08252f54dab6aa0e",
+        "calls": [
+          "hoursBetween",
+          "return"
+        ]
+      },
+      {
+        "name": "hoursBetween",
+        "line": 2735,
+        "sectionSha256": "f11875976b0978cd5538617df86750d6a3b3362ba900d10a4e0d8326dc57d501",
+        "calls": [
+          "getTime",
+          "return"
+        ]
+      },
+      {
+        "name": "daysBetween",
+        "line": 2755,
+        "sectionSha256": "ea948fbd5c76f022d58aeab46d1e0187130f718ed2491314915f147837029d33",
+        "calls": [
+          "hoursBetween",
+          "return"
+        ]
+      },
+      {
+        "name": "dateToISO",
+        "line": 2777,
+        "sectionSha256": "4a24f4a892bcf2dee4c821938ff0ba4eb86692a6dc3c62f2042f1aba75e03156",
+        "calls": [
+          "formatDate",
+          "getScriptTimeZone"
+        ]
+      },
+      {
+        "name": "isoToDate",
+        "line": 2799,
+        "sectionSha256": "482c59bb6b764a4d3f90084412dc6a05e4d0d7d250109f226987b4228f39e5cf",
+        "calls": [
+          "Date",
+          "Number",
+          "String",
+          "if",
+          "match"
+        ]
+      },
+      {
+        "name": "serializeDate",
+        "line": 2847,
+        "sectionSha256": "83e356059301c9687b2f2f99c8770bf99390315f3a8f349ce56ad2820fe693e0",
+        "calls": [
+          "dateToISO",
+          "return"
+        ]
+      },
+      {
+        "name": "formatDate",
+        "line": 2865,
+        "sectionSha256": "0b77fb06f4a5399ce59b926e90a14a5dffd8efda7834655a42e4a05217fbf3c7",
+        "calls": [
+          "getScriptTimeZone"
+        ]
+      },
+      {
+        "name": "statusResult",
+        "line": 2897,
+        "sectionSha256": "f0e957c782a77bfa486697a5c40a31a036c0c38c45e8f104f959cf7398407268",
+        "calls": []
+      },
+      {
+        "name": "extractRemainingDays",
+        "line": 2919,
+        "sectionSha256": "ccb25926712a38814b8440cd1c34e6c6cebe4d43375ce4381120617acdb25d92",
+        "calls": [
+          "Number",
+          "String",
+          "còn",
+          "match"
+        ]
+      },
+      {
+        "name": "styleStatus",
+        "line": 2945,
+        "sectionSha256": "865a3113ae184f39b9b3bef9b63e0e34e885352712427c554c9c3e362b9743a5",
+        "calls": [
+          "setBackground",
+          "setFontColor",
+          "setFontWeight"
+        ]
+      },
+      {
+        "name": "getMainSheet",
+        "line": 2993,
+        "sectionSha256": "cef03b2174b4611f116f042d7e94c24e2c2e585d50e548f322a4fca694439db3",
+        "calls": [
+          "getActiveSpreadsheet",
+          "getSheetByName"
+        ]
+      },
+      {
+        "name": "getRootName",
+        "line": 3007,
+        "sectionSha256": "c9aa5665ceccf8fd497f9d22236921e2193742d06be79abe936fa24f7257c6cc",
+        "calls": [
+          "getDisplayValue",
+          "getRange",
+          "trim"
+        ]
+      },
+      {
+        "name": "getCurrentProgress",
+        "line": 3031,
+        "sectionSha256": "f77be0dd13f44f08de3237e13327c4c1d124ae8547635eedb8c246c863197b0b",
+        "calls": [
+          "getDisplayValue",
+          "getRange",
+          "normalizeProgress"
+        ]
+      },
+      {
+        "name": "normalizeRootName",
+        "line": 3057,
+        "sectionSha256": "20a614afef5370ef93d84f8018917b634ee253605441d06eab66f0e4242831cd",
+        "calls": [
+          "normalizeText",
+          "replace"
+        ]
+      },
+      {
+        "name": "normalizeText",
+        "line": 3079,
+        "sectionSha256": "8fe7ec5a2e043321deda886411feca2b215feade049872e9344b324a5c9c8dab",
+        "calls": [
+          "String",
+          "toLowerCase",
+          "trim"
+        ]
+      },
+      {
+        "name": "getStorageKey",
+        "line": 3097,
+        "sectionSha256": "f0c8edd44d73005c4f2f97b3f09cc829ff03d1b7ac4a86bbf1b42dfb976a2546",
+        "calls": [
+          "normalizeRootName",
+          "return"
+        ]
+      },
+      {
+        "name": "isNumericMoney",
+        "line": 3113,
+        "sectionSha256": "6169a707348e8beceb28c9c11ff5064f97c1384f33eb81ffacaf836fcaa1abd4",
+        "calls": [
+          "Number",
+          "isFinite"
+        ]
+      },
+      {
+        "name": "toMoney",
+        "line": 3115,
+        "sectionSha256": "8bf60634099e1981814a47d9897625f393fd310b32089dcbdd2e437cc1b58f06",
+        "calls": [
+          "Number",
+          "isNumericMoney"
+        ]
+      },
+      {
+        "name": "loadPrice",
+        "line": 3133,
+        "sectionSha256": "3312b46bfcc30468b46e13cdad01241b5293105b35d8e23eb931ae567cbdd955",
+        "calls": [
+          "clearContent",
+          "if",
+          "setValue",
+          "toMoney"
+        ]
+      },
+      {
+        "name": "loadNumber",
+        "line": 3163,
+        "sectionSha256": "47f587f74e0ebd8d14d0f3654df9100d58d50e0fa6eaaf51775fb1ec1b91dae4",
+        "calls": [
+          "clearContent",
+          "if",
+          "setValue",
+          "toMoney"
+        ]
+      },
+      {
+        "name": "setCell",
+        "line": 3172,
+        "sectionSha256": "6c9456d80a17fd284212dad165ca8b80ced93883fc58101acde03d9e8bc2baaf",
+        "calls": [
+          "getRange",
+          "setValue"
+        ]
+      },
+      {
+        "name": "setIfExists",
+        "line": 3202,
+        "sectionSha256": "39c85501b65ccbffd41f4848d084039fdd51750d125bdaf27c2c13eb204a66e8",
+        "calls": [
+          "if",
+          "setCell"
+        ]
+      },
+      {
+        "name": "validateFlow",
+        "line": 3248,
+        "sectionSha256": "9b11e2f6b848411532f5d9270fa4f13dec0d21aa536fe346ff43f5b20007e680",
+        "calls": [
+          "Number",
+          "getActive",
+          "getRange",
+          "getValue",
+          "if",
+          "toast"
+        ]
+      },
+      {
+        "name": "parseAffiliateStage",
+        "line": 3314,
+        "sectionSha256": "8203dcf27800088495d2db6aebb094dcf2bc1efa128c9f74e92d1ab3abd1bf85",
+        "calls": [
+          "Error",
+          "Number",
+          "String",
+          "exec",
+          "if",
+          "isSafeInteger",
+          "replace",
+          "test",
+          "toLowerCase",
+          "trim"
+        ]
+      },
+      {
+        "name": "amount91",
+        "line": 3323,
+        "sectionSha256": "db7f93bc737d058bed20cbd386d288287b3ec456d1991982511ff6a3328a11e3",
+        "calls": [
+          "Number",
+          "isNumericMoney"
+        ]
+      },
+      {
+        "name": "stageExists91",
+        "line": 3325,
+        "sectionSha256": "4ffb78245de3433d411195c463ce2f0794b69896c669803262758c7a600e632b",
+        "calls": [
+          "catch",
+          "includes",
+          "keys",
+          "normalizeProgress",
+          "some"
+        ]
+      },
+      {
+        "name": "getRefundEligible91",
+        "line": 3327,
+        "sectionSha256": "5e297ee6ad1fa7e9602f2f493e94b442705baf7945820ef508d848332891f2d5",
+        "calls": [
+          "Map",
+          "filter",
+          "forEach",
+          "get",
+          "getPurchaseLedger",
+          "if",
+          "map"
+        ]
+      },
+      {
+        "name": "recordStageSafe91",
+        "line": 3329,
+        "sectionSha256": "377effdd484fe4e215ba9b266707492c8424f529666a66bdf0780e7924d65b3d",
+        "calls": [
+          "buildSnapshot",
+          "if",
+          "parseAffiliateStage"
+        ]
+      },
+      {
+        "name": "editBuy91",
+        "line": 3331,
+        "sectionSha256": "4dd3852476b9b801f4c28260bdb0a4aa2c31cd093a56e78a8dc024c1adf59ab9",
+        "calls": [
+          "Error",
+          "amount91",
+          "createEmptyRecord",
+          "ensureRecord",
+          "getCurrentProgress",
+          "getRange",
+          "getRootName",
+          "getValue",
+          "if",
+          "isNumericMoney",
+          "loadPrice",
+          "loadRecord",
+          "parseAffiliateStage",
+          "saveRecord"
+        ]
+      },
+      {
+        "name": "getPaymentPurchaseConfigsLegacy",
+        "line": 3336,
+        "sectionSha256": "8c48beefd99f280625911745a15b73154d4443b8569282e7cc421734bb4189d1",
+        "calls": []
+      },
+      {
+        "name": "selectedStage91",
+        "line": 3338,
+        "sectionSha256": "a0abe32c28ace4115090eaf6b07639b487a7107b191de076a85e2905b92cc322",
+        "calls": [
+          "Error",
+          "ensureRecord",
+          "getActiveRange",
+          "getCurrentProgress",
+          "getMainSheet",
+          "getRootName",
+          "getRow",
+          "if",
+          "loadRecord",
+          "parseAffiliateStage"
+        ]
+      },
+      {
+        "name": "changeSelectedStage91",
+        "line": 3340,
+        "sectionSha256": "1e3bac848fbb5e6967ed2a76539ca989d44b7cebc23ec9d4da698ad9c1389f07",
+        "calls": [
+          "Error",
+          "appendHistory",
+          "auditPaymentSummary",
+          "fn",
+          "if",
+          "saveRecord",
+          "selectedStage91",
+          "updateHeaderTotals"
+        ]
+      },
+      {
+        "name": "verifySelectedAffiliateStage91",
+        "line": 3342,
+        "sectionSha256": "3975115b6fe351b170ba2031cfb9f2bc313e5a3c0d20f812645f1c766e5fd18b",
+        "calls": [
+          "Error",
+          "amount91",
+          "changeSelectedStage91",
+          "if"
+        ]
+      },
+      {
+        "name": "markSelectedUnreceived91",
+        "line": 3344,
+        "sectionSha256": "9756d4adebc6dcbf91315804b0180edd189b2c72d2f4985fc9f933f64c7c65d6",
+        "calls": [
+          "changeSelectedStage91"
+        ]
+      },
+      {
+        "name": "cancelSelectedAffiliateStage91",
+        "line": 3346,
+        "sectionSha256": "26a1af5593f4d1acefdd9daa256fd784a97aa8d2e3048cc7571933e64a7d1fdd",
+        "calls": [
+          "changeSelectedStage91"
+        ]
+      },
+      {
+        "name": "restoreSelectedAffiliateStage91",
+        "line": 3348,
+        "sectionSha256": "8f9e6caa58ddbaaa177fedcd5c44b89e597c5bcba61103331b50e04eca93a33f",
+        "calls": [
+          "changeSelectedStage91"
+        ]
+      },
+      {
+        "name": "preflightAffiliateV91",
+        "line": 3353,
+        "sectionSha256": "77dc78ec70f7389b982131ac7121e0ae6d014298d39dfb186e32df1cbaf69b60",
+        "calls": [
+          "Error",
+          "Set",
+          "String",
+          "add",
+          "catch",
+          "for",
+          "getActive",
+          "getDocumentProperties",
+          "getLastRow",
+          "getMainSheet",
+          "getName",
+          "getProperty",
+          "getRootName",
+          "getStorageKey",
+          "has",
+          "if",
+          "loadRecord",
+          "log",
+          "normalizeRootName",
+          "push",
+          "stringify",
+          "toast"
+        ]
+      },
+      {
+        "name": "backupAffiliateV9Properties91",
+        "line": 3372,
+        "sectionSha256": "d4dbe08f4630e7782a626864328fc61d8a793735a9b5040fdc2ebfd85268f628",
+        "calls": [
+          "Date",
+          "Error",
+          "Number",
+          "String",
+          "copyTo",
+          "entries",
+          "forEach",
+          "formatDate",
+          "getActiveSpreadsheet",
+          "getDocumentProperties",
+          "getMainSheet",
+          "getMaxRows",
+          "getName",
+          "getProperties",
+          "getRange",
+          "getScriptTimeZone",
+          "getValues",
+          "if",
+          "insertRowsAfter",
+          "insertSheet",
+          "join",
+          "log",
+          "match",
+          "preflightAffiliateV91",
+          "push",
+          "setName",
+          "setNumberFormat",
+          "setProperty",
+          "setValues"
+        ]
+      },
+      {
+        "name": "previewAffiliateV91RootFix",
+        "line": 3393,
+        "sectionSha256": "add418eac92637e2563d0a5ad6c3ddbf346bb0ce41994d4ec78e01f2ad21e1e9",
+        "calls": [
+          "Error",
+          "filter",
+          "for",
+          "forEach",
+          "getLastRow",
+          "getMainSheet",
+          "getPaymentSummaryForRecord",
+          "getRange",
+          "getRootName",
+          "getValue",
+          "if",
+          "join",
+          "loadRecord",
+          "log",
+          "parseAffiliateStage",
+          "push",
+          "readRow",
+          "stringify",
+          "syncCurrentOrder91"
+        ]
+      },
+      {
+        "name": "finishAffiliateSetupWithoutMigration91",
+        "line": 3420,
+        "sectionSha256": "90458c4ad31df716af779d7a6b04469e44b689da6e0d1aad28a6cf0ea8f7f3a2",
+        "calls": [
+          "Date",
+          "Error",
+          "Set",
+          "create",
+          "deleteTrigger",
+          "everyHours",
+          "filter",
+          "forEach",
+          "forSpreadsheet",
+          "getActiveSpreadsheet",
+          "getDocumentProperties",
+          "getHandlerFunction",
+          "getMainSheet",
+          "getProjectTriggers",
+          "has",
+          "if",
+          "log",
+          "newTrigger",
+          "onEdit",
+          "preflightAffiliateV91",
+          "setProperty",
+          "timeBased",
+          "toISOString"
+        ]
+      },
+      {
+        "name": "verifyAffiliateV92ReadOnly",
+        "line": 3442,
+        "sectionSha256": "c8515be59bfdba4ee89c8f01adf3d100feb046a838820060b53379147c5c9db1",
+        "calls": [
+          "Error",
+          "Set",
+          "abs",
+          "add",
+          "affiliateRowFromArraysV92",
+          "calculateProjectedProfit",
+          "for",
+          "getDisplayValues",
+          "getLastRow",
+          "getMainSheet",
+          "getPaymentSummaryForRecord",
+          "getRange",
+          "getRefundEligible91",
+          "getValues",
+          "has",
+          "if",
+          "loadRecord",
+          "log",
+          "max",
+          "normalizeRootName",
+          "push",
+          "stringify"
+        ]
+      }
+    ]
+  },
+  "pastedTextEqualsV91AfterNewlineNormalization": true,
+  "note": "Function sections include trailing comments; call scan is lexical, not AST."
+}

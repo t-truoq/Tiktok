@@ -1,0 +1,57 @@
+{
+  "kind": "SNAPSHOT_DIAGNOSTICS_NOT_LEGACY_RECONCILIATION",
+  "products": 24,
+  "duplicateNormalizedNames": [],
+  "summaryCellComparisons": {
+    "K": {
+      "sumOfKnownProductCells": "148.0",
+      "missingProductCells": 10,
+      "observedRow2": "148.0",
+      "observedDifference": "0.0"
+    },
+    "M": {
+      "sumOfKnownProductCells": "0",
+      "missingProductCells": 24,
+      "observedRow2": "2.0",
+      "observedDifference": "-2.0"
+    },
+    "N": {
+      "sumOfKnownProductCells": "33059918.0",
+      "missingProductCells": 2,
+      "observedRow2": "3.3059918E7",
+      "observedDifference": "0.0"
+    },
+    "P": {
+      "sumOfKnownProductCells": "144155159.0",
+      "missingProductCells": 0,
+      "observedRow2": "1.44155159E8",
+      "observedDifference": "0.0"
+    },
+    "Q": {
+      "sumOfKnownProductCells": "25352082.0",
+      "missingProductCells": 0,
+      "observedRow2": "2.5352082E7",
+      "observedDifference": "0.0"
+    },
+    "R": {
+      "sumOfKnownProductCells": "53288699.0",
+      "missingProductCells": 0,
+      "observedRow2": "5.3288699E7",
+      "observedDifference": "0.0"
+    }
+  },
+  "auditSnapshots": [
+    {
+      "name": "PAYMENT_AUDIT_V91_1012_102124",
+      "detailRows": 67,
+      "missingPriceRows": 9,
+      "needsReviewRows": 63
+    },
+    {
+      "name": "PAYMENT_AUDIT_V91_1011_015721",
+      "detailRows": 63,
+      "missingPriceRows": 9,
+      "needsReviewRows": 63
+    }
+  ]
+}

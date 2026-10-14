@@ -1,0 +1,1135 @@
+{
+  "kind": "OBSERVED_OUTPUTS_NOT_RECONCILED",
+  "sourceSha256": "21707788d9515e05229d9b3fd6f92c6fcb8d0871868d67d481268d39e5fda078",
+  "verifiedAgainstLegacyEngine": false,
+  "products": [
+    {
+      "row": 3,
+      "name": "Aptamil NewZealand 5 hộp 800g Mẹ và Bé",
+      "observedCells": {
+        "N": {
+          "address": "N3",
+          "type": "n",
+          "style": "28",
+          "rawValue": "4304000.0",
+          "value": "4304000.0",
+          "formula": null
+        },
+        "P": {
+          "address": "P3",
+          "type": "n",
+          "style": "30",
+          "rawValue": "4695999.0",
+          "value": "4695999.0",
+          "formula": null
+        },
+        "Q": {
+          "address": "Q3",
+          "type": "n",
+          "style": "30",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "R": {
+          "address": "R3",
+          "type": "n",
+          "style": "30",
+          "rawValue": "4099999.0",
+          "value": "4099999.0",
+          "formula": null
+        },
+        "S": {
+          "address": "S3",
+          "type": "s",
+          "style": "31",
+          "rawValue": "79",
+          "value": "Đã nhận",
+          "formula": null
+        }
+      },
+      "authoritativeExpected": null
+    },
+    {
+      "row": 4,
+      "name": "Aptamil NewZealand 2 hộp gđ 800g Mẹ và Bé",
+      "observedCells": {
+        "N": {
+          "address": "N4",
+          "type": "n",
+          "style": "28",
+          "rawValue": "3041000.0",
+          "value": "3041000.0",
+          "formula": null
+        },
+        "P": {
+          "address": "P4",
+          "type": "n",
+          "style": "30",
+          "rawValue": "1879000.0",
+          "value": "1879000.0",
+          "formula": null
+        },
+        "Q": {
+          "address": "Q4",
+          "type": "n",
+          "style": "30",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "R": {
+          "address": "R4",
+          "type": "n",
+          "style": "30",
+          "rawValue": "1560000.0",
+          "value": "1560000.0",
+          "formula": null
+        },
+        "S": {
+          "address": "S4",
+          "type": "s",
+          "style": "31",
+          "rawValue": "79",
+          "value": "Đã nhận",
+          "formula": null
+        }
+      },
+      "authoritativeExpected": null
+    },
+    {
+      "row": 5,
+      "name": "Similac tatol protection 2 hộp bản O 800g",
+      "observedCells": {
+        "N": {
+          "address": "N5",
+          "type": "n",
+          "style": "28",
+          "rawValue": "1000000.0",
+          "value": "1000000.0",
+          "formula": null
+        },
+        "P": {
+          "address": "P5",
+          "type": "n",
+          "style": "36",
+          "rawValue": "1870000.0",
+          "value": "1870000.0",
+          "formula": null
+        },
+        "Q": {
+          "address": "Q5",
+          "type": "n",
+          "style": "36",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "R": {
+          "address": "R5",
+          "type": "n",
+          "style": "36",
+          "rawValue": "1870000.0",
+          "value": "1870000.0",
+          "formula": null
+        },
+        "S": {
+          "address": "S5",
+          "type": "n",
+          "style": "37",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        }
+      },
+      "authoritativeExpected": null
+    },
+    {
+      "row": 6,
+      "name": "ColosBaby Lactoferrin loại không 6lon",
+      "observedCells": {
+        "N": {
+          "address": "N6",
+          "type": "n",
+          "style": "28",
+          "rawValue": "-3036000.0",
+          "value": "-3036000.0",
+          "formula": null
+        },
+        "P": {
+          "address": "P6",
+          "type": "n",
+          "style": "30",
+          "rawValue": "1.319444E7",
+          "value": "1.319444E7",
+          "formula": null
+        },
+        "Q": {
+          "address": "Q6",
+          "type": "n",
+          "style": "30",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "R": {
+          "address": "R6",
+          "type": "n",
+          "style": "30",
+          "rawValue": "9198440.0",
+          "value": "9198440.0",
+          "formula": null
+        },
+        "S": {
+          "address": "S6",
+          "type": "n",
+          "style": "39",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        }
+      },
+      "authoritativeExpected": null
+    },
+    {
+      "row": 7,
+      "name": "ColosBaby Gold cải tiến loại Không 6lon",
+      "observedCells": {
+        "N": {
+          "address": "N7",
+          "type": "n",
+          "style": "28",
+          "rawValue": "1.3828E7",
+          "value": "1.3828E7",
+          "formula": null
+        },
+        "P": {
+          "address": "P7",
+          "type": "n",
+          "style": "30",
+          "rawValue": "1.172196E7",
+          "value": "1.172196E7",
+          "formula": null
+        },
+        "Q": {
+          "address": "Q7",
+          "type": "n",
+          "style": "30",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "R": {
+          "address": "R7",
+          "type": "n",
+          "style": "30",
+          "rawValue": "9209960.0",
+          "value": "9209960.0",
+          "formula": null
+        },
+        "S": {
+          "address": "S7",
+          "type": "n",
+          "style": "39",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        }
+      },
+      "authoritativeExpected": null
+    },
+    {
+      "row": 8,
+      "name": "Enfagrow A+3 Neuro Pro",
+      "observedCells": {
+        "N": {
+          "address": "N8",
+          "type": "n",
+          "style": "28",
+          "rawValue": "350000.0",
+          "value": "350000.0",
+          "formula": null
+        },
+        "P": {
+          "address": "P8",
+          "type": "n",
+          "style": "30",
+          "rawValue": "2624000.0",
+          "value": "2624000.0",
+          "formula": null
+        },
+        "Q": {
+          "address": "Q8",
+          "type": "n",
+          "style": "30",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "R": {
+          "address": "R8",
+          "type": "n",
+          "style": "30",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "S": {
+          "address": "S8",
+          "type": "n",
+          "style": "39",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        }
+      },
+      "authoritativeExpected": null
+    },
+    {
+      "row": 9,
+      "name": "MevaBeBEE - Sữa Aptamil Profutura Kid\nCesarbiotik 3 Growing Up Milk Formula",
+      "observedCells": {
+        "N": {
+          "address": "N9",
+          "type": "n",
+          "style": "28",
+          "rawValue": "-399000.0",
+          "value": "-399000.0",
+          "formula": null
+        },
+        "P": {
+          "address": "P9",
+          "type": "n",
+          "style": "30",
+          "rawValue": "2039000.0",
+          "value": "2039000.0",
+          "formula": null
+        },
+        "Q": {
+          "address": "Q9",
+          "type": "n",
+          "style": "30",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "R": {
+          "address": "R9",
+          "type": "n",
+          "style": "30",
+          "rawValue": "1640000.0",
+          "value": "1640000.0",
+          "formula": null
+        },
+        "S": {
+          "address": "S9",
+          "type": "n",
+          "style": "39",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        }
+      },
+      "authoritativeExpected": null
+    },
+    {
+      "row": 10,
+      "name": "Kendamil Nguyên Kem Classic 800g",
+      "observedCells": {
+        "N": {
+          "address": "N10",
+          "type": "n",
+          "style": "28",
+          "rawValue": "3350000.0",
+          "value": "3350000.0",
+          "formula": null
+        },
+        "P": {
+          "address": "P10",
+          "type": "n",
+          "style": "30",
+          "rawValue": "1.1690001E7",
+          "value": "1.1690001E7",
+          "formula": null
+        },
+        "Q": {
+          "address": "Q10",
+          "type": "n",
+          "style": "30",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "R": {
+          "address": "R10",
+          "type": "n",
+          "style": "30",
+          "rawValue": "8240001.0",
+          "value": "8240001.0",
+          "formula": null
+        },
+        "S": {
+          "address": "S10",
+          "type": "n",
+          "style": "39",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        }
+      },
+      "authoritativeExpected": null
+    },
+    {
+      "row": 11,
+      "name": "Sữa Aptamil NewZealand Lon 800g",
+      "observedCells": {
+        "N": {
+          "address": "N11",
+          "type": "n",
+          "style": "28",
+          "rawValue": "-745000.0",
+          "value": "-745000.0",
+          "formula": null
+        },
+        "P": {
+          "address": "P11",
+          "type": "n",
+          "style": "30",
+          "rawValue": "4918000.0",
+          "value": "4918000.0",
+          "formula": null
+        },
+        "Q": {
+          "address": "Q11",
+          "type": "n",
+          "style": "30",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "R": {
+          "address": "R11",
+          "type": "n",
+          "style": "30",
+          "rawValue": "4173000.0",
+          "value": "4173000.0",
+          "formula": null
+        },
+        "S": {
+          "address": "S11",
+          "type": "n",
+          "style": "39",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        }
+      },
+      "authoritativeExpected": null
+    },
+    {
+      "row": 12,
+      "name": "Sữa Aptamil Profutura\nÚc lon 900g số 1 2 3",
+      "observedCells": {
+        "N": {
+          "address": "N12",
+          "type": "n",
+          "style": "28",
+          "rawValue": "-4423000.0",
+          "value": "-4423000.0",
+          "formula": null
+        },
+        "P": {
+          "address": "P12",
+          "type": "n",
+          "style": "30",
+          "rawValue": "1.1195E7",
+          "value": "1.1195E7",
+          "formula": null
+        },
+        "Q": {
+          "address": "Q12",
+          "type": "n",
+          "style": "30",
+          "rawValue": "2646000.0",
+          "value": "2646000.0",
+          "formula": null
+        },
+        "R": {
+          "address": "R12",
+          "type": "n",
+          "style": "30",
+          "rawValue": "4750000.0",
+          "value": "4750000.0",
+          "formula": null
+        },
+        "S": {
+          "address": "S12",
+          "type": "n",
+          "style": "39",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        }
+      },
+      "authoritativeExpected": null
+    },
+    {
+      "row": 13,
+      "name": "Sữa bột Aptamil Profutura Úc 900g\nChính Hãng | Số 1 - 2 - 3 - 4",
+      "observedCells": {
+        "N": {
+          "address": "N13",
+          "type": "n",
+          "style": "28",
+          "rawValue": "7585000.0",
+          "value": "7585000.0",
+          "formula": null
+        },
+        "P": {
+          "address": "P13",
+          "type": "n",
+          "style": "30",
+          "rawValue": "9551520.0",
+          "value": "9551520.0",
+          "formula": null
+        },
+        "Q": {
+          "address": "Q13",
+          "type": "n",
+          "style": "30",
+          "rawValue": "2918000.0",
+          "value": "2918000.0",
+          "formula": null
+        },
+        "R": {
+          "address": "R13",
+          "type": "n",
+          "style": "30",
+          "rawValue": "3865000.0",
+          "value": "3865000.0",
+          "formula": null
+        },
+        "S": {
+          "address": "S13",
+          "type": "n",
+          "style": "39",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        }
+      },
+      "authoritativeExpected": null
+    },
+    {
+      "row": 14,
+      "name": "SỮA CÔNG THỨC HIPP COMBIOTIC HMP-SỮA\nCÔNG THỨC",
+      "observedCells": {
+        "N": {
+          "address": "N14",
+          "type": "n",
+          "style": "28",
+          "rawValue": "1000000.0",
+          "value": "1000000.0",
+          "formula": null
+        },
+        "P": {
+          "address": "P14",
+          "type": "n",
+          "style": "36",
+          "rawValue": "2034000.0",
+          "value": "2034000.0",
+          "formula": null
+        },
+        "Q": {
+          "address": "Q14",
+          "type": "n",
+          "style": "36",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "R": {
+          "address": "R14",
+          "type": "n",
+          "style": "36",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "S": {
+          "address": "S14",
+          "type": "n",
+          "style": "37",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        }
+      },
+      "authoritativeExpected": null
+    },
+    {
+      "row": 15,
+      "name": "Apta new hỗ trợ tiêu hoá b.a 800g",
+      "observedCells": {
+        "N": {
+          "address": "N15",
+          "type": "n",
+          "style": "28",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "P": {
+          "address": "P15",
+          "type": "n",
+          "style": "30",
+          "rawValue": "2003999.0",
+          "value": "2003999.0",
+          "formula": null
+        },
+        "Q": {
+          "address": "Q15",
+          "type": "n",
+          "style": "30",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "R": {
+          "address": "R15",
+          "type": "n",
+          "style": "30",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "S": {
+          "address": "S15",
+          "type": "n",
+          "style": "39",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        }
+      },
+      "authoritativeExpected": null
+    },
+    {
+      "row": 16,
+      "name": "Kendamil Dê 800g số 2 6lon",
+      "observedCells": {
+        "N": {
+          "address": "N16",
+          "type": "n",
+          "style": "28",
+          "rawValue": "2310000.0",
+          "value": "2310000.0",
+          "formula": null
+        },
+        "P": {
+          "address": "P16",
+          "type": "n",
+          "style": "30",
+          "rawValue": "1.188E7",
+          "value": "1.188E7",
+          "formula": null
+        },
+        "Q": {
+          "address": "Q16",
+          "type": "n",
+          "style": "30",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "R": {
+          "address": "R16",
+          "type": "n",
+          "style": "30",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "S": {
+          "address": "S16",
+          "type": "n",
+          "style": "39",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        }
+      },
+      "authoritativeExpected": null
+    },
+    {
+      "row": 17,
+      "name": "Kendamil bò 800g organic số 1 6lon",
+      "observedCells": {
+        "N": {
+          "address": "N17",
+          "type": "n",
+          "style": "28",
+          "rawValue": "1830000.0",
+          "value": "1830000.0",
+          "formula": null
+        },
+        "P": {
+          "address": "P17",
+          "type": "n",
+          "style": "30",
+          "rawValue": "7920000.0",
+          "value": "7920000.0",
+          "formula": null
+        },
+        "Q": {
+          "address": "Q17",
+          "type": "n",
+          "style": "30",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "R": {
+          "address": "R17",
+          "type": "n",
+          "style": "30",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "S": {
+          "address": "S17",
+          "type": "n",
+          "style": "39",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        }
+      },
+      "authoritativeExpected": null
+    },
+    {
+      "row": 18,
+      "name": "Combo 3 Lon Sữa bột PediasureB/A Vani\n400G, 850G, 1.6KG Hỗ Trợ Phát Triển Thể Chất",
+      "observedCells": {
+        "N": {
+          "address": "N18",
+          "type": "n",
+          "style": "28",
+          "rawValue": "2242000.0",
+          "value": "2242000.0",
+          "formula": null
+        },
+        "P": {
+          "address": "P18",
+          "type": "n",
+          "style": "30",
+          "rawValue": "1.0977299E7",
+          "value": "1.0977299E7",
+          "formula": null
+        },
+        "Q": {
+          "address": "Q18",
+          "type": "n",
+          "style": "30",
+          "rawValue": "5084000.0",
+          "value": "5084000.0",
+          "formula": null
+        },
+        "R": {
+          "address": "R18",
+          "type": "n",
+          "style": "30",
+          "rawValue": "4682299.0",
+          "value": "4682299.0",
+          "formula": null
+        },
+        "S": {
+          "address": "S18",
+          "type": "n",
+          "style": "39",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        }
+      },
+      "authoritativeExpected": null
+    },
+    {
+      "row": 19,
+      "name": "(Sữa non 24h) Sữa Bột NUtifood Growplus+ Sữa non 24h Hỗ trợ Tăng Đề Kháng ( Lon 800g)",
+      "observedCells": {
+        "N": {
+          "address": "N19",
+          "type": "n",
+          "style": "28",
+          "rawValue": "-1375892.0",
+          "value": "-1375892.0",
+          "formula": null
+        },
+        "P": {
+          "address": "P19",
+          "type": "n",
+          "style": "30",
+          "rawValue": "3791000.0",
+          "value": "3791000.0",
+          "formula": null
+        },
+        "Q": {
+          "address": "Q19",
+          "type": "n",
+          "style": "30",
+          "rawValue": "1375892.0",
+          "value": "1375892.0",
+          "formula": null
+        },
+        "R": {
+          "address": "R19",
+          "type": "n",
+          "style": "30",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "S": {
+          "address": "S19",
+          "type": "n",
+          "style": "39",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        }
+      },
+      "authoritativeExpected": null
+    },
+    {
+      "row": 20,
+      "name": "ColosBaby Lactoferrin loại không 6lon (Đen)",
+      "observedCells": {
+        "N": {
+          "address": "N20",
+          "type": "n",
+          "style": "28",
+          "rawValue": "-2132370.0",
+          "value": "-2132370.0",
+          "formula": null
+        },
+        "P": {
+          "address": "P20",
+          "type": "n",
+          "style": "30",
+          "rawValue": "4718880.0",
+          "value": "4718880.0",
+          "formula": null
+        },
+        "Q": {
+          "address": "Q20",
+          "type": "n",
+          "style": "30",
+          "rawValue": "2132370.0",
+          "value": "2132370.0",
+          "formula": null
+        },
+        "R": {
+          "address": "R20",
+          "type": "n",
+          "style": "30",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "S": {
+          "address": "S20",
+          "type": "n",
+          "style": "39",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        }
+      },
+      "authoritativeExpected": null
+    },
+    {
+      "row": 21,
+      "name": "ColosBaby Gold cải tiến loại Không 6lon (Đen)",
+      "observedCells": {
+        "N": {
+          "address": "N21",
+          "type": "n",
+          "style": "28",
+          "rawValue": "-1988820.0",
+          "value": "-1988820.0",
+          "formula": null
+        },
+        "P": {
+          "address": "P21",
+          "type": "n",
+          "style": "30",
+          "rawValue": "4269960.0",
+          "value": "4269960.0",
+          "formula": null
+        },
+        "Q": {
+          "address": "Q21",
+          "type": "n",
+          "style": "30",
+          "rawValue": "1988820.0",
+          "value": "1988820.0",
+          "formula": null
+        },
+        "R": {
+          "address": "R21",
+          "type": "n",
+          "style": "30",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "S": {
+          "address": "S21",
+          "type": "n",
+          "style": "39",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        }
+      },
+      "authoritativeExpected": null
+    },
+    {
+      "row": 22,
+      "name": "Combo 04 Lon Sữa Bột Nutifood Sweden\nGrowPLUS+ Sữa Non Immunel lon 800 g (Bao bì t...",
+      "observedCells": {
+        "N": {
+          "address": "N22",
+          "type": "n",
+          "style": "28",
+          "rawValue": "5120000.0",
+          "value": "5120000.0",
+          "formula": null
+        },
+        "P": {
+          "address": "P22",
+          "type": "n",
+          "style": "30",
+          "rawValue": "5448000.0",
+          "value": "5448000.0",
+          "formula": null
+        },
+        "Q": {
+          "address": "Q22",
+          "type": "n",
+          "style": "30",
+          "rawValue": "2656000.0",
+          "value": "2656000.0",
+          "formula": null
+        },
+        "R": {
+          "address": "R22",
+          "type": "n",
+          "style": "30",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "S": {
+          "address": "S22",
+          "type": "n",
+          "style": "39",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        }
+      },
+      "authoritativeExpected": null
+    },
+    {
+      "row": 23,
+      "name": "Combo 04 Lon Sữa bột Nutifood Sweden\nGrowPLUS+ Colostrum Lactoferrin 800g",
+      "observedCells": {
+        "N": {
+          "address": "N23",
+          "type": "n",
+          "style": "28",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "P": {
+          "address": "P23",
+          "type": "n",
+          "style": "30",
+          "rawValue": "5518345.0",
+          "value": "5518345.0",
+          "formula": null
+        },
+        "Q": {
+          "address": "Q23",
+          "type": "n",
+          "style": "30",
+          "rawValue": "2691000.0",
+          "value": "2691000.0",
+          "formula": null
+        },
+        "R": {
+          "address": "R23",
+          "type": "n",
+          "style": "30",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "S": {
+          "address": "S23",
+          "type": "n",
+          "style": "39",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        }
+      },
+      "authoritativeExpected": null
+    },
+    {
+      "row": 24,
+      "name": "Aptamil NewZealand 5 mẫu h.a.i",
+      "observedCells": {
+        "N": {
+          "address": "N24",
+          "type": "n",
+          "style": "28",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "P": {
+          "address": "P24",
+          "type": "n",
+          "style": "30",
+          "rawValue": "3888000.0",
+          "value": "3888000.0",
+          "formula": null
+        },
+        "Q": {
+          "address": "Q24",
+          "type": "n",
+          "style": "30",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "R": {
+          "address": "R24",
+          "type": "n",
+          "style": "30",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "S": {
+          "address": "S24",
+          "type": "n",
+          "style": "39",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        }
+      },
+      "authoritativeExpected": null
+    },
+    {
+      "row": 25,
+      "name": "Combo 04 Lon Sữa Bột Nutifood Sweden\nGrowPLUS+ Cao lớn vượt trội (Bạc) 800g",
+      "observedCells": {
+        "N": {
+          "address": "N25",
+          "type": "n",
+          "style": "28",
+          "rawValue": "1200000.0",
+          "value": "1200000.0",
+          "formula": null
+        },
+        "P": {
+          "address": "P25",
+          "type": "n",
+          "style": "30",
+          "rawValue": "4532756.0",
+          "value": "4532756.0",
+          "formula": null
+        },
+        "Q": {
+          "address": "Q25",
+          "type": "n",
+          "style": "30",
+          "rawValue": "2312000.0",
+          "value": "2312000.0",
+          "formula": null
+        },
+        "R": {
+          "address": "R25",
+          "type": "n",
+          "style": "30",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "S": {
+          "address": "S25",
+          "type": "n",
+          "style": "39",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        }
+      },
+      "authoritativeExpected": null
+    },
+    {
+      "row": 26,
+      "name": "Enfagrow A+3 1,7kg đợt 2 ",
+      "observedCells": {
+        "N": {
+          "address": "N26",
+          "type": "n",
+          "style": "28",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "P": {
+          "address": "P26",
+          "type": "n",
+          "style": "30",
+          "rawValue": "1794000.0",
+          "value": "1794000.0",
+          "formula": null
+        },
+        "Q": {
+          "address": "Q26",
+          "type": "n",
+          "style": "30",
+          "rawValue": "1548000.0",
+          "value": "1548000.0",
+          "formula": null
+        },
+        "R": {
+          "address": "R26",
+          "type": "n",
+          "style": "30",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "S": {
+          "address": "S26",
+          "type": "s",
+          "style": "31",
+          "rawValue": "97",
+          "value": " ",
+          "formula": null
+        }
+      },
+      "authoritativeExpected": null
+    }
+  ]
+}

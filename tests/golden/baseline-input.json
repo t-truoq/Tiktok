@@ -1,0 +1,3935 @@
+{
+  "kind": "XLSX_OBSERVATIONS_ONLY",
+  "sourceSha256": "21707788d9515e05229d9b3fd6f92c6fcb8d0871868d67d481268d39e5fda078",
+  "legacyRecordsAvailable": false,
+  "products": [
+    {
+      "row": 3,
+      "cells": {
+        "A": {
+          "address": "A3",
+          "type": "s",
+          "style": "22",
+          "rawValue": "11",
+          "value": "Aptamil NewZealand 5 hộp 800g Mẹ và Bé",
+          "formula": null
+        },
+        "B": {
+          "address": "B3",
+          "type": "n",
+          "style": "23",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "C": {
+          "address": "C3",
+          "type": "n",
+          "style": "24",
+          "rawValue": "1.0",
+          "value": "1.0",
+          "formula": null
+        },
+        "D": {
+          "address": "D3",
+          "type": "s",
+          "style": "25",
+          "rawValue": "12",
+          "value": "Nhận end 2",
+          "formula": null
+        },
+        "E": {
+          "address": "E3",
+          "type": "s",
+          "style": "25",
+          "rawValue": "77",
+          "value": "Nhung (end)",
+          "formula": null
+        },
+        "F": {
+          "address": "F3",
+          "type": "n",
+          "style": "26",
+          "rawValue": "46291.0",
+          "value": "46291.0",
+          "formula": null
+        },
+        "G": {
+          "address": "G3",
+          "type": "s",
+          "style": "27",
+          "rawValue": "78",
+          "value": "⚠️ Cần check hoàn tiền",
+          "formula": null
+        },
+        "H": {
+          "address": "H3",
+          "type": "n",
+          "style": "28",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "I": {
+          "address": "I3",
+          "type": "n",
+          "style": "28",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "J": {
+          "address": "J3",
+          "type": "n",
+          "style": "28",
+          "rawValue": "500000.0",
+          "value": "500000.0",
+          "formula": null
+        },
+        "K": {
+          "address": "K3",
+          "type": "n",
+          "style": "24",
+          "rawValue": "9.0",
+          "value": "9.0",
+          "formula": null
+        },
+        "L": {
+          "address": "L3",
+          "type": "n",
+          "style": "24",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "M": {
+          "address": "M3",
+          "type": "n",
+          "style": "24",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "N": {
+          "address": "N3",
+          "type": "n",
+          "style": "28",
+          "rawValue": "4304000.0",
+          "value": "4304000.0",
+          "formula": null
+        },
+        "O": {
+          "address": "O3",
+          "type": "n",
+          "style": "29",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "P": {
+          "address": "P3",
+          "type": "n",
+          "style": "30",
+          "rawValue": "4695999.0",
+          "value": "4695999.0",
+          "formula": null
+        },
+        "Q": {
+          "address": "Q3",
+          "type": "n",
+          "style": "30",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "R": {
+          "address": "R3",
+          "type": "n",
+          "style": "30",
+          "rawValue": "4099999.0",
+          "value": "4099999.0",
+          "formula": null
+        },
+        "S": {
+          "address": "S3",
+          "type": "s",
+          "style": "31",
+          "rawValue": "79",
+          "value": "Đã nhận",
+          "formula": null
+        }
+      }
+    },
+    {
+      "row": 4,
+      "cells": {
+        "A": {
+          "address": "A4",
+          "type": "s",
+          "style": "22",
+          "rawValue": "22",
+          "value": "Aptamil NewZealand 2 hộp gđ 800g Mẹ và Bé",
+          "formula": null
+        },
+        "B": {
+          "address": "B4",
+          "type": "n",
+          "style": "23",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "C": {
+          "address": "C4",
+          "type": "n",
+          "style": "24",
+          "rawValue": "1.0",
+          "value": "1.0",
+          "formula": null
+        },
+        "D": {
+          "address": "D4",
+          "type": "s",
+          "style": "25",
+          "rawValue": "12",
+          "value": "Nhận end 2",
+          "formula": null
+        },
+        "E": {
+          "address": "E4",
+          "type": "s",
+          "style": "25",
+          "rawValue": "77",
+          "value": "Nhung (end)",
+          "formula": null
+        },
+        "F": {
+          "address": "F4",
+          "type": "n",
+          "style": "26",
+          "rawValue": "46291.0",
+          "value": "46291.0",
+          "formula": null
+        },
+        "G": {
+          "address": "G4",
+          "type": "s",
+          "style": "27",
+          "rawValue": "78",
+          "value": "⚠️ Cần check hoàn tiền",
+          "formula": null
+        },
+        "H": {
+          "address": "H4",
+          "type": "n",
+          "style": "28",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "I": {
+          "address": "I4",
+          "type": "n",
+          "style": "28",
+          "rawValue": "319000.0",
+          "value": "319000.0",
+          "formula": null
+        },
+        "J": {
+          "address": "J4",
+          "type": "n",
+          "style": "28",
+          "rawValue": "480000.0",
+          "value": "480000.0",
+          "formula": null
+        },
+        "K": {
+          "address": "K4",
+          "type": "n",
+          "style": "24",
+          "rawValue": "7.0",
+          "value": "7.0",
+          "formula": null
+        },
+        "L": {
+          "address": "L4",
+          "type": "n",
+          "style": "24",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "M": {
+          "address": "M4",
+          "type": "n",
+          "style": "24",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "N": {
+          "address": "N4",
+          "type": "n",
+          "style": "28",
+          "rawValue": "3041000.0",
+          "value": "3041000.0",
+          "formula": null
+        },
+        "O": {
+          "address": "O4",
+          "type": "n",
+          "style": "29",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "P": {
+          "address": "P4",
+          "type": "n",
+          "style": "30",
+          "rawValue": "1879000.0",
+          "value": "1879000.0",
+          "formula": null
+        },
+        "Q": {
+          "address": "Q4",
+          "type": "n",
+          "style": "30",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "R": {
+          "address": "R4",
+          "type": "n",
+          "style": "30",
+          "rawValue": "1560000.0",
+          "value": "1560000.0",
+          "formula": null
+        },
+        "S": {
+          "address": "S4",
+          "type": "s",
+          "style": "31",
+          "rawValue": "79",
+          "value": "Đã nhận",
+          "formula": null
+        }
+      }
+    },
+    {
+      "row": 5,
+      "cells": {
+        "A": {
+          "address": "A5",
+          "type": "s",
+          "style": "22",
+          "rawValue": "23",
+          "value": "Similac tatol protection 2 hộp bản O 800g",
+          "formula": null
+        },
+        "B": {
+          "address": "B5",
+          "type": "n",
+          "style": "23",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "C": {
+          "address": "C5",
+          "type": "n",
+          "style": "24",
+          "rawValue": "1.0",
+          "value": "1.0",
+          "formula": null
+        },
+        "D": {
+          "address": "D5",
+          "type": "s",
+          "style": "25",
+          "rawValue": "24",
+          "value": "Nhận mẫu 2",
+          "formula": null
+        },
+        "E": {
+          "address": "E5",
+          "type": "s",
+          "style": "25",
+          "rawValue": "80",
+          "value": "Trang",
+          "formula": null
+        },
+        "F": {
+          "address": "F5",
+          "type": "n",
+          "style": "26",
+          "rawValue": "46287.0",
+          "value": "46287.0",
+          "formula": null
+        },
+        "G": {
+          "address": "G5",
+          "type": "s",
+          "style": "32",
+          "rawValue": "81",
+          "value": "Hết hàng • còn 8 ngày hoàn",
+          "formula": null
+        },
+        "H": {
+          "address": "H5",
+          "type": "n",
+          "style": "28",
+          "rawValue": "1870000.0",
+          "value": "1870000.0",
+          "formula": null
+        },
+        "I": {
+          "address": "I5",
+          "type": "n",
+          "style": "28",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "J": {
+          "address": "J5",
+          "type": "n",
+          "style": "28",
+          "rawValue": "500000.0",
+          "value": "500000.0",
+          "formula": null
+        },
+        "K": {
+          "address": "K5",
+          "type": "n",
+          "style": "24",
+          "rawValue": "2.0",
+          "value": "2.0",
+          "formula": null
+        },
+        "L": {
+          "address": "L5",
+          "type": "n",
+          "style": "33",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "M": {
+          "address": "M5",
+          "type": "n",
+          "style": "34",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "N": {
+          "address": "N5",
+          "type": "n",
+          "style": "28",
+          "rawValue": "1000000.0",
+          "value": "1000000.0",
+          "formula": null
+        },
+        "O": {
+          "address": "O5",
+          "type": "s",
+          "style": "35",
+          "rawValue": "82",
+          "value": "hết hàng",
+          "formula": null
+        },
+        "P": {
+          "address": "P5",
+          "type": "n",
+          "style": "36",
+          "rawValue": "1870000.0",
+          "value": "1870000.0",
+          "formula": null
+        },
+        "Q": {
+          "address": "Q5",
+          "type": "n",
+          "style": "36",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "R": {
+          "address": "R5",
+          "type": "n",
+          "style": "36",
+          "rawValue": "1870000.0",
+          "value": "1870000.0",
+          "formula": null
+        },
+        "S": {
+          "address": "S5",
+          "type": "n",
+          "style": "37",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        }
+      }
+    },
+    {
+      "row": 6,
+      "cells": {
+        "A": {
+          "address": "A6",
+          "type": "s",
+          "style": "22",
+          "rawValue": "25",
+          "value": "ColosBaby Lactoferrin loại không 6lon",
+          "formula": null
+        },
+        "B": {
+          "address": "B6",
+          "type": "n",
+          "style": "23",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "C": {
+          "address": "C6",
+          "type": "n",
+          "style": "24",
+          "rawValue": "3.0",
+          "value": "3.0",
+          "formula": null
+        },
+        "D": {
+          "address": "D6",
+          "type": "s",
+          "style": "25",
+          "rawValue": "12",
+          "value": "Nhận end 2",
+          "formula": null
+        },
+        "E": {
+          "address": "E6",
+          "type": "s",
+          "style": "25",
+          "rawValue": "77",
+          "value": "Nhung (end)",
+          "formula": null
+        },
+        "F": {
+          "address": "F6",
+          "type": "n",
+          "style": "26",
+          "rawValue": "46305.67841435185",
+          "value": "46305.67841435185",
+          "formula": null
+        },
+        "G": {
+          "address": "G6",
+          "type": "s",
+          "style": "38",
+          "rawValue": "83",
+          "value": "Chờ check hoàn",
+          "formula": null
+        },
+        "H": {
+          "address": "H6",
+          "type": "n",
+          "style": "28",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "I": {
+          "address": "I6",
+          "type": "n",
+          "style": "28",
+          "rawValue": "2000000.0",
+          "value": "2000000.0",
+          "formula": null
+        },
+        "J": {
+          "address": "J6",
+          "type": "n",
+          "style": "28",
+          "rawValue": "320000.0",
+          "value": "320000.0",
+          "formula": null
+        },
+        "K": {
+          "address": "K6",
+          "type": "n",
+          "style": "24",
+          "rawValue": "3.0",
+          "value": "3.0",
+          "formula": null
+        },
+        "L": {
+          "address": "L6",
+          "type": "n",
+          "style": "33",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "M": {
+          "address": "M6",
+          "type": "n",
+          "style": "33",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "N": {
+          "address": "N6",
+          "type": "n",
+          "style": "28",
+          "rawValue": "-3036000.0",
+          "value": "-3036000.0",
+          "formula": null
+        },
+        "O": {
+          "address": "O6",
+          "type": "s",
+          "style": "22",
+          "rawValue": "84",
+          "value": "hàng móp nặng",
+          "formula": null
+        },
+        "P": {
+          "address": "P6",
+          "type": "n",
+          "style": "30",
+          "rawValue": "1.319444E7",
+          "value": "1.319444E7",
+          "formula": null
+        },
+        "Q": {
+          "address": "Q6",
+          "type": "n",
+          "style": "30",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "R": {
+          "address": "R6",
+          "type": "n",
+          "style": "30",
+          "rawValue": "9198440.0",
+          "value": "9198440.0",
+          "formula": null
+        },
+        "S": {
+          "address": "S6",
+          "type": "n",
+          "style": "39",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "U": {
+          "address": "U6",
+          "type": "n",
+          "style": "40",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        }
+      }
+    },
+    {
+      "row": 7,
+      "cells": {
+        "A": {
+          "address": "A7",
+          "type": "s",
+          "style": "22",
+          "rawValue": "27",
+          "value": "ColosBaby Gold cải tiến loại Không 6lon",
+          "formula": null
+        },
+        "B": {
+          "address": "B7",
+          "type": "n",
+          "style": "23",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "C": {
+          "address": "C7",
+          "type": "n",
+          "style": "24",
+          "rawValue": "3.0",
+          "value": "3.0",
+          "formula": null
+        },
+        "D": {
+          "address": "D7",
+          "type": "s",
+          "style": "25",
+          "rawValue": "12",
+          "value": "Nhận end 2",
+          "formula": null
+        },
+        "E": {
+          "address": "E7",
+          "type": "s",
+          "style": "25",
+          "rawValue": "77",
+          "value": "Nhung (end)",
+          "formula": null
+        },
+        "F": {
+          "address": "F7",
+          "type": "n",
+          "style": "26",
+          "rawValue": "46303.0",
+          "value": "46303.0",
+          "formula": null
+        },
+        "G": {
+          "address": "G7",
+          "type": "s",
+          "style": "38",
+          "rawValue": "83",
+          "value": "Chờ check hoàn",
+          "formula": null
+        },
+        "H": {
+          "address": "H7",
+          "type": "n",
+          "style": "28",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "I": {
+          "address": "I7",
+          "type": "n",
+          "style": "28",
+          "rawValue": "1512000.0",
+          "value": "1512000.0",
+          "formula": null
+        },
+        "J": {
+          "address": "J7",
+          "type": "n",
+          "style": "28",
+          "rawValue": "380000.0",
+          "value": "380000.0",
+          "formula": null
+        },
+        "K": {
+          "address": "K7",
+          "type": "n",
+          "style": "24",
+          "rawValue": "43.0",
+          "value": "43.0",
+          "formula": null
+        },
+        "L": {
+          "address": "L7",
+          "type": "n",
+          "style": "33",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "M": {
+          "address": "M7",
+          "type": "n",
+          "style": "34",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "N": {
+          "address": "N7",
+          "type": "n",
+          "style": "28",
+          "rawValue": "1.3828E7",
+          "value": "1.3828E7",
+          "formula": null
+        },
+        "O": {
+          "address": "O7",
+          "type": "n",
+          "style": "29",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "P": {
+          "address": "P7",
+          "type": "n",
+          "style": "30",
+          "rawValue": "1.172196E7",
+          "value": "1.172196E7",
+          "formula": null
+        },
+        "Q": {
+          "address": "Q7",
+          "type": "n",
+          "style": "30",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "R": {
+          "address": "R7",
+          "type": "n",
+          "style": "30",
+          "rawValue": "9209960.0",
+          "value": "9209960.0",
+          "formula": null
+        },
+        "S": {
+          "address": "S7",
+          "type": "n",
+          "style": "39",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        }
+      }
+    },
+    {
+      "row": 8,
+      "cells": {
+        "A": {
+          "address": "A8",
+          "type": "s",
+          "style": "22",
+          "rawValue": "29",
+          "value": "Enfagrow A+3 Neuro Pro",
+          "formula": null
+        },
+        "B": {
+          "address": "B8",
+          "type": "n",
+          "style": "33",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "C": {
+          "address": "C8",
+          "type": "n",
+          "style": "24",
+          "rawValue": "1.0",
+          "value": "1.0",
+          "formula": null
+        },
+        "D": {
+          "address": "D8",
+          "type": "s",
+          "style": "25",
+          "rawValue": "24",
+          "value": "Nhận mẫu 2",
+          "formula": null
+        },
+        "E": {
+          "address": "E8",
+          "type": "s",
+          "style": "25",
+          "rawValue": "80",
+          "value": "Trang",
+          "formula": null
+        },
+        "F": {
+          "address": "F8",
+          "type": "n",
+          "style": "26",
+          "rawValue": "46297.65559311342",
+          "value": "46297.65559311342",
+          "formula": null
+        },
+        "G": {
+          "address": "G8",
+          "type": "s",
+          "style": "41",
+          "rawValue": "85",
+          "value": "Có thể đặt lượt tiếp theo",
+          "formula": null
+        },
+        "H": {
+          "address": "H8",
+          "type": "n",
+          "style": "28",
+          "rawValue": "1740000.0",
+          "value": "1740000.0",
+          "formula": null
+        },
+        "I": {
+          "address": "I8",
+          "type": "n",
+          "style": "28",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "J": {
+          "address": "J8",
+          "type": "n",
+          "style": "28",
+          "rawValue": "350000.0",
+          "value": "350000.0",
+          "formula": null
+        },
+        "K": {
+          "address": "K8",
+          "type": "n",
+          "style": "24",
+          "rawValue": "1.0",
+          "value": "1.0",
+          "formula": null
+        },
+        "L": {
+          "address": "L8",
+          "type": "n",
+          "style": "24",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "M": {
+          "address": "M8",
+          "type": "n",
+          "style": "24",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "N": {
+          "address": "N8",
+          "type": "n",
+          "style": "28",
+          "rawValue": "350000.0",
+          "value": "350000.0",
+          "formula": null
+        },
+        "O": {
+          "address": "O8",
+          "type": "n",
+          "style": "29",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "P": {
+          "address": "P8",
+          "type": "n",
+          "style": "30",
+          "rawValue": "2624000.0",
+          "value": "2624000.0",
+          "formula": null
+        },
+        "Q": {
+          "address": "Q8",
+          "type": "n",
+          "style": "30",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "R": {
+          "address": "R8",
+          "type": "n",
+          "style": "30",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "S": {
+          "address": "S8",
+          "type": "n",
+          "style": "39",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "U": {
+          "address": "U8",
+          "type": "n",
+          "style": "40",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        }
+      }
+    },
+    {
+      "row": 9,
+      "cells": {
+        "A": {
+          "address": "A9",
+          "type": "s",
+          "style": "22",
+          "rawValue": "32",
+          "value": "MevaBeBEE - Sữa Aptamil Profutura Kid\nCesarbiotik 3 Growing Up Milk Formula",
+          "formula": null
+        },
+        "B": {
+          "address": "B9",
+          "type": "n",
+          "style": "23",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "C": {
+          "address": "C9",
+          "type": "n",
+          "style": "24",
+          "rawValue": "1.0",
+          "value": "1.0",
+          "formula": null
+        },
+        "D": {
+          "address": "D9",
+          "type": "s",
+          "style": "25",
+          "rawValue": "12",
+          "value": "Nhận end 2",
+          "formula": null
+        },
+        "E": {
+          "address": "E9",
+          "type": "s",
+          "style": "25",
+          "rawValue": "77",
+          "value": "Nhung (end)",
+          "formula": null
+        },
+        "F": {
+          "address": "F9",
+          "type": "n",
+          "style": "26",
+          "rawValue": "46296.56358796296",
+          "value": "46296.56358796296",
+          "formula": null
+        },
+        "G": {
+          "address": "G9",
+          "type": "s",
+          "style": "38",
+          "rawValue": "83",
+          "value": "Chờ check hoàn",
+          "formula": null
+        },
+        "H": {
+          "address": "H9",
+          "type": "n",
+          "style": "28",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "I": {
+          "address": "I9",
+          "type": "n",
+          "style": "28",
+          "rawValue": "399000.0",
+          "value": "399000.0",
+          "formula": null
+        },
+        "J": {
+          "address": "J9",
+          "type": "n",
+          "style": "28",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "K": {
+          "address": "K9",
+          "type": "n",
+          "style": "24",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "L": {
+          "address": "L9",
+          "type": "n",
+          "style": "24",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "M": {
+          "address": "M9",
+          "type": "n",
+          "style": "24",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "N": {
+          "address": "N9",
+          "type": "n",
+          "style": "28",
+          "rawValue": "-399000.0",
+          "value": "-399000.0",
+          "formula": null
+        },
+        "O": {
+          "address": "O9",
+          "type": "n",
+          "style": "29",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "P": {
+          "address": "P9",
+          "type": "n",
+          "style": "30",
+          "rawValue": "2039000.0",
+          "value": "2039000.0",
+          "formula": null
+        },
+        "Q": {
+          "address": "Q9",
+          "type": "n",
+          "style": "30",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "R": {
+          "address": "R9",
+          "type": "n",
+          "style": "30",
+          "rawValue": "1640000.0",
+          "value": "1640000.0",
+          "formula": null
+        },
+        "S": {
+          "address": "S9",
+          "type": "n",
+          "style": "39",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "U": {
+          "address": "U9",
+          "type": "n",
+          "style": "40",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        }
+      }
+    },
+    {
+      "row": 10,
+      "cells": {
+        "A": {
+          "address": "A10",
+          "type": "s",
+          "style": "22",
+          "rawValue": "37",
+          "value": "Kendamil Nguyên Kem Classic 800g",
+          "formula": null
+        },
+        "B": {
+          "address": "B10",
+          "type": "n",
+          "style": "33",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "C": {
+          "address": "C10",
+          "type": "n",
+          "style": "24",
+          "rawValue": "3.0",
+          "value": "3.0",
+          "formula": null
+        },
+        "D": {
+          "address": "D10",
+          "type": "s",
+          "style": "25",
+          "rawValue": "12",
+          "value": "Nhận end 2",
+          "formula": null
+        },
+        "E": {
+          "address": "E10",
+          "type": "s",
+          "style": "25",
+          "rawValue": "77",
+          "value": "Nhung (end)",
+          "formula": null
+        },
+        "F": {
+          "address": "F10",
+          "type": "n",
+          "style": "26",
+          "rawValue": "46293.686435185184",
+          "value": "46293.686435185184",
+          "formula": null
+        },
+        "G": {
+          "address": "G10",
+          "type": "s",
+          "style": "27",
+          "rawValue": "78",
+          "value": "⚠️ Cần check hoàn tiền",
+          "formula": null
+        },
+        "H": {
+          "address": "H10",
+          "type": "n",
+          "style": "28",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "I": {
+          "address": "I10",
+          "type": "n",
+          "style": "28",
+          "rawValue": "1380000.0",
+          "value": "1380000.0",
+          "formula": null
+        },
+        "J": {
+          "address": "J10",
+          "type": "n",
+          "style": "28",
+          "rawValue": "400000.0",
+          "value": "400000.0",
+          "formula": null
+        },
+        "K": {
+          "address": "K10",
+          "type": "n",
+          "style": "24",
+          "rawValue": "17.0",
+          "value": "17.0",
+          "formula": null
+        },
+        "L": {
+          "address": "L10",
+          "type": "n",
+          "style": "24",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "M": {
+          "address": "M10",
+          "type": "n",
+          "style": "24",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "N": {
+          "address": "N10",
+          "type": "n",
+          "style": "28",
+          "rawValue": "3350000.0",
+          "value": "3350000.0",
+          "formula": null
+        },
+        "O": {
+          "address": "O10",
+          "type": "n",
+          "style": "29",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "P": {
+          "address": "P10",
+          "type": "n",
+          "style": "30",
+          "rawValue": "1.1690001E7",
+          "value": "1.1690001E7",
+          "formula": null
+        },
+        "Q": {
+          "address": "Q10",
+          "type": "n",
+          "style": "30",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "R": {
+          "address": "R10",
+          "type": "n",
+          "style": "30",
+          "rawValue": "8240001.0",
+          "value": "8240001.0",
+          "formula": null
+        },
+        "S": {
+          "address": "S10",
+          "type": "n",
+          "style": "39",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "U": {
+          "address": "U10",
+          "type": "n",
+          "style": "40",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        }
+      }
+    },
+    {
+      "row": 11,
+      "cells": {
+        "A": {
+          "address": "A11",
+          "type": "s",
+          "style": "22",
+          "rawValue": "42",
+          "value": "Sữa Aptamil NewZealand Lon 800g",
+          "formula": null
+        },
+        "B": {
+          "address": "B11",
+          "type": "n",
+          "style": "33",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "C": {
+          "address": "C11",
+          "type": "n",
+          "style": "24",
+          "rawValue": "1.0",
+          "value": "1.0",
+          "formula": null
+        },
+        "D": {
+          "address": "D11",
+          "type": "s",
+          "style": "25",
+          "rawValue": "12",
+          "value": "Nhận end 2",
+          "formula": null
+        },
+        "E": {
+          "address": "E11",
+          "type": "s",
+          "style": "25",
+          "rawValue": "77",
+          "value": "Nhung (end)",
+          "formula": null
+        },
+        "F": {
+          "address": "F11",
+          "type": "n",
+          "style": "26",
+          "rawValue": "46296.565775462965",
+          "value": "46296.565775462965",
+          "formula": null
+        },
+        "G": {
+          "address": "G11",
+          "type": "s",
+          "style": "38",
+          "rawValue": "83",
+          "value": "Chờ check hoàn",
+          "formula": null
+        },
+        "H": {
+          "address": "H11",
+          "type": "n",
+          "style": "28",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "I": {
+          "address": "I11",
+          "type": "n",
+          "style": "28",
+          "rawValue": "745000.0",
+          "value": "745000.0",
+          "formula": null
+        },
+        "J": {
+          "address": "J11",
+          "type": "n",
+          "style": "42",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "K": {
+          "address": "K11",
+          "type": "n",
+          "style": "33",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "L": {
+          "address": "L11",
+          "type": "n",
+          "style": "24",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "M": {
+          "address": "M11",
+          "type": "n",
+          "style": "34",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "N": {
+          "address": "N11",
+          "type": "n",
+          "style": "28",
+          "rawValue": "-745000.0",
+          "value": "-745000.0",
+          "formula": null
+        },
+        "O": {
+          "address": "O11",
+          "type": "n",
+          "style": "29",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "P": {
+          "address": "P11",
+          "type": "n",
+          "style": "30",
+          "rawValue": "4918000.0",
+          "value": "4918000.0",
+          "formula": null
+        },
+        "Q": {
+          "address": "Q11",
+          "type": "n",
+          "style": "30",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "R": {
+          "address": "R11",
+          "type": "n",
+          "style": "30",
+          "rawValue": "4173000.0",
+          "value": "4173000.0",
+          "formula": null
+        },
+        "S": {
+          "address": "S11",
+          "type": "n",
+          "style": "39",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "U": {
+          "address": "U11",
+          "type": "n",
+          "style": "40",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        }
+      }
+    },
+    {
+      "row": 12,
+      "cells": {
+        "A": {
+          "address": "A12",
+          "type": "s",
+          "style": "22",
+          "rawValue": "46",
+          "value": "Sữa Aptamil Profutura\nÚc lon 900g số 1 2 3",
+          "formula": null
+        },
+        "B": {
+          "address": "B12",
+          "type": "n",
+          "style": "33",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "C": {
+          "address": "C12",
+          "type": "n",
+          "style": "24",
+          "rawValue": "3.0",
+          "value": "3.0",
+          "formula": null
+        },
+        "D": {
+          "address": "D12",
+          "type": "s",
+          "style": "25",
+          "rawValue": "47",
+          "value": "Đặt end 2",
+          "formula": null
+        },
+        "E": {
+          "address": "E12",
+          "type": "s",
+          "style": "25",
+          "rawValue": "77",
+          "value": "Nhung (end)",
+          "formula": null
+        },
+        "F": {
+          "address": "F12",
+          "type": "n",
+          "style": "26",
+          "rawValue": "46298.49936342593",
+          "value": "46298.49936342593",
+          "formula": null
+        },
+        "G": {
+          "address": "G12",
+          "type": "s",
+          "style": "43",
+          "rawValue": "86",
+          "value": "Chờ nhận End 2",
+          "formula": null
+        },
+        "H": {
+          "address": "H12",
+          "type": "n",
+          "style": "44",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "I": {
+          "address": "I12",
+          "type": "n",
+          "style": "28",
+          "rawValue": "2646000.0",
+          "value": "2646000.0",
+          "formula": null
+        },
+        "J": {
+          "address": "J12",
+          "type": "n",
+          "style": "42",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "K": {
+          "address": "K12",
+          "type": "n",
+          "style": "33",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "L": {
+          "address": "L12",
+          "type": "n",
+          "style": "24",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "M": {
+          "address": "M12",
+          "type": "n",
+          "style": "33",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "N": {
+          "address": "N12",
+          "type": "n",
+          "style": "28",
+          "rawValue": "-4423000.0",
+          "value": "-4423000.0",
+          "formula": null
+        },
+        "O": {
+          "address": "O12",
+          "type": "n",
+          "style": "22",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "P": {
+          "address": "P12",
+          "type": "n",
+          "style": "30",
+          "rawValue": "1.1195E7",
+          "value": "1.1195E7",
+          "formula": null
+        },
+        "Q": {
+          "address": "Q12",
+          "type": "n",
+          "style": "30",
+          "rawValue": "2646000.0",
+          "value": "2646000.0",
+          "formula": null
+        },
+        "R": {
+          "address": "R12",
+          "type": "n",
+          "style": "30",
+          "rawValue": "4750000.0",
+          "value": "4750000.0",
+          "formula": null
+        },
+        "S": {
+          "address": "S12",
+          "type": "n",
+          "style": "39",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "U": {
+          "address": "U12",
+          "type": "n",
+          "style": "40",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        }
+      }
+    },
+    {
+      "row": 13,
+      "cells": {
+        "A": {
+          "address": "A13",
+          "type": "s",
+          "style": "22",
+          "rawValue": "51",
+          "value": "Sữa bột Aptamil Profutura Úc 900g\nChính Hãng | Số 1 - 2 - 3 - 4",
+          "formula": null
+        },
+        "B": {
+          "address": "B13",
+          "type": "n",
+          "style": "33",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "C": {
+          "address": "C13",
+          "type": "n",
+          "style": "24",
+          "rawValue": "3.0",
+          "value": "3.0",
+          "formula": null
+        },
+        "D": {
+          "address": "D13",
+          "type": "s",
+          "style": "25",
+          "rawValue": "47",
+          "value": "Đặt end 2",
+          "formula": null
+        },
+        "E": {
+          "address": "E13",
+          "type": "s",
+          "style": "25",
+          "rawValue": "77",
+          "value": "Nhung (end)",
+          "formula": null
+        },
+        "F": {
+          "address": "F13",
+          "type": "n",
+          "style": "26",
+          "rawValue": "46299.0",
+          "value": "46299.0",
+          "formula": null
+        },
+        "G": {
+          "address": "G13",
+          "type": "s",
+          "style": "43",
+          "rawValue": "86",
+          "value": "Chờ nhận End 2",
+          "formula": null
+        },
+        "H": {
+          "address": "H13",
+          "type": "n",
+          "style": "28",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "I": {
+          "address": "I13",
+          "type": "n",
+          "style": "28",
+          "rawValue": "2918000.0",
+          "value": "2918000.0",
+          "formula": null
+        },
+        "J": {
+          "address": "J13",
+          "type": "n",
+          "style": "28",
+          "rawValue": "650000.0",
+          "value": "650000.0",
+          "formula": null
+        },
+        "K": {
+          "address": "K13",
+          "type": "n",
+          "style": "24",
+          "rawValue": "19.0",
+          "value": "19.0",
+          "formula": null
+        },
+        "L": {
+          "address": "L13",
+          "type": "n",
+          "style": "33",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "M": {
+          "address": "M13",
+          "type": "n",
+          "style": "34",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "N": {
+          "address": "N13",
+          "type": "n",
+          "style": "28",
+          "rawValue": "7585000.0",
+          "value": "7585000.0",
+          "formula": null
+        },
+        "O": {
+          "address": "O13",
+          "type": "n",
+          "style": "45",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "P": {
+          "address": "P13",
+          "type": "n",
+          "style": "30",
+          "rawValue": "9551520.0",
+          "value": "9551520.0",
+          "formula": null
+        },
+        "Q": {
+          "address": "Q13",
+          "type": "n",
+          "style": "30",
+          "rawValue": "2918000.0",
+          "value": "2918000.0",
+          "formula": null
+        },
+        "R": {
+          "address": "R13",
+          "type": "n",
+          "style": "30",
+          "rawValue": "3865000.0",
+          "value": "3865000.0",
+          "formula": null
+        },
+        "S": {
+          "address": "S13",
+          "type": "n",
+          "style": "39",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "U": {
+          "address": "U13",
+          "type": "n",
+          "style": "40",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        }
+      }
+    },
+    {
+      "row": 14,
+      "cells": {
+        "A": {
+          "address": "A14",
+          "type": "s",
+          "style": "22",
+          "rawValue": "55",
+          "value": "SỮA CÔNG THỨC HIPP COMBIOTIC HMP-SỮA\nCÔNG THỨC",
+          "formula": null
+        },
+        "B": {
+          "address": "B14",
+          "type": "n",
+          "style": "33",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "C": {
+          "address": "C14",
+          "type": "n",
+          "style": "24",
+          "rawValue": "1.0",
+          "value": "1.0",
+          "formula": null
+        },
+        "D": {
+          "address": "D14",
+          "type": "s",
+          "style": "25",
+          "rawValue": "56",
+          "value": "Nhận mẫu 1",
+          "formula": null
+        },
+        "E": {
+          "address": "E14",
+          "type": "s",
+          "style": "25",
+          "rawValue": "87",
+          "value": "Trường",
+          "formula": null
+        },
+        "F": {
+          "address": "F14",
+          "type": "n",
+          "style": "26",
+          "rawValue": "46288.0",
+          "value": "46288.0",
+          "formula": null
+        },
+        "G": {
+          "address": "G14",
+          "type": "s",
+          "style": "32",
+          "rawValue": "88",
+          "value": "Hết hàng • còn 9 ngày hoàn",
+          "formula": null
+        },
+        "H": {
+          "address": "H14",
+          "type": "n",
+          "style": "28",
+          "rawValue": "2034000.0",
+          "value": "2034000.0",
+          "formula": null
+        },
+        "I": {
+          "address": "I14",
+          "type": "n",
+          "style": "28",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "J": {
+          "address": "J14",
+          "type": "n",
+          "style": "28",
+          "rawValue": "500000.0",
+          "value": "500000.0",
+          "formula": null
+        },
+        "K": {
+          "address": "K14",
+          "type": "n",
+          "style": "24",
+          "rawValue": "2.0",
+          "value": "2.0",
+          "formula": null
+        },
+        "L": {
+          "address": "L14",
+          "type": "n",
+          "style": "33",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "M": {
+          "address": "M14",
+          "type": "n",
+          "style": "34",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "N": {
+          "address": "N14",
+          "type": "n",
+          "style": "28",
+          "rawValue": "1000000.0",
+          "value": "1000000.0",
+          "formula": null
+        },
+        "O": {
+          "address": "O14",
+          "type": "s",
+          "style": "35",
+          "rawValue": "82",
+          "value": "hết hàng",
+          "formula": null
+        },
+        "P": {
+          "address": "P14",
+          "type": "n",
+          "style": "36",
+          "rawValue": "2034000.0",
+          "value": "2034000.0",
+          "formula": null
+        },
+        "Q": {
+          "address": "Q14",
+          "type": "n",
+          "style": "36",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "R": {
+          "address": "R14",
+          "type": "n",
+          "style": "36",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "S": {
+          "address": "S14",
+          "type": "n",
+          "style": "37",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "U": {
+          "address": "U14",
+          "type": "n",
+          "style": "40",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        }
+      }
+    },
+    {
+      "row": 15,
+      "cells": {
+        "A": {
+          "address": "A15",
+          "type": "s",
+          "style": "22",
+          "rawValue": "58",
+          "value": "Apta new hỗ trợ tiêu hoá b.a 800g",
+          "formula": null
+        },
+        "B": {
+          "address": "B15",
+          "type": "n",
+          "style": "33",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "C": {
+          "address": "C15",
+          "type": "n",
+          "style": "24",
+          "rawValue": "1.0",
+          "value": "1.0",
+          "formula": null
+        },
+        "D": {
+          "address": "D15",
+          "type": "s",
+          "style": "25",
+          "rawValue": "24",
+          "value": "Nhận mẫu 2",
+          "formula": null
+        },
+        "E": {
+          "address": "E15",
+          "type": "s",
+          "style": "25",
+          "rawValue": "87",
+          "value": "Trường",
+          "formula": null
+        },
+        "F": {
+          "address": "F15",
+          "type": "n",
+          "style": "26",
+          "rawValue": "46300.58789351852",
+          "value": "46300.58789351852",
+          "formula": null
+        },
+        "G": {
+          "address": "G15",
+          "type": "s",
+          "style": "32",
+          "rawValue": "89",
+          "value": "Hết hàng • còn 22 ngày hoàn",
+          "formula": null
+        },
+        "H": {
+          "address": "H15",
+          "type": "n",
+          "style": "28",
+          "rawValue": "1054000.0",
+          "value": "1054000.0",
+          "formula": null
+        },
+        "I": {
+          "address": "I15",
+          "type": "n",
+          "style": "28",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "J": {
+          "address": "J15",
+          "type": "n",
+          "style": "28",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "K": {
+          "address": "K15",
+          "type": "n",
+          "style": "33",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "L": {
+          "address": "L15",
+          "type": "n",
+          "style": "33",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "M": {
+          "address": "M15",
+          "type": "n",
+          "style": "33",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "N": {
+          "address": "N15",
+          "type": "n",
+          "style": "28",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "O": {
+          "address": "O15",
+          "type": "s",
+          "style": "22",
+          "rawValue": "90",
+          "value": "Hết hàng",
+          "formula": null
+        },
+        "P": {
+          "address": "P15",
+          "type": "n",
+          "style": "30",
+          "rawValue": "2003999.0",
+          "value": "2003999.0",
+          "formula": null
+        },
+        "Q": {
+          "address": "Q15",
+          "type": "n",
+          "style": "30",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "R": {
+          "address": "R15",
+          "type": "n",
+          "style": "30",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "S": {
+          "address": "S15",
+          "type": "n",
+          "style": "39",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "U": {
+          "address": "U15",
+          "type": "n",
+          "style": "46",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        }
+      }
+    },
+    {
+      "row": 16,
+      "cells": {
+        "A": {
+          "address": "A16",
+          "type": "s",
+          "style": "22",
+          "rawValue": "62",
+          "value": "Kendamil Dê 800g số 2 6lon",
+          "formula": null
+        },
+        "B": {
+          "address": "B16",
+          "type": "n",
+          "style": "33",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "C": {
+          "address": "C16",
+          "type": "n",
+          "style": "24",
+          "rawValue": "3.0",
+          "value": "3.0",
+          "formula": null
+        },
+        "D": {
+          "address": "D16",
+          "type": "s",
+          "style": "25",
+          "rawValue": "12",
+          "value": "Nhận end 2",
+          "formula": null
+        },
+        "E": {
+          "address": "E16",
+          "type": "s",
+          "style": "25",
+          "rawValue": "77",
+          "value": "Nhung (end)",
+          "formula": null
+        },
+        "F": {
+          "address": "F16",
+          "type": "n",
+          "style": "26",
+          "rawValue": "46303.67614469907",
+          "value": "46303.67614469907",
+          "formula": null
+        },
+        "G": {
+          "address": "G16",
+          "type": "s",
+          "style": "38",
+          "rawValue": "83",
+          "value": "Chờ check hoàn",
+          "formula": null
+        },
+        "H": {
+          "address": "H16",
+          "type": "n",
+          "style": "28",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "I": {
+          "address": "I16",
+          "type": "n",
+          "style": "28",
+          "rawValue": "3990000.0",
+          "value": "3990000.0",
+          "formula": null
+        },
+        "J": {
+          "address": "J16",
+          "type": "n",
+          "style": "28",
+          "rawValue": "700000.0",
+          "value": "700000.0",
+          "formula": null
+        },
+        "K": {
+          "address": "K16",
+          "type": "n",
+          "style": "24",
+          "rawValue": "9.0",
+          "value": "9.0",
+          "formula": null
+        },
+        "L": {
+          "address": "L16",
+          "type": "n",
+          "style": "33",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "M": {
+          "address": "M16",
+          "type": "n",
+          "style": "33",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "N": {
+          "address": "N16",
+          "type": "n",
+          "style": "28",
+          "rawValue": "2310000.0",
+          "value": "2310000.0",
+          "formula": null
+        },
+        "O": {
+          "address": "O16",
+          "type": "n",
+          "style": "29",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "P": {
+          "address": "P16",
+          "type": "n",
+          "style": "30",
+          "rawValue": "1.188E7",
+          "value": "1.188E7",
+          "formula": null
+        },
+        "Q": {
+          "address": "Q16",
+          "type": "n",
+          "style": "30",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "R": {
+          "address": "R16",
+          "type": "n",
+          "style": "30",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "S": {
+          "address": "S16",
+          "type": "n",
+          "style": "39",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "U": {
+          "address": "U16",
+          "type": "n",
+          "style": "40",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        }
+      }
+    },
+    {
+      "row": 17,
+      "cells": {
+        "A": {
+          "address": "A17",
+          "type": "s",
+          "style": "22",
+          "rawValue": "63",
+          "value": "Kendamil bò 800g organic số 1 6lon",
+          "formula": null
+        },
+        "B": {
+          "address": "B17",
+          "type": "n",
+          "style": "33",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "C": {
+          "address": "C17",
+          "type": "n",
+          "style": "24",
+          "rawValue": "3.0",
+          "value": "3.0",
+          "formula": null
+        },
+        "D": {
+          "address": "D17",
+          "type": "s",
+          "style": "25",
+          "rawValue": "12",
+          "value": "Nhận end 2",
+          "formula": null
+        },
+        "E": {
+          "address": "E17",
+          "type": "s",
+          "style": "25",
+          "rawValue": "77",
+          "value": "Nhung (end)",
+          "formula": null
+        },
+        "F": {
+          "address": "F17",
+          "type": "n",
+          "style": "26",
+          "rawValue": "46303.67619841435",
+          "value": "46303.67619841435",
+          "formula": null
+        },
+        "G": {
+          "address": "G17",
+          "type": "s",
+          "style": "38",
+          "rawValue": "83",
+          "value": "Chờ check hoàn",
+          "formula": null
+        },
+        "H": {
+          "address": "H17",
+          "type": "n",
+          "style": "28",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "I": {
+          "address": "I17",
+          "type": "n",
+          "style": "28",
+          "rawValue": "2670000.0",
+          "value": "2670000.0",
+          "formula": null
+        },
+        "J": {
+          "address": "J17",
+          "type": "n",
+          "style": "28",
+          "rawValue": "500000.0",
+          "value": "500000.0",
+          "formula": null
+        },
+        "K": {
+          "address": "K17",
+          "type": "n",
+          "style": "24",
+          "rawValue": "9.0",
+          "value": "9.0",
+          "formula": null
+        },
+        "L": {
+          "address": "L17",
+          "type": "n",
+          "style": "33",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "M": {
+          "address": "M17",
+          "type": "n",
+          "style": "33",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "N": {
+          "address": "N17",
+          "type": "n",
+          "style": "28",
+          "rawValue": "1830000.0",
+          "value": "1830000.0",
+          "formula": null
+        },
+        "O": {
+          "address": "O17",
+          "type": "n",
+          "style": "29",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "P": {
+          "address": "P17",
+          "type": "n",
+          "style": "30",
+          "rawValue": "7920000.0",
+          "value": "7920000.0",
+          "formula": null
+        },
+        "Q": {
+          "address": "Q17",
+          "type": "n",
+          "style": "30",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "R": {
+          "address": "R17",
+          "type": "n",
+          "style": "30",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "S": {
+          "address": "S17",
+          "type": "n",
+          "style": "39",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "U": {
+          "address": "U17",
+          "type": "n",
+          "style": "40",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        }
+      }
+    },
+    {
+      "row": 18,
+      "cells": {
+        "A": {
+          "address": "A18",
+          "type": "s",
+          "style": "22",
+          "rawValue": "64",
+          "value": "Combo 3 Lon Sữa bột PediasureB/A Vani\n400G, 850G, 1.6KG Hỗ Trợ Phát Triển Thể Chất",
+          "formula": null
+        },
+        "B": {
+          "address": "B18",
+          "type": "n",
+          "style": "33",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "C": {
+          "address": "C18",
+          "type": "n",
+          "style": "24",
+          "rawValue": "3.0",
+          "value": "3.0",
+          "formula": null
+        },
+        "D": {
+          "address": "D18",
+          "type": "s",
+          "style": "25",
+          "rawValue": "69",
+          "value": "Đặt mẫu 3",
+          "formula": null
+        },
+        "E": {
+          "address": "E18",
+          "type": "s",
+          "style": "25",
+          "rawValue": "80",
+          "value": "Trang",
+          "formula": null
+        },
+        "F": {
+          "address": "F18",
+          "type": "n",
+          "style": "26",
+          "rawValue": "46306.0",
+          "value": "46306.0",
+          "formula": null
+        },
+        "G": {
+          "address": "G18",
+          "type": "s",
+          "style": "41",
+          "rawValue": "91",
+          "value": "Chờ nhận mẫu 3",
+          "formula": null
+        },
+        "H": {
+          "address": "H18",
+          "type": "n",
+          "style": "28",
+          "rawValue": "4204000.0",
+          "value": "4204000.0",
+          "formula": null
+        },
+        "I": {
+          "address": "I18",
+          "type": "n",
+          "style": "28",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "J": {
+          "address": "J18",
+          "type": "n",
+          "style": "28",
+          "rawValue": "850000.0",
+          "value": "850000.0",
+          "formula": null
+        },
+        "K": {
+          "address": "K18",
+          "type": "n",
+          "style": "24",
+          "rawValue": "7.0",
+          "value": "7.0",
+          "formula": null
+        },
+        "L": {
+          "address": "L18",
+          "type": "n",
+          "style": "33",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "M": {
+          "address": "M18",
+          "type": "n",
+          "style": "33",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "N": {
+          "address": "N18",
+          "type": "n",
+          "style": "28",
+          "rawValue": "2242000.0",
+          "value": "2242000.0",
+          "formula": null
+        },
+        "O": {
+          "address": "O18",
+          "type": "s",
+          "style": "22",
+          "rawValue": "92",
+          "value": "Đã thanh toán",
+          "formula": null
+        },
+        "P": {
+          "address": "P18",
+          "type": "n",
+          "style": "30",
+          "rawValue": "1.0977299E7",
+          "value": "1.0977299E7",
+          "formula": null
+        },
+        "Q": {
+          "address": "Q18",
+          "type": "n",
+          "style": "30",
+          "rawValue": "5084000.0",
+          "value": "5084000.0",
+          "formula": null
+        },
+        "R": {
+          "address": "R18",
+          "type": "n",
+          "style": "30",
+          "rawValue": "4682299.0",
+          "value": "4682299.0",
+          "formula": null
+        },
+        "S": {
+          "address": "S18",
+          "type": "n",
+          "style": "39",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "U": {
+          "address": "U18",
+          "type": "n",
+          "style": "40",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "Y": {
+          "address": "Y18",
+          "type": "n",
+          "style": "1",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        }
+      }
+    },
+    {
+      "row": 19,
+      "cells": {
+        "A": {
+          "address": "A19",
+          "type": "s",
+          "style": "22",
+          "rawValue": "65",
+          "value": "(Sữa non 24h) Sữa Bột NUtifood Growplus+ Sữa non 24h Hỗ trợ Tăng Đề Kháng ( Lon 800g)",
+          "formula": null
+        },
+        "B": {
+          "address": "B19",
+          "type": "n",
+          "style": "33",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "C": {
+          "address": "C19",
+          "type": "n",
+          "style": "24",
+          "rawValue": "3.0",
+          "value": "3.0",
+          "formula": null
+        },
+        "D": {
+          "address": "D19",
+          "type": "s",
+          "style": "25",
+          "rawValue": "93",
+          "value": " Đặt End 1",
+          "formula": null
+        },
+        "E": {
+          "address": "E19",
+          "type": "s",
+          "style": "25",
+          "rawValue": "80",
+          "value": "Trang",
+          "formula": null
+        },
+        "F": {
+          "address": "F19",
+          "type": "n",
+          "style": "26",
+          "rawValue": "46308.409548194446",
+          "value": "46308.409548194446",
+          "formula": null
+        },
+        "G": {
+          "address": "G19",
+          "type": "s",
+          "style": "43",
+          "rawValue": "94",
+          "value": "Chờ nhận End 1",
+          "formula": null
+        },
+        "H": {
+          "address": "H19",
+          "type": "n",
+          "style": "28",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "I": {
+          "address": "I19",
+          "type": "n",
+          "style": "28",
+          "rawValue": "1375892.0",
+          "value": "1375892.0",
+          "formula": null
+        },
+        "J": {
+          "address": "J19",
+          "type": "n",
+          "style": "42",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "K": {
+          "address": "K19",
+          "type": "n",
+          "style": "33",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "L": {
+          "address": "L19",
+          "type": "n",
+          "style": "33",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "M": {
+          "address": "M19",
+          "type": "n",
+          "style": "33",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "N": {
+          "address": "N19",
+          "type": "n",
+          "style": "28",
+          "rawValue": "-1375892.0",
+          "value": "-1375892.0",
+          "formula": null
+        },
+        "O": {
+          "address": "O19",
+          "type": "n",
+          "style": "29",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "P": {
+          "address": "P19",
+          "type": "n",
+          "style": "30",
+          "rawValue": "3791000.0",
+          "value": "3791000.0",
+          "formula": null
+        },
+        "Q": {
+          "address": "Q19",
+          "type": "n",
+          "style": "30",
+          "rawValue": "1375892.0",
+          "value": "1375892.0",
+          "formula": null
+        },
+        "R": {
+          "address": "R19",
+          "type": "n",
+          "style": "30",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "S": {
+          "address": "S19",
+          "type": "n",
+          "style": "39",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "U": {
+          "address": "U19",
+          "type": "n",
+          "style": "40",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        }
+      }
+    },
+    {
+      "row": 20,
+      "cells": {
+        "A": {
+          "address": "A20",
+          "type": "s",
+          "style": "22",
+          "rawValue": "66",
+          "value": "ColosBaby Lactoferrin loại không 6lon (Đen)",
+          "formula": null
+        },
+        "B": {
+          "address": "B20",
+          "type": "n",
+          "style": "23",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "C": {
+          "address": "C20",
+          "type": "n",
+          "style": "24",
+          "rawValue": "3.0",
+          "value": "3.0",
+          "formula": null
+        },
+        "D": {
+          "address": "D20",
+          "type": "s",
+          "style": "25",
+          "rawValue": "93",
+          "value": " Đặt End 1",
+          "formula": null
+        },
+        "E": {
+          "address": "E20",
+          "type": "s",
+          "style": "25",
+          "rawValue": "80",
+          "value": "Trang",
+          "formula": null
+        },
+        "F": {
+          "address": "F20",
+          "type": "n",
+          "style": "26",
+          "rawValue": "46308.06108237269",
+          "value": "46308.06108237269",
+          "formula": null
+        },
+        "G": {
+          "address": "G20",
+          "type": "s",
+          "style": "43",
+          "rawValue": "94",
+          "value": "Chờ nhận End 1",
+          "formula": null
+        },
+        "H": {
+          "address": "H20",
+          "type": "n",
+          "style": "28",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "I": {
+          "address": "I20",
+          "type": "n",
+          "style": "28",
+          "rawValue": "2132370.0",
+          "value": "2132370.0",
+          "formula": null
+        },
+        "J": {
+          "address": "J20",
+          "type": "n",
+          "style": "42",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "K": {
+          "address": "K20",
+          "type": "n",
+          "style": "33",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "L": {
+          "address": "L20",
+          "type": "n",
+          "style": "33",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "M": {
+          "address": "M20",
+          "type": "n",
+          "style": "33",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "N": {
+          "address": "N20",
+          "type": "n",
+          "style": "28",
+          "rawValue": "-2132370.0",
+          "value": "-2132370.0",
+          "formula": null
+        },
+        "O": {
+          "address": "O20",
+          "type": "n",
+          "style": "29",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "P": {
+          "address": "P20",
+          "type": "n",
+          "style": "30",
+          "rawValue": "4718880.0",
+          "value": "4718880.0",
+          "formula": null
+        },
+        "Q": {
+          "address": "Q20",
+          "type": "n",
+          "style": "30",
+          "rawValue": "2132370.0",
+          "value": "2132370.0",
+          "formula": null
+        },
+        "R": {
+          "address": "R20",
+          "type": "n",
+          "style": "30",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "S": {
+          "address": "S20",
+          "type": "n",
+          "style": "39",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "U": {
+          "address": "U20",
+          "type": "n",
+          "style": "40",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        }
+      }
+    },
+    {
+      "row": 21,
+      "cells": {
+        "A": {
+          "address": "A21",
+          "type": "s",
+          "style": "22",
+          "rawValue": "67",
+          "value": "ColosBaby Gold cải tiến loại Không 6lon (Đen)",
+          "formula": null
+        },
+        "B": {
+          "address": "B21",
+          "type": "n",
+          "style": "23",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "C": {
+          "address": "C21",
+          "type": "n",
+          "style": "24",
+          "rawValue": "3.0",
+          "value": "3.0",
+          "formula": null
+        },
+        "D": {
+          "address": "D21",
+          "type": "s",
+          "style": "25",
+          "rawValue": "93",
+          "value": " Đặt End 1",
+          "formula": null
+        },
+        "E": {
+          "address": "E21",
+          "type": "s",
+          "style": "25",
+          "rawValue": "80",
+          "value": "Trang",
+          "formula": null
+        },
+        "F": {
+          "address": "F21",
+          "type": "n",
+          "style": "26",
+          "rawValue": "46308.06127908565",
+          "value": "46308.06127908565",
+          "formula": null
+        },
+        "G": {
+          "address": "G21",
+          "type": "s",
+          "style": "43",
+          "rawValue": "94",
+          "value": "Chờ nhận End 1",
+          "formula": null
+        },
+        "H": {
+          "address": "H21",
+          "type": "n",
+          "style": "28",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "I": {
+          "address": "I21",
+          "type": "n",
+          "style": "28",
+          "rawValue": "1988820.0",
+          "value": "1988820.0",
+          "formula": null
+        },
+        "J": {
+          "address": "J21",
+          "type": "n",
+          "style": "42",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "K": {
+          "address": "K21",
+          "type": "n",
+          "style": "33",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "L": {
+          "address": "L21",
+          "type": "n",
+          "style": "33",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "M": {
+          "address": "M21",
+          "type": "n",
+          "style": "33",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "N": {
+          "address": "N21",
+          "type": "n",
+          "style": "28",
+          "rawValue": "-1988820.0",
+          "value": "-1988820.0",
+          "formula": null
+        },
+        "O": {
+          "address": "O21",
+          "type": "n",
+          "style": "29",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "P": {
+          "address": "P21",
+          "type": "n",
+          "style": "30",
+          "rawValue": "4269960.0",
+          "value": "4269960.0",
+          "formula": null
+        },
+        "Q": {
+          "address": "Q21",
+          "type": "n",
+          "style": "30",
+          "rawValue": "1988820.0",
+          "value": "1988820.0",
+          "formula": null
+        },
+        "R": {
+          "address": "R21",
+          "type": "n",
+          "style": "30",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "S": {
+          "address": "S21",
+          "type": "n",
+          "style": "39",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "U": {
+          "address": "U21",
+          "type": "n",
+          "style": "40",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        }
+      }
+    },
+    {
+      "row": 22,
+      "cells": {
+        "A": {
+          "address": "A22",
+          "type": "s",
+          "style": "22",
+          "rawValue": "68",
+          "value": "Combo 04 Lon Sữa Bột Nutifood Sweden\nGrowPLUS+ Sữa Non Immunel lon 800 g (Bao bì t...",
+          "formula": null
+        },
+        "B": {
+          "address": "B22",
+          "type": "n",
+          "style": "33",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "C": {
+          "address": "C22",
+          "type": "n",
+          "style": "24",
+          "rawValue": "1.0",
+          "value": "1.0",
+          "formula": null
+        },
+        "D": {
+          "address": "D22",
+          "type": "s",
+          "style": "25",
+          "rawValue": "69",
+          "value": "Đặt mẫu 3",
+          "formula": null
+        },
+        "E": {
+          "address": "E22",
+          "type": "s",
+          "style": "25",
+          "rawValue": "80",
+          "value": "Trang",
+          "formula": null
+        },
+        "F": {
+          "address": "F22",
+          "type": "n",
+          "style": "26",
+          "rawValue": "46307.41828549768",
+          "value": "46307.41828549768",
+          "formula": null
+        },
+        "G": {
+          "address": "G22",
+          "type": "s",
+          "style": "41",
+          "rawValue": "91",
+          "value": "Chờ nhận mẫu 3",
+          "formula": null
+        },
+        "H": {
+          "address": "H22",
+          "type": "n",
+          "style": "28",
+          "rawValue": "2656000.0",
+          "value": "2656000.0",
+          "formula": null
+        },
+        "I": {
+          "address": "I22",
+          "type": "n",
+          "style": "42",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "J": {
+          "address": "J22",
+          "type": "n",
+          "style": "28",
+          "rawValue": "320000.0",
+          "value": "320000.0",
+          "formula": null
+        },
+        "K": {
+          "address": "K22",
+          "type": "n",
+          "style": "24",
+          "rawValue": "16.0",
+          "value": "16.0",
+          "formula": null
+        },
+        "L": {
+          "address": "L22",
+          "type": "n",
+          "style": "33",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "M": {
+          "address": "M22",
+          "type": "n",
+          "style": "33",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "N": {
+          "address": "N22",
+          "type": "n",
+          "style": "28",
+          "rawValue": "5120000.0",
+          "value": "5120000.0",
+          "formula": null
+        },
+        "O": {
+          "address": "O22",
+          "type": "n",
+          "style": "29",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "P": {
+          "address": "P22",
+          "type": "n",
+          "style": "30",
+          "rawValue": "5448000.0",
+          "value": "5448000.0",
+          "formula": null
+        },
+        "Q": {
+          "address": "Q22",
+          "type": "n",
+          "style": "30",
+          "rawValue": "2656000.0",
+          "value": "2656000.0",
+          "formula": null
+        },
+        "R": {
+          "address": "R22",
+          "type": "n",
+          "style": "30",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "S": {
+          "address": "S22",
+          "type": "n",
+          "style": "39",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "U": {
+          "address": "U22",
+          "type": "n",
+          "style": "40",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        }
+      }
+    },
+    {
+      "row": 23,
+      "cells": {
+        "A": {
+          "address": "A23",
+          "type": "s",
+          "style": "22",
+          "rawValue": "72",
+          "value": "Combo 04 Lon Sữa bột Nutifood Sweden\nGrowPLUS+ Colostrum Lactoferrin 800g",
+          "formula": null
+        },
+        "B": {
+          "address": "B23",
+          "type": "n",
+          "style": "24",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "C": {
+          "address": "C23",
+          "type": "n",
+          "style": "24",
+          "rawValue": "1.0",
+          "value": "1.0",
+          "formula": null
+        },
+        "D": {
+          "address": "D23",
+          "type": "s",
+          "style": "25",
+          "rawValue": "69",
+          "value": "Đặt mẫu 3",
+          "formula": null
+        },
+        "E": {
+          "address": "E23",
+          "type": "s",
+          "style": "25",
+          "rawValue": "80",
+          "value": "Trang",
+          "formula": null
+        },
+        "F": {
+          "address": "F23",
+          "type": "n",
+          "style": "26",
+          "rawValue": "46307.418503912035",
+          "value": "46307.418503912035",
+          "formula": null
+        },
+        "G": {
+          "address": "G23",
+          "type": "s",
+          "style": "41",
+          "rawValue": "91",
+          "value": "Chờ nhận mẫu 3",
+          "formula": null
+        },
+        "H": {
+          "address": "H23",
+          "type": "n",
+          "style": "28",
+          "rawValue": "2691000.0",
+          "value": "2691000.0",
+          "formula": null
+        },
+        "I": {
+          "address": "I23",
+          "type": "n",
+          "style": "42",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "J": {
+          "address": "J23",
+          "type": "n",
+          "style": "42",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "K": {
+          "address": "K23",
+          "type": "n",
+          "style": "33",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "L": {
+          "address": "L23",
+          "type": "n",
+          "style": "33",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "M": {
+          "address": "M23",
+          "type": "n",
+          "style": "33",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "N": {
+          "address": "N23",
+          "type": "n",
+          "style": "28",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "O": {
+          "address": "O23",
+          "type": "s",
+          "style": "22",
+          "rawValue": "92",
+          "value": "Đã thanh toán",
+          "formula": null
+        },
+        "P": {
+          "address": "P23",
+          "type": "n",
+          "style": "30",
+          "rawValue": "5518345.0",
+          "value": "5518345.0",
+          "formula": null
+        },
+        "Q": {
+          "address": "Q23",
+          "type": "n",
+          "style": "30",
+          "rawValue": "2691000.0",
+          "value": "2691000.0",
+          "formula": null
+        },
+        "R": {
+          "address": "R23",
+          "type": "n",
+          "style": "30",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "S": {
+          "address": "S23",
+          "type": "n",
+          "style": "39",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "U": {
+          "address": "U23",
+          "type": "n",
+          "style": "40",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        }
+      }
+    },
+    {
+      "row": 24,
+      "cells": {
+        "A": {
+          "address": "A24",
+          "type": "s",
+          "style": "22",
+          "rawValue": "73",
+          "value": "Aptamil NewZealand 5 mẫu h.a.i",
+          "formula": null
+        },
+        "B": {
+          "address": "B24",
+          "type": "n",
+          "style": "33",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "C": {
+          "address": "C24",
+          "type": "n",
+          "style": "24",
+          "rawValue": "1.0",
+          "value": "1.0",
+          "formula": null
+        },
+        "D": {
+          "address": "D24",
+          "type": "s",
+          "style": "25",
+          "rawValue": "56",
+          "value": "Nhận mẫu 1",
+          "formula": null
+        },
+        "E": {
+          "address": "E24",
+          "type": "s",
+          "style": "25",
+          "rawValue": "87",
+          "value": "Trường",
+          "formula": null
+        },
+        "F": {
+          "address": "F24",
+          "type": "n",
+          "style": "26",
+          "rawValue": "46300.58755787037",
+          "value": "46300.58755787037",
+          "formula": null
+        },
+        "G": {
+          "address": "G24",
+          "type": "s",
+          "style": "32",
+          "rawValue": "89",
+          "value": "Hết hàng • còn 22 ngày hoàn",
+          "formula": null
+        },
+        "H": {
+          "address": "H24",
+          "type": "n",
+          "style": "28",
+          "rawValue": "3888000.0",
+          "value": "3888000.0",
+          "formula": null
+        },
+        "I": {
+          "address": "I24",
+          "type": "n",
+          "style": "28",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "J": {
+          "address": "J24",
+          "type": "n",
+          "style": "42",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "K": {
+          "address": "K24",
+          "type": "n",
+          "style": "33",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "L": {
+          "address": "L24",
+          "type": "n",
+          "style": "33",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "M": {
+          "address": "M24",
+          "type": "n",
+          "style": "33",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "N": {
+          "address": "N24",
+          "type": "n",
+          "style": "28",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "O": {
+          "address": "O24",
+          "type": "s",
+          "style": "35",
+          "rawValue": "90",
+          "value": "Hết hàng",
+          "formula": null
+        },
+        "P": {
+          "address": "P24",
+          "type": "n",
+          "style": "30",
+          "rawValue": "3888000.0",
+          "value": "3888000.0",
+          "formula": null
+        },
+        "Q": {
+          "address": "Q24",
+          "type": "n",
+          "style": "30",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "R": {
+          "address": "R24",
+          "type": "n",
+          "style": "30",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "S": {
+          "address": "S24",
+          "type": "n",
+          "style": "39",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "U": {
+          "address": "U24",
+          "type": "n",
+          "style": "40",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        }
+      }
+    },
+    {
+      "row": 25,
+      "cells": {
+        "A": {
+          "address": "A25",
+          "type": "s",
+          "style": "22",
+          "rawValue": "74",
+          "value": "Combo 04 Lon Sữa Bột Nutifood Sweden\nGrowPLUS+ Cao lớn vượt trội (Bạc) 800g",
+          "formula": null
+        },
+        "B": {
+          "address": "B25",
+          "type": "n",
+          "style": "33",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "C": {
+          "address": "C25",
+          "type": "n",
+          "style": "24",
+          "rawValue": "1.0",
+          "value": "1.0",
+          "formula": null
+        },
+        "D": {
+          "address": "D25",
+          "type": "s",
+          "style": "25",
+          "rawValue": "69",
+          "value": "Đặt mẫu 3",
+          "formula": null
+        },
+        "E": {
+          "address": "E25",
+          "type": "s",
+          "style": "25",
+          "rawValue": "80",
+          "value": "Trang",
+          "formula": null
+        },
+        "F": {
+          "address": "F25",
+          "type": "n",
+          "style": "26",
+          "rawValue": "46307.41991589121",
+          "value": "46307.41991589121",
+          "formula": null
+        },
+        "G": {
+          "address": "G25",
+          "type": "s",
+          "style": "41",
+          "rawValue": "91",
+          "value": "Chờ nhận mẫu 3",
+          "formula": null
+        },
+        "H": {
+          "address": "H25",
+          "type": "n",
+          "style": "28",
+          "rawValue": "2312000.0",
+          "value": "2312000.0",
+          "formula": null
+        },
+        "I": {
+          "address": "I25",
+          "type": "n",
+          "style": "42",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "J": {
+          "address": "J25",
+          "type": "n",
+          "style": "28",
+          "rawValue": "300000.0",
+          "value": "300000.0",
+          "formula": null
+        },
+        "K": {
+          "address": "K25",
+          "type": "n",
+          "style": "24",
+          "rawValue": "4.0",
+          "value": "4.0",
+          "formula": null
+        },
+        "L": {
+          "address": "L25",
+          "type": "n",
+          "style": "33",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "M": {
+          "address": "M25",
+          "type": "n",
+          "style": "33",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "N": {
+          "address": "N25",
+          "type": "n",
+          "style": "28",
+          "rawValue": "1200000.0",
+          "value": "1200000.0",
+          "formula": null
+        },
+        "O": {
+          "address": "O25",
+          "type": "s",
+          "style": "22",
+          "rawValue": "92",
+          "value": "Đã thanh toán",
+          "formula": null
+        },
+        "P": {
+          "address": "P25",
+          "type": "n",
+          "style": "30",
+          "rawValue": "4532756.0",
+          "value": "4532756.0",
+          "formula": null
+        },
+        "Q": {
+          "address": "Q25",
+          "type": "n",
+          "style": "30",
+          "rawValue": "2312000.0",
+          "value": "2312000.0",
+          "formula": null
+        },
+        "R": {
+          "address": "R25",
+          "type": "n",
+          "style": "30",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "S": {
+          "address": "S25",
+          "type": "n",
+          "style": "39",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "U": {
+          "address": "U25",
+          "type": "n",
+          "style": "40",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        }
+      }
+    },
+    {
+      "row": 26,
+      "cells": {
+        "A": {
+          "address": "A26",
+          "type": "s",
+          "style": "22",
+          "rawValue": "95",
+          "value": "Enfagrow A+3 1,7kg đợt 2 ",
+          "formula": null
+        },
+        "B": {
+          "address": "B26",
+          "type": "n",
+          "style": "33",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "C": {
+          "address": "C26",
+          "type": "n",
+          "style": "24",
+          "rawValue": "1.0",
+          "value": "1.0",
+          "formula": null
+        },
+        "D": {
+          "address": "D26",
+          "type": "s",
+          "style": "25",
+          "rawValue": "76",
+          "value": "Đặt mẫu 2",
+          "formula": null
+        },
+        "E": {
+          "address": "E26",
+          "type": "s",
+          "style": "25",
+          "rawValue": "80",
+          "value": "Trang",
+          "formula": null
+        },
+        "F": {
+          "address": "F26",
+          "type": "n",
+          "style": "26",
+          "rawValue": "46307.398900925924",
+          "value": "46307.398900925924",
+          "formula": null
+        },
+        "G": {
+          "address": "G26",
+          "type": "s",
+          "style": "43",
+          "rawValue": "96",
+          "value": "Chờ nhận mẫu 2",
+          "formula": null
+        },
+        "H": {
+          "address": "H26",
+          "type": "n",
+          "style": "28",
+          "rawValue": "1548000.0",
+          "value": "1548000.0",
+          "formula": null
+        },
+        "I": {
+          "address": "I26",
+          "type": "n",
+          "style": "42",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "J": {
+          "address": "J26",
+          "type": "n",
+          "style": "42",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "K": {
+          "address": "K26",
+          "type": "n",
+          "style": "33",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "L": {
+          "address": "L26",
+          "type": "n",
+          "style": "33",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "M": {
+          "address": "M26",
+          "type": "n",
+          "style": "33",
+          "rawValue": null,
+          "value": null,
+          "formula": null
+        },
+        "N": {
+          "address": "N26",
+          "type": "n",
+          "style": "28",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "O": {
+          "address": "O26",
+          "type": "s",
+          "style": "22",
+          "rawValue": "92",
+          "value": "Đã thanh toán",
+          "formula": null
+        },
+        "P": {
+          "address": "P26",
+          "type": "n",
+          "style": "30",
+          "rawValue": "1794000.0",
+          "value": "1794000.0",
+          "formula": null
+        },
+        "Q": {
+          "address": "Q26",
+          "type": "n",
+          "style": "30",
+          "rawValue": "1548000.0",
+          "value": "1548000.0",
+          "formula": null
+        },
+        "R": {
+          "address": "R26",
+          "type": "n",
+          "style": "30",
+          "rawValue": "0.0",
+          "value": "0.0",
+          "formula": null
+        },
+        "S": {
+          "address": "S26",
+          "type": "s",
+          "style": "31",
+          "rawValue": "97",
+          "value": " ",
+          "formula": null
+        }
+      }
+    }
+  ]
+}

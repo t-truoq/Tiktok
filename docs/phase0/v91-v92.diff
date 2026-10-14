@@ -1,0 +1,157 @@
+--- V9.1
++++ V9.2
+@@ -1346,9 +1346,102 @@
+ }
+ // truonglt V9.1 FIX SYNC CURRENT PURCHASE end
+ 
+-function updateHeaderTotals(sheet){if(!sheet)return;const sums={paid:0,unpaid:0,sampleTotal:0,endTotal:0,profit:0,sampleQty:0,endQty:0,refund:0,missing:0,review:0};const seen=new Set();for(let row=CFG.DATA_START_ROW;row<=sheet.getLastRow();row++){const d=readRow(sheet,row);if(!d.name)continue;const k=normalizeRootName(d.name);if(seen.has(k))continue;seen.add(k);const r=loadRecord(d.name);if(!r)throw Error('Không đọc được record tại dòng '+row+': '+d.name);ensureRecord(r);if(syncCurrentOrder91(r,d))saveRecord(d.name,r);const p=getPaymentSummaryForRecord(r),refund=getRefundEligible91(r);['paid','unpaid','sampleTotal','endTotal','missing','review'].forEach(k=>sums[k]+=p[k]);sums.refund+=refund.total;sums.sampleQty+=Number(r.qty)||0;sums.endQty+=getEndSellQtyTotal(r);sums.profit+=calculateProjectedProfit(r);
+- sheet.getRange(row,CFG.COL.PAID_TOTAL,1,3).setValues([[p.paid,p.unpaid,refund.total]]);sheet.getRange(row,CFG.COL.UNPAID_TOTAL).setNote(p.missing||p.review?'TẠM TÍNH: '+p.missing+' lượt thiếu giá, '+p.review+' lượt V9 cần đối soát':'');sheet.getRange(row,CFG.COL.REFUND_TOTAL).setNote(refund.missing?'Thiếu '+refund.missing+' giá Sample tương ứng End đã nhận':'');}
+- const set=(c,v)=>sheet.getRange(CFG.TOTAL_ROW,c).setValue(v);set(1,sums.sampleTotal+sums.endTotal);set(CFG.COL.PRICE,sums.sampleTotal);set(CFG.COL.END_PRICE,sums.endTotal);set(CFG.COL.QTY,sums.sampleQty);set(CFG.COL.SELL_END_QTY,sums.endQty);set(CFG.COL.PROFIT,sums.profit);set(CFG.COL.PAID_TOTAL,sums.paid);set(CFG.COL.UNPAID_TOTAL,sums.unpaid);set(CFG.COL.REFUND_TOTAL,sums.refund);sheet.getRange(CFG.TOTAL_ROW,2).setValue('Total');stylePaymentSummary(sheet);sheet.getRange('P2').setNote(sums.missing||sums.review?'TẠM TÍNH: '+sums.missing+' lượt thiếu giá, '+sums.review+' lượt cần đối soát':'');}
++// truonglt V9.2 PERFORMANCE start
++// Business logic and calculation functions remain exactly as V9.1.
++// Only Sheets I/O is batched. No cache, no new storage schema.
++function updateHeaderTotals(sheet) {
++  if (!sheet) return;
++  const sums = {paid:0,unpaid:0,sampleTotal:0,endTotal:0,profit:0,sampleQty:0,endQty:0,refund:0,missing:0,review:0};
++  const seen = new Set();
++  const lastRow = sheet.getLastRow();
++  const count = Math.max(0, lastRow - CFG.DATA_START_ROW + 1);
++  const sourceRange = count ? sheet.getRange(CFG.DATA_START_ROW,1,count,CFG.COL.NOTE) : null;
++  const values = sourceRange ? sourceRange.getValues() : [];
++  const displays = sourceRange ? sourceRange.getDisplayValues() : [];
++  const outputs = []; // Only unique, non-empty root rows; never overwrite other rows.
++
++  for (let i=0; i<count; i++) {
++    const row = CFG.DATA_START_ROW+i;
++    const d = affiliateRowFromArraysV92(values[i],displays[i]);
++    if (!d.name) continue;
++    const k = normalizeRootName(d.name);
++    if (seen.has(k)) continue;
++    seen.add(k);
++    const r = loadRecord(d.name);
++    if (!r) throw Error('Không đọc được record tại dòng '+row+': '+d.name);
++    ensureRecord(r);
++    if (syncCurrentOrder91(r,d)) saveRecord(d.name,r);
++    const p = getPaymentSummaryForRecord(r), refund = getRefundEligible91(r);
++    ['paid','unpaid','sampleTotal','endTotal','missing','review'].forEach(x=>sums[x]+=p[x]);
++    sums.refund += refund.total;
++    sums.sampleQty += Number(r.qty)||0;
++    sums.endQty += getEndSellQtyTotal(r);
++    sums.profit += calculateProjectedProfit(r);
++    outputs.push({row,values:[p.paid,p.unpaid,refund.total],
++      notes:['',p.missing||p.review?'TẠM TÍNH: '+p.missing+' lượt thiếu giá, '+p.review+' lượt V9 cần đối soát':'',
++        refund.missing?'Thiếu '+refund.missing+' giá Sample tương ứng End đã nhận':'']});
++  }
++
++  // Preserve cells belonging to empty/duplicate rows: batch only adjacent processed rows.
++  for(let i=0;i<outputs.length;){
++    let j=i+1;
++    while(j<outputs.length && outputs[j].row===outputs[j-1].row+1) j++;
++    const group=outputs.slice(i,j);
++    const rg=sheet.getRange(group[0].row,CFG.COL.PAID_TOTAL,group.length,3);
++    // Some native Sheets Tables may disallow a multi-row write.
++    // Fall back to the exact original row-scoped API in that case.
++    try {
++      rg.setValues(group.map(x=>x.values));
++    } catch (batchError) {
++      if (group.length===1) throw batchError;
++      group.forEach(x=>sheet.getRange(x.row,CFG.COL.PAID_TOTAL,1,3).setValues([x.values]));
++    }
++    // Set notes only in Q:R; leave P notes unchanged, as in V9.1.
++    try {
++      sheet.getRange(group[0].row,CFG.COL.UNPAID_TOTAL,group.length,2)
++        .setNotes(group.map(x=>[x.notes[1],x.notes[2]]));
++    } catch (noteError) {
++      if (group.length===1) throw noteError;
++      group.forEach(x=>{
++        sheet.getRange(x.row,CFG.COL.UNPAID_TOTAL).setNote(x.notes[1]);
++        sheet.getRange(x.row,CFG.COL.REFUND_TOTAL).setNote(x.notes[2]);
++      });
++    }
++    i=j;
++  }
++  // Keep all total-row addresses, order, business formula and formatting calls unchanged.
++  const set=(c,v)=>sheet.getRange(CFG.TOTAL_ROW,c).setValue(v);
++  set(1,sums.sampleTotal+sums.endTotal);
++  set(CFG.COL.PRICE,sums.sampleTotal);
++  set(CFG.COL.END_PRICE,sums.endTotal);
++  set(CFG.COL.QTY,sums.sampleQty);
++  set(CFG.COL.SELL_END_QTY,sums.endQty);
++  set(CFG.COL.PROFIT,sums.profit);
++  set(CFG.COL.PAID_TOTAL,sums.paid);
++  set(CFG.COL.UNPAID_TOTAL,sums.unpaid);
++  set(CFG.COL.REFUND_TOTAL,sums.refund);
++  sheet.getRange(CFG.TOTAL_ROW,2).setValue('Total');
++  stylePaymentSummary(sheet);
++  sheet.getRange('P2').setNote(sums.missing||sums.review?
++    'TẠM TÍNH: '+sums.missing+' lượt thiếu giá, '+sums.review+' lượt cần đối soát':'');
++}
++
++// Exact field mapping of original readRow(), now operating on already-fetched arrays.
++function affiliateRowFromArraysV92(v,d) {
++  const c=CFG.COL;
++  return {
++    name:String(d[c.NAME-1]||'').trim(),
++    refundQty:v[c.REFUND_QTY-1],price:v[c.PRICE-1],
++    pic:String(d[c.PIC-1]||'').trim(),
++    progress:String(d[c.PROGRESS-1]||'').trim(),
++    date:v[c.DATE-1],endPrice:v[c.END_PRICE-1],
++    status:String(d[c.STATUS-1]||'').trim(),
++    wholesale:v[c.WHOLESALE-1],qty:v[c.QTY-1],
++    sellEnd:v[c.SELL_END-1],sellEndQty:v[c.SELL_END_QTY-1],
++    profit:v[c.PROFIT-1],note:String(d[c.NOTE-1]||'').trim()
++  };
++}
++// truonglt V9.2 PERFORMANCE end
+ 
+ function hasAffiliateStage(record, progress) {
+   ensureRecord(record);
+@@ -2307,7 +2400,11 @@
+   // Write parts first, then atomically switch the manifest (single property update).
+   const version=Utilities.getUuid().replace(/-/g,'').slice(0,12);
+   const prefix=key+'__'+version+'_';
+-  parts.forEach((v,i)=>props.setProperty(prefix+i,v));
++  // truonglt V9.2 STORAGE I/O start: one batch write, same keys and same manifest.
++  const chunkProperties={};
++  parts.forEach((v,i)=>{chunkProperties[prefix+i]=v;});
++  props.setProperties(chunkProperties,false);
++  // truonglt V9.2 STORAGE I/O end
+   const manifest='AFFZ91|'+version+'|'+parts.length+'|'+encoded.length;
+   try { props.setProperty(key,manifest); }
+   catch(e){parts.forEach((_,i)=>props.deleteProperty(prefix+i));throw e;}
+@@ -3339,3 +3436,35 @@
+   return {records:check.records, installed:['onEdit','checkAffiliateStatus']};
+ }
+ // truonglt fix complete setup without migration end
++
++// truonglt V9.2 READ-ONLY VERIFY start
++// Run from Apps Script editor. Does not touch cells, records or triggers.
++function verifyAffiliateV92ReadOnly() {
++  const sheet=getMainSheet();
++  if(!sheet) throw Error('Không thấy Trang tính2');
++  const lastRow=sheet.getLastRow();
++  const count=Math.max(0,lastRow-CFG.DATA_START_ROW+1);
++  if(!count) return {products:0,invalid:0};
++  const range=sheet.getRange(CFG.DATA_START_ROW,1,count,CFG.COL.NOTE);
++  const values=range.getValues(), displays=range.getDisplayValues();
++  const seen=new Set(), problems=[];
++  const sums={paid:0,unpaid:0,refund:0,profit:0};
++  for(let i=0;i<count;i++){
++    const d=affiliateRowFromArraysV92(values[i],displays[i]);
++    if(!d.name)continue;
++    const key=normalizeRootName(d.name);
++    if(seen.has(key))continue;seen.add(key);
++    const r=loadRecord(d.name);
++    if(!r){problems.push('Không có record: '+d.name);continue;}
++    const p=getPaymentSummaryForRecord(r), refund=getRefundEligible91(r);
++    sums.paid+=p.paid;sums.unpaid+=p.unpaid;
++    sums.refund+=refund.total;sums.profit+=calculateProjectedProfit(r);
++    // Compare financial identity only when all price slots exist.
++    if(p.missing===0 && Math.abs((p.paid+p.unpaid)-p.incurred)>0.000001)
++      problems.push('Công nợ không cân: '+d.name);
++  }
++  const report={products:seen.size,invalid:problems.length,problems,totals:sums};
++  Logger.log(JSON.stringify(report));
++  return report;
++}
++// truonglt V9.2 READ-ONLY VERIFY end
