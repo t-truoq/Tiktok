@@ -5,7 +5,7 @@
     "body": {
       "status": "ok"
     },
-    "verifiedAtUtc": "2026-10-14T05:39:39.147Z",
+    "verifiedAtUtc": "2026-10-14T06:25:53.302Z",
     "runtime": "LOCAL_NESTJS_REAL_DEV_DATABASE"
   },
   {
@@ -20,7 +20,7 @@
       "tlsProtocol": "TLSv1.3",
       "postgresSessionTls": false
     },
-    "verifiedAtUtc": "2026-10-14T05:39:40.545Z",
+    "verifiedAtUtc": "2026-10-14T06:25:54.702Z",
     "runtime": "LOCAL_NESTJS_REAL_DEV_DATABASE"
   }
 ]

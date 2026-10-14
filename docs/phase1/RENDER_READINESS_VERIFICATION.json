@@ -1,0 +1,39 @@
+{
+  "verifiedAtUtc": "2026-10-14T06:12:29.566Z",
+  "runtime": "REMOTE_RENDER_STAGING",
+  "endpoints": [
+    {
+      "url": "https://tiktok-6kwu.onrender.com/api/v1/health/live",
+      "endpoint": "live",
+      "verifiedAtUtc": "2026-10-14T06:12:28.610Z",
+      "httpStatus": 200,
+      "body": {
+        "status": "ok"
+      },
+      "passed": true,
+      "contentType": "application/json; charset=utf-8"
+    },
+    {
+      "url": "https://tiktok-6kwu.onrender.com/api/v1/health/ready",
+      "endpoint": "ready",
+      "verifiedAtUtc": "2026-10-14T06:12:28.652Z",
+      "httpStatus": 200,
+      "body": {
+        "status": "ready",
+        "database": "ok",
+        "tls": true,
+        "timezone": "UTC",
+        "tlsScope": "client-to-endpoint",
+        "tlsProtocol": "TLSv1.3",
+        "postgresSessionTls": false
+      },
+      "passed": true,
+      "contentType": "application/json; charset=utf-8"
+    }
+  ],
+  "ownerBuildLog": "Build successful; npm run start:prod; Your service is live",
+  "buildEvidenceSource": "OWNER_PROVIDED_RENDER_LOG",
+  "githubActions": "BLOCKED_BY_BILLING",
+  "acceptanceMode": "OWNER_CLI_RENDER_EXCEPTION",
+  "databaseWrites": false
+}
