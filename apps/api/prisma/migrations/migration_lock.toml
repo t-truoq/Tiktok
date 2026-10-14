@@ -1,0 +1,3 @@
+# truonglt reviewed PostgreSQL migration lock start
+provider = "postgresql"
+# truonglt reviewed PostgreSQL migration lock end

@@ -9,6 +9,8 @@
     "test:phase0": "node --test tests/phase0/*.test.cjs",
     "baseline:build": "node scripts/phase0/source-baseline.cjs",
     "phase2:preview": "node scripts/phase0/prepare-schema-preview.cjs",
+    "phase2:prepare": "node scripts/phase2/prepare-official-migration.cjs",
+    "phase2:preflight": "node scripts/phase2/preflight-readonly.cjs",
     "phase2:dry-run": "node scripts/phase2/preservation.cjs",
     "gate0:finalize": "node scripts/phase0/finalize-gate0.cjs",
     "build": "npm run build --workspace apps/api",

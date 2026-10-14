@@ -1,0 +1,80 @@
+{
+  "verifiedAtUtc": "2026-10-14T06:25:52.411Z",
+  "environment": "DEV",
+  "projectRef": "nqdaykgasfnsaixkhbya",
+  "transport": {
+    "ok": 1,
+    "timezone": "UTC",
+    "tls": true,
+    "tlsScope": "client-to-endpoint",
+    "tlsProtocol": "TLSv1.3",
+    "postgresSessionTls": false
+  },
+  "catalog": {
+    "identity": [
+      {
+        "database": "postgres",
+        "schema": "public",
+        "readOnly": "on"
+      }
+    ],
+    "schemas": [
+      {
+        "name": "auth"
+      },
+      {
+        "name": "extensions"
+      },
+      {
+        "name": "graphql"
+      },
+      {
+        "name": "graphql_public"
+      },
+      {
+        "name": "public"
+      },
+      {
+        "name": "realtime"
+      },
+      {
+        "name": "storage"
+      },
+      {
+        "name": "vault"
+      }
+    ],
+    "publicObjects": [],
+    "migrationHistory": [
+      {
+        "exists": false
+      }
+    ],
+    "inspectionOnly": true,
+    "migrationsExecuted": false
+  },
+  "privileges": [
+    {
+      "role": "postgres",
+      "bypassRls": true,
+      "superuser": false,
+      "canCreateInPublic": true,
+      "canUsePublic": true
+    }
+  ],
+  "clientRoles": [
+    {
+      "name": "anon"
+    },
+    {
+      "name": "authenticated"
+    },
+    {
+      "name": "service_role"
+    }
+  ],
+  "schemaPreconditions": "PASS",
+  "backupRestoreRehearsal": "NOT_VERIFIED",
+  "migrationsExecuted": false,
+  "importsExecuted": false
+}

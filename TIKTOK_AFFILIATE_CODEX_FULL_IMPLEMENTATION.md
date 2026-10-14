@@ -24,6 +24,10 @@ GitHub Actions đang `BLOCKED_BY_BILLING`, không được ghi PASS. Tạm ngừ
 Giữ HISTORY JSON nguyên bản local và loại khỏi commit mới theo yêu cầu mới. Source checksum/46 records/1.224 events/133 snapshots không đổi. File đã được push trước theo xác nhận cho phép công khai; không tự rewrite lịch sử Git hoặc xóa dữ liệu nguồn. Các golden fixtures đã công khai vẫn chứa bản sao dữ liệu theo phê duyệt trước đó.
 <!-- truonglt owner gate1 billing exception end -->
 
+<!-- truonglt gate1 verified and phase2 prepared start -->
+Ngày14/10/2026: Gate1 **PASS_OWNER_EXCEPTION**, Render owner logs xác nhận checkoutfa1f9ee/buildsuccessful/service live; hai health endpoints độc lậpHTTP200, readinessTLS1.3/UTC/databaseok. Actions vẫn BLOCKED_BY_BILLING. Evidence docs/phase1/GATE1_SIGNOFF.md. Phase2 schema chính và migration đã chuẩn bị offline; kế hoạch docs/phase2/DEV_MIGRATION_PLAN.md. Chưa migration/import approval, chưa DBwrites, chưa Gate2PASS hoặc frontend.
+<!-- truonglt gate1 verified and phase2 prepared end -->
+
 > **Purpose:** Rebuild the existing Google Sheets + Apps Script V9.1/V9.2 TikTok Affiliate workflow as a responsive, friendly web application. **Database-first, backend-entities-second, frontend-tables-third.** Preserve every verified financial rule, existing record and audit history. This is an implementation contract, not permission to invent business rules.
 >
 > **Reference source files (must be provided to Codex):** `Tiktok_Affiliate_V9.1_Original_Backup.gs`, `Tiktok_Affiliate_V9.2_Optimized.gs`, `Pasted text(20261014-015629).txt`, `Tiktok affiliate.xlsx`. The Excel snapshot DOES NOT include all Apps Script Document Properties. Never claim a complete migration from Excel alone.

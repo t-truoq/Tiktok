@@ -1,0 +1,12 @@
+{
+  "status": "PREPARED_NOT_APPLIED",
+  "migration": "apps\\api\\prisma\\migrations\\20261014063000_preserve_source_baseline\\migration.sql",
+  "sha256": "148e77f65ba5c08720afddc569e3535512017b3257a1384ba39cdb7c5cb37c93",
+  "tables": 13,
+  "rowLevelSecurityTables": 13,
+  "immutableTriggers": 10,
+  "transactionWrapped": true,
+  "databaseCalls": 0,
+  "migrationApproved": false,
+  "importApproved": false
+}

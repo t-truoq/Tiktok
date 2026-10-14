@@ -1,4 +1,5 @@
-// truonglt phase1 prisma foundation start
+// truonglt phase2 reviewed schema start
+// Gate1 owner exception passed. Active datamodel; migrations have not been applied.
 generator client {
   provider     = "prisma-client"
   output       = "../src/generated/prisma"
@@ -8,5 +9,279 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
-// No business entities or migrations before source/export reconciliation gates.
-// truonglt phase1 prisma foundation end
+
+enum AppRole {
+  ADMIN
+  EDITOR
+  VIEWER
+}
+
+enum SourceClassification {
+  XLSX_MATCHED
+  LEGACY_UNMATCHED
+}
+
+enum RoundGroup {
+  SAMPLE
+  END
+}
+
+enum ValueState {
+  MISSING
+  NULL
+  BLANK
+  NUMBER
+  TEXT
+  BOOLEAN
+  ARRAY
+  OBJECT
+}
+
+model User {
+  id          String   @id @default(uuid()) @db.Uuid
+  authSubject String   @unique @map("auth_subject")
+  role        AppRole
+  createdAt   DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt   DateTime @updatedAt @map("updated_at") @db.Timestamptz(6)
+  events      ProductHistory[]
+  requests    MutationRequest[]
+  @@map("users")
+}
+
+model SourceArchive {
+  id              String   @id @default(uuid()) @db.Uuid
+  filename        String
+  sha256          String   @unique @db.Char(64)
+  originalBytes   Bytes    @map("original_bytes")
+  metadata        Json
+  otherProperties Json     @map("other_properties")
+  receivedAt      DateTime @default(now()) @map("received_at") @db.Timestamptz(6)
+  records         LegacyRecord[]
+  batches         ImportBatch[]
+  @@map("source_archives")
+}
+
+model ImportBatch {
+  id                   String   @id @default(uuid()) @db.Uuid
+  sourceArchiveId      String   @map("source_archive_id") @db.Uuid
+  source               SourceArchive @relation(fields: [sourceArchiveId], references: [id], onDelete: Restrict)
+  mappingVersion       String   @map("mapping_version")
+  planSha256           String   @map("plan_sha256") @db.Char(64)
+  status               String
+  importedCount        Int      @default(0) @map("imported_count")
+  failedCount          Int      @default(0) @map("failed_count")
+  reconciliation       Json?
+  rollbackReference    String?  @map("rollback_reference")
+  createdAt            DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  records              LegacyRecord[]
+  history              ProductHistory[]
+  snapshots            StageSnapshot[]
+  @@unique([sourceArchiveId, mappingVersion])
+  @@unique([id, sourceArchiveId])
+  @@map("import_batches")
+}
+
+model Product {
+  id                    String @id @default(uuid()) @db.Uuid
+  legacyKey             String @unique @map("legacy_key")
+  rootName              String @map("root_name")
+  rootNameNormalized    String @unique @map("root_name_normalized")
+  classification        SourceClassification
+  currentStageLabel     String? @map("current_stage_label")
+  currentStageGroup     RoundGroup? @map("current_stage_group")
+  currentStageIndex     BigInt? @map("current_stage_index")
+  currentStatus         String? @map("current_status")
+  currentDateText       String? @map("current_date_text")
+  wholesale             Decimal? @db.Decimal(18, 2)
+  sampleSalesQuantity   Decimal? @map("sample_sales_quantity") @db.Decimal(18, 3)
+  refundQuantity        Decimal? @map("refund_quantity") @db.Decimal(18, 3)
+  note                  String?
+  pic                   String?
+  sourceFieldStates     Json @map("source_field_states")
+  version               Int @default(1)
+  archived              Boolean @default(false)
+  createdAt             DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt             DateTime @updatedAt @map("updated_at") @db.Timestamptz(6)
+  legacyRecords         LegacyRecord[]
+  rounds                PurchaseRound[]
+  snapshots             StageSnapshot[]
+  history               ProductHistory[]
+  images                ProductImage[]
+  refunds               Refund[]
+  @@unique([id, legacyKey])
+  @@index([currentStatus, currentStageGroup, currentStageIndex])
+  @@index([classification, archived])
+  @@map("products")
+}
+
+model LegacyRecord {
+  id                  String @id @default(uuid()) @db.Uuid
+  productId           String @map("product_id") @db.Uuid
+  product             Product @relation(fields: [productId], references: [id], onDelete: Restrict)
+  sourceArchiveId     String @map("source_archive_id") @db.Uuid
+  source              SourceArchive @relation(fields: [sourceArchiveId], references: [id], onDelete: Restrict)
+  importBatchId       String @map("import_batch_id") @db.Uuid
+  batch               ImportBatch @relation(fields: [importBatchId], references: [id], onDelete: Restrict)
+  legacyKey           String @map("legacy_key")
+  manifest            String
+  chunks              Json
+  rawJsonText         String @map("raw_json_text") @db.Text
+  rawJson             Json @map("raw_json")
+  decodedSha256       String @map("decoded_sha256") @db.Char(64)
+  fieldTypes          Json @map("field_types")
+  schemaVersionText   String? @map("schema_version_text")
+  calculationProjection Json? @map("calculation_projection")
+  sourceTimezone      String? @map("source_timezone")
+  createdAt           DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  slots               LegacyValue[]
+  @@unique([sourceArchiveId, legacyKey])
+  @@unique([productId, importBatchId])
+  @@index([productId])
+  @@index([importBatchId])
+  @@map("legacy_records")
+}
+
+model LegacyValue {
+  id             String @id @default(uuid()) @db.Uuid
+  legacyRecordId String @map("legacy_record_id") @db.Uuid
+  legacyRecord   LegacyRecord @relation(fields: [legacyRecordId], references: [id], onDelete: Restrict)
+  jsonPointer    String @map("json_pointer")
+  state          ValueState
+  rawValue       Json? @map("raw_value")
+  decimalValue   Decimal? @map("decimal_value") @db.Decimal(18, 3)
+  @@unique([legacyRecordId, jsonPointer])
+  @@map("legacy_values")
+}
+
+model PurchaseRound {
+  id                String @id @default(uuid()) @db.Uuid
+  productId         String @map("product_id") @db.Uuid
+  product           Product @relation(fields: [productId], references: [id], onDelete: Restrict)
+  group             RoundGroup
+  roundIndex        BigInt @map("round_index")
+  ordered           Boolean?
+  received          Boolean?
+  cancelled         Boolean?
+  verified          Boolean?
+  issue             String?
+  orderPrice        Decimal? @map("order_price") @db.Decimal(18, 2)
+  orderPriceState   ValueState @map("order_price_state")
+  orderedAtText     String? @map("ordered_at_text")
+  receivedAtText    String? @map("received_at_text")
+  orderedAtUtc      DateTime? @map("ordered_at_utc") @db.Timestamptz(6)
+  receivedAtUtc     DateTime? @map("received_at_utc") @db.Timestamptz(6)
+  rawState          Json? @map("raw_state")
+  sourceFieldStates Json @map("source_field_states")
+  version           Int @default(1)
+  sales             SalesDetail?
+  sampleRefunds     Refund[] @relation("SampleRefund")
+  endRefunds        Refund[] @relation("EndRefund")
+  @@unique([productId, group, roundIndex])
+  @@unique([id, productId, group])
+  @@index([productId, ordered, received, cancelled])
+  @@map("purchase_rounds")
+}
+
+model SalesDetail {
+  id              String @id @default(uuid()) @db.Uuid
+  roundId         String @unique @map("round_id") @db.Uuid
+  round           PurchaseRound @relation(fields: [roundId], references: [id], onDelete: Restrict)
+  unitPrice       Decimal? @map("unit_price") @db.Decimal(18, 2)
+  unitPriceState  ValueState @map("unit_price_state")
+  soldQuantity    Decimal? @map("sold_quantity") @db.Decimal(18, 3)
+  quantityState   ValueState @map("quantity_state")
+  rawFields       Json @map("raw_fields")
+  @@map("sales_details")
+}
+
+model StageSnapshot {
+  id                  String @id @default(uuid()) @db.Uuid
+  productId           String @map("product_id") @db.Uuid
+  product             Product @relation(fields: [productId], references: [id], onDelete: Restrict)
+  sourceLabel         String @map("source_label")
+  snapshot            Json
+  sourceDateText      String? @map("source_date_text")
+  effectiveAtUtc      DateTime? @map("effective_at_utc") @db.Timestamptz(6)
+  sourceJsonPointer   String? @map("source_json_pointer")
+  importBatchId       String? @map("import_batch_id") @db.Uuid
+  batch               ImportBatch? @relation(fields: [importBatchId], references: [id], onDelete: Restrict)
+  createdAt           DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  @@index([productId, sourceLabel])
+  @@unique([productId, importBatchId, sourceJsonPointer])
+  @@index([importBatchId])
+  @@map("stage_snapshots")
+}
+
+model ProductHistory {
+  id                  String @id @default(uuid()) @db.Uuid
+  productId           String @map("product_id") @db.Uuid
+  product             Product @relation(fields: [productId], references: [id], onDelete: Restrict)
+  importBatchId       String? @map("import_batch_id") @db.Uuid
+  batch               ImportBatch? @relation(fields: [importBatchId], references: [id], onDelete: Restrict)
+  legacyEventIndex    Int? @map("legacy_event_index")
+  eventType           String @map("event_type")
+  stageLabel          String? @map("stage_label")
+  sourceTimestampText String? @map("source_timestamp_text")
+  occurredAtUtc       DateTime? @map("occurred_at_utc") @db.Timestamptz(6)
+  originalPayload     Json? @map("original_payload")
+  beforeJson          Json? @map("before_json")
+  afterJson           Json? @map("after_json")
+  actorId             String? @map("actor_id") @db.Uuid
+  actor               User? @relation(fields: [actorId], references: [id], onDelete: Restrict)
+  requestId           String? @map("request_id")
+  reason              String?
+  recordedAt          DateTime @default(now()) @map("recorded_at") @db.Timestamptz(6)
+  @@unique([productId, importBatchId, legacyEventIndex])
+  @@index([productId, legacyEventIndex])
+  @@index([productId, recordedAt])
+  @@index([importBatchId])
+  @@index([actorId])
+  @@map("product_history")
+}
+
+model Refund {
+  id               String @id @default(uuid()) @db.Uuid
+  productId        String @map("product_id") @db.Uuid
+  product          Product @relation(fields: [productId], references: [id], onDelete: Restrict)
+  sampleRoundId    String? @map("sample_round_id") @db.Uuid
+  sampleGroup      RoundGroup @default(SAMPLE) @map("sample_group")
+  sampleRound      PurchaseRound? @relation("SampleRefund", fields: [sampleRoundId], references: [id], onDelete: Restrict)
+  endRoundId       String? @map("end_round_id") @db.Uuid
+  endGroup         RoundGroup @default(END) @map("end_group")
+  endRound         PurchaseRound? @relation("EndRefund", fields: [endRoundId], references: [id], onDelete: Restrict)
+  eligibility     Json
+  reviewFields     Json? @map("review_fields")
+  actualRefundData Json? @map("actual_refund_data")
+  createdAt        DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  @@index([productId])
+  @@index([sampleRoundId])
+  @@index([endRoundId])
+  @@map("refunds")
+}
+
+model ProductImage {
+  id              String @id @default(uuid()) @db.Uuid
+  productId       String @map("product_id") @db.Uuid
+  product         Product @relation(fields: [productId], references: [id], onDelete: Restrict)
+  storagePath     String? @map("storage_path")
+  contentType     String? @map("content_type")
+  legacyReference Json? @map("legacy_reference")
+  uploadMetadata  Json? @map("upload_metadata")
+  createdAt       DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  @@index([productId])
+  @@map("product_images")
+}
+
+model MutationRequest {
+  id             String @id @default(uuid()) @db.Uuid
+  idempotencyKey String @map("idempotency_key")
+  actorId        String @map("actor_id") @db.Uuid
+  actor          User @relation(fields: [actorId], references: [id], onDelete: Restrict)
+  action         String
+  payloadHash    String @map("payload_hash") @db.Char(64)
+  outcome        Json?
+  createdAt      DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  @@unique([actorId, idempotencyKey])
+  @@map("mutation_requests")
+}
+// truonglt phase2 reviewed schema end

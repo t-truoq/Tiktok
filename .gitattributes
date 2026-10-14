@@ -4,3 +4,7 @@ TikTok_Affiliate_Phase0_References/references/** -text
 tests/golden/*.json -text
 docs/phase0/*.json -text
 # truonglt byte preservation end
+
+# truonglt reviewed migration checksum preservation start
+apps/api/prisma/migrations/** -text
+# truonglt reviewed migration checksum preservation end

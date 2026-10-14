@@ -5,13 +5,36 @@ const fs = require('node:fs');
 const path = require('node:path');
 const root = path.resolve(__dirname, '../..');
 
-test('Phase2 schema remains offline; preview generator cannot deploy or import', () => {
+test('official schema is prepared after Gate1; generators cannot execute database migrations', () => {
   const active = fs.readFileSync(path.join(root, 'apps/api/prisma/schema.prisma'), 'utf8');
-  assert.doesNotMatch(active, /^model\s+/m);
+  assert.equal((active.match(/^model\s+/gm) || []).length, 13);
+  assert.equal(JSON.parse(fs.readFileSync(path.join(root, 'docs/phase1/GATE1_SIGNOFF.json'))).status, 'PASS_OWNER_EXCEPTION');
   const builder = fs.readFileSync(path.join(root, 'scripts/phase0/prepare-schema-preview.cjs'), 'utf8');
   assert.match(builder, /'--from-empty'/);
   assert.match(builder, /'--to-schema'/);
   assert.doesNotMatch(builder, /'deploy'|'dev'|'execute'|'db'|createDatabaseClient|DATABASE_URL/);
+  const official = fs.readFileSync(path.join(root, 'scripts/phase2/prepare-official-migration.cjs'), 'utf8');
+  assert.match(official, /'--from-empty'/);
+  assert.match(official, /'--to-schema'/);
+  assert.doesNotMatch(official, /'deploy'|'dev'|'execute'|'db'|createDatabaseClient|DATABASE_URL/);
+});
+
+test('official migration matches reviewed datamodel, pins checksum and does not import or erase data', () => {
+  const normalize = text => text.replace(/\/\/[^\n]*/g, '').replace(/generator client\s*\{[^}]*\}/, '').replace(/\s+/g, ' ').trim();
+  assert.equal(normalize(fs.readFileSync(path.join(root, 'apps/api/prisma/schema.prisma'), 'utf8')),
+    normalize(fs.readFileSync(path.join(root, 'docs/phase2/schema.prisma'), 'utf8')));
+  const report = JSON.parse(fs.readFileSync(path.join(root, 'docs/phase2/OFFICIAL_MIGRATION_REVIEW.json')));
+  const bytes = fs.readFileSync(path.join(root, report.migration.replace(/\\/g, '/')));
+  assert.equal(require('node:crypto').createHash('sha256').update(bytes).digest('hex'), report.sha256);
+  const sql = bytes.toString('utf8');
+  assert.match(sql, /^BEGIN;$/m);
+  assert.match(sql, /^COMMIT;$/m);
+  assert.match(sql, /DEV public schema is not the reviewed empty baseline/);
+  assert.doesNotMatch(sql, /^\s*(INSERT|UPDATE|DELETE|TRUNCATE|DROP|COPY)\b/im);
+  assert.equal((sql.match(/CREATE TABLE /g) || []).length, 13);
+  assert.equal((sql.match(/ENABLE ROW LEVEL SECURITY/g) || []).length, 13);
+  assert.equal(report.migrationApproved, false);
+  assert.equal(report.importApproved, false);
 });
 
 test('proposal preserves unknown values and financial history; restrictive deletion/RLS policies exist', () => {
